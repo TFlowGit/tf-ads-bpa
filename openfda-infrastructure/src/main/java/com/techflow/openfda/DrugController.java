@@ -6,7 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.techflow.openfda.drugs.DescribeDrugRequest;
-import com.techflow.openfda.drugs.Drug;
+import com.techflow.openfda.drugs.DrugJson;
+import com.techflow.openfda.drugs.FindDrug;
 import com.techflow.openfda.drugs.OpenFdaUseCaseFactory;
 
 @Controller
@@ -22,19 +23,18 @@ public class DrugController
 	}
 
 	@RequestMapping("")
-	public ResponseEntity<Drug> describeDrug(DescribeDrugRequest request)
+	public ResponseEntity<DrugJson> describeDrug(DescribeDrugRequest request)
 	{
-		final Drug drug = new Drug();
-		drug.setName("Aspirin");
-		drug.setPurpose("Relieves pain.");
-		drug.setActive("active");
-		drug.setInactive("inactive");
-		drug.setAskDoctor("ask");
-		drug.setDoNotUse("do not use");
-		drug.setIndicationsAndUsage("indications");
-		drug.setStopUse("stop use");
-		drug.setWarnings("warnings");
+		final FindDrug useCase = useCaseFactory.newFindDrugUseCase();
+		final DrugAdapter drug = new DrugAdapter();
+		useCase.setRequest(request);
+		useCase.setResponse(drug);
+		useCase.execute();
 
-		return new ResponseEntity<Drug>(drug, HttpStatus.OK);
+		if (drug.isNotFound()) {
+			return new ResponseEntity<DrugJson>(HttpStatus.NOT_FOUND);
+		}
+
+		return new ResponseEntity<DrugJson>(drug, HttpStatus.OK);
 	}
 }

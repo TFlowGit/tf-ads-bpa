@@ -1,28 +1,30 @@
 package com.techflow.openfda.drugs;
 
-public class Drug
+public class DrugJson
 {
-	private String name;
+	protected String name;
 
-	private String purpose;
+	protected String purpose;
 
-	private String dosage;
+	protected String dosage;
 
-	private String active;
+	protected String active;
 
-	private String inactive;
+	protected String inactive;
 
-	private String warnings;
+	protected String warnings;
 
-	private String doNotUse;
+	protected String doNotUse;
 
-	private String adverseReactions;
+	protected String adverseReactions;
 
-	private String stopUse;
+	protected String stopUse;
 
-	private String askDoctor;
+	protected String askDoctor;
 
-	private String indicationsAndUsage;
+	protected String indicationsAndUsage;
+
+	protected boolean notFound;
 
 	public String getName()
 	{
@@ -132,5 +134,15 @@ public class Drug
 	public void setIndicationsAndUsage(String indicationsAndUsage)
 	{
 		this.indicationsAndUsage = indicationsAndUsage;
+	}
+
+	public boolean isNotFound()
+	{
+		return notFound;
+	}
+
+	public void setNotFound(boolean notFound)
+	{
+		this.notFound = notFound;
 	}
 }

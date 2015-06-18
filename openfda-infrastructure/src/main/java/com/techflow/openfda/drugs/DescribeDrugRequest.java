@@ -1,6 +1,6 @@
 package com.techflow.openfda.drugs;
 
-public class DescribeDrugRequest
+public class DescribeDrugRequest implements FindDrugRequest
 {
 	private String name;
 
