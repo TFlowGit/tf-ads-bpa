@@ -1,5 +1,6 @@
-target/
-.settings/
-.project
-.classpath
 *~
+.classpath
+.project
+.settings/
+.vagrant
+target/
