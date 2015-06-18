@@ -21,7 +21,7 @@ body {
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
-hr {
+hr.header-hr {
     max-width: 50px;
     border-color: #f05f40;
     border-width: 3px;
@@ -256,6 +256,7 @@ header .header-content .header-content-inner p {
     margin-top: 0;
     color: #f05f40;
     margin-left: auto 0;
+    float: left;
 }
 
 .service-box {
@@ -495,9 +496,11 @@ body {
 }
 
 span.purpose {
-    font-size: 18px;
+    font-size: 24px;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     color: #fff;
+    float: right;
+
 }
 
 div.form-group{
@@ -513,8 +516,21 @@ div.form-group{
 div.label-content {
     overflow: hidden;
     margin-bottom: 30px;
-    border: 1px solid  #f05f40;
+    /*border: 1px solid  #f05f40;*/
     border-radius: 3px;
     padding: 20px 20px;
     min-height: 430px;
+}
+
+.label-hr {
+    width: 100%;
+}
+
+div.label-content .text-fade {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.heading-inline {
+    display: inline;
 }
