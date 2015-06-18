@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>hackathon-web</module>
+		<module>openfda-web</module>
 		<module>openfda-infrastructure</module>
 		<module>openfda-application</module>
 		<module>openfda-api</module>
