@@ -514,12 +514,24 @@ div.form-group{
 }
 
 div.label-content {
-    overflow: hidden;
+    /*overflow: hidden;*/
     margin-bottom: 30px;
-    /*border: 1px solid  #f05f40;*/
     border-radius: 3px;
     padding: 20px 20px;
     min-height: 430px;
+}
+
+@media (max-width: 768px) {
+    p.text-fade {
+        font-size: 15px;
+    }
+    div.label-content {
+        /*overflow: hidden;*/
+        margin-bottom: 30px;
+        border-radius: 3px;
+        padding: 20px 20px;
+        min-height: 200px;
+    }
 }
 
 .label-hr {
