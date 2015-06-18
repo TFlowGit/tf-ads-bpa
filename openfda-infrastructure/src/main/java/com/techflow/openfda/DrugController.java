@@ -21,9 +21,6 @@ public class DrugController
 		this.useCaseFactory = useCaseFactory;
 	}
 
-	// @GET
-	// @Path("")
-	// @Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping("")
 	public ResponseEntity<Drug> describeDrug(DesribeDrugRequest request)
 	{
