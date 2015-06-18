@@ -7,6 +7,10 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>hackathon-web</module>
+		<module>openfda-infrastructure</module>
+		<module>openfda-application</module>
+		<module>openfda-api</module>
+		<module>openfda-entities</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
