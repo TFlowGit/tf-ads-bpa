@@ -26,6 +26,29 @@ Vagrant.configure(2) do |config|
     end
     
   end
+
+  config.vm.define "build" do |build|
+    build.vm.network "forwarded_port", guest: 8080, host: 9081
+    
+    # config.vm.network "private_network", ip: "192.168.33.10"
+    
+    build.vm.provider "virtualbox" do |vb|
+      #   # Display the VirtualBox GUI when booting the machine
+      #   vb.gui = true
+      #
+      #   # Customize the amount of memory on the VM:
+      #   vb.memory = "6144"
+    end
+    
+    build.vm.provision "puppet" do |puppet|
+      puppet.module_path = "modules"
+      puppet.manifests_path = "vagrant-manifests"
+      puppet.manifest_file = "build.pp"
+      puppet.hiera_config_path = "hiera.yaml"
+    end
+    
+  end
+
   
   config.vm.define "app" do |app|
     app.vm.network "forwarded_port", guest: 8080, host: 9999
