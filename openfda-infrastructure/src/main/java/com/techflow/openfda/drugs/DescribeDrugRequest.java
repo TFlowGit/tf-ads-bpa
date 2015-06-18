@@ -1,12 +1,9 @@
 package com.techflow.openfda.drugs;
 
-import javax.ws.rs.PathParam;
-
-public class DesribeDrugRequest
+public class DescribeDrugRequest implements FindDrugRequest
 {
 	private String name;
 
-	@PathParam("name")
 	public String getName()
 	{
 		return name;

@@ -1,9 +1,6 @@
 package com.techflow.openfda.drugs;
 
-public class FindDrug extends AbstractUseCase<FindDrugRequest, FindDrugResponse>
+public interface FindDrug extends UseCase<FindDrugRequest, FindDrugResponse>
 {
-	@Override
-	public void execute()
-	{
-	}
+
 }

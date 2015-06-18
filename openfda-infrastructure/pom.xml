@@ -4,6 +4,7 @@
     <groupId>com.techflow.openfda</groupId>
     <artifactId>openfda-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <relativePath>..</relativePath>
   </parent>
   <artifactId>openfda-infrastructure</artifactId>
   <dependencies>
@@ -12,8 +13,15 @@
   		<artifactId>openfda-api</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>org.jboss.resteasy</groupId>
-  		<artifactId>resteasy-jaxrs</artifactId>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-webmvc</artifactId>
+  		<version>4.1.6.RELEASE</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.techflow.openfda</groupId>
+  		<artifactId>openfda-application</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  		<scope>test</scope>
   	</dependency>
   </dependencies>
 </project>
