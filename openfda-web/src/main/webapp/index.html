@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="drugflowApp">
 
 <head>
 
@@ -34,7 +34,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" ng-controller="DrugCtrl">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -79,9 +79,10 @@
                 <p>Are your prescription drugs putting you at risk? Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="List your prescriptions">
+                        <input type="text" class="form-control" placeholder="List your prescriptions" ng-model="query">
                     </div>
                     <button type="submit" id="search" class="btn btn-lg page-scroll btn-black">Search</button>
+                    <p>{{query}}</p>
                 </form>
                 <!-- <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a> -->
             </div>
@@ -89,41 +90,41 @@
     </header>
 
     <section class="bg-primary" id="labeling">
-        <h1 class="section-heading">{{DRUG NAME}}:<span><p class="purpose">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p></span> </h1>
+        <h1 class="section-heading">{DRUG NAME}}:<span><p class="purpose">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p></span> </h1>
         <div class="row label-row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name ">{{LABEL NAME}}</h2>
+                        <h2 class="label-name ">{LABEL NAME}}</h2>
                         <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
+                        <h2 class="label-name">{LABEL NAME}}</h2>
                         <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
+                        <h2 class="label-name">{LABEL NAME}}</h2>
                         <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
+                        <h2 class="label-name">{LABEL NAME}}</h2>
                         <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
+                        <h2 class="label-name">{LABEL NAME}}</h2>
                         <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
+                        <h2 class="label-name">{LABEL NAME}}</h2>
                         <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p>
                     </div>
                 </div>
@@ -148,6 +149,7 @@
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
+	
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
@@ -159,6 +161,10 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
 
+	<!-- Angular -->
+	<script src="js/angular.min.js"></script>
+	<!-- App -->
+	<script src="js/app.js"></script>
 </body>
 
 </html>
