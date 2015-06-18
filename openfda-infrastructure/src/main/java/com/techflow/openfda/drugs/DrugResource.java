@@ -5,12 +5,21 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@Path("/api/drugs")
+@Path("/drugs")
 public class DrugResource
 {
+	private final OpenFdaUseCaseFactory useCaseFactory;
+
+	@Autowired
+	public DrugResource(OpenFdaUseCaseFactory useCaseFactory)
+	{
+		this.useCaseFactory = useCaseFactory;
+	}
+
 	@GET
 	@Path("")
 	@Produces(MediaType.APPLICATION_JSON)
