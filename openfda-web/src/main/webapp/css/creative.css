@@ -8,6 +8,13 @@ html,
 body {
     width: 100%;
     height: 100%;
+    background-image: url(../img/header.jpg)  no-repeat top right;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/header.jpg)  no-repeat top right;
+    /*background-position: center;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 body {
@@ -183,13 +190,13 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    /*background-image: url(../img/header.jpg);*/
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/header.jpg);
+/*    background-image: url(../img/header.jpg)  no-repeat top right;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/header.jpg)  no-repeat top right;
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
 }
 
 header .header-content {
@@ -248,8 +255,7 @@ header .header-content .header-content-inner p {
 .section-heading {
     margin-top: 0;
     color: #f05f40;
-    margin-left: 3em;
-    margin-right: 3em;
+    margin-left: auto 0;
 }
 
 .service-box {
@@ -448,7 +454,6 @@ fieldset[disabled] .btn-primary.active {
 
 .btn {
     border: 0;
-    /*border-radius: 300px;*/
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
@@ -505,13 +510,11 @@ div.form-group{
     padding-top: 3.5em;
 }
 
-.label-content {
-    /*background-color: pink;*/
-    /*height: 100%;*/
+div.label-content {
     overflow: hidden;
     margin-bottom: 30px;
     border: 1px solid  #f05f40;
     border-radius: 3px;
     padding: 20px 20px;
-    /*min-height: */
+    min-height: 430px;
 }
