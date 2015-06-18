@@ -4,6 +4,7 @@
     <groupId>com.techflow.openfda</groupId>
     <artifactId>openfda-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <relativePath>..</relativePath>
   </parent>
   <artifactId>openfda-entities</artifactId>
 </project>

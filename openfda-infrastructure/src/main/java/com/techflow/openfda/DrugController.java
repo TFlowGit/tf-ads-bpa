@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.techflow.openfda.drugs.DesribeDrugRequest;
+import com.techflow.openfda.drugs.DescribeDrugRequest;
 import com.techflow.openfda.drugs.Drug;
 import com.techflow.openfda.drugs.OpenFdaUseCaseFactory;
 
@@ -22,7 +22,7 @@ public class DrugController
 	}
 
 	@RequestMapping("")
-	public ResponseEntity<Drug> describeDrug(DesribeDrugRequest request)
+	public ResponseEntity<Drug> describeDrug(DescribeDrugRequest request)
 	{
 		final Drug drug = new Drug();
 		drug.setName("Aspirin");

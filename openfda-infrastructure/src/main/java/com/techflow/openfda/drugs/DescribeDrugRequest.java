@@ -1,6 +1,6 @@
 package com.techflow.openfda.drugs;
 
-public class DesribeDrugRequest
+public class DescribeDrugRequest
 {
 	private String name;
 
