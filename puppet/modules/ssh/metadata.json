@@ -1,8 +1,8 @@
 {
   "name": "saz-ssh",
-  "version": "2.4.0",
+  "version": "2.8.1",
   "author": "saz",
-  "summary": "UNKNOWN",
+  "summary": "Manage SSH client and server via Puppet.",
   "license": "Apache License, Version 2.0",
   "source": "git://github.com/saz/puppet-ssh.git",
   "project_page": "https://github.com/saz/puppet-ssh",
@@ -30,6 +30,9 @@
       "operatingsystem": "FreeBSD"
     },
     {
+      "operatingsystem": "OpenBSD"
+    },
+    {
       "operatingsystem": "Gentoo"
     },
     {
@@ -48,10 +51,7 @@
   ],
   "description": "Manage SSH client and server via puppet",
   "dependencies": [
-    {
-      "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 2.2.1"
-    },
-    {"name":"puppetlabs/stdlib","version_requirement":">= 2.2.1"}
+    {"name":"puppetlabs/stdlib","version_requirement":">= 2.2.1"},
+    {"name":"puppetlabs/concat","version_requirement":">= 1.0.0"}
   ]
 }
