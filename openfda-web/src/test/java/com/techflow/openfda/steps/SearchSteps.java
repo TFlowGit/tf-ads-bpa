@@ -30,7 +30,12 @@ public class SearchSteps extends ScenarioSteps
 	{
 		final DrugPage drugPage = onDrugPage();
 
-		assertThat(drugPage.getActiveIngredient(), is("test"));
+		// todo: andrew add comparisons
+		assertThat(drugPage.getActiveIngredient(), is("Active ingredients Each 5X (HPUS) Purpose ..."));
+		assertThat(drugPage.getInactiveIngredient(), is("Inactive ingredients 27% alcohol..."));
+		assertThat(
+				drugPage.getDosage(),
+				is("Directions do not exceed recommended dosage drink a full glass of water with each dose adults and children 12 years of age and over: take 4 to 8 tablets every 4 hours not to exceed 48 tablets in 24 hours, unless directed by a doctor children under 12 years of age: consult a doctor"));
 	}
 
 	private SearchPage onSearchPage()
