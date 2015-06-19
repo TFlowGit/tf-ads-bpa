@@ -2,9 +2,9 @@
 
 require epel
 
-class web-packages {
+class packages::app {
   package { [
-    'java-1.8.0-openjdk',
+    'nginx',
   ]:
     ensure => present,
   }
