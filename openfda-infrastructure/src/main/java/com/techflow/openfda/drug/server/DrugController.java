@@ -1,12 +1,10 @@
-package com.techflow.openfda;
+package com.techflow.openfda.drug.server;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.techflow.openfda.drugs.DescribeDrugRequest;
-import com.techflow.openfda.drugs.DescribeDrugResponse;
 import com.techflow.openfda.drugs.FindDrug;
 import com.techflow.openfda.drugs.OpenFdaUseCaseFactory;
 

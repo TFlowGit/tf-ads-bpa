@@ -1,4 +1,4 @@
-package com.techflow.openfda;
+package com.techflow.openfda.drug.client;
 
 import java.io.IOException;
 import com.google.api.client.http.LowLevelHttpRequest;
@@ -7,34 +7,56 @@ import com.google.api.client.testing.http.MockHttpTransport;
 import com.google.api.client.testing.http.MockLowLevelHttpRequest;
 import com.google.api.client.testing.http.MockLowLevelHttpResponse;
 
-final class HttpTransportSpy extends MockHttpTransport
+/**
+ * A MockHttpTransport that returns content.
+ */
+class ContentProducingMockHttpTransport extends MockHttpTransport
 {
-	private final String text;
+	private final String responseContent;
 
-	String method;
+	private String method;
 
-	String url;
+	private String url;
 
-	HttpTransportSpy(String text) {
-		this.text = text;
+	public ContentProducingMockHttpTransport(String responseContent) {
+		this.responseContent = responseContent;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public LowLevelHttpRequest buildRequest(String method, String url) throws IOException
 	{
+		// record the inputs
 		this.method = method;
 		this.url = url;
+
 		return new MockLowLevelHttpRequest() {
 			@Override
 			public LowLevelHttpResponse execute() throws IOException
 			{
 				final MockLowLevelHttpResponse response = new MockLowLevelHttpResponse();
-				// response.addHeader("custom_header", "value");
 				response.setStatusCode(200);
-				// response.setContentType(Json.CONTENT_TYPE);
-				response.setContent(text);
+				response.setContent(responseContent);
 				return response;
 			}
 		};
+	}
+
+	/**
+	 * The method used to build the request.
+	 */
+	public String getMethod()
+	{
+		return method;
+	}
+
+	/**
+	 * The url used to build the request.
+	 */
+	public String getUrl()
+	{
+		return url;
 	}
 }

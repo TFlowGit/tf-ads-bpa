@@ -1,12 +1,11 @@
-package com.techflow.openfda;
+package com.techflow.openfda.drug.client;
 
-import java.util.List;
 import com.google.api.client.util.Key;
 
 public class OpenFdaDrugLabel
 {
 	@Key
-	public List<OpenFdaDrugLabelResult> results;
+	public OpenFdaDrugLabelResult[] results;
 
 	public static final class OpenFdaDrugLabelResult
 	{

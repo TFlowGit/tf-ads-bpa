@@ -1,8 +1,11 @@
-package com.techflow.openfda;
+package com.techflow.openfda.drug.client;
 
+import java.io.IOException;
+import com.techflow.openfda.DrugEffect;
+import com.techflow.openfda.OpenFdaGateway;
 import com.techflow.openfda.drugs.DrugLabel;
 
-public class MockFdaGateway implements OpenFdaGateway
+public class MockOpenFdaGateway implements OpenFdaGateway
 {
 	@Override
 	public DrugLabel getLabel(String label)
@@ -27,6 +30,12 @@ public class MockFdaGateway implements OpenFdaGateway
 			return drug;
 		}
 
+		return null;
+	}
+
+	@Override
+	public DrugEffect getEffects(String name) throws IOException
+	{
 		return null;
 	}
 }

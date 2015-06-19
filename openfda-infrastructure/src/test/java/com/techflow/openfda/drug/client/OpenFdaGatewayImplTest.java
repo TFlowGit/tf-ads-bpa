@@ -1,4 +1,4 @@
-package com.techflow.openfda;
+package com.techflow.openfda.drug.client;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.nullValue;
@@ -8,6 +8,7 @@ import java.net.URL;
 import org.junit.Test;
 import com.google.api.client.util.Charsets;
 import com.google.common.io.Resources;
+import com.techflow.openfda.drug.client.OpenFdaGatewayImpl;
 import com.techflow.openfda.drugs.DrugLabel;
 
 public class OpenFdaGatewayImplTest
@@ -17,17 +18,17 @@ public class OpenFdaGatewayImplTest
 	{
 		final URL url = Resources.getResource("aspirin.json");
 		final String text = Resources.toString(url, Charsets.UTF_8);
-		final HttpTransportSpy transport = new HttpTransportSpy(text);
+		final ContentProducingMockHttpTransport transport = new ContentProducingMockHttpTransport(text);
 		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
 		g.transport = transport;
 
 		final DrugLabel drug = g.getLabel("aspirin");
 
 		assertThat(
-				transport.method,
+				transport.getMethod(),
 				equalTo("GET"));
 		assertThat(
-				transport.url,
+				transport.getUrl(),
 				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:aspirin%20generic_name:aspirin"));
 		assertThat(
 				drug.getAskDoctor(),
@@ -66,17 +67,17 @@ public class OpenFdaGatewayImplTest
 	{
 		final URL url = Resources.getResource("sudafed.json");
 		final String text = Resources.toString(url, Charsets.UTF_8);
-		final HttpTransportSpy transport = new HttpTransportSpy(text);
+		final ContentProducingMockHttpTransport transport = new ContentProducingMockHttpTransport(text);
 		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
 		g.transport = transport;
 
 		final DrugLabel drug = g.getLabel("sudafed");
 
 		assertThat(
-				transport.method,
+				transport.getMethod(),
 				equalTo("GET"));
 		assertThat(
-				transport.url,
+				transport.getUrl(),
 				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:sudafed%20generic_name:sudafed"));
 		assertThat(
 				drug.getAskDoctor(),
@@ -115,7 +116,7 @@ public class OpenFdaGatewayImplTest
 	{
 		final URL url = Resources.getResource("empty.json");
 		final String text = Resources.toString(url, Charsets.UTF_8);
-		final HttpTransportSpy transport = new HttpTransportSpy(text);
+		final ContentProducingMockHttpTransport transport = new ContentProducingMockHttpTransport(text);
 		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
 		g.transport = transport;
 
@@ -158,7 +159,7 @@ public class OpenFdaGatewayImplTest
 	{
 		final URL url = Resources.getResource("missingopenfda.json");
 		final String text = Resources.toString(url, Charsets.UTF_8);
-		final HttpTransportSpy transport = new HttpTransportSpy(text);
+		final ContentProducingMockHttpTransport transport = new ContentProducingMockHttpTransport(text);
 		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
 		g.transport = transport;
 
@@ -201,7 +202,7 @@ public class OpenFdaGatewayImplTest
 	{
 		final URL url = Resources.getResource("missingresults.json");
 		final String text = Resources.toString(url, Charsets.UTF_8);
-		final HttpTransportSpy transport = new HttpTransportSpy(text);
+		final ContentProducingMockHttpTransport transport = new ContentProducingMockHttpTransport(text);
 		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
 		g.transport = transport;
 

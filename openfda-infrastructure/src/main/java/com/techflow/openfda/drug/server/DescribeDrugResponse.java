@@ -1,4 +1,6 @@
-package com.techflow.openfda.drugs;
+package com.techflow.openfda.drug.server;
+
+import com.techflow.openfda.drugs.FindDrugResponse;
 
 public class DescribeDrugResponse implements FindDrugResponse
 {

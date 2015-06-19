@@ -6,4 +6,6 @@ import com.techflow.openfda.drugs.DrugLabel;
 public interface OpenFdaGateway
 {
 	DrugLabel getLabel(String name) throws IOException;
+
+	DrugEffect getEffects(String name) throws IOException;
 }

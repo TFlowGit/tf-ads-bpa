@@ -1,4 +1,4 @@
-package com.techflow.openfda;
+package com.techflow.openfda.drug.server;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.nullValue;
@@ -6,15 +6,18 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import com.techflow.openfda.drugs.DescribeDrugRequest;
-import com.techflow.openfda.drugs.DescribeDrugResponse;
+import com.techflow.openfda.OpenFdaGateway;
+import com.techflow.openfda.drug.client.MockOpenFdaGateway;
+import com.techflow.openfda.drug.server.DescribeDrugRequest;
+import com.techflow.openfda.drug.server.DescribeDrugResponse;
+import com.techflow.openfda.drug.server.DrugController;
 import com.techflow.openfda.drugs.FindDrug;
 import com.techflow.openfda.drugs.FindDrugImpl;
 import com.techflow.openfda.drugs.OpenFdaUseCaseFactory;
 
 public class DrugControllerTest
 {
-	private final OpenFdaGateway mockFdaGateway = new MockFdaGateway();
+	private final OpenFdaGateway mockFdaGateway = new MockOpenFdaGateway();
 
 	@Test
 	public void test()
