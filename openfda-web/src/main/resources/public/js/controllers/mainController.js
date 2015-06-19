@@ -3,16 +3,16 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', function ($scope, 
 
   $scope.query ='';
   $scope.result = '';
-  $scope.visibility = false;
+  $scope.infoVisibility = false;
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
 	  drugsService.getDrugInfo($scope.query).
 	  	success(function(response){
-	  		$scope.visibility = true;
+	  		$scope.infoVisibility = true;
 			transformResponse(response);
 		}).
-		error(function(response){
-			$scope.visibility = false;
+		error(function(data, status, headers, config){
+			$scope.infoVisibility = false;
 			$scope.queryFailedMsg = "Drug not found";
 		});
   };
@@ -23,7 +23,7 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', function ($scope, 
 		for( key in response ) {
 			if(key == 'name') result['name'] = response[key];
 			else if(key == 'purpose') result['purpose'] = response[key];
-			else if (response[key] !== null) {
+			else if (response[key] !== null && key !== 'notFound' ) {
 				labelInfo[key] = response[key];
 			}
 		}
