@@ -9,4 +9,5 @@ if versioncmp($::puppetversion,'3.6.1') >= 0 {
 
 # Modules to use:
 include epel
-include web-packages
+include build-packages
+include jenkins
