@@ -518,11 +518,12 @@ div.form-group{
 }
 
 div.label-content {
-    /*overflow: hidden;*/
+    overflow: hidden;
     margin-bottom: 30px;
     border-radius: 3px;
     padding: 20px 20px;
     min-height: 430px;
+    max-height: 430px;
 }
 
 @media (max-width: 768px) {
@@ -530,11 +531,12 @@ div.label-content {
         font-size: 12px;
     }
     div.label-content {
-        /*overflow: hidden;*/
+        overflow: hidden;
         margin-bottom: 20px;
         border-radius: 3px;
         padding: 20px 20px;
         min-height: 200px;
+        max-heigh: 200px;
     }
 }
 
@@ -567,4 +569,14 @@ div.label-content .text-fade {
 
 .panel.panel-default {
     background-color: #bf2726;
+}
+
+div.label-col {
+	background-color: #bf2726;
+	color: #fff;
+}
+
+div.warning-col {
+	background-color: #f6f6f6;
+	color: #2e2e2e;
 }
