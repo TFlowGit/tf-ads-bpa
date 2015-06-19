@@ -35,16 +35,21 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 		final OpenFdaDrugLabel jsonLabel = request.execute().parseAs(OpenFdaDrugLabel.class);
 
 		final DrugLabel drugLabel = new DrugLabel();
-		drugLabel.setName(getZeroeth(jsonLabel.results.get(0).openfda.generic_name));
-		drugLabel.setAskDoctor(getZeroeth(jsonLabel.results.get(0).ask_doctor));
-		drugLabel.setAskDoctorOrPharmacist(getZeroeth(jsonLabel.results.get(0).ask_doctor_or_pharmacist));
-		drugLabel.setDosage(getZeroeth(jsonLabel.results.get(0).dosage_and_administration));
-		drugLabel.setDoNotUse(getZeroeth(jsonLabel.results.get(0).do_not_use));
-		drugLabel.setStopUse(getZeroeth(jsonLabel.results.get(0).stop_use));
-		drugLabel.setActive(getZeroeth(jsonLabel.results.get(0).active_ingredient));
-		drugLabel.setInactive(getZeroeth(jsonLabel.results.get(0).inactive_ingredient));
-		drugLabel.setWarnings(getZeroeth(jsonLabel.results.get(0).warnings));
-		drugLabel.setIndicationsAndUsage(getZeroeth(jsonLabel.results.get(0).indications_and_usage));
+		if (jsonLabel.results != null) {
+			drugLabel.setAskDoctor(getZeroeth(jsonLabel.results.get(0).ask_doctor));
+			drugLabel.setAskDoctorOrPharmacist(getZeroeth(jsonLabel.results.get(0).ask_doctor_or_pharmacist));
+			drugLabel.setDosage(getZeroeth(jsonLabel.results.get(0).dosage_and_administration));
+			drugLabel.setDoNotUse(getZeroeth(jsonLabel.results.get(0).do_not_use));
+			drugLabel.setStopUse(getZeroeth(jsonLabel.results.get(0).stop_use));
+			drugLabel.setActive(getZeroeth(jsonLabel.results.get(0).active_ingredient));
+			drugLabel.setInactive(getZeroeth(jsonLabel.results.get(0).inactive_ingredient));
+			drugLabel.setWarnings(getZeroeth(jsonLabel.results.get(0).warnings));
+			drugLabel.setIndicationsAndUsage(getZeroeth(jsonLabel.results.get(0).indications_and_usage));
+
+			if (jsonLabel.results.get(0).openfda != null) {
+				drugLabel.setName(getZeroeth(jsonLabel.results.get(0).openfda.generic_name));
+			}
+		}
 
 		return drugLabel;
 	}
