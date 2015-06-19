@@ -10,9 +10,9 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.json.jackson.JacksonFactory;
-import com.techflow.openfda.DrugEffect;
-import com.techflow.openfda.OpenFdaGateway;
+import com.techflow.openfda.drug.client.OpenFdaGateway;
 import com.techflow.openfda.drug.client.OpenFdaDrugLabel.OpenFdaDrugLabelResult;
+import com.techflow.openfda.drugs.DrugEffect;
 import com.techflow.openfda.drugs.DrugLabel;
 
 /**

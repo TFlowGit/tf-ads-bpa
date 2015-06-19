@@ -1,8 +1,8 @@
 package com.techflow.openfda.drug.client;
 
 import java.io.IOException;
-import com.techflow.openfda.DrugEffect;
-import com.techflow.openfda.OpenFdaGateway;
+import com.techflow.openfda.drug.client.OpenFdaGateway;
+import com.techflow.openfda.drugs.DrugEffect;
 import com.techflow.openfda.drugs.DrugLabel;
 
 public class MockOpenFdaGateway implements OpenFdaGateway

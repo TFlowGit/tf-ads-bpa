@@ -1,4 +1,4 @@
-package com.techflow.openfda.drugs;
+package com.techflow.openfda.drug.usecase;
 
 /**
  * Base implementation of UseCase.

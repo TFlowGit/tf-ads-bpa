@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.techflow.openfda.drugs.FindDrug;
-import com.techflow.openfda.drugs.OpenFdaUseCaseFactory;
+import com.techflow.openfda.drug.usecase.FindDrugUseCase;
+import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
 
 @Controller
 @RequestMapping("/api/drugs")
@@ -23,7 +23,7 @@ public class DrugController
 	@RequestMapping("")
 	public ResponseEntity<DescribeDrugResponse> describeDrug(DescribeDrugRequest request)
 	{
-		final FindDrug useCase = useCaseFactory.newFindDrugUseCase();
+		final FindDrugUseCase useCase = useCaseFactory.newFindDrugUseCase();
 		final DescribeDrugResponse response = new DescribeDrugResponse();
 		useCase.setRequest(request);
 		useCase.setResponse(response);

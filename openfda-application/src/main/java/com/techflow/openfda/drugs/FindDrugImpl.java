@@ -1,9 +1,13 @@
 package com.techflow.openfda.drugs;
 
 import java.io.IOException;
-import com.techflow.openfda.OpenFdaGateway;
+import com.techflow.openfda.drug.client.OpenFdaGateway;
+import com.techflow.openfda.drug.usecase.BaseUseCase;
+import com.techflow.openfda.drug.usecase.FindDrugUseCase;
+import com.techflow.openfda.drug.usecase.FindDrugRequest;
+import com.techflow.openfda.drug.usecase.FindDrugResponse;
 
-public class FindDrugImpl extends BaseUseCase<FindDrugRequest, FindDrugResponse> implements FindDrug
+public class FindDrugImpl extends BaseUseCase<FindDrugRequest, FindDrugResponse> implements FindDrugUseCase
 {
 	private final OpenFdaGateway mockFdaGateway;
 

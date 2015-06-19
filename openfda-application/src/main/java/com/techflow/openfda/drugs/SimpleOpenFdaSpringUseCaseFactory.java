@@ -1,6 +1,7 @@
 package com.techflow.openfda.drugs;
 
-import com.techflow.openfda.OpenFdaGateway;
+import com.techflow.openfda.drug.client.OpenFdaGateway;
+import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
 
 public class SimpleOpenFdaSpringUseCaseFactory implements OpenFdaUseCaseFactory
 {

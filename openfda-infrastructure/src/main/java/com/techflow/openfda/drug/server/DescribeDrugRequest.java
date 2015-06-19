@@ -1,6 +1,6 @@
 package com.techflow.openfda.drug.server;
 
-import com.techflow.openfda.drugs.FindDrugRequest;
+import com.techflow.openfda.drug.usecase.FindDrugRequest;
 
 public class DescribeDrugRequest implements FindDrugRequest
 {

@@ -5,8 +5,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import com.techflow.openfda.drug.client.OpenFdaGateway;
 import com.techflow.openfda.drug.client.OpenFdaGatewayImpl;
-import com.techflow.openfda.drugs.OpenFdaUseCaseFactory;
+import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
 import com.techflow.openfda.drugs.SimpleOpenFdaSpringUseCaseFactory;
 
 /**

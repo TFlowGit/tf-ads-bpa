@@ -6,14 +6,14 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import com.techflow.openfda.OpenFdaGateway;
 import com.techflow.openfda.drug.client.MockOpenFdaGateway;
+import com.techflow.openfda.drug.client.OpenFdaGateway;
 import com.techflow.openfda.drug.server.DescribeDrugRequest;
 import com.techflow.openfda.drug.server.DescribeDrugResponse;
 import com.techflow.openfda.drug.server.DrugController;
-import com.techflow.openfda.drugs.FindDrug;
+import com.techflow.openfda.drug.usecase.FindDrugUseCase;
+import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
 import com.techflow.openfda.drugs.FindDrugImpl;
-import com.techflow.openfda.drugs.OpenFdaUseCaseFactory;
 
 public class DrugControllerTest
 {
@@ -24,7 +24,7 @@ public class DrugControllerTest
 	{
 		final OpenFdaUseCaseFactory useCaseFactory = new OpenFdaUseCaseFactory() {
 			@Override
-			public FindDrug newFindDrugUseCase()
+			public FindDrugUseCase newFindDrugUseCase()
 			{
 				return new FindDrugImpl(mockFdaGateway);
 			}
@@ -54,7 +54,7 @@ public class DrugControllerTest
 	{
 		final OpenFdaUseCaseFactory useCaseFactory = new OpenFdaUseCaseFactory() {
 			@Override
-			public FindDrug newFindDrugUseCase()
+			public FindDrugUseCase newFindDrugUseCase()
 			{
 				return new FindDrugImpl(mockFdaGateway);
 			}
