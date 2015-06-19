@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="drugflowApp">
 
 <head>
 
@@ -34,7 +34,8 @@
 
 </head>
 
-<body id="page-top">
+
+<body id="page-top" ng-app="drugflowApp" ng-controller="mainCtrl">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -75,13 +76,14 @@
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 class="wow pulse">Prescribed Risks</h1>
-                <hr>
-                <p>Are your prescription drugs putting you at risk? Find out more if your drugs have caused adverse events.</p>
+                <hr class="header-hr">
+                <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline">
                     <div class="form-group">
-                        <input type="text" id="term" class="form-control" placeholder="List your prescriptions">
+                        <input type="text" id="term" class="form-control" placeholder="List your prescriptions" ng-model="query">
                     </div>
                     <button type="submit" id="search" class="btn btn-lg page-scroll btn-black" href="#labeling">Search</button>
+
                 </form>
                 <!-- <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a> -->
             </div>
@@ -89,42 +91,49 @@
     </header>
 
     <section class="bg-primary" id="labeling">
-        <h1 class="section-heading">{{DRUG NAME}}:<span><p class="purpose">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p></span> </h1>
+        <h1 class="section-heading heading-inline">Drug XYZ: &nbsp;</h1><h4 class="purpose heading-inline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</h4>
         <div class="row label-row">
                 <div class="col-lg-4 col-sm-4">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name ">{{LABEL NAME}}</h2>
-                        <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, loborLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.tis iaculis sapien.</p>
+                        <h2 class="label-name text-center ">{{labelName}}</h2>
+                        <hr class="label-hr">
+                        <p class="text-fade">Directions •do not take more than directed •the smallest effective dose should be used •drink a full glass of water with each dose •if taken with food, this product may take longer to work adults and children 12 years and older: •take 1 capsule every 8 to 12 hours while symptoms last •for the first dose you may take 2 capsules within the first hour •do not exceed 2 capsules in any 8- to 12-hour period •do not exceed 3 capsules in a 24-hour period children under 12 years: •ask a doctor</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-4">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
-                        <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.i, sollicitudin ut turpis sit amet, lobortis iaculis sapien.ortis iaculis sapien.</p>
+                        <h2 class="label-name text-center">{{labelName}}</h2>
+                        <hr class="label-hr">
+                        <p class="text-fade">Warnings Keep out of reach of children If pregnant or breast-feeding, ask a health professional before use Do not use if the tamper evident seal is broken Stop use and ask a doctor if sleeplessness persists for more than two weeks. Insomnia can be a symptom of serious underlying medical illness Keep away from eyes Consult a physician for use in children under 12 years of age</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-4">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
-                        <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. lobortis iaculis sapien.</p>
+                        <h2 class="label-name text-center">{{labelName}}</h2>
+                        <hr class="label-hr">
+                        <p class="text-fade">Active ingredients Each 5X (HPUS) Purpose Helianthemum nummularium courage and presence of mind Clematis vitalba focus when ungrounded Impatiens glandulifera patience with problems and people Prunus cerasifera balanced mind when losing control Ornithogalum umbellatum softens impact of shock Aesculus hippocastanum relief from repetitive thoughts</p>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-4">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
-                        <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.</p>
+                        <h2 class="label-name text-center">{{labelName}}</h2>
+                        <hr class="label-hr">
+                        <p class="text-fade">Uses Provides natural relief of occasional sleeplessness caused by stress and repetitive thoughts.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-4">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
-                        <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortiLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.s iaculis sapien.</p>
+                        <h2 class="label-name text-center">{{labelName}}</h2>
+                        <hr class="label-hr">
+                        <p class="text-fade">Stop use and ask a doctor if sleeplessness persists for more than two weeks. Insomnia can be a symptom of serious underlying medical illness</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-4">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name">{{LABEL NAME}}</h2>
-                        <p class="text-fade">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum risus mi, sollicitudin ut turpis sit amet, lobortis iaculis sapien. lobortis iaculis sapien.</p>
+                        <h2 class="label-name text-center">{{labelName}}</h2>
+                        <hr class="label-hr">
+                        <p class="text-fade">Inactive ingredients 27% alcohol</p>
                     </div>
                 </div>
             </div>
@@ -135,10 +144,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Adverse Events</h2>
-                    <hr class="primary">
-                    
+                    <h1 class="section-heading">Adverse Events</h1>                 
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="panel panel-default">
+                    <div class="panel-body"><h1 class="tall-percent">10%</h1></div>
+                    <div class="panel-heading"><h3 class="panel-title">have experienced an adverse event from Drug XYZ.</h3></div>
+                    </div>   
+
+        </div>
             </div>
         </div>
 
@@ -149,6 +165,7 @@
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
+    
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
@@ -159,7 +176,17 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    
+    <!--  Angular JS -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/mainController.js"></script>
+    
 
+    <!-- Angular -->
+    <script src="js/angular.min.js"></script>
+    <!-- App -->
+    <script src="js/app.js"></script>
 </body>
 
 </html>
