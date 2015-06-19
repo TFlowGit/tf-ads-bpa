@@ -109,4 +109,47 @@ public class OpenFdaGatewayImplTest
 				drug.getName(),
 				equalTo("PHENYLEPHRINE HYDROCHLORIDE"));
 	}
+
+	@Test
+	public void shouldhandleEmptyResponse() throws IOException
+	{
+		final URL url = Resources.getResource("empty.json");
+		final String text = Resources.toString(url, Charsets.UTF_8);
+		final HttpTransportSpy transport = new HttpTransportSpy(text);
+		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
+		g.transport = transport;
+
+		final DrugLabel drug = g.getLabel("empty");
+
+		assertThat(
+				drug.getAskDoctor(),
+				nullValue());
+		assertThat(
+				drug.getAskDoctorOrPharmacist(),
+				nullValue());
+		assertThat(
+				drug.getDosage(),
+				nullValue());
+		assertThat(
+				drug.getDoNotUse(),
+				nullValue());
+		assertThat(
+				drug.getStopUse(),
+				nullValue());
+		assertThat(
+				drug.getActive(),
+				nullValue());
+		assertThat(
+				drug.getInactive(),
+				nullValue());
+		assertThat(
+				drug.getWarnings(),
+				nullValue());
+		assertThat(
+				drug.getIndicationsAndUsage(),
+				nullValue());
+		assertThat(
+				drug.getName(),
+				nullValue());
+	}
 }
