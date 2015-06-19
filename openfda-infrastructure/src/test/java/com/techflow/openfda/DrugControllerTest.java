@@ -7,14 +7,14 @@ import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import com.techflow.openfda.drugs.DescribeDrugRequest;
-import com.techflow.openfda.drugs.DrugJson;
+import com.techflow.openfda.drugs.DescribeDrugResponse;
 import com.techflow.openfda.drugs.FindDrug;
 import com.techflow.openfda.drugs.FindDrugImpl;
 import com.techflow.openfda.drugs.OpenFdaUseCaseFactory;
 
 public class DrugControllerTest
 {
-	private final FdaGateway mockFdaGateway = new MockFdaGateway();
+	private final OpenFdaGateway mockFdaGateway = new MockFdaGateway();
 
 	@Test
 	public void test()
@@ -31,9 +31,9 @@ public class DrugControllerTest
 		final DescribeDrugRequest request = new DescribeDrugRequest();
 		request.setName("aspirin");
 
-		final ResponseEntity<DrugJson> response = controller.describeDrug(request);
+		final ResponseEntity<DescribeDrugResponse> response = controller.describeDrug(request);
 		assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
-		final DrugJson body = response.getBody();
+		final DescribeDrugResponse body = response.getBody();
 
 		assertThat(body.getName(), equalTo("Aspirin"));
 		assertThat(body.getPurpose(), equalTo("Relieves pain."));
@@ -61,10 +61,10 @@ public class DrugControllerTest
 		final DescribeDrugRequest request = new DescribeDrugRequest();
 		request.setName(null);
 
-		final ResponseEntity<DrugJson> response = controller.describeDrug(request);
+		final ResponseEntity<DescribeDrugResponse> response = controller.describeDrug(request);
 		assertThat(response.getStatusCode(), equalTo(HttpStatus.NOT_FOUND));
 
-		final DrugJson body = response.getBody();
+		final DescribeDrugResponse body = response.getBody();
 		assertThat(body, nullValue());
 	}
 }

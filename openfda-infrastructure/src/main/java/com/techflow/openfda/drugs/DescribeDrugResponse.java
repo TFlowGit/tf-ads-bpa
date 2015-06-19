@@ -1,6 +1,6 @@
 package com.techflow.openfda.drugs;
 
-public class DrugJson
+public class DescribeDrugResponse implements FindDrugResponse
 {
 	protected String name;
 
@@ -31,6 +31,7 @@ public class DrugJson
 		return name;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		this.name = name;
@@ -41,6 +42,7 @@ public class DrugJson
 		return purpose;
 	}
 
+	@Override
 	public void setPurpose(String purpose)
 	{
 		this.purpose = purpose;
@@ -51,6 +53,7 @@ public class DrugJson
 		return dosage;
 	}
 
+	@Override
 	public void setDosage(String dosage)
 	{
 		this.dosage = dosage;
@@ -61,6 +64,7 @@ public class DrugJson
 		return active;
 	}
 
+	@Override
 	public void setActive(String active)
 	{
 		this.active = active;
@@ -71,6 +75,7 @@ public class DrugJson
 		return inactive;
 	}
 
+	@Override
 	public void setInactive(String inactive)
 	{
 		this.inactive = inactive;
@@ -81,6 +86,7 @@ public class DrugJson
 		return warnings;
 	}
 
+	@Override
 	public void setWarnings(String warnings)
 	{
 		this.warnings = warnings;
@@ -91,6 +97,7 @@ public class DrugJson
 		return doNotUse;
 	}
 
+	@Override
 	public void setDoNotUse(String doNotUse)
 	{
 		this.doNotUse = doNotUse;
@@ -101,6 +108,7 @@ public class DrugJson
 		return adverseReactions;
 	}
 
+	@Override
 	public void setAdverseReactions(String adverseReactions)
 	{
 		this.adverseReactions = adverseReactions;
@@ -111,6 +119,7 @@ public class DrugJson
 		return stopUse;
 	}
 
+	@Override
 	public void setStopUse(String stopUse)
 	{
 		this.stopUse = stopUse;
@@ -121,6 +130,7 @@ public class DrugJson
 		return askDoctor;
 	}
 
+	@Override
 	public void setAskDoctor(String askDoctor)
 	{
 		this.askDoctor = askDoctor;
@@ -131,6 +141,7 @@ public class DrugJson
 		return indicationsAndUsage;
 	}
 
+	@Override
 	public void setIndicationsAndUsage(String indicationsAndUsage)
 	{
 		this.indicationsAndUsage = indicationsAndUsage;
@@ -141,6 +152,7 @@ public class DrugJson
 		return notFound;
 	}
 
+	@Override
 	public void setNotFound(boolean notFound)
 	{
 		this.notFound = notFound;

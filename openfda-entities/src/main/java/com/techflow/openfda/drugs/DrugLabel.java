@@ -1,6 +1,6 @@
 package com.techflow.openfda.drugs;
 
-public class Drug
+public class DrugLabel
 {
 	private String name;
 
@@ -16,13 +16,13 @@ public class Drug
 
 	private String doNotUse;
 
-	private String adverseReactions;
-
 	private String stopUse;
 
 	private String askDoctor;
 
 	private String indicationsAndUsage;
+
+	private String askDoctorOrPharmacist;
 
 	public String getName()
 	{
@@ -94,16 +94,6 @@ public class Drug
 		this.doNotUse = doNotUse;
 	}
 
-	public String getAdverseReactions()
-	{
-		return adverseReactions;
-	}
-
-	public void setAdverseReactions(String adverseReactions)
-	{
-		this.adverseReactions = adverseReactions;
-	}
-
 	public String getStopUse()
 	{
 		return stopUse;
@@ -132,5 +122,15 @@ public class Drug
 	public void setIndicationsAndUsage(String indicationsAndUsage)
 	{
 		this.indicationsAndUsage = indicationsAndUsage;
+	}
+
+	public String getAskDoctorOrPharmacist()
+	{
+		return askDoctorOrPharmacist;
+	}
+
+	public void setAskDoctorOrPharmacist(String askDoctorOrPharmacist)
+	{
+		this.askDoctorOrPharmacist = askDoctorOrPharmacist;
 	}
 }

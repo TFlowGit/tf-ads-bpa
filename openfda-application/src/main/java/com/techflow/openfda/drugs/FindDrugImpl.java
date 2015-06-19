@@ -1,26 +1,31 @@
 package com.techflow.openfda.drugs;
 
-import com.techflow.openfda.FdaGateway;
+import java.io.IOException;
+import com.techflow.openfda.OpenFdaGateway;
 
-public class FindDrugImpl extends AbstractUseCase<FindDrugRequest, FindDrugResponse> implements FindDrug
+public class FindDrugImpl extends BaseUseCase<FindDrugRequest, FindDrugResponse> implements FindDrug
 {
-	private final FdaGateway mockFdaGateway;
+	private final OpenFdaGateway mockFdaGateway;
 
-	public FindDrugImpl(FdaGateway mockFdaGateway) {
+	public FindDrugImpl(OpenFdaGateway mockFdaGateway) {
 		this.mockFdaGateway = mockFdaGateway;
 	}
 
 	@Override
 	public void execute()
 	{
-		final Drug drug = mockFdaGateway.findDrug(request.getName());
+		DrugLabel drug = null;
+		try {
+			drug = mockFdaGateway.getLabel(request.getName());
+		} catch (final IOException e) {
+			e.printStackTrace();
+		}
 		if (drug == null) {
 			response.setNotFound(true);
 			return;
 		}
 
 		response.setActive(drug.getActive());
-		response.setAdverseReactions(drug.getAdverseReactions());
 		response.setAskDoctor(drug.getAskDoctor());
 		response.setDoNotUse(drug.getDoNotUse());
 		response.setDosage(drug.getDosage());

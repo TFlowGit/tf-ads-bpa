@@ -1,15 +1,30 @@
 package com.techflow.openfda.drugs;
 
-public abstract class AbstractUseCase<REQ, RESP> implements UseCase<REQ, RESP>
+/**
+ * Base implementation of UseCase.
+ */
+public abstract class BaseUseCase<REQ, RESP> implements UseCase<REQ, RESP>
 {
 	protected REQ request;
 
 	protected RESP response;
 
 	@Override
+	public REQ getRequest()
+	{
+		return request;
+	}
+
+	@Override
 	public void setRequest(REQ request)
 	{
 		this.request = request;
+	}
+
+	@Override
+	public RESP getResponse()
+	{
+		return response;
 	}
 
 	@Override

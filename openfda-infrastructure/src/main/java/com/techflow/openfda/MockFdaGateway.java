@@ -1,19 +1,19 @@
 package com.techflow.openfda;
 
-import com.techflow.openfda.drugs.Drug;
+import com.techflow.openfda.drugs.DrugLabel;
 
-public class MockFdaGateway implements FdaGateway
+public class MockFdaGateway implements OpenFdaGateway
 {
 	@Override
-	public Drug findDrug(String name)
+	public DrugLabel getLabel(String label)
 	{
-		if (name == null) {
+		if (label == null) {
 			return null;
 		}
 
-		switch (name) {
+		switch (label) {
 		case "aspirin":
-			final Drug drug = new Drug();
+			final DrugLabel drug = new DrugLabel();
 			drug.setName("Aspirin");
 			drug.setPurpose("Relieves pain.");
 			drug.setActive("active");
