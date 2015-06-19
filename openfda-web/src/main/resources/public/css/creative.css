@@ -60,6 +60,10 @@ p {
     line-height: 1.5;
 }
 
+.warning{
+	color: #bf2726;
+}
+
 .bg-primary#labeling {
     background-color: #2e2e2e;
 }
@@ -201,6 +205,8 @@ header {
     background-size: cover;
     -o-background-size: cover;*/
 }
+
+
 
 header .header-content {
     position: relative;
