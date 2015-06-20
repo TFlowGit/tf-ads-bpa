@@ -577,12 +577,18 @@ div.label-content .text-fade {
     background-color: #bf2726;
 }
 
+div.label-row {
+    min-height: 100%;
+}
+
 div.label-col {
-	background-color: #bf2726;
-	color: #fff;
+	background-color: #f6f6f6;
+	color: #2e2e2e ;
+    /*min-height: 120em;*/
 }
 
 div.warning-col {
-	background-color: #f6f6f6;
-	color: #2e2e2e;
+	background-color: #bf2726;
+	color: #fff;
+    /*min-height: 100%;*/
 }
