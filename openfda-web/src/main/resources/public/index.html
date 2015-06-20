@@ -37,7 +37,7 @@
 
 <body id="page-top" ng-app="drugflowApp" ng-controller="mainCtrl">
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <nav id="mainNav" ng-show="infoVisibility" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -84,18 +84,20 @@
                     </div>
                     <button type="submit" id="search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()' >Search</button>
                 </form>
+                <br>
+   				<h3 class="warning">{{queryFailedMsg}}</h3>
                 <!-- <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a> -->
             </div>
         </div>
     </header>
 
-    <section class="bg-primary" id="labeling">
+    <section class="bg-primary" id="labeling" ng-show="infoVisibility">
         <h1 class="section-heading heading-inline">{{result.name}}:</h1>
         <h4 class="purpose heading-inline">{{result.purpose}}</h4>
         <div class="row">
             <div class="col-lg-8 label-col">
     	        <div class="row label-row">
-    	                <div class="col-lg-4 col-sm-2" ng-repeat="(key,label) in result.labelInfo">
+    	                <div class="col-lg-4 col-sm-2" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
     	                    <div class="label-content wow fadeIn">
     	                        <h2 class="label-name text-center ">{{key}}</h2>
     	                        <hr class="label-hr">
@@ -105,7 +107,7 @@
     	         </div>
     	     </div>
     	     <div class="col-lg-4 warning-col">
-                        <div class="col-lg-2 col-sm-1" ng-repeat="(key,label) in result.labelInfo">
+                        <div class="col-lg-2 col-sm-1" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
                             <div class="label-content wow fadeIn">
                                 <h2 class="label-name text-center ">{{key}}</h2>
                                 <hr class="label-hr">
@@ -115,8 +117,7 @@
     	     </div>
          </div>
     </section>
-
-    <section class="bg-primary" id="adverse">
+    <section id="adverse" ng-show="infoVisibility">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -153,7 +154,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
     
-    <!--  Angular JS -->
+    <!--  AngularJS -->
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/mainController.js"></script>
