@@ -534,7 +534,7 @@ div.form-group{
 }
 
 div.label-content {
-    overflow: hidden;
+    overflow: ellipsis\;
     margin-bottom: 30px;
     padding: 20px 20px;
     /*min-height: 430px;*/
@@ -615,6 +615,14 @@ div.warning-col {
 
 .modal-btn {
     margin-right: 100px;
+}
+
+.modal-body {
+    color: #2e2e2e !important;
+}
+
+.modal-header {
+    color: #bf2726 !important;
 }
 
 #warning-btn {

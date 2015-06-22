@@ -88,62 +88,62 @@
             <div class="col-lg-8 label-col">
                 <h1 class="text-center label-heading" id="drug-name">{{result.name}}</h1>
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
-                    <div class="label-content wow fadeIn">
-                   		<h2 id="labeling-{{key}}" class="label-name text-center ">{{headers[key]}}</h2>
-                   		<hr class="label-hr">
-                   		<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
-               		</div>           
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal">
-                      Read More
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">{{key}}</h4>
-                          </div>
-                          <div class="modal-body">{{label}}</div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+    	                    <div class="label-content wow fadeIn">
+                        		<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
+                        		<hr class="label-hr">
+                        		<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
+                    		</div>           
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}">
+                              Read More
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal-{{key}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="labeling-{{key}}">{{headers[key]}}</h4>
+                                  </div>
+                                  <div class="modal-body" id="labeling-{{key}}-label">{{label}}</div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
     	         </div>
     	     </div>
     	     
     	     <div class="col-lg-4 warning-col">
                 <h1 class="text-center label-heading"><span><img src="img/warning32.png" href="" alt"warning"/></span> &nbsp; WARNINGS: </h1>
-               	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
-	                <div class="label-content wow fadeIn">
-                    	<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
-                    	<hr class="label-hr">
-                    	<p id="labeling-{{key}}-label class="text-fade">{{label}}</p>
-	                </div>
-	                <!-- Button trigger modal -->
-	                <button type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal" id="warning-btn">
-	                  Read More
-	                </button>
-	
-	                 <!-- Modal -->
-	                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	                   <div class="modal-dialog" role="document">
-	                     <div class="modal-content">
-	                       <div class="modal-header">
-	                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                         <h4 class="modal-title" id="myModalLabel">{{key}}</h4>
-	                       </div>
-	                       <div class="modal-body">{{label}}</div>
-	                       <div class="modal-footer">
-	                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-	                       </div>
-	                     </div>
-	                   </div>
-	                </div>
-             	</div>
+                	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
+                            <div class="label-content wow fadeIn">
+                                <h2 class="label-name">{{headers[key]}}</h2>
+                                <hr class="label-hr">
+                                <p class="text-fade">{{label}}</p>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}" id="warning-btn">
+                                  Read More
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal-{{key}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="labeling-{{key}}">{{headers[key]}}</h4>
+                                      </div>
+                                      <div class="modal-body" id="labeling-{{key}}-label">{{label}}</div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                    </div>
     	     </div>
     </section>
     <!--section class="bg-primary" id="adverse" ng-show="infoVisibility">
