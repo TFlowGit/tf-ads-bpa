@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 @DefaultUrl("http://localhost:8080/index.html")
 public class DrugPage extends PageObject
 {
-	@FindBy(id = "activeIngredient")
+	@FindBy(id = "labeling-active-label")
 	WebElement activeIngredient;
 
-	@FindBy(id = "inactiveIngredient")
+	@FindBy(id = "labeling-inactive-label")
 	WebElement inactiveIngredient;
 
 	@FindBy(id = "dosage")

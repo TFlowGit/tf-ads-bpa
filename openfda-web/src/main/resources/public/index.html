@@ -80,9 +80,9 @@
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline">
                     <div class="form-group ">
-                        <input type="text" class="form-control" placeholder="List your prescriptions" ng-model="query">
+                        <input id="input-drug" type="text" class="form-control" placeholder="List your prescriptions" ng-model="query">
                     </div>
-                    <button type="submit" id="search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()' >Search</button>
+                    <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()' >Search</button>
                 </form>
                 <br>
    				<h3 class="warning">{{queryFailedMsg}}</h3>
@@ -99,10 +99,10 @@
                         <!-- <h4 class="purpose heading-inline">{{result.purpose}}</h4> -->
     	                <div class="col-lg-4 col-sm-2" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
     	                    <div class="label-content wow fadeIn">
-    	                        <h2 class="label-name text-center ">{{key}}</h2>
-    	                        <hr class="label-hr">
-    	                        <p class="text-fade">{{label}}</p>
-    	                    </div>
+                        		<h2 id="labeling-{{key}}" class="label-name text-center ">{{key}}</h2>
+                        		<hr class="label-hr">
+                        		<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
+                    		</div>
     	                </div>                
     	         </div>
     	     </div>
