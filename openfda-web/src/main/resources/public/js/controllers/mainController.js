@@ -5,6 +5,21 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   $scope.result = '';
   $scope.infoVisibility = false;
   $scope.scroll = false;
+  $scope.headers = {
+		  indicationsAndUsage :"Indication and Usage",
+		  brandName : "Brand Name",
+		  genericName : "Generic Name",
+		  purpose : "Purpose",
+		  active : "Active Ingredients",
+		  adverseReactions: "Adverse Reactions",
+		  askDoctor: "Ask Doctor",
+		  doNotUse: "Do Not Use",
+		  dosage: "Dosage",
+		  inactive: "Inactive Ingrdients",
+		  warnings: "Warnings",
+		  askDoctorOrPharmacist: "Ask Doctor or Pharmacist",
+		  stopUse: "Stop Use"
+  };
   
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
@@ -33,7 +48,7 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   };
   
   function transformResponse(response){
-	  	//console.log(response);
+	  	console.log(response);
 	  	var result = {};
 	  	var labelInfo = {};
 	  	var warnings = {};
@@ -55,7 +70,7 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 		result['warnings'] = warnings;
 
 		$scope.result = result;
-		console.log(result);
+		//console.log(result);
   }
   
   

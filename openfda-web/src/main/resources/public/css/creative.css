@@ -592,6 +592,14 @@ div.label-row {
     padding-top: 0px;
 }
 
+#labeling {
+	display: table;
+}
+
+div.label-col, div.warning-col {
+	display: table-cell;
+}
+
 div.label-col {
     background-color: #f6f6f6;
     color: #2e2e2e ;
