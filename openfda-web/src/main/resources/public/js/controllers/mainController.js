@@ -4,11 +4,14 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   $scope.query ='';
   $scope.result = '';
   $scope.infoVisibility = false;
+  $scope.scroll = false;
+  
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
 	  drugsService.getDrugInfo($scope.query)
 		  .success(function(response){
 		  		$scope.infoVisibility = true;
+		  		$scope.scroll = true;
 				transformResponse(response);
 		  })
 		  .error(function(data, status, headers, config){
@@ -23,6 +26,10 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 						break;
 				}
 		  });
+  };
+  
+  $scope.scrollReset = function(){
+	  $scope.scroll = false;
   };
   
   function transformResponse(response){

@@ -37,7 +37,7 @@
 
 <body id="page-top" ng-app="drugflowApp" ng-controller="mainCtrl">
 
-    <nav id="mainNav" ng-show="infoVisibility" class="navbar navbar-default navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -52,7 +52,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul ng-show="infoVisibility"  class="nav navbar-nav navbar-right">
                     <li>
                         <a class="page-scroll" href="#labeling">Labeling Information</a>
                     </li>
@@ -84,7 +84,7 @@
         </div>
     </header>
 
-    <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{infoVisibility}}">
+    <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" callback-after="scrollReset" offset="50">
             <div class="col-lg-8 label-col">
                 <h1 class="text-center label-heading" id="drug-name">{{result.name}}</h1>
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
