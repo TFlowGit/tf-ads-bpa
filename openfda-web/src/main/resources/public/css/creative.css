@@ -520,7 +520,11 @@ body {
 }
 
 div.form-group{
-    width: auto;
+    width: 50%;
+}
+
+.form-inline .form-control {
+    width: 100%;
 }
 
 /*LABELING SECTION*/
@@ -567,6 +571,10 @@ p.text-fade.ng-binding {
         /*min-height: 200px;*/
         max-height: 200px;
     }
+    .form-group{
+    	margin:auto;
+    	margin-bottom:5px;
+    } 
 }
 
 .label-hr {
