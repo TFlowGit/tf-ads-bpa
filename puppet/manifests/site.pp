@@ -20,3 +20,19 @@ File {
 node default {
 }
 
+node build {
+  include epel
+  include packages::build
+  include jenkins_conf
+  include firewall::build
+}
+
+node app {
+  include epel
+  include packages::app
+}
+
+node web {
+  include epel
+  include packages::web
+}
