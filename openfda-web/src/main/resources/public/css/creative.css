@@ -554,6 +554,9 @@ div.label-content {
     p.text-fade.ng-binding {
         font-size: 14px !important;
     }
+/*    div.label-content.wow.fadeIn {
+        max-height: 50px;
+    }*/
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
