@@ -59,12 +59,6 @@
                     <li>
                         <a class="page-scroll" href="#adverse">Adverse Events</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio"></a>
-                    </li>
-<!--                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -86,38 +80,72 @@
                 </form>
                 <br>
    				<h3 class="warning">{{queryFailedMsg}}</h3>
-                <!-- <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a> -->
             </div>
         </div>
     </header>
 
     <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{infoVisibility}}">
-        <div class="row label-row">
             <div class="col-lg-8 label-col">
-    	        <div class="row label-row">
-                        <h1 class="section-heading heading-inline">{{result.name}}</h1>
-                        <!-- <h4 class="purpose heading-inline">{{result.purpose}}</h4> -->
-    	                <div class="col-lg-4 col-sm-2" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
+                <h1 class="section-heading heading-inline">{{result.name}}</h1>
+    	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
     	                    <div class="label-content wow fadeIn">
                         		<h2 id="labeling-{{key}}" class="label-name text-center ">{{key}}</h2>
                         		<hr class="label-hr">
                         		<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
-                    		</div>
-    	                </div>                
+                    		</div>           
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal">
+                              Read More
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">{{key}}</h4>
+                                  </div>
+                                  <div class="modal-body">{{label}}</div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
     	         </div>
     	     </div>
     	     <div class="col-lg-4 warning-col">
                 <h1 class="text-center"><span><img src="img/warning.png" href="" alt"warning"/></span>WARNINGS: </h1>
-                        <div class="col-lg-6 col-sm-1" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
+                <div class="row label-row" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
                             <div class="label-content wow fadeIn">
-                                <h2 class="label-name text-center ">{{key}}</h2>
+                                <h2 class="label-name">{{key}}</h2>
                                 <hr class="label-hr">
                                 <p class="text-fade">{{label}}</p>
                             </div>
-                        </div>
-         </div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal" id="warning-btn">
+                              Read More
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">{{key}}</h4>
+                                  </div>
+                                  <div class="modal-body">{{label}}</div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                    </div>
+    	     </div>
     </section>
-    <section id="adverse" ng-show="infoVisibility">
+    <!--section class="bg-primary" id="adverse" ng-show="infoVisibility">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -135,7 +163,7 @@
             </div>
         </div>
 
-    </section>
+    </section-->
 
     <footer class="footer" ng-show="infoVisibility">
         <div class="container">
