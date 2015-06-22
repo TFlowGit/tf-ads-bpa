@@ -67,6 +67,8 @@ p {
 .bg-primary#labeling {
     background-color: #2e2e2e;
     padding-top: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
 
 }
 
@@ -518,7 +520,11 @@ body {
 }
 
 div.form-group{
-    width: auto;
+    width: 50%;
+}
+
+.form-inline .form-control {
+    width: 100%;
 }
 
 /*LABELING SECTION*/
@@ -530,11 +536,28 @@ div.form-group{
 div.label-content {
     overflow: hidden;
     margin-bottom: 30px;
-    border-radius: 3px;
     padding: 20px 20px;
     /*min-height: 430px;*/
     max-height: 380px;
 }
+
+h1#drug-name.text-center.label-heading.ng-binding{
+    font-size: 30px !important;
+}
+
+h1.text-center.label-heading {
+    font-size: 30px !important;
+}
+
+h2.label-name.ng-binding {
+    font-size: 18px !important;
+}
+
+p.text-fade.ng-binding {
+    font-size: 11px !important;
+}
+
+
 
 @media (max-width: 768px) {
     p.text-fade {
@@ -548,6 +571,10 @@ div.label-content {
         /*min-height: 200px;*/
         max-height: 200px;
     }
+    .form-group{
+    	margin:auto;
+    	margin-bottom:5px;
+    } 
 }
 
 .label-hr {
@@ -559,36 +586,31 @@ div.label-content .text-fade {
     margin-right: 20px;
 }
 
-.heading-inline {
-    display: inline;
-    margin-left: 2em;
-}
 
 div.label-row {
     min-height: 100%;
     padding-top: 0px;
 }
 
+#labeling {
+	display: table;
+}
+
+div.label-col, div.warning-col {
+	display: table-cell;
+}
+
 div.label-col {
     background-color: #f6f6f6;
     color: #2e2e2e ;
     padding-top: 2em;
-    /*min-height: 120em;*/
-   -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
-   /*width: 100%;*/
 }
 
 
 div.warning-col {
     background-color: #bf2726;
     color: #fff;
-    padding-top: 1em;
-    /*min-height: 100%;*/
-   -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
+    padding-top: 2em;
 }
 
 .modal-btn {
