@@ -6,28 +6,28 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   $scope.infoVisibility = false;
   $scope.scroll = false;
   $scope.headers = {
-		  indicationsAndUsage :"Indication and Usage",
-		  brandName : "Brand Name",
-		  genericName : "Generic Name",
-		  purpose : "Purpose",
-		  active : "Active Ingredients",
-		  adverseReactions: "Adverse Reactions",
-		  askDoctor: "Ask Doctor",
-		  doNotUse: "Do Not Use",
-		  dosage: "Dosage",
-		  inactive: "Inactive Ingrdients",
-		  warnings: "Warnings",
-		  askDoctorOrPharmacist: "Ask Doctor or Pharmacist",
-		  stopUse: "Stop Use"
+	  indicationsAndUsage :"Indication and Usage",
+	  brandName : "Brand Name",
+	  genericName : "Generic Name",
+	  purpose : "Purpose",
+	  active : "Active Ingredients",
+	  adverseReactions: "Adverse Reactions",
+	  askDoctor: "Ask Doctor",
+	  doNotUse: "Do Not Use",
+	  dosage: "Dosage",
+	  inactive: "Inactive Ingrdients",
+	  warnings: "Warnings",
+	  askDoctorOrPharmacist: "Ask Doctor or Pharmacist",
+	  stopUse: "Stop Use"
   };
   
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
 	  drugsService.getDrugInfo($scope.query)
 		  .success(function(response){
-		  		$scope.infoVisibility = true;
-		  		$scope.scroll = true;
-				transformResponse(response);
+			  	$scope.infoVisibility = true;
+	  			$scope.scroll = true;
+	  			transformResponse(response);
 		  })
 		  .error(function(data, status, headers, config){
 				$scope.infoVisibility = false;
@@ -41,9 +41,6 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 						break;
 				}
 		  });
-  };
-  
-  $scope.scrollReset = function(){
 	  $scope.scroll = false;
   };
   
@@ -66,12 +63,7 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 				labelInfo[key] = response[key];
 		}
 		result['labelInfo'] = labelInfo;
-
-		// if (key == 'active') key = 'ActiveIngredients';
-		// if(key == 'active') result['active'] = 'Active Ingredients';
-
 		result['warnings'] = warnings;
-
 		$scope.result = result;
 		//console.log(result);
   }

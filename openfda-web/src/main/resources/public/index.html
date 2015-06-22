@@ -56,9 +56,9 @@
                     <li>
                         <a class="page-scroll" href="#labeling">Labeling Information</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a class="page-scroll" href="#adverse">Adverse Events</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -84,7 +84,7 @@
         </div>
     </header>
 
-    <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" callback-after="scrollReset" offset="50">
+    <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
             <div class="col-lg-8 label-col">
                 <h1 class="text-center label-heading" id="drug-name">{{result.name}}</h1>
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
@@ -168,7 +168,7 @@
 
     <footer class="footer" ng-show="infoVisibility">
         <div class="container">
-            <p class="text-muted text-center">This is where the shortened disclaimer would be.</p>
+            <p class="text-muted text-center">The prescription drug related information on this website is meant for basic informational purposes only. It is not intended to serve as medical advice, substitute for a doctor's appointment or to be used for diagnosing or treating a medical condition. Users of this website are advised to consult with their physician before making any decisions concerning their health.</p>
         </div>
     </footer>
 
