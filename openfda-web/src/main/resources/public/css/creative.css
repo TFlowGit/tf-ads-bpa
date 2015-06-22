@@ -609,6 +609,14 @@ div.warning-col {
     margin-right: 100px;
 }
 
+.modal-body {
+    color: #2e2e2e !important;
+}
+
+.modal-header {
+    color: #bf2726 !important;
+}
+
 #warning-btn {
     background-color: #f6f6f6;
     color: #bf2726;
