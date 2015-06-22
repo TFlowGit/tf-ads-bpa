@@ -263,6 +263,15 @@ header .header-content .header-content-inner p {
         max-width: 80%;
         font-size: 18px;
     }
+
+    #labeling {
+        display: table;
+    }
+
+    div.label-col, div.warning-col {
+        display: table-cell;
+        float: none;
+    }
 }
 
 .section-heading {
@@ -604,14 +613,6 @@ div.label-content .text-fade {
 div.label-row {
     min-height: 100%;
     padding-top: 0px;
-}
-
-#labeling {
-	display: table;
-}
-
-div.label-col, div.warning-col {
-	display: table-cell;
 }
 
 div.label-col {
