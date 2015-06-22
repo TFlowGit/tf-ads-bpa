@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">DRUGFLOW</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Drug & Adverse Reaction Information</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,9 +56,9 @@
                     <li>
                         <a class="page-scroll" href="#labeling">Labeling Information</a>
                     </li>
-                    <li>
+                    <!--li>
                         <a class="page-scroll" href="#adverse">Adverse Events</a>
-                    </li>
+                    </li-->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -85,7 +85,7 @@
     </header>
 
     <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" callback-after="scrollReset" offset="50">
-            <div class="col-lg-8 label-col">
+            <div class="col-sm-8 label-col">
                 <h1 class="text-center label-heading" id="drug-name">{{result.name}}</h1>
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo | filter: label == '!!'">
     	                    <div class="label-content wow fadeIn">
@@ -115,7 +115,7 @@
     	         </div>
     	     </div>
     	     
-    	     <div class="col-lg-4 warning-col">
+    	     <div class="col-sm-4 warning-col">
                 <h1 class="text-center label-heading"><span><img src="img/warning32.png" href="" alt"warning"/></span> &nbsp; WARNINGS: </h1>
                 	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
                             <div class="label-content wow fadeIn">
