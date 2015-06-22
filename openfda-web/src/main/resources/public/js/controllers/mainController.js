@@ -8,6 +8,10 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', function ($scope, 
 	  $scope.queryFailedMsg = '';
 	  drugsService.getDrugInfo($scope.query).
 	  	success(function(response){
+	  		// implement scroll to labeling section
+	  		// $('html, body').animate({
+	  		// 	scrollTop: $("#labeling").offset().scrollTop
+	  		// }, 2000);
 	  		$scope.infoVisibility = true;
 			transformResponse(response);
 		}).
