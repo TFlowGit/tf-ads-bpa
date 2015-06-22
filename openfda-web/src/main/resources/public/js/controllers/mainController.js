@@ -66,10 +66,6 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 		result['warnings'] = warnings;
 		$scope.result = result;
 		//console.log(result);
-  }
-  
-  
-	
-		
+  }	
 }]);
 
