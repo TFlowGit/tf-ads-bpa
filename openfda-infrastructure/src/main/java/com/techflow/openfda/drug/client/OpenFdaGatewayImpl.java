@@ -1,16 +1,16 @@
 package com.techflow.openfda.drug.client;
 
-import java.io.IOException;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestFactory;
 import com.google.api.client.http.HttpRequestInitializer;
+import com.google.api.client.http.HttpResponseException;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.json.jackson.JacksonFactory;
-import com.techflow.openfda.drug.client.OpenFdaGateway;
+import com.techflow.openfda.GatewayException;
 import com.techflow.openfda.drug.client.OpenFdaDrugLabel.OpenFdaDrugLabelResult;
 import com.techflow.openfda.drugs.DrugEffect;
 import com.techflow.openfda.drugs.DrugLabel;
@@ -28,39 +28,52 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 	 * {@inheritDoc}
 	 */
 	@Override
-	public DrugLabel getLabel(String drugName) throws IOException
+	public DrugLabel getLabel(String drugName) throws GatewayException
 	{
-		final HttpRequestFactory requestFactory = createRequestFactory();
-		final GenericUrl url = new DrugLabelUrl(drugName);
-		final HttpRequest request = requestFactory.buildGetRequest(url);
-		final OpenFdaDrugLabel jsonLabel = request.execute().parseAs(OpenFdaDrugLabel.class);
+		try {
+			final HttpRequestFactory requestFactory = createRequestFactory();
+			final GenericUrl url = new DrugLabelUrl(drugName);
+			final HttpRequest request = requestFactory.buildGetRequest(url);
+			final OpenFdaDrugLabel jsonLabel = request.execute().parseAs(OpenFdaDrugLabel.class);
+			final DrugLabel drugLabel = new DrugLabel();
+			if (jsonLabel.results != null) {
+				final OpenFdaDrugLabelResult results = jsonLabel.results[0];
 
-		final DrugLabel drugLabel = new DrugLabel();
-		if (jsonLabel.results != null) {
-			final OpenFdaDrugLabelResult results = jsonLabel.results[0];
-			drugLabel.setAskDoctor(getZeroeth(results.ask_doctor));
-			drugLabel.setAskDoctorOrPharmacist(getZeroeth(results.ask_doctor_or_pharmacist));
-			drugLabel.setDosage(getZeroeth(results.dosage_and_administration));
-			drugLabel.setDoNotUse(getZeroeth(results.do_not_use));
-			drugLabel.setStopUse(getZeroeth(results.stop_use));
-			drugLabel.setActive(getZeroeth(results.active_ingredient));
-			drugLabel.setInactive(getZeroeth(results.inactive_ingredient));
-			drugLabel.setWarnings(getZeroeth(results.warnings));
-			drugLabel.setIndicationsAndUsage(getZeroeth(results.indications_and_usage));
+				drugLabel.setIndicationsAndUsage(getZeroeth(results.indications_and_usage));
+				drugLabel.setPurpose(getZeroeth(results.purpose));
+				drugLabel.setActive(getZeroeth(results.active_ingredient));
+				drugLabel.setInactive(getZeroeth(results.inactive_ingredient));
+				drugLabel.setWarnings(getZeroeth(results.warnings));
+				drugLabel.setDoNotUse(getZeroeth(results.do_not_use));
+				drugLabel.setAskDoctor(getZeroeth(results.ask_doctor));
+				drugLabel.setAskDoctorOrPharmacist(getZeroeth(results.ask_doctor_or_pharmacist));
+				drugLabel.setDosage(getZeroeth(results.dosage_and_administration));
+				drugLabel.setStopUse(getZeroeth(results.stop_use));
+				drugLabel.setAdverseReactions(getZeroeth(results.adverse_reactions));
 
-			if (results.openfda != null) {
-				drugLabel.setName(getZeroeth(results.openfda.generic_name));
+				if (results.openfda != null) {
+					drugLabel.setBrandName(getZeroeth(results.openfda.brand_name));
+					drugLabel.setGenericName(getZeroeth(results.openfda.generic_name));
+					drugLabel.setManufacturerName(getZeroeth(results.openfda.manufacturer_name));
+				}
 			}
-		}
 
-		return drugLabel;
+			return drugLabel;
+		} catch (final HttpResponseException e) {
+			if (e.getStatusCode() == 404) {
+				return null;
+			}
+			throw new GatewayException(e);
+		} catch (final Exception e) {
+			throw new GatewayException(e);
+		}
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public DrugEffect getEffects(String name) throws IOException
+	public DrugEffect getEffects(String name) throws GatewayException
 	{
 		return null;
 	}

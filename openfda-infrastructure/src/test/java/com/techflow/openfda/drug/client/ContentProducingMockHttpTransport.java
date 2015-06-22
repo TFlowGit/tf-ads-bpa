@@ -18,8 +18,15 @@ class ContentProducingMockHttpTransport extends MockHttpTransport
 
 	private String url;
 
+	private int statusCode = 200;
+
 	public ContentProducingMockHttpTransport(String responseContent) {
 		this.responseContent = responseContent;
+	}
+
+	public ContentProducingMockHttpTransport(String responseContent, int statusCode) {
+		this.responseContent = responseContent;
+		this.statusCode = statusCode;
 	}
 
 	/**
@@ -37,7 +44,7 @@ class ContentProducingMockHttpTransport extends MockHttpTransport
 			public LowLevelHttpResponse execute() throws IOException
 			{
 				final MockLowLevelHttpResponse response = new MockLowLevelHttpResponse();
-				response.setStatusCode(200);
+				response.setStatusCode(statusCode);
 				response.setContent(responseContent);
 				return response;
 			}

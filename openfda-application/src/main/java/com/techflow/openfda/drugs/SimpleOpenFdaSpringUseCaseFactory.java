@@ -12,8 +12,8 @@ public class SimpleOpenFdaSpringUseCaseFactory implements OpenFdaUseCaseFactory
 	}
 
 	@Override
-	public FindDrugImpl newFindDrugUseCase()
+	public FindDrugUseCaseImpl newFindDrugUseCase()
 	{
-		return new FindDrugImpl(fdaGateway);
+		return new FindDrugUseCaseImpl(fdaGateway);
 	}
 }

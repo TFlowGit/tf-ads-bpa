@@ -39,10 +39,22 @@ public class OpenFdaDrugLabel
 		@Key
 		public OpenFdaLabelOpenFda openfda;
 
+		@Key
+		public String[] adverse_reactions;
+
+		@Key
+		public String[] purpose;
+
 		public static final class OpenFdaLabelOpenFda
 		{
 			@Key
+			public String[] brand_name;
+
+			@Key
 			public String[] generic_name;
+
+			@Key
+			public String[] manufacturer_name;
 		}
 	}
 }
