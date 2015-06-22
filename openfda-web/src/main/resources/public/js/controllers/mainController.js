@@ -6,18 +6,26 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', function ($scope, 
   $scope.infoVisibility = false;
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
-	  drugsService.getDrugInfo($scope.query).
-	  	success(function(response){
+	  drugsService.getDrugInfo($scope.query)
+	  .success(function(response){
 	  		$scope.infoVisibility = true;
 			transformResponse(response);
-		}).
-		error(function(data, status, headers, config){
+	  })
+	  .error(function(data, status, headers, config){
 			$scope.infoVisibility = false;
-			$scope.queryFailedMsg = "Drug not found";
-		});
+			
+			switch(status){
+				case 404:
+					$scope.queryFailedMsg = "Drug not found";
+					break;
+				default:
+					$scope.queryFailedMsg = "There was an unknown error. Please try again later.";
+					break;
+			}
+	  });
   };
   
-  var transformResponse = function(response){
+  function transformResponse(response){
 	  	var result = {};
 	  	var labelInfo = {};
 		for( key in response ) {
