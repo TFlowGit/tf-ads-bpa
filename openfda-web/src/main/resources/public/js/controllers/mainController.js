@@ -1,23 +1,47 @@
 
-drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', function ($scope, drugsService) {
-  $scope.labelName = "LABEL NAMEs";
+drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', function ($scope, drugsService, smoothScroll) {
+
   $scope.query ='';
   $scope.result = '';
+  $scope.infoVisibility = false;
   $scope.searchDrug = function() {
-	  drugsService.getDrugInfo($scope.query).success(function(response){
-			var result = {};
-			var labelInfo = {};
-			for( key in response ) {
-				if(key == 'name') result['name'] = response[key];
-				else if(key == 'purpose') result['purpose'] = response[key];
-				else {
-					labelInfo[key] = response[key];
+	  $scope.queryFailedMsg = '';
+	  drugsService.getDrugInfo($scope.query)
+		  .success(function(response){
+		  		$scope.infoVisibility = true;
+				transformResponse(response);
+		  })
+		  .error(function(data, status, headers, config){
+				$scope.infoVisibility = false;
+				
+				switch(status){
+					case 404:
+						$scope.queryFailedMsg = "Drug not found";
+						break;
+					default:
+						$scope.queryFailedMsg = "There was an unknown error. Please try again later.";
+						break;
 				}
-			}
-			result['labelInfo'] = labelInfo;	
-			$scope.result = result;
-			console.log(result);
-		});
+		  });
   };
+  
+  function transformResponse(response){
+	  	var result = {};
+	  	var labelInfo = {};
+		for( key in response ) {
+			if(key == 'name') result['name'] = response[key];
+			else if(key == 'purpose') result['purpose'] = response[key];
+			else if (response[key] !== null && key !== 'notFound' ) {
+				labelInfo[key] = response[key];
+			}
+		}
+		result['labelInfo'] = labelInfo;	
+		$scope.result = result;
+		console.log(result);
+  }
+  
+  
+	
+		
 }]);
 
