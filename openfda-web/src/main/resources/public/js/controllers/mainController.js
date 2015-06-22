@@ -57,8 +57,11 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 				result['name'] = response[key];
 			else if(key == 'purpose') 
 				result['purpose'] = response[key];
-			else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist')
-				warnings[key] = response[key];
+			else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist'){
+				if(response[key] != null){
+					warnings[key] = response[key];
+				}
+			}
 			else if (response[key] !== null && key !== 'notFound') 
 				labelInfo[key] = response[key];
 		}
