@@ -1,1 +1,1 @@
-var drugflowApp = angular.module('drugflowApp', []);
+var drugflowApp = angular.module('drugflowApp', ['smoothScroll']);

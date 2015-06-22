@@ -1,5 +1,5 @@
 
-drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', function ($scope, drugsService) {
+drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', function ($scope, drugsService, smoothScroll) {
 
   $scope.query ='';
   $scope.result = '';
@@ -39,5 +39,9 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', function ($scope, 
 		$scope.result = result;
 		console.log(result);
   }
+  
+  
+	
+		
 }]);
 

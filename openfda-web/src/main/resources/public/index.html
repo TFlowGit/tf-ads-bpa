@@ -91,7 +91,7 @@
         </div>
     </header>
 
-    <section class="bg-primary" id="labeling" ng-show="infoVisibility">
+    <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{infoVisibility}}">
         <div class="row label-row">
             <div class="col-lg-8 label-col">
     	        <div class="row label-row">
@@ -160,6 +160,7 @@
     
     <!--  AngularJS -->
     <script src="js/angular.min.js"></script>
+    <script src="js/angular-smooth-scroll.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/mainController.js"></script>
     <script src="js/services/drugs.js"></script>
