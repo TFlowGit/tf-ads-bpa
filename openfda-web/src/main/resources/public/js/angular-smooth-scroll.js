@@ -18,6 +18,8 @@
 /*	 Influenced by Chris Ferdinandi
 /*	 https://github.com/cferdinandi
 /*
+/*   Source: https://github.com/d-oliveros/ngSmoothScroll
+/* 
 /*
 /*	 Free to use under the MIT License.
 /*
