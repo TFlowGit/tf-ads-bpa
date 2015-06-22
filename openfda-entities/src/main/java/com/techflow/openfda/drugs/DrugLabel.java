@@ -2,8 +2,6 @@ package com.techflow.openfda.drugs;
 
 public class DrugLabel
 {
-	private String name;
-
 	private String purpose;
 
 	private String dosage;
@@ -24,15 +22,13 @@ public class DrugLabel
 
 	private String askDoctorOrPharmacist;
 
-	public String getName()
-	{
-		return name;
-	}
+	private String brandName;
 
-	public void setName(String name)
-	{
-		this.name = name;
-	}
+	private String genericName;
+
+	private String manufacturerName;
+
+	private String adverseReactions;
 
 	public String getPurpose()
 	{
@@ -132,5 +128,45 @@ public class DrugLabel
 	public void setAskDoctorOrPharmacist(String askDoctorOrPharmacist)
 	{
 		this.askDoctorOrPharmacist = askDoctorOrPharmacist;
+	}
+
+	public String getBrandName()
+	{
+		return brandName;
+	}
+
+	public void setBrandName(String brandName)
+	{
+		this.brandName = brandName;
+	}
+
+	public String getGenericName()
+	{
+		return genericName;
+	}
+
+	public void setGenericName(String genericName)
+	{
+		this.genericName = genericName;
+	}
+
+	public String getManufacturerName()
+	{
+		return manufacturerName;
+	}
+
+	public void setManufacturerName(String manufacturerName)
+	{
+		this.manufacturerName = manufacturerName;
+	}
+
+	public String getAdverseReactions()
+	{
+		return adverseReactions;
+	}
+
+	public void setAdverseReactions(String adverseReactions)
+	{
+		this.adverseReactions = adverseReactions;
 	}
 }

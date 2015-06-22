@@ -4,11 +4,13 @@ import com.techflow.openfda.drug.usecase.FindDrugResponse;
 
 public class DescribeDrugResponse implements FindDrugResponse
 {
-	protected String name;
+	protected String indicationsAndUsage;
+
+	private String brandName;
+
+	private String genericName;
 
 	protected String purpose;
-
-	protected String dosage;
 
 	protected String active;
 
@@ -18,26 +20,19 @@ public class DescribeDrugResponse implements FindDrugResponse
 
 	protected String doNotUse;
 
-	protected String adverseReactions;
+	protected String askDoctor;
+
+	private String askDoctorOrPharmacist;
+
+	protected String dosage;
 
 	protected String stopUse;
 
-	protected String askDoctor;
+	private String adverseReactions;
 
-	protected String indicationsAndUsage;
+	private String manufacturerName;
 
-	protected boolean notFound;
-
-	public String getName()
-	{
-		return name;
-	}
-
-	@Override
-	public void setName(String name)
-	{
-		this.name = name;
-	}
+	boolean notFound;
 
 	public String getPurpose()
 	{
@@ -105,17 +100,6 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.doNotUse = doNotUse;
 	}
 
-	public String getAdverseReactions()
-	{
-		return adverseReactions;
-	}
-
-	@Override
-	public void setAdverseReactions(String adverseReactions)
-	{
-		this.adverseReactions = adverseReactions;
-	}
-
 	public String getStopUse()
 	{
 		return stopUse;
@@ -149,7 +133,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.indicationsAndUsage = indicationsAndUsage;
 	}
 
-	public boolean isNotFound()
+	boolean isNotFound()
 	{
 		return notFound;
 	}
@@ -158,5 +142,60 @@ public class DescribeDrugResponse implements FindDrugResponse
 	public void setNotFound(boolean notFound)
 	{
 		this.notFound = notFound;
+	}
+
+	public String getBrandName()
+	{
+		return brandName;
+	}
+
+	@Override
+	public void setBrandName(String brandName)
+	{
+		this.brandName = brandName;
+	}
+
+	public String getGenericName()
+	{
+		return genericName;
+	}
+
+	@Override
+	public void setGenericName(String genericName)
+	{
+		this.genericName = genericName;
+	}
+
+	public String getAskDoctorOrPharmacist()
+	{
+		return askDoctorOrPharmacist;
+	}
+
+	@Override
+	public void setAskDoctorOrPharmacist(String askDoctorOrPharmacist)
+	{
+		this.askDoctorOrPharmacist = askDoctorOrPharmacist;
+	}
+
+	public String getAdverseReactions()
+	{
+		return adverseReactions;
+	}
+
+	@Override
+	public void setAdverseReactions(String adverseReactions)
+	{
+		this.adverseReactions = adverseReactions;
+	}
+
+	public String getManufacturerName()
+	{
+		return manufacturerName;
+	}
+
+	@Override
+	public void setManufacturerName(String manufacturerName)
+	{
+		this.manufacturerName = manufacturerName;
 	}
 }

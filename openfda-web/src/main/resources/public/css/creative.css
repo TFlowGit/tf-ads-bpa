@@ -543,47 +543,61 @@ div.form-group{
 }
 
 div.label-content {
-    overflow: ellipsis\;
+    overflow: ellipsis;
     margin-bottom: 30px;
     padding: 20px 20px;
     /*min-height: 430px;*/
     max-height: 380px;
 }
 
-h1#drug-name.text-center.label-heading.ng-binding{
-    font-size: 30px !important;
+
+@media (min-width: 1200px) {
+    h1.text-center.label-heading {
+        font-size: 36px !important;
+    }
+
+    h2.label-name.ng-binding {
+        font-size: 24px !important;
+    }
+
+    p.text-fade.ng-binding {
+        font-size: 14px !important;
+    }
+/*    div.label-content.wow.fadeIn {
+        max-height: 50px;
+    }*/
 }
 
-h1.text-center.label-heading {
-    font-size: 30px !important;
+@media (min-width: 769px) and (max-width: 1199px) {
+    h1.text-center.label-heading {
+        font-size: 30px !important;
+    }
+
+    h2.label-name.ng-binding {
+        font-size: 18px !important;
+    }
+
+    p.text-fade.ng-binding {
+        font-size: 13px !important;
+    }
 }
-
-h2.label-name.ng-binding {
-    font-size: 18px !important;
-}
-
-p.text-fade.ng-binding {
-    font-size: 11px !important;
-}
-
-
 
 @media (max-width: 768px) {
-    p.text-fade {
-        font-size: 12px;
-    }
-    div.label-content {
-        overflow: hidden;
-        margin-bottom: 20px;
-        border-radius: 3px;
-        padding: 20px 20px;
-        /*min-height: 200px;*/
-        max-height: 200px;
-    }
     .form-group{
     	margin:auto;
     	margin-bottom:5px;
     } 
+    h1.text-center.label-heading {
+        font-size: 22px !important;
+    }
+
+    h2.label-name.ng-binding {
+        font-size: 16px !important;
+    }
+
+    p.text-fade.ng-binding {
+        font-size: 12px !important;
+    }
 }
 
 .label-hr {

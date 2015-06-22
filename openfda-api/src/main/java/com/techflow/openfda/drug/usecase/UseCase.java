@@ -16,5 +16,5 @@ public interface UseCase<REQ, RESP>
 	/**
 	 * Execute the use case.
 	 */
-	void execute();
+	void execute() throws Exception;
 }
