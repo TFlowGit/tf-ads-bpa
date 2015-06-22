@@ -1,5 +1,7 @@
 package com.techflow.openfda.drug.usecase;
 
+import com.techflow.openfda.GatewayException;
+
 /**
  * Use Case:
  * <pre>
@@ -9,4 +11,6 @@ package com.techflow.openfda.drug.usecase;
  */
 public interface FindDrugUseCase extends UseCase<FindDrugRequest, FindDrugResponse>
 {
+	@Override
+	public void execute() throws GatewayException;
 }
