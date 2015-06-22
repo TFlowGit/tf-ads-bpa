@@ -6,18 +6,18 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   $scope.infoVisibility = false;
   $scope.scroll = false;
   $scope.headers = {
-		  indicationsAndUsage :"Indication and Usage",
+		  indicationsAndUsage :"Uses",
 		  brandName : "Brand Name",
 		  genericName : "Generic Name",
 		  purpose : "Purpose",
 		  active : "Active Ingredients",
 		  adverseReactions: "Adverse Reactions",
-		  askDoctor: "Ask Doctor",
+		  askDoctor: "Ask Your Doctor",
 		  doNotUse: "Do Not Use",
 		  dosage: "Dosage",
-		  inactive: "Inactive Ingrdients",
+		  inactive: "Inactive Ingredients",
 		  warnings: "Warnings",
-		  askDoctorOrPharmacist: "Ask Doctor or Pharmacist",
+		  askDoctorOrPharmacist: "Ask Your Doctor or Pharmacist",
 		  stopUse: "Stop Use"
   };
   
