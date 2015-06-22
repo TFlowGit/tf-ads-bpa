@@ -1,10 +1,13 @@
 # Prototype
 
-A publicly accessible prototype is hosted at [https://18th-dari.techflow.com](https://18f-dari.techflow.com/).
+A publicly accessible prototype is hosted at [http://18f-dari.techflow.com](http://18f-dari.techflow.com/).
 
 # Build from Source
 
-Pre-requisites: [Maven](https://maven.apache.org/download.cgi#Installation), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [OpenJDK](http://openjdk.java.net/install/).
+Pre-requisites:
+- [Maven](https://maven.apache.org/download.cgi#Installation)
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [OpenJDK](http://openjdk.java.net/install/)
 
 To build the project from source, check out the code from GitHub and build it with Maven. This creates a JAR file that can be run.
 
