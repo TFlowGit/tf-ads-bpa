@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 @DefaultUrl("http://localhost:8080/index.html")
 public class SearchPage extends PageObject
 {
-	@FindBy(id = "term")
+	@FindBy(id = "input-drug")
 	WebElement termInput;
 
-	@FindBy(id = "search")
+	@FindBy(id = "button-search")
 	WebElement searchButton;
 
 	public void searchFor(String term)
