@@ -63,7 +63,12 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 				labelInfo[key] = response[key];
 		}
 		result['labelInfo'] = labelInfo;
+
+		// if (key == 'active') key = 'ActiveIngredients';
+		// if(key == 'active') result['active'] = 'Active Ingredients';
+
 		result['warnings'] = warnings;
+
 		$scope.result = result;
 		//console.log(result);
   }
