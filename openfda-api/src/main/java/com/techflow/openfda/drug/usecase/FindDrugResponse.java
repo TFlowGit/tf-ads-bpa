@@ -2,7 +2,9 @@ package com.techflow.openfda.drug.usecase;
 
 public interface FindDrugResponse
 {
-	void setName(String name);
+	void setBrandName(String brandName);
+
+	void setGenericName(String genericName);
 
 	void setPurpose(String purpose);
 
@@ -16,8 +18,6 @@ public interface FindDrugResponse
 
 	void setDoNotUse(String doNotUse);
 
-	void setAdverseReactions(String adverseReactions);
-
 	void setStopUse(String stopUse);
 
 	void setAskDoctor(String askDoctor);
@@ -25,4 +25,10 @@ public interface FindDrugResponse
 	void setIndicationsAndUsage(String indicationsAndUsage);
 
 	void setNotFound(boolean notFound);
+
+	void setAskDoctorOrPharmacist(String askDoctorOrPharmacist);
+
+	void setAdverseReactions(String adverseReactions);
+
+	void setManufacturerName(String manufacturerName);
 }
