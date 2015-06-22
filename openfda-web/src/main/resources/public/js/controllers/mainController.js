@@ -31,7 +31,9 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', function ($scope, 
 				labelInfo[key] = response[key];
 			}
 		}
-		result['labelInfo'] = labelInfo;	
+		result['labelInfo'] = labelInfo;
+		if (key == 'active') key = 'ActiveIngredients';
+		// if(key == 'active') result['active'] = 'Active Ingredients';
 		$scope.result = result;
 		console.log(result);
   }
