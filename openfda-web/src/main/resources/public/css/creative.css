@@ -67,6 +67,9 @@ p {
 .bg-primary#labeling {
     background-color: #2e2e2e;
     padding-top: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+
 }
 
 
@@ -260,6 +263,15 @@ header .header-content .header-content-inner p {
         max-width: 80%;
         font-size: 18px;
     }
+
+    #labeling {
+        display: table;
+    }
+
+    div.label-col, div.warning-col {
+        display: table-cell;
+        float: none;
+    }
 }
 
 .section-heading {
@@ -267,6 +279,8 @@ header .header-content .header-content-inner p {
     color:#bf2726;
     margin-left: auto 0;
     float: left;
+    font-size: 3.5em;
+    width: 98%;
 }
 
 .service-box {
@@ -515,7 +529,11 @@ body {
 }
 
 div.form-group{
-    width: auto;
+    width: 50%;
+}
+
+.form-inline .form-control {
+    width: 100%;
 }
 
 /*LABELING SECTION*/
@@ -524,26 +542,84 @@ div.form-group{
     padding-top: 3.5em;
 }
 
-div.label-content {
+/*div.label-content {
+    padding-left: 20px;
+    padding-right: 20px;
     overflow: hidden;
-    margin-bottom: 30px;
-    border-radius: 3px;
-    padding: 20px 20px;
-    min-height: 430px;
-    max-height: 430px;
+    -moz-box-shadow: inset 0 -23px 23px -23px #f6f6f6;
+    -webkit-box-shadow: inset 0 -23px 23px -23px #f6f6f6;
+    box-shadow: inset 0 -23px 23px -23px #f6f6f6;
+}
+*/
+div.label-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    -moz-box-shadow: inset 0 -23px 23px -23px #acacac;
+    -webkit-box-shadow: inset 0 -23px 23px -23px #acacac;
+    box-shadow: inset 0 -23px 23px -23px #acacac;
+}
+
+p#labeling-dosage-label.text-fade.ng-binding {
+/*   -moz-box-shadow:    inset 0 0 5px 0 #bf2726;
+   -webkit-box-shadow: inset 0 0 5px 0 #bf2726;
+   box-shadow:         inset 0 0 5px 0 #bf2726;*/
+
+}
+
+
+@media (min-width: 1200px) {
+    h1.text-center.label-heading {
+        font-size: 36px !important;
+    }
+
+    h2.label-name.ng-binding {
+        font-size: 24px !important;
+    }
+
+    p.text-fade.ng-binding {
+        font-size: 14px !important;
+    }
+    div.label-content.wow.fadeIn {
+        max-height: 150px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+    h1.text-center.label-heading {
+        font-size: 30px !important;
+    }
+
+    h2.label-name.ng-binding {
+        font-size: 18px !important;
+    }
+
+    p.text-fade.ng-binding {
+        font-size: 13px !important;
+    }
+    div.label-content.wow.fadeIn {
+        max-height: 100px;
+    }
 }
 
 @media (max-width: 768px) {
-    p.text-fade {
-        font-size: 12px;
+    .form-group{
+    	margin:auto;
+    	margin-bottom:5px;
+    } 
+    h1.text-center.label-heading {
+        font-size: 22px !important;
     }
-    div.label-content {
-        overflow: hidden;
-        margin-bottom: 20px;
-        border-radius: 3px;
-        padding: 20px 20px;
-        min-height: 200px;
-        max-heigh: 200px;
+
+    h2.label-name.ng-binding {
+        font-size: 16px !important;
+    }
+
+    p.text-fade.ng-binding {
+        font-size: 12px !important;
+    }
+    div.label-content.wow.fadeIn {
+        max-height: 50px;
     }
 }
 
@@ -556,12 +632,41 @@ div.label-content .text-fade {
     margin-right: 20px;
 }
 
-.heading-inline {
-    display: inline;
-    margin-left: 2em;
+
+div.label-row {
+    min-height: 100%;
+    padding-top: 0px;
+}
+
+div.label-col {
+    background-color: #f6f6f6;
+    color: #2e2e2e ;
+    padding-top: 2em;
 }
 
 
+div.warning-col {
+    background-color: #bf2726;
+    color: #fff;
+    padding-top: 2em;
+}
+
+.modal-btn {
+    margin-right: 100px;
+}
+
+.modal-body {
+    color: #2e2e2e !important;
+}
+
+.modal-header {
+    color: #bf2726 !important;
+}
+
+#warning-btn {
+    background-color: #f6f6f6;
+    color: #bf2726;
+}
 
 /*ADVERSE EVENT SECTION*/
 
@@ -576,32 +681,6 @@ div.label-content .text-fade {
 
 .panel.panel-default {
     background-color: #bf2726;
-}
-
-div.label-row {
-    min-height: 100%;
-    padding-top: 0px;
-}
-
-div.label-col {
-	background-color: #f6f6f6;
-	color: #2e2e2e ;
-    padding-top: 2em;
-    /*min-height: 120em;*/
-   -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
-}
-
-
-div.warning-col {
-	background-color: #bf2726;
-	color: #fff;
-    padding-top: 1em;
-    /*min-height: 100%;*/
-   -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
 }
 
 
