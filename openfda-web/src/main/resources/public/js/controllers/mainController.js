@@ -26,16 +26,22 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   };
   
   function transformResponse(response){
+	  	//console.log(response);
 	  	var result = {};
 	  	var labelInfo = {};
+	  	var warnings = {};
 		for( key in response ) {
-			if(key == 'name') result['name'] = response[key];
-			else if(key == 'purpose') result['purpose'] = response[key];
-			else if (response[key] !== null && key !== 'notFound' ) {
+			if(key == 'name') 
+				result['name'] = response[key];
+			else if(key == 'purpose') 
+				result['purpose'] = response[key];
+			else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist')
+				warnings[key] = response[key];
+			else if (response[key] !== null && key !== 'notFound') 
 				labelInfo[key] = response[key];
-			}
 		}
-		result['labelInfo'] = labelInfo;	
+		result['labelInfo'] = labelInfo;
+		result['warnings'] = warnings;
 		$scope.result = result;
 		console.log(result);
   }
