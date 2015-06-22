@@ -80,9 +80,9 @@
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline">
                     <div class="form-group ">
-                        <input type="text" class="form-control" placeholder="List your prescriptions" ng-model="query">
+                        <input id="input-drug" type="text" class="form-control" placeholder="List your prescriptions" ng-model="query">
                     </div>
-                    <button type="submit" id="search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()' >Search</button>
+                    <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()' >Search</button>
                 </form>
                 <!-- <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a> -->
             </div>
@@ -90,14 +90,14 @@
     </header>
 
     <section class="bg-primary" id="labeling">
-        <h1 class="section-heading heading-inline">{{result.name}}:</h1>
+        <h1 id="labeling-name" class="section-heading heading-inline">{{result.name}}:</h1>
         <h4 class="purpose heading-inline">{{result.purpose}}</h4>
         <div class="row label-row">
                 <div class="col-lg-4 col-sm-4" ng-repeat="(key,label) in result.labelInfo">
                     <div class="label-content wow fadeIn">
-                        <h2 class="label-name text-center ">{{key}}</h2>
+                        <h2 id="labeling-{{key}}" class="label-name text-center ">{{key}}</h2>
                         <hr class="label-hr">
-                        <p class="text-fade">{{label}}</p>
+                        <p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
                     </div>
                 </div>                
             </div>
