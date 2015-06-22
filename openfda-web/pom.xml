@@ -104,11 +104,13 @@
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>core</artifactId>
 			<version>${serenity.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-junit</artifactId>
 			<version>${serenity.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.assertj</groupId>
