@@ -534,7 +534,7 @@ div.form-group{
 }
 
 div.label-content {
-    overflow: hidden;
+    overflow: ellipsis\;
     margin-bottom: 30px;
     padding: 20px 20px;
     /*min-height: 430px;*/
