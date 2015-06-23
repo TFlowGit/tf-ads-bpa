@@ -50,7 +50,7 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  	var labelInfo = {};
 	  	var warnings = {};
 		for( key in response ) {
-			if(key == 'name') 
+			if(key == 'brandName') 
 				result['name'] = response[key];
 			else if(key == 'purpose') 
 				result['purpose'] = response[key];
@@ -65,6 +65,7 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 		result['labelInfo'] = labelInfo;
 		result['warnings'] = warnings;
 		$scope.result = result;
+		console.log(result);
 		//console.log(result);
   }	
 }]);
