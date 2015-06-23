@@ -618,6 +618,10 @@ p#labeling-dosage-label.text-fade.ng-binding {
     width: 100%;
 }
 
+.label-hr#hr-grey {
+    border-top: 1px solid #2e2e2e;
+}
+
 div.label-content .text-fade {
     margin-left: 20px;
     margin-right: 20px;
@@ -658,6 +662,7 @@ div.warning-col {
 #warning-btn {
     background-color: #f6f6f6;
     color: #bf2726;
+    margin-right: 70px;
 }
 
 /*ADVERSE EVENT SECTION*/
