@@ -119,7 +119,7 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 		static final String endpoint = "https://api.fda.gov";
 
 		public DrugLabelUrl(String drugName) {
-			super(endpoint + "/drug/label.json?search=brand_name:" + drugName + "+generic_name:" + drugName);
+			super(endpoint + "/drug/label.json?search=brand_name:\"" + drugName + "\"+generic_name:\"" + drugName + "\"");
 		}
 	}
 }
