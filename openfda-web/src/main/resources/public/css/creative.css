@@ -67,8 +67,8 @@ p {
 .bg-primary#labeling {
     background-color: #2e2e2e;
     padding-top: 0px;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
 
 }
 
@@ -542,29 +542,10 @@ div.form-group{
     padding-top: 3.5em;
 }
 
-/*div.label-content {
-    padding-left: 20px;
-    padding-right: 20px;
-    overflow: hidden;
-    -moz-box-shadow: inset 0 -23px 23px -23px #f6f6f6;
-    -webkit-box-shadow: inset 0 -23px 23px -23px #f6f6f6;
-    box-shadow: inset 0 -23px 23px -23px #f6f6f6;
-}
-*/
 div.label-content {
     padding-left: 20px;
     padding-right: 20px;
     overflow: hidden;
-    -moz-box-shadow: inset 0 -23px 23px -23px #acacac;
-    -webkit-box-shadow: inset 0 -23px 23px -23px #acacac;
-    box-shadow: inset 0 -23px 23px -23px #acacac;
-}
-
-p#labeling-dosage-label.text-fade.ng-binding {
-/*   -moz-box-shadow:    inset 0 0 5px 0 #bf2726;
-   -webkit-box-shadow: inset 0 0 5px 0 #bf2726;
-   box-shadow:         inset 0 0 5px 0 #bf2726;*/
-
 }
 
 
@@ -580,8 +561,19 @@ p#labeling-dosage-label.text-fade.ng-binding {
     p.text-fade.ng-binding {
         font-size: 14px !important;
     }
-    div.label-content.wow.fadeIn {
-        max-height: 150px;
+    div.label-content#warning-div {
+        max-height:200px;
+        content: "";
+        background: -webkit-linear-gradient(top,#f6f6f6 170px, #bf2726);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+    }
+    div.label-content {
+        max-height:200px;
+        content: "";
+        background: -webkit-linear-gradient(top,#2e2e2e 170px, #f6f6f6);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
     }
 }
 
@@ -598,7 +590,7 @@ p#labeling-dosage-label.text-fade.ng-binding {
         font-size: 13px !important;
     }
     div.label-content.wow.fadeIn {
-        max-height: 100px;
+        max-height: 180px;
     }
 }
 
@@ -619,12 +611,16 @@ p#labeling-dosage-label.text-fade.ng-binding {
         font-size: 12px !important;
     }
     div.label-content.wow.fadeIn {
-        max-height: 50px;
+        max-height: 150px;
     }
 }
 
 .label-hr {
     width: 100%;
+}
+
+.label-hr#hr-grey {
+    border-top: 1px solid #2e2e2e;
 }
 
 div.label-content .text-fade {
@@ -652,6 +648,7 @@ div.warning-col {
 }
 
 .modal-btn {
+    margin-top: 15px;
     margin-right: 100px;
 }
 
@@ -666,6 +663,7 @@ div.warning-col {
 #warning-btn {
     background-color: #f6f6f6;
     color: #bf2726;
+    margin-right: 70px;
 }
 
 /*ADVERSE EVENT SECTION*/

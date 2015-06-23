@@ -74,7 +74,7 @@
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline">
                     <div class="form-group ">
-                        <input id="input-drug" type="text" class="form-control" placeholder="List your prescriptions" ng-model="query">
+                        <input id="input-drug" type="text" class="form-control" placeholder="List your prescriptions" ng-model="query" autofocus>
                     </div>
                     <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()' >Search</button>
                 </form>
@@ -90,7 +90,7 @@
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo">
                     <div class="label-content wow fadeIn">
                    		<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
-                   		<hr class="label-hr">
+                   		<hr class="label-hr" id="hr-grey">
                    		<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
                		</div>           
 
@@ -117,9 +117,9 @@
     	     </div>
     	     
     	     <div class="col-sm-4 warning-col">
-                <h1 class="text-center label-heading"><span><img src="img/warning32.png" href="" alt"warning"/></span> &nbsp; WARNINGS: </h1>
+                <h1 class="text-center label-heading"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> &nbsp; WARNINGS: </h1>
                	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
-	                <div class="label-content wow fadeIn" >
+	                <div class="label-content wow fadeIn" id="warning-div">
                     	<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
                     	<hr class="label-hr">
                     	<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
