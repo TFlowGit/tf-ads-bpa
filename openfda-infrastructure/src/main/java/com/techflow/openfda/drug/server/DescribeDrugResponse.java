@@ -148,6 +148,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.indicationsAndUsage = indicationsAndUsage;
 	}
 
+	@JsonIgnore
 	boolean isNotFound()
 	{
 		return notFound;

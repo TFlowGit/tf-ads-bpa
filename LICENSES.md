@@ -43,6 +43,7 @@ including software products used for building our infrastructure.
 | Tools                   | Puppet timezone module  | [Apache 2.0](https://forge.puppetlabs.com/saz/timezone/license)                                | Configuration Management       |                                                              |
 | Tools                   | Puppet zypprepo module  | [Apache 2.0](https://forge.puppetlabs.com/darin/zypprepo)                                      | Configuration Management       |                                                              |
 | Tools                   | Vagrant                 | [MIT](https://github.com/mitchellh/vagrant/blob/master/LICENSE)                                | Local development testing      |                                                              |
+| Tools                   | Swagger                 | [Apache 2.0](https://github.com/swagger-api/swagger-ui/blob/master/LICENSE)                                | REST API Documentation      |                                                              |
 
 ## Media
 
