@@ -38,11 +38,13 @@ a {
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+    
 }
 
 a:hover,
 a:focus {
     color: #eb3812;
+
 }
 
 h1,
@@ -135,7 +137,7 @@ aside {
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color:#bf2726!important;
+    color:#bf2726 !important;
     background-color: transparent;
 }
 
@@ -613,6 +615,7 @@ div.label-content {
     div.label-content.wow.fadeIn {
         max-height: 150px;
     }
+    
 }
 
 .label-hr {
@@ -684,10 +687,24 @@ div.warning-col {
 
 /*FOOTER SECTION*/
 .footer {
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    height: 60px;
+    /* background-color: #2e2e2e; */
     background-color: #2e2e2e;
     border-top: thick black;
+    marigin-bottom: 5px;
+    text-align: center;
+    bottom: auto;
+}
+
+.footer-menu{
+	text-transform: uppercase;
+  	font-size: 13px;
+  	padding-top: 10px;
+  	font-family: Arial;
+  	font-weight: bold;
+}
+#disclaimer{
+	font-size: 12px;
+	font-style: italic;
+	padding-top: 10px;
 }
