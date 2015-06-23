@@ -12,8 +12,9 @@ import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.techflow.openfda.GatewayException;
 import com.techflow.openfda.drug.client.OpenFdaDrugLabel.OpenFdaDrugLabelResult;
-import com.techflow.openfda.drugs.DrugEffect;
+import com.techflow.openfda.drugs.DrugEvent;
 import com.techflow.openfda.drugs.DrugLabel;
+import com.techflow.openfda.drugs.Seriousness;
 
 /**
  * OpenFDA API gateway.
@@ -55,6 +56,7 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 					drugLabel.setBrandName(getZeroeth(results.openfda.brand_name));
 					drugLabel.setGenericName(getZeroeth(results.openfda.generic_name));
 					drugLabel.setManufacturerName(getZeroeth(results.openfda.manufacturer_name));
+					drugLabel.setProductNdc(getZeroeth(results.openfda.product_ndc));
 				}
 			}
 
@@ -73,9 +75,22 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 	 * {@inheritDoc}
 	 */
 	@Override
-	public DrugEffect getEffects(String name) throws GatewayException
+	public DrugEvent getEvents(String productNdc, Seriousness s) throws GatewayException
 	{
-		return null;
+		try {
+			final HttpRequestFactory requestFactory = createRequestFactory();
+			final GenericUrl url = new DrugEventUrl(productNdc, s.key());
+			final HttpRequest request = requestFactory.buildGetRequest(url);
+			final OpenFdaDrugEvent jsonEvent = request.execute().parseAs(OpenFdaDrugEvent.class);
+
+			final DrugEvent adverseEvent = new DrugEvent();
+			adverseEvent.setCount(jsonEvent.meta.results.total);
+			adverseEvent.setSeriousness(s.key());
+
+			return adverseEvent;
+		} catch (final Exception e) {
+			throw new GatewayException(e);
+		}
 	}
 
 	/**
@@ -111,15 +126,28 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 		}
 	}
 
+	static final String OPENFDA_ENDPOINT = "https://api.fda.gov";
+
 	/**
 	 * A HttpRequestInitializer for Json requests.
 	 */
 	private final class DrugLabelUrl extends GenericUrl
 	{
-		static final String endpoint = "https://api.fda.gov";
-
 		public DrugLabelUrl(String drugName) {
-			super(endpoint + "/drug/label.json?search=brand_name:\"" + drugName + "\"+generic_name:\"" + drugName + "\"");
+			super(OPENFDA_ENDPOINT + "/drug/label.json?search=brand_name:\"" + drugName + "\"+generic_name:\"" + drugName + "\"");
+		}
+	}
+
+	/**
+	 * A HttpRequestInitializer for Json requests.
+	 */
+	private final class DrugEventUrl extends GenericUrl
+	{
+		public DrugEventUrl(String productNdc, String seriousness)
+		{
+			super(OPENFDA_ENDPOINT +
+					"/drug/event.json?search=patient.drug.openfda.product_ndc:" + productNdc +
+					"+AND+" + seriousness + ":1");
 		}
 	}
 }
