@@ -10,17 +10,6 @@ import org.junit.After;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import com.techflow.openfda.steps.SearchSteps;
-// Note: please save imports for later use:
-// import java.io.IOException;
-// import java.util.concurrent.TimeUnit;
-// import org.apache.commons.httpclient.Credentials;
-// import org.apache.commons.httpclient.Header;
-// import org.apache.commons.httpclient.HttpClient;
-// import org.apache.commons.httpclient.HttpException;
-// import org.apache.commons.httpclient.HttpMethod;
-// import org.apache.commons.httpclient.UsernamePasswordCredentials;
-// import org.apache.commons.httpclient.auth.AuthScope;
-// import org.apache.commons.httpclient.methods.GetMethod;
 
 @RunWith(SerenityRunner.class)
 public class WhenSearching
