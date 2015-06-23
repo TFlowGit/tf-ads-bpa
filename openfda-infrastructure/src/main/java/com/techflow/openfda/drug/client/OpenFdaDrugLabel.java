@@ -55,6 +55,9 @@ public class OpenFdaDrugLabel
 
 			@Key
 			public String[] manufacturer_name;
+
+			@Key
+			public String[] product_ndc;
 		}
 	}
 }
