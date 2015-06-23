@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "web" do |web|
     web.vm.network "forwarded_port", guest: 80, host: 8080
     
-    web.vm.network "private_network", ip: "192.168.33.8"
+    web.vm.network "private_network", ip: "172.31.22.173"
     
     web.vm.provider "virtualbox" do |vb|
       #   # Display the VirtualBox GUI when booting the machine
@@ -30,7 +30,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "build" do |build|
     build.vm.network "forwarded_port", guest: 8080, host: 8081
     
-    build.vm.network "private_network", ip: "192.168.33.9"
+    build.vm.network "private_network", ip: "192.168.1.96"
     
     build.vm.provider "virtualbox" do |vb|
       #   # Display the VirtualBox GUI when booting the machine
@@ -54,7 +54,7 @@ Vagrant.configure(2) do |config|
     app.vm.network "forwarded_port", guest: 8080, host: 8082
     
     
-    app.vm.network "private_network", ip: "192.168.33.10"
+    app.vm.network "private_network", ip: "172.31.58.65"
     
     app.vm.provider "virtualbox" do |vb|
       #   # Display the VirtualBox GUI when booting the machine

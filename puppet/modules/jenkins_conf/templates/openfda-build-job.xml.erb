@@ -1,9 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<maven2-moduleset plugin="maven-plugin@2.7.1">
+<maven2-moduleset plugin="maven-plugin@2.10">
   <actions/>
-  <description>OpenFDA ADS BPA Project</description>
+  <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.11.3">
+      <projectUrl>https://github.com/TFlowGit/tf-ads-bpa/</projectUrl>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+  </properties>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.5">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
@@ -26,6 +30,9 @@
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.11.3">
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
       <spec>H/5 * * * *</spec>
       <ignorePostCommitHooks>false</ignorePostCommitHooks>
@@ -52,14 +59,87 @@
   <settings class="jenkins.mvn.DefaultSettingsProvider"/>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters/>
-  <publishers/>
+  <publishers>
+    <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.9.7">
+      <coberturaReportFile>**/target/site/cobertura/coverage.xml</coberturaReportFile>
+      <onlyStable>false</onlyStable>
+      <failUnhealthy>false</failUnhealthy>
+      <failUnstable>false</failUnstable>
+      <autoUpdateHealth>false</autoUpdateHealth>
+      <autoUpdateStability>false</autoUpdateStability>
+      <zoomCoverageChart>false</zoomCoverageChart>
+      <maxNumberOfBuilds>0</maxNumberOfBuilds>
+      <failNoReports>true</failNoReports>
+      <healthyTarget>
+        <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>METHOD</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>8000000</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>LINE</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>8000000</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>CONDITIONAL</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>7000000</int>
+          </entry>
+        </targets>
+      </healthyTarget>
+      <unhealthyTarget>
+        <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>METHOD</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>0</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>LINE</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>0</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>CONDITIONAL</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>0</int>
+          </entry>
+        </targets>
+      </unhealthyTarget>
+      <failingTarget>
+        <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>METHOD</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>0</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>LINE</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>0</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>CONDITIONAL</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>0</int>
+          </entry>
+        </targets>
+      </failingTarget>
+      <sourceEncoding>ASCII</sourceEncoding>
+    </hudson.plugins.cobertura.CoberturaPublisher>
+    <com.cloudbees.jenkins.GitHubCommitNotifier plugin="github@1.11.3">
+      <resultOnFailure>FAILURE</resultOnFailure>
+    </com.cloudbees.jenkins.GitHubCommitNotifier>
+  </publishers>
   <buildWrappers/>
   <prebuilders/>
-  <postbuilders/>
+  <postbuilders>
+    <hudson.tasks.Shell>
+      <command>JAR_FILE=openfda-web-1.0-SNAPSHOT.jar
+SSH_KEY=/var/lib/jenkins/tf-ads-bpa.key
+DEPLOY_DIR=/home/tf-ads-bpa/app/
+APP_HOST=172.31.58.65
+scp -i ${SSH_KEY} ${WORKSPACE}/openfda-web/target/${JAR_FILE} tf-ads-bpa@${APP_HOST}:${DEPLOY_DIR}
+ssh -i ${SSH_KEY} tf-ads-bpa@${APP_HOST} -t -t &apos;sudo /sbin/restart tf-ads-bpa&apos;</command>
+    </hudson.tasks.Shell>
+  </postbuilders>
   <runPostStepsIfResult>
-    <name>FAILURE</name>
-    <ordinal>2</ordinal>
-    <color>RED</color>
+    <name>UNSTABLE</name>
+    <ordinal>1</ordinal>
+    <color>YELLOW</color>
     <completeBuild>true</completeBuild>
   </runPostStepsIfResult>
 </maven2-moduleset>
