@@ -1,5 +1,8 @@
 package com.techflow.openfda.drug.server;
 
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.techflow.openfda.drug.usecase.FindDrugResponse;
 
 public class DescribeDrugResponse implements FindDrugResponse
@@ -33,6 +36,8 @@ public class DescribeDrugResponse implements FindDrugResponse
 	private String manufacturerName;
 
 	boolean notFound;
+
+	private DrugEventResponse drugEvents;
 
 	public String getPurpose()
 	{
@@ -197,5 +202,23 @@ public class DescribeDrugResponse implements FindDrugResponse
 	public void setManufacturerName(String manufacturerName)
 	{
 		this.manufacturerName = manufacturerName;
+	}
+
+	public DrugEventResponse getEvents()
+	{
+		return drugEvents;
+	}
+
+	@JsonIgnore
+	@Override
+	public void setEvents(Map<String, Integer> drugEffects)
+	{
+		this.drugEvents = new DrugEventResponse(drugEffects);
+	}
+
+	@JsonProperty("events")
+	public void setEvents(DrugEventResponse drugEvents)
+	{
+		this.drugEvents = drugEvents;
 	}
 }
