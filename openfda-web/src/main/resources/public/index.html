@@ -56,9 +56,9 @@
                     <li>
                         <a class="page-scroll" href="#labeling">Labeling Information</a>
                     </li>
-                    <!-- <li>
+                    <li>
                         <a class="page-scroll" href="#adverse">Adverse Events</a>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -86,7 +86,7 @@
 
     <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
             <div class="col-sm-8 label-col">
-                <h1 class="text-center label-heading" id="drug-name">{{result.name}}</h1>
+                <h1 class="text-center label-heading wow fadeIn" id="drug-name">{{result.name}}</h1>
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo">
                     <div class="label-content wow fadeIn">
                    		<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
@@ -114,10 +114,11 @@
                       </div>
                     </div>
     	         </div>
+                 <br><br>
     	     </div>
     	     
     	     <div class="col-sm-4 warning-col">
-                <h1 class="text-center label-heading"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> &nbsp; WARNINGS: </h1>
+                <h1 class="text-center label-heading wow fadeIn"><!-- <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> --> <span><i class="fa fa-warning"></i></span>&nbsp; WARNINGS: </h1>
                	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
 	                <div class="label-content wow fadeIn" id="warning-div">
                     	<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
@@ -144,27 +145,169 @@
                       </div>
                     </div>
                 </div>
+                 <br><br>
              </div>
     </section>
-    <!--section class="bg-primary" id="adverse" ng-show="infoxVisibility">
-        <div class="container">
+
+    <section class="bg-primary" id="adverse" ng-show="infoVisibility">
+        <h1 id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h1 class="section-heading">Adverse Events</h1>                 
+                <div class="col-lg-6 col-sm-6">
+                    <img src="http://smashburger.securetree.com/Content/img/600x377_Placeholder.png" alt="placeholder">
+                </div>
+                <div class="event-total col-lg-6 col-sm-6 pull-right ">
+                    <h1 class="big-num wow fadeIn">450,790</h1>
+                    <hr class="hr-num">
+                    <h2 class="small-num wow fadeIn">Total Adverse Events</h2>
+                </div>
+            </div>    
+            <div class="row event-row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-ambulance fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div>Hospitalizations</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View More</span>
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-heartbeat fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div>Deaths</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View More</span>
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-venus-mars fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div>Congenital Anomalies</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View More</span>
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-stethoscope fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div>Life Threatening</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View More</span>
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-stethoscope fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div>Life Threatening</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View More</span>
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-stethoscope fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div>Life Threatening</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View More</span>
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="panel panel-default">
-                    <div class="panel-body"><h1 class="tall-percent">10%</h1></div>
-                    <div class="panel-heading"><h3 class="panel-title">have experienced an adverse event from Drug XYZ.</h3></div>
-                    </div>   
-
-                </div>
-            </div>
-        </div>
-
-    </section-->
+    </section>
 
     <footer class="footer" ng-show="infoVisibility">
         <div class="container">

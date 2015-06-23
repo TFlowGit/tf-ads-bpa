@@ -69,7 +69,6 @@ p {
     padding-top: 0px;
     padding-left: 2px;
     padding-right: 2px;
-
 }
 
 
@@ -669,18 +668,58 @@ div.warning-col {
 /*ADVERSE EVENT SECTION*/
 
 .bg-primary#adverse {
-    background-color: #f6f6f6;
+    background-color: #2e2e2e;
     opacity: .9;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-.tall-percent {
-    font-size: 3em;
+#adverse-heading {
+    color: #f6f6f6;
+    font-size: 2em;
+    margin-left: 2em;
+    margin-bottom: 2em;
 }
 
-.panel.panel-default {
-    background-color: #bf2726;
+span#subheading {
+    color: #bf2726 !important;
+    opacity: .9;
+    font-size: 1em;
 }
 
+.huge {
+    font-size: 40px;
+}
+
+.event-row {
+    margin-top: 1em;
+    margin-bottom: 4em;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.event-total {
+    padding-right: 5em;
+}
+
+.big-num {
+    font-size: 15em !important;
+    color: #f6f6f6;
+    text-align: right;
+}
+
+.hr-num {
+    border-color:#bf2726;
+    border-width: 4px;
+    width: 75%;
+    margin-right: 0px;
+}
+
+.small-num {
+    font-size: 4em;
+    color: #bf2726;
+    text-align: right;
+}
 
 /*FOOTER SECTION*/
 .footer {
