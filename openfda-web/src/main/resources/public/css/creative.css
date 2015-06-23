@@ -546,16 +546,6 @@ div.label-content {
     padding-left: 20px;
     padding-right: 20px;
     overflow: hidden;
-    -moz-box-shadow: inset 0 -23px 23px -23px #acacac;
-    -webkit-box-shadow: inset 0 -23px 23px -23px #acacac;
-    box-shadow: inset 0 -23px 23px -23px #acacac;
-}
-
-p#labeling-dosage-label.text-fade.ng-binding {
-/*   -moz-box-shadow:    inset 0 0 5px 0 #bf2726;
-   -webkit-box-shadow: inset 0 0 5px 0 #bf2726;
-   box-shadow:         inset 0 0 5px 0 #bf2726;*/
-
 }
 
 
@@ -571,8 +561,19 @@ p#labeling-dosage-label.text-fade.ng-binding {
     p.text-fade.ng-binding {
         font-size: 14px !important;
     }
-    div.label-content.wow.fadeIn {
-        max-height: 210px;
+    div.label-content#warning-div {
+        max-height:200px;
+        content: "";
+        background: -webkit-linear-gradient(top,#f6f6f6 170px, #bf2726);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+    }
+    div.label-content {
+        max-height:200px;
+        content: "";
+        background: -webkit-linear-gradient(top,#2e2e2e 170px, #f6f6f6);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
     }
 }
 
