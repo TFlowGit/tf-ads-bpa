@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Drug &amp; Adverse Reaction Information</a>
+                <a class="navbar-brand page-scroll" href="#page-top">DARI</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -72,7 +72,7 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 class="wow pulse">Prescribed Risks</h1>
+                <h1 class="wow pulse">Drug &amp; Adverse Reaction Information</h1>
                 <hr class="header-hr">
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline">
@@ -88,7 +88,7 @@
     </header>
 
     <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
-            <div class="col-lg-8 label-col">
+            <div class="col-sm-8 label-col">
                 <h1 class="text-center label-heading" id="drug-name">{{result.name}}</h1>
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo">
                     <div class="label-content wow fadeIn">

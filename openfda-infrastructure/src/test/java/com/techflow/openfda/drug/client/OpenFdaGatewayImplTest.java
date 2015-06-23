@@ -30,7 +30,7 @@ public class OpenFdaGatewayImplTest
 				equalTo("GET"));
 		assertThat(
 				transport.getUrl(),
-				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:aspirin%20generic_name:aspirin"));
+				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:%22aspirin%22%20generic_name:%22aspirin%22"));
 		assertThat(
 				drug.getAskDoctor(),
 				equalTo("Ask a doctor before use if stomach bleeding warning applies to you you have a history of stomach problems, such as heartburn you have high blood pressure, heart disease, liver cirrhosis, or kidney disease you are taking a diuretic you have asthma"));
@@ -79,7 +79,7 @@ public class OpenFdaGatewayImplTest
 				equalTo("GET"));
 		assertThat(
 				transport.getUrl(),
-				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:sudafed%20generic_name:sudafed"));
+				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:%22sudafed%22%20generic_name:%22sudafed%22"));
 		assertThat(
 				drug.getIndicationsAndUsage(),
 				equalTo("Use temporarily relieves nasal congestion due to the common cold, hay fever or other upper respiratory allergies"));
