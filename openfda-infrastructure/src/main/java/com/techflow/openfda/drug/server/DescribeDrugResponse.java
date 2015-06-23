@@ -1,5 +1,6 @@
 package com.techflow.openfda.drug.server;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -39,6 +40,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 
 	private DrugEventResponse drugEvents;
 
+	@ApiModelProperty(value = "The purpose of the drug")
 	public String getPurpose()
 	{
 		return purpose;
@@ -50,6 +52,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.purpose = purpose;
 	}
 
+	@ApiModelProperty(value = "Dosage information")
 	public String getDosage()
 	{
 		return dosage;
@@ -61,6 +64,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.dosage = dosage;
 	}
 
+	@ApiModelProperty(value = "Active ingredients")
 	public String getActive()
 	{
 		return active;
@@ -72,6 +76,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.active = active;
 	}
 
+	@ApiModelProperty(value = "Inactive ingredients")
 	public String getInactive()
 	{
 		return inactive;
@@ -83,6 +88,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.inactive = inactive;
 	}
 
+	@ApiModelProperty(value = "Warning label")
 	public String getWarnings()
 	{
 		return warnings;
@@ -94,6 +100,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.warnings = warnings;
 	}
 
+	@ApiModelProperty(value = "When not to use the drug")
 	public String getDoNotUse()
 	{
 		return doNotUse;
@@ -105,6 +112,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.doNotUse = doNotUse;
 	}
 
+	@ApiModelProperty(value = "When to stop usage of the drug")
 	public String getStopUse()
 	{
 		return stopUse;
@@ -116,6 +124,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.stopUse = stopUse;
 	}
 
+	@ApiModelProperty(value = "Questions to ask your doctor")
 	public String getAskDoctor()
 	{
 		return askDoctor;
@@ -127,6 +136,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.askDoctor = askDoctor;
 	}
 
+	@ApiModelProperty(value = "Indications and usage")
 	public String getIndicationsAndUsage()
 	{
 		return indicationsAndUsage;
@@ -149,6 +159,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.notFound = notFound;
 	}
 
+	@ApiModelProperty(value = "The brand name of the drug")
 	public String getBrandName()
 	{
 		return brandName;
@@ -160,6 +171,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.brandName = brandName;
 	}
 
+	@ApiModelProperty(value = "The generic name of the drug")
 	public String getGenericName()
 	{
 		return genericName;
@@ -171,6 +183,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.genericName = genericName;
 	}
 
+	@ApiModelProperty(value = "Questions to ask your doctor or pharmacist")
 	public String getAskDoctorOrPharmacist()
 	{
 		return askDoctorOrPharmacist;
@@ -182,6 +195,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.askDoctorOrPharmacist = askDoctorOrPharmacist;
 	}
 
+	@ApiModelProperty(value = "Adverse reactions")
 	public String getAdverseReactions()
 	{
 		return adverseReactions;
@@ -193,6 +207,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.adverseReactions = adverseReactions;
 	}
 
+	@ApiModelProperty(value = "The manufacturer of the drug")
 	public String getManufacturerName()
 	{
 		return manufacturerName;
@@ -204,6 +219,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.manufacturerName = manufacturerName;
 	}
 
+	@ApiModelProperty(value = "Adverse events related to the drug")
 	public DrugEventResponse getEvents()
 	{
 		return drugEvents;

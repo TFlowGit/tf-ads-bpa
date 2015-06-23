@@ -1,5 +1,6 @@
 package com.techflow.openfda.drug.server;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.util.Map;
 import com.techflow.openfda.drugs.Seriousness;
 
@@ -17,6 +18,7 @@ public class DrugEventResponse
 
 	private int other;
 
+	@ApiModelProperty(value = "Count of congenital anomalis")
 	public int getCongenitalAnomali()
 	{
 		return congenitalAnomali;
@@ -27,6 +29,7 @@ public class DrugEventResponse
 		this.congenitalAnomali = congenitalAnomali;
 	}
 
+	@ApiModelProperty(value = "Count of deaths")
 	public int getDeath()
 	{
 		return death;
@@ -37,6 +40,7 @@ public class DrugEventResponse
 		this.death = death;
 	}
 
+	@ApiModelProperty(value = "Count of disabling events")
 	public int getDisabling()
 	{
 		return disabling;
@@ -47,6 +51,7 @@ public class DrugEventResponse
 		this.disabling = disabling;
 	}
 
+	@ApiModelProperty(value = "Count of hospitalizations")
 	public int getHospitialization()
 	{
 		return hospitalization;
@@ -57,6 +62,7 @@ public class DrugEventResponse
 		this.hospitalization = hospitalization;
 	}
 
+	@ApiModelProperty(value = "Count of life threatening events")
 	public int getLifeThreatening()
 	{
 		return lifeThreatening;
@@ -67,6 +73,7 @@ public class DrugEventResponse
 		this.lifeThreatening = lifeThreatening;
 	}
 
+	@ApiModelProperty(value = "Count of other events")
 	public int getOther()
 	{
 		return other;
