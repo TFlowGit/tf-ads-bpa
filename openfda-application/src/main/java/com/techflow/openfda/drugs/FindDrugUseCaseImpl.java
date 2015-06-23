@@ -1,5 +1,7 @@
 package com.techflow.openfda.drugs;
 
+import java.util.HashMap;
+import java.util.Map;
 import com.techflow.openfda.GatewayException;
 import com.techflow.openfda.drug.client.OpenFdaGateway;
 import com.techflow.openfda.drug.usecase.BaseUseCase;
@@ -9,16 +11,16 @@ import com.techflow.openfda.drug.usecase.FindDrugUseCase;
 
 public class FindDrugUseCaseImpl extends BaseUseCase<FindDrugRequest, FindDrugResponse> implements FindDrugUseCase
 {
-	private final OpenFdaGateway mockFdaGateway;
+	private final OpenFdaGateway openFdaGateway;
 
 	public FindDrugUseCaseImpl(OpenFdaGateway mockFdaGateway) {
-		this.mockFdaGateway = mockFdaGateway;
+		this.openFdaGateway = mockFdaGateway;
 	}
 
 	@Override
 	public void execute() throws GatewayException
 	{
-		final DrugLabel drug = mockFdaGateway.getLabel(request.getName());
+		final DrugLabel drug = openFdaGateway.getLabel(request.getName());
 
 		if (drug == null) {
 			response.setNotFound(true);
@@ -39,5 +41,17 @@ public class FindDrugUseCaseImpl extends BaseUseCase<FindDrugRequest, FindDrugRe
 		response.setWarnings(drug.getWarnings());
 		response.setAdverseReactions(drug.getAdverseReactions());
 		response.setManufacturerName(drug.getManufacturerName());
+
+		final Map<String, Integer> drugEffects = new HashMap<String, Integer>();
+		for (final Seriousness seriousness : Seriousness.values()) {
+			final String productNdc = drug.getProductNdc();
+			final String key = seriousness.key();
+			final DrugEvent events = openFdaGateway.getEvents(productNdc, seriousness);
+			final int count = events.getCount();
+
+			drugEffects.put(key, count);
+		}
+
+		response.setEvents(drugEffects);
 	}
 }
