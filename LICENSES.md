@@ -36,7 +36,7 @@ including software products used for building our infrastructure.
 | Library                 | Spring 4.1.3            | [Apache 2.0](http://spring.io/)                                                                | Java Programming                |                                                             |
 | Library                 | Springboot 1.2.3        | [Apache 2.0](http://spring.io/)                                                                | Server Environment              |                                                             |
 | Library                 | Apache Tomcat 8.0.20    | [Apache 2.0](http://tomcat.apache.org/legal.html)                                              | Server Environment              |                                                             |
-
+| Library				  | Angular Smooth Scroll 1.7.1	| [MIT] (https://github.com/d-oliveros/ngSmoothScroll)										 | Angular smooth scrolling		   |															 |
 
 ## Summary of licenses used
 

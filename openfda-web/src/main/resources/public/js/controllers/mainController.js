@@ -18,7 +18,8 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  inactive: "Inactive Ingrdients",
 	  warnings: "Warnings",
 	  askDoctorOrPharmacist: "Ask Doctor or Pharmacist",
-	  stopUse: "Stop Use"
+	  stopUse: "Stop Use",
+	  manufacturerName : "Manufacturer"
   };
   
   $scope.searchDrug = function() {
