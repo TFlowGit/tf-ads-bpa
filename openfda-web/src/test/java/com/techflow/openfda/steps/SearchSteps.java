@@ -67,7 +67,7 @@ public class SearchSteps extends ScenarioSteps
 		try {
 			assertThat(
 					drugPage.getAskDoctor(),
-					is("Directions do not exceed recommended dosage drink a full glass of water with each dose adults and children 12 years of age and over: take 4 to 8 tablets every 4 hours not to exceed 48 tablets in 24 hours, unless directed by a doctor children under 12 years of age: consult a doctor"));
+					is("Ask a doctor before use if stomach bleeding warning applies to you you have a history of stomach problems, such as heartburn you have high blood pressure, heart disease, liver cirrhosis, or kidney disease you are taking a diuretic you have asthma"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
