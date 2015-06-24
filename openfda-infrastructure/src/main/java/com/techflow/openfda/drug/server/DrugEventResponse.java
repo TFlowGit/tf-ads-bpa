@@ -2,9 +2,10 @@ package com.techflow.openfda.drug.server;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Map;
+import com.techflow.openfda.drug.usecase.ListDrugEventsResponse;
 import com.techflow.openfda.drugs.Seriousness;
 
-public class DrugEventResponse
+public class DrugEventResponse implements ListDrugEventsResponse
 {
 	private int congenitalAnomali;
 
@@ -88,6 +89,17 @@ public class DrugEventResponse
 	}
 
 	public DrugEventResponse(Map<String, Integer> drugEvents) {
+		congenitalAnomali = get(drugEvents, Seriousness.CONGENITAL_ANOMALI);
+		death = get(drugEvents, Seriousness.DEATH);
+		disabling = get(drugEvents, Seriousness.DISABLING);
+		hospitalization = get(drugEvents, Seriousness.HOSPITALIZATION);
+		lifeThreatening = get(drugEvents, Seriousness.LIFE_THREATENING);
+		other = get(drugEvents, Seriousness.OTHER);
+	}
+
+	@Override
+	public void setEvents(Map<String, Integer> drugEvents)
+	{
 		congenitalAnomali = get(drugEvents, Seriousness.CONGENITAL_ANOMALI);
 		death = get(drugEvents, Seriousness.DEATH);
 		disabling = get(drugEvents, Seriousness.DISABLING);

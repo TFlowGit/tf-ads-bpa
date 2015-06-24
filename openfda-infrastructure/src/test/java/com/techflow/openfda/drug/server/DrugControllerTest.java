@@ -74,13 +74,7 @@ public class DrugControllerTest
 		assertThat(response.getStopUse(), equalTo("stop use"));
 		assertThat(response.getAdverseReactions(), equalTo("adverse reactions"));
 		assertThat(response.getManufacturerName(), equalTo("manufacturer name"));
-
-		assertThat(response.getEvents().getCongenitalAnomali(), equalTo(5));
-		assertThat(response.getEvents().getDeath(), equalTo(10));
-		assertThat(response.getEvents().getDisabling(), equalTo(13));
-		assertThat(response.getEvents().getHospitialization(), equalTo(17));
-		assertThat(response.getEvents().getLifeThreatening(), equalTo(25));
-		assertThat(response.getEvents().getOther(), equalTo(30));
+		assertThat(response.getProductNdc(), equalTo(MockOpenFdaGateway.ASPIRIN_NDC));
 	}
 
 	@Test
@@ -143,7 +137,7 @@ public class DrugControllerTest
 		assertThat(response.getMessage(), equalTo("Error communicating with OpenFDA API"));
 	}
 
-	private static <T> T mapResponse(final MockHttpServletResponse response, Class<T> clazz) throws UnsupportedEncodingException, IOException, JsonParseException, JsonMappingException
+	static <T> T mapResponse(final MockHttpServletResponse response, Class<T> clazz) throws UnsupportedEncodingException, IOException, JsonParseException, JsonMappingException
 	{
 		final String json = response.getContentAsString();
 		final T object = map(json, clazz);

@@ -26,13 +26,8 @@ public class WhenSearching
 	@Test
 	public void shouldCalculatePointsBasedOnDistance()
 	{
-
 		user.searchesFor("aspirin");
-
-		// Note: please save commented lines for later debug/devel use.
-		// driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		user.shouldSeeLabelFor("aspirin");
-		// driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		user.shouldSeeLabelFor("aspirin", driver);
 	}
 
 	/**

@@ -24,6 +24,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/loaders.css" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,17 +51,28 @@
                 <a class="navbar-brand page-scroll" href="#page-top">DARI</a>
             </div>
 
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul ng-show="infoVisibility"  class="nav navbar-nav navbar-right">
                     <li>
                         <a class="page-scroll" href="#labeling">Labeling Information</a>
                     </li>
-                    <!-- <li>
+                    <li>
                         <a class="page-scroll" href="#adverse">Adverse Events</a>
-                    </li> -->
+                    </li>
                     <li>
                     	<a class="page-scroll" href="#disclaimer">Disclaimer</a>
+                    </li>
+                    <li>
+                        <form class="form-inline">
+                          <div class="form-group search-nav">
+                            <div class="input-group">
+                              <input id="input-drug" type="text" class="form-control search-control" placeholder="Enter a drug..." ng-model="query">
+                              <div class="input-group-addon" type="submit" ng-click="searchDrug()"><i class="fa fa-search" ></i></div>
+                            </div>
+                          </div>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -75,21 +87,28 @@
                 <h1 class="wow pulse">Drug &amp; Adverse Reaction Information</h1>
                 <hr class="header-hr">
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
-                <form class="form-inline">
+                <form class="form-inline" ng-show="searchBarVisibility">
                     <div class="form-group ">
-                        <input id="input-drug" type="text" class="form-control" placeholder="List your prescriptions" ng-model="query" autofocus>
+                        <input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus>
                     </div>
-                    <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()' >Search</button>
+                    <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()'>Search</button>
                 </form>
                 <br>
-   				<h3 class="warning">{{queryFailedMsg}}</h3>
+                <div class="loader-inner ball-pulse" ng-show="loading">
+                	<div></div>
+                	<div></div>
+                	<div></div>
+                	<div></div>
+                	<div></div>
+                </div>
+   				<h3 class="warning ng-cloak">{{queryFailedMsg}}</h3>
             </div>
         </div>
     </header>
 
     <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
             <div class="col-sm-8 label-col">
-                <h1 class="text-center label-heading" id="drug-name">{{result.name}}</h1>
+                <h1 class="text-center label-heading wow fadeIn" id="drug-name">{{result.name}}</h1>
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo">
                     <div class="label-content wow fadeIn">
                    		<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
@@ -98,7 +117,7 @@
                		</div>           
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}">
+                    <button id="btn-more-{{key}}" type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}">
                       Read More
                     </button>
                     <!-- Modal -->
@@ -109,25 +128,26 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title" id="labeling-{{key}}">{{headers[key]}}</h4>
                           </div>
-                          <div class="modal-body" id="labeling-{{key}}-label">{{label}}</div>
+                          <div class="modal-body" id="labeling-{{key}}-modal">{{label}}</div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            <button id="btn-close-{{key}}" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                           </div>
                         </div>
                       </div>
                     </div>
     	         </div>
+                 <br><br>
     	     </div>
     	     
     	     <div class="col-sm-4 warning-col">
-                <h1 class="text-center label-heading"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> &nbsp; WARNINGS: </h1>
+                <h1 class="text-center label-heading wow fadeIn"><!-- <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> --> <span><i class="fa fa-warning fa-lg"></i></span>&nbsp; WARNINGS: </h1>
                	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
 	                <div class="label-content wow fadeIn" id="warning-div">
                     	<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
                     	<hr class="label-hr">
                     	<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
 	                </div>
-                    <button type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}" id="warning-btn">
+                    <button id="btn-more-{{key}}" type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}" id="warning-btn">
                       Read More
                     </button>
 
@@ -139,35 +159,123 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title" id="labeling-{{key}}">{{headers[key]}}</h4>
                           </div>
-                          <div class="modal-body" id="labeling-{{key}}-label">{{label}}</div>
+                          <div class="modal-body" id="labeling-{{key}}-modal">{{label}}</div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            <button id="btn-close-{{key}}" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                           </div>
                         </div>
                       </div>
                     </div>
                 </div>
+                 <br><br>
              </div>
     </section>
-    <!--section class="bg-primary" id="adverse" ng-show="infoxVisibility">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h1 class="section-heading">Adverse Events</h1>                 
+
+    <section class="bg-primary" id="adverse" ng-show="infoVisibility">
+        <h1 id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
+            <div class="row plot-row">
+                <div class="plot col-lg-6 ">
+                    <img src="http://smashburger.securetree.com/Content/img/600x377_Placeholder.png" alt="placeholder">
+                </div>
+                <div class="event-total col-lg-6 text-center">
+                    <h1 class="big-num wow fadeIn">450,790</h1>
+                    <hr class="hr-num">
+                    <h2 class="small-num wow fadeIn">Total Adverse Events</h2>
+                </div>
+            </div>    
+            <div class="row event-row">
+                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-death">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3"><br>
+                                    <i class="fa fa-heartbeat fa-4x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div class="small">Deaths</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-congenital">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3"><br>
+                                    <i class="fa fa-venus-mars fa-4x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div class="small">Congenital Anomalies</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-hospital">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3"><br>
+                                    <i class="fa fa-hospital-o fa-4x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div class="small">Hospitalizations</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-life">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3"><br>
+                                    <i class="fa fa-stethoscope fa-4x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div class="small">Life Threatening</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-disabling">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3"><br>
+                                    <i class="fa fa-wheelchair fa-4x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div class="small">Disabling</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-other">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3"><br>
+                                    <i class="fa fa-user-md fa-4x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div class="small">Other</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="panel panel-default">
-                    <div class="panel-body"><h1 class="tall-percent">10%</h1></div>
-                    <div class="panel-heading"><h3 class="panel-title">have experienced an adverse event from Drug XYZ.</h3></div>
-                    </div>   
-
-                </div>
-            </div>
-        </div>
-
-    </section-->
+    </section>
 
     <footer class="footer" ng-show="infoVisibility">
     	<div class="container">
