@@ -12,7 +12,7 @@ import com.techflow.openfda.drugs.Seriousness;
  */
 public class MockOpenFdaGateway implements OpenFdaGateway
 {
-	private static final String ASPIRIN_NDC = "63941-440";
+	public static final String ASPIRIN_NDC = "63941-440";
 
 	public GatewayException exception;
 
@@ -30,7 +30,7 @@ public class MockOpenFdaGateway implements OpenFdaGateway
 
 	private void addDrugEvent(String productNdc, Seriousness seriousness, int count)
 	{
-		String key = seriousness.key();
+		final String key = seriousness.key();
 		events.put(new EventKey(productNdc, key), new DrugEvent(count));
 	}
 
@@ -79,6 +79,10 @@ public class MockOpenFdaGateway implements OpenFdaGateway
 	@Override
 	public DrugEvent getEvents(String productNdc, Seriousness s) throws GatewayException
 	{
+		if (exception != null) {
+			throw exception;
+		}
+
 		final EventKey eventKey = new EventKey(productNdc, s.key());
 		final DrugEvent drugEvent = events.get(eventKey);
 

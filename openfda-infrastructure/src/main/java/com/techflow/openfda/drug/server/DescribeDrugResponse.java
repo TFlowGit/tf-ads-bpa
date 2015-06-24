@@ -1,44 +1,42 @@
 package com.techflow.openfda.drug.server;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.techflow.openfda.drug.usecase.FindDrugResponse;
 
 public class DescribeDrugResponse implements FindDrugResponse
 {
-	protected String indicationsAndUsage;
+	private String indicationsAndUsage;
 
 	private String brandName;
 
 	private String genericName;
 
-	protected String purpose;
+	private String purpose;
 
-	protected String active;
+	private String active;
 
-	protected String inactive;
+	private String inactive;
 
-	protected String warnings;
+	private String warnings;
 
-	protected String doNotUse;
+	private String doNotUse;
 
-	protected String askDoctor;
+	private String askDoctor;
 
 	private String askDoctorOrPharmacist;
 
-	protected String dosage;
+	private String dosage;
 
-	protected String stopUse;
+	private String stopUse;
 
 	private String adverseReactions;
 
 	private String manufacturerName;
 
-	boolean notFound;
+	private boolean notFound;
 
-	private DrugEventResponse drugEvents;
+	private String productNdc;
 
 	@ApiModelProperty(value = "The purpose of the drug")
 	public String getPurpose()
@@ -220,22 +218,14 @@ public class DescribeDrugResponse implements FindDrugResponse
 		this.manufacturerName = manufacturerName;
 	}
 
-	@ApiModelProperty(value = "Adverse events related to the drug")
-	public DrugEventResponse getEvents()
-	{
-		return drugEvents;
-	}
-
-	@JsonIgnore
 	@Override
-	public void setEvents(Map<String, Integer> drugEffects)
+	public void setProductNdc(String productNdc)
 	{
-		this.drugEvents = new DrugEventResponse(drugEffects);
+		this.productNdc = productNdc;
 	}
 
-	@JsonProperty("events")
-	public void setEvents(DrugEventResponse drugEvents)
+	public String getProductNdc()
 	{
-		this.drugEvents = drugEvents;
+		return productNdc;
 	}
 }
