@@ -587,7 +587,7 @@ div.label-content {
     div.label-content#warning-div {
         max-height:200px;
         content: "";
-        background: -webkit-linear-gradient(top,#f6f6f6 170px, #bf2726);
+        background: -webkit-linear-gradient(top,#fff 170px, #bf2726);
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
     }
@@ -615,7 +615,7 @@ div.label-content {
     div.label-content#warning-div {
         max-height:180px;
         content: "";
-        background: -webkit-linear-gradient(top,#f6f6f6 150px, #bf2726);
+        background: -webkit-linear-gradient(top,#fff 150px, #bf2726);
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
     }
@@ -650,7 +650,7 @@ div.label-content {
     div.label-content#warning-div {
         max-height:150px;
         content: "";
-        background: -webkit-linear-gradient(top,#f6f6f6 120px, #bf2726);
+        background: -webkit-linear-gradient(top,#fff 120px, #bf2726);
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
     }
@@ -829,7 +829,7 @@ span#subheading {
 }
 
 .panel-hospital {
-    background-color: #330000;
+    background-color: #FD0006;
 }
 
 .panel-death {
@@ -837,15 +837,15 @@ span#subheading {
 }
 
 .panel-congenital {
-    background-color: #51A351;
+    background-color: #248F40;
 }
 
 .panel-life {
-    background-color: #CC0000;
+    background-color: #A40004;
 }
 
 .panel-disabling {
-    background-color: #0044CC;
+    background-color: #06799F;
 }
 
 .panel-other {
