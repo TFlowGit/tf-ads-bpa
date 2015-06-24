@@ -15,11 +15,12 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  askDoctor: "Ask Doctor",
 	  doNotUse: "Do Not Use",
 	  dosage: "Dosage",
-	  inactive: "Inactive Ingrdients",
+	  inactive: "Inactive Ingredients",
 	  warnings: "Warnings",
 	  askDoctorOrPharmacist: "Ask Doctor or Pharmacist",
 	  stopUse: "Stop Use",
-	  manufacturerName : "Manufacturer"
+	  manufacturerName : "Manufacturer",
+	  events: "Adverse Reaction"
   };
   
   $scope.searchDrug = function() {
@@ -46,30 +47,43 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   };
   
   function transformResponse(response){
-	  	console.log(response);
 	  	var result = {};
 	  	var labelInfo = {};
 	  	var warnings = {};
 		for( key in response ) {
-			if(key == 'brandName') 
-				result['name'] = response[key];
-			else if(key == 'purpose') 
-				result['purpose'] = response[key];
-			else if(key == 'events')
-				result[key] = response[key];
-			else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist'){
-				if(response[key] != null){
-					warnings[key] = response[key];
+			if($scope.headers[key] != null){
+				if(key == 'brandName') 
+					result['name'] = response[key];
+				else if(key == 'purpose') 
+					result['purpose'] = response[key];
+				else if(key == 'events')
+					result[key] = transformTo2DArray(response[key]);
+				else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist'){
+					if(response[key] != null){
+						warnings[key] = response[key];
+					}
 				}
+				else if (response[key] != null && key != 'notFound' ) 
+					labelInfo[key] = response[key];
 			}
-			else if (response[key] !== null && key !== 'notFound') 
-				labelInfo[key] = response[key];
 		}
 		result['labelInfo'] = labelInfo;
 		result['warnings'] = warnings;
 		$scope.result = result;
 		console.log(result);
-		//console.log(result);
   }	
+  
+  function transformTo2DArray(obj){
+	  var array = [];
+	  for(key in obj){
+		  var data = [];
+		  data.push(key);
+		  data.push(obj[key]);
+		  array.push(data);
+	  }
+	  return array;
+  }
+  
+  
 }]);
 
