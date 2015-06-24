@@ -835,6 +835,11 @@ span#subheading {
     border-radius: 0px;
 }
 
+/*.panel:hover {
+    box-shadow: inset 0 0 0 5px #3071A9;
+    cursor: hand;
+}*/
+
 .panel-hospital {
     background-color: #FD0006;
 }

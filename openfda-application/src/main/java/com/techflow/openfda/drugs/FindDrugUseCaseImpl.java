@@ -1,7 +1,5 @@
 package com.techflow.openfda.drugs;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.techflow.openfda.GatewayException;
 import com.techflow.openfda.drug.client.OpenFdaGateway;
 import com.techflow.openfda.drug.usecase.BaseUseCase;
@@ -41,17 +39,6 @@ public class FindDrugUseCaseImpl extends BaseUseCase<FindDrugRequest, FindDrugRe
 		response.setWarnings(drug.getWarnings());
 		response.setAdverseReactions(drug.getAdverseReactions());
 		response.setManufacturerName(drug.getManufacturerName());
-
-		final Map<String, Integer> drugEffects = new HashMap<String, Integer>();
-		for (final Seriousness seriousness : Seriousness.values()) {
-			final String productNdc = drug.getProductNdc();
-			final String key = seriousness.key();
-			final DrugEvent events = openFdaGateway.getEvents(productNdc, seriousness);
-			final int count = events.getCount();
-
-			drugEffects.put(key, count);
-		}
-
-		response.setEvents(drugEffects);
+		response.setProductNdc(drug.getProductNdc());
 	}
 }
