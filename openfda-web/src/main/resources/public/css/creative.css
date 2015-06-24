@@ -529,14 +529,9 @@ body {
     webkit-tap-highlight-color: #2e2e2e;
 }
 
-.purpose {
-    font-size: 24px;
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    color: #f6f6f6;
-    float: right;
-    text-align: text-bottom;
+/*NAVBAR*/
 
-}
+
 
 div.form-group{
     width: 50%;
