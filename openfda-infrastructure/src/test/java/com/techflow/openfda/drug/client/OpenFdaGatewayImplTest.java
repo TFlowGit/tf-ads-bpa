@@ -10,7 +10,9 @@ import org.junit.Test;
 import com.google.api.client.util.Charsets;
 import com.google.common.io.Resources;
 import com.techflow.openfda.GatewayException;
+import com.techflow.openfda.drugs.DrugEvent;
 import com.techflow.openfda.drugs.DrugLabel;
+import com.techflow.openfda.drugs.Seriousness;
 
 public class OpenFdaGatewayImplTest
 {
@@ -30,7 +32,7 @@ public class OpenFdaGatewayImplTest
 				equalTo("GET"));
 		assertThat(
 				transport.getUrl(),
-				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:aspirin%20generic_name:aspirin"));
+				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:%22aspirin%22%20generic_name:%22aspirin%22"));
 		assertThat(
 				drug.getAskDoctor(),
 				equalTo("Ask a doctor before use if stomach bleeding warning applies to you you have a history of stomach problems, such as heartburn you have high blood pressure, heart disease, liver cirrhosis, or kidney disease you are taking a diuretic you have asthma"));
@@ -61,6 +63,9 @@ public class OpenFdaGatewayImplTest
 		assertThat(
 				drug.getGenericName(),
 				equalTo("ASPIRIN"));
+		assertThat(
+				drug.getProductNdc(),
+				equalTo("63941-440"));
 	}
 
 	@Test
@@ -79,7 +84,7 @@ public class OpenFdaGatewayImplTest
 				equalTo("GET"));
 		assertThat(
 				transport.getUrl(),
-				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:sudafed%20generic_name:sudafed"));
+				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:%22sudafed%22%20generic_name:%22sudafed%22"));
 		assertThat(
 				drug.getIndicationsAndUsage(),
 				equalTo("Use temporarily relieves nasal congestion due to the common cold, hay fever or other upper respiratory allergies"));
@@ -119,6 +124,9 @@ public class OpenFdaGatewayImplTest
 		assertThat(
 				drug.getGenericName(),
 				equalTo("PHENYLEPHRINE HYDROCHLORIDE"));
+		assertThat(
+				drug.getProductNdc(),
+				equalTo("50580-784"));
 	}
 
 	@Test
@@ -276,7 +284,7 @@ public class OpenFdaGatewayImplTest
 	}
 
 	@Test
-	public void shouldhandle404() throws GatewayException, IOException
+	public void getLabelShouldhandle404() throws GatewayException, IOException
 	{
 		final URL url = Resources.getResource("404.json");
 		final String text = Resources.toString(url, Charsets.UTF_8);
@@ -290,7 +298,7 @@ public class OpenFdaGatewayImplTest
 	}
 
 	@Test
-	public void shouldhandle500() throws GatewayException, IOException
+	public void getLabelShouldhandle500() throws GatewayException, IOException
 	{
 		final URL url = Resources.getResource("500.json");
 		final String text = Resources.toString(url, Charsets.UTF_8);
@@ -305,5 +313,44 @@ public class OpenFdaGatewayImplTest
 		}
 
 		fail("Expected GatewayException");
+	}
+
+	@Test
+	public void seriousDeath() throws IOException, GatewayException
+	{
+		final String text = readResource("effects/50242-051-death.json");
+		final ContentProducingMockHttpTransport transport = new ContentProducingMockHttpTransport(text);
+		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
+		g.transport = transport;
+
+		final DrugEvent effect = g.getEvents("50242-051", Seriousness.DEATH);
+
+		assertThat(transport.getMethod(), equalTo("GET"));
+		assertThat(transport.getUrl(), equalTo("https://api.fda.gov/drug/event.json?search=patient.drug.openfda.product_ndc:50242-051%20AND%20seriousnessdeath:1"));
+		assertThat(effect.getCount(), equalTo(59744));
+		assertThat(effect.getSeriousness(), equalTo("seriousnessdeath"));
+	}
+
+	@Test
+	public void seriousnesscongenitalanomali() throws IOException, GatewayException
+	{
+		final String text = readResource("effects/65862-659-seriousnesscongenitalanomali.json");
+		final ContentProducingMockHttpTransport transport = new ContentProducingMockHttpTransport(text);
+		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
+		g.transport = transport;
+
+		final DrugEvent effect = g.getEvents("65862-659", Seriousness.CONGENITAL_ANOMALI);
+
+		assertThat(transport.getMethod(), equalTo("GET"));
+		assertThat(transport.getUrl(), equalTo("https://api.fda.gov/drug/event.json?search=patient.drug.openfda.product_ndc:65862-659%20AND%20seriousnesscongenitalanomali:1"));
+		assertThat(effect.getCount(), equalTo(5675));
+		assertThat(effect.getSeriousness(), equalTo("seriousnesscongenitalanomali"));
+	}
+
+	private String readResource(String resource) throws IOException
+	{
+		final URL url = Resources.getResource(resource);
+		final String text = Resources.toString(url, Charsets.UTF_8);
+		return text;
 	}
 }

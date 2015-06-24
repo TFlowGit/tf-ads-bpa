@@ -30,6 +30,8 @@ public class DrugLabel
 
 	private String adverseReactions;
 
+	private String productNdc;
+
 	public String getPurpose()
 	{
 		return purpose;
@@ -168,5 +170,15 @@ public class DrugLabel
 	public void setAdverseReactions(String adverseReactions)
 	{
 		this.adverseReactions = adverseReactions;
+	}
+
+	public String getProductNdc()
+	{
+		return productNdc;
+	}
+
+	public void setProductNdc(String productNdc)
+	{
+		this.productNdc = productNdc;
 	}
 }

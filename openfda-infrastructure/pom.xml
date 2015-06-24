@@ -36,13 +36,14 @@
 		</dependency>
 		<dependency>
 			<groupId>com.google.http-client</groupId>
-			<artifactId>google-http-client-jackson</artifactId>
+			<artifactId>google-http-client-jackson2</artifactId>
 			<version>1.20.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>4.1.6.RELEASE</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -58,6 +59,11 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.0</version>
 		</dependency>
 	</dependencies>
 </project>

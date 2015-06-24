@@ -41,13 +41,13 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" ng-show="infoVisibility" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Drug &amp; Adverse Reaction Information</a>
+                <a class="navbar-brand page-scroll" href="#page-top">DARI</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -59,6 +59,9 @@
                     <!-- <li>
                         <a class="page-scroll" href="#adverse">Adverse Events</a>
                     </li> -->
+                    <li>
+                    	<a class="page-scroll" href="#disclaimer">Disclaimer</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -69,7 +72,7 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 class="wow pulse">Prescribed Risks</h1>
+                <h1 class="wow pulse">Drug &amp; Adverse Reaction Information</h1>
                 <hr class="header-hr">
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline">
@@ -85,7 +88,7 @@
     </header>
 
     <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
-            <div class="col-lg-8 label-col">
+            <div class="col-sm-8 label-col">
                 <h1 class="text-center label-heading" id="drug-name">{{result.name}}</h1>
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo">
                     <div class="label-content wow fadeIn">
@@ -167,8 +170,13 @@
     </section-->
 
     <footer class="footer" ng-show="infoVisibility">
-        <div class="container">
-            <p class="text-muted text-center">The prescription drug related information on this website is meant for basic informational purposes only. It is not intended to serve as medical advice, substitute for a doctor's appointment or to be used for diagnosing or treating a medical condition. Users of this website are advised to consult with their physician before making any decisions concerning their health.</p>
+    	<div class="container">
+    		<div class="footer-menu text-primary">
+	    		<a href="http://www.techflow.com/">Made by TechFlow</a> |
+	    		<a href="https://github.com/TFlowGit/tf-ads-bpa">Github</a>
+    		</div>
+    		
+            <p id="disclaimer" class="text-muted text-center ">The prescription drug related information on this website is meant for basic informational purposes only. It is not intended to serve as medical advice, substitute for a doctor's appointment or to be used for diagnosing or treating a medical condition. Users of this website are advised to consult with their physician before making any decisions concerning their health.</p>
         </div>
     </footer>
 
@@ -189,8 +197,8 @@
     
     <!--  AngularJS -->
     <script src="js/angular.min.js"></script>
-    <script src="js/angular-smooth-scroll.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/angular-smooth-scroll.js"></script>
     <script src="js/controllers/mainController.js"></script>
     <script src="js/services/drugs.js"></script>
 </body>
