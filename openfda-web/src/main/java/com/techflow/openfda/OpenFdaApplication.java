@@ -2,9 +2,11 @@ package com.techflow.openfda;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import com.techflow.openfda.drug.client.OpenFdaGateway;
 import com.techflow.openfda.drug.client.OpenFdaGatewayImpl;
 import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
@@ -16,7 +18,7 @@ import com.techflow.openfda.drugs.SimpleOpenFdaSpringUseCaseFactory;
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
-public class OpenFdaApplication
+public class OpenFdaApplication extends WebMvcAutoConfigurationAdapter
 {
 	/**
 	 * Create the use case factory.
@@ -34,6 +36,14 @@ public class OpenFdaApplication
 	public OpenFdaGateway openFdaGateway()
 	{
 		return new OpenFdaGatewayImpl();
+	}
+
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry)
+	{
+		// send users to index.html as a convenience
+		registry.addViewController("/swagger/").setViewName("redirect:/swagger/index.html");
+		registry.addViewController("/swagger").setViewName("redirect:/swagger/index.html");
 	}
 
 	/**
