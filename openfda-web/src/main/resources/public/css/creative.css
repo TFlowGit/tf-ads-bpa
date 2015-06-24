@@ -62,16 +62,7 @@ p {
     line-height: 1.5;
 }
 
-.warning{
-	color: #bf2726;
-}
 
-.bg-primary#labeling {
-    background-color: #2e2e2e;
-    padding-top: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
-}
 
 
 .bg-dark {
@@ -483,6 +474,21 @@ fieldset[disabled] .btn-primary.active {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
+    border-radius: 0px;
+}
+
+@media (max-width: 485px) {
+    .btn {
+        float: right;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-group {
+        min-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .btn-black {
@@ -535,12 +541,22 @@ div.form-group{
 
 .form-inline .form-control {
     width: 100%;
+    border-radius: 0px !important;
 }
 
-
-
-
 /*LABELING SECTION*/
+
+.warning{
+    color: #bf2726;
+}
+
+.bg-primary#labeling {
+    background-color: #2e2e2e;
+    padding-top: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
 .label-row {
     height: 80%;
     padding-top: 3.5em;
@@ -602,6 +618,9 @@ div.label-content {
     .form-group{
     	margin:auto;
     	margin-bottom:5px;
+        /*max-width: 50%;*/
+        /*min-width: 350px;*/
+        display: inline-block;
     } 
     h1.text-center.label-heading {
         font-size: 22px !important;
@@ -675,7 +694,7 @@ div.warning-col {
 
 .bg-primary#adverse {
     background-color: #2e2e2e;
-    opacity: .9;
+    opacity: .85;
     padding-left: 0;
     padding-right: 0;
 }
@@ -701,15 +720,21 @@ span#subheading {
     font-size: 1em;
 }
 
+.plot-row {
+    width:97%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2em;
+}
+
 .event-row {
-    margin-top: 1em;
-    margin-bottom: 4em;
-    padding-left: 30px;
-    padding-right: 30px;
+    width:97%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .event-total {
-    padding-right: 5em;
+    /*padding-right: 5em;*/
 }
 
 
@@ -749,21 +774,34 @@ span#subheading {
         color: #bf2726;
         text-align: center;
     }
+    .event-col {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .panel {
+        margin-bottom: 0px;
+    }
+    .huge {
+        font-size: 2em;
+    }
+    .event-row {
+        width: 100%;
+    }
 }
 
 .hr-num {
     border-color:#bf2726;
     border-width: 4px;
-    width: 350px;
+    width: 300px;
     /*margin-right: 0px;*/
     text-align: center;
 }
 
-
-
 .panel {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border: none;
+    border-radius: 0px;
 }
 
 .panel-hospital {
@@ -771,7 +809,7 @@ span#subheading {
 }
 
 .panel-death {
-    background-color: black;
+    background-color: #000000;
 }
 
 .panel-congenital {
@@ -779,7 +817,7 @@ span#subheading {
 }
 
 .panel-life {
-    background-color: #BD362F;
+    background-color: #CC0000;
 }
 
 .panel-disabling {
@@ -803,7 +841,7 @@ span#subheading {
     /* background-color: #2e2e2e; */
     background-color: #2e2e2e;
     border-top: thick black;
-    marigin-bottom: 5px;
+    margin-bottom: 5px;
     text-align: center;
     bottom: auto;
 }
