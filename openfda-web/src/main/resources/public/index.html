@@ -68,8 +68,10 @@
                         <form class="form-inline">
                           <div class="form-group search-nav">
                             <div class="input-group">
-                              <input id="input-drug" type="text" class="form-control search-control" placeholder="Enter a drug..." ng-model="query">
-                              <div class="input-group-addon" type="submit" ng-click="searchDrug()"><i class="fa fa-search" ></i></div>
+                              <span>
+                              	<input id="input-drug" type="text" class="form-control search-control" placeholder="Enter a drug..." ng-model="query">
+                              	<button class="input-group-addon fa fa-search" type="submit" ng-click="searchDrug()" ></button>
+                              </span>
                             </div>
                           </div>
                         </form>

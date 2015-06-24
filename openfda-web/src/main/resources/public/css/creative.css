@@ -552,6 +552,10 @@ div.form-group{
     border-radius: 0px !important;
 }
 
+button.input-group-addon{
+	padding-bottom:8px;
+}
+
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
