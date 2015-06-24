@@ -62,16 +62,7 @@ p {
     line-height: 1.5;
 }
 
-.warning{
-	color: #bf2726;
-}
 
-.bg-primary#labeling {
-    background-color: #2e2e2e;
-    padding-top: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
-}
 
 
 .bg-dark {
@@ -538,6 +529,18 @@ div.form-group{
 }
 
 /*LABELING SECTION*/
+
+.warning{
+    color: #bf2726;
+}
+
+.bg-primary#labeling {
+    background-color: #2e2e2e;
+    padding-top: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
 .label-row {
     height: 80%;
     padding-top: 3.5em;
@@ -672,7 +675,7 @@ div.warning-col {
 
 .bg-primary#adverse {
     background-color: #2e2e2e;
-    opacity: .9;
+    opacity: .85;
     padding-left: 0;
     padding-right: 0;
 }
@@ -698,11 +701,17 @@ span#subheading {
     font-size: 1em;
 }
 
+.plot-row {
+    width:97%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2em;
+}
+
 .event-row {
-    margin-top: 1em;
-    margin-bottom: 4em;
-    padding-left: 30px;
-    padding-right: 30px;
+    width:97%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .event-total {
@@ -746,21 +755,29 @@ span#subheading {
         color: #bf2726;
         text-align: center;
     }
+    .event-col {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .panel {
+        margin-bottom: 0px;
+    }
+    .huge {
+        font-size: 2em;
+    }
 }
 
 .hr-num {
     border-color:#bf2726;
     border-width: 4px;
-    width: 350px;
+    width: 300px;
     /*margin-right: 0px;*/
     text-align: center;
 }
 
-
-
 .panel {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .panel-hospital {
