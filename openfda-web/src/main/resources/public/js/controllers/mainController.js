@@ -4,6 +4,8 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   $scope.query ='';
   $scope.result = '';
   $scope.infoVisibility = false;
+  $scope.loadingVisibility = false;
+  $scope.searchBarVisibility = true;
   $scope.scroll = false;
   $scope.headers = {
 	  indicationsAndUsage :"Indication and Usage",
@@ -25,15 +27,20 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
+	  $scope.loading = true;
+	  $scope.searchBarVisibility = false;
 	  drugsService.getDrugInfo($scope.query)
 		  .success(function(response){
 			  	$scope.infoVisibility = true;
 	  			$scope.scroll = true;
 	  			transformResponse(response);
+	  			$scope.loading = false;
+	  			$scope.searchBarVisibility = true;
 		  })
 		  .error(function(data, status, headers, config){
 				$scope.infoVisibility = false;
-				
+				$scope.loading = false;
+	  			$scope.searchBarVisibility = true;
 				switch(status){
 					case 404:
 						$scope.queryFailedMsg = "Drug not found";
@@ -83,7 +90,5 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  }
 	  return array;
   }
-  
-  
 }]);
 
