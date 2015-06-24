@@ -185,7 +185,45 @@ public class SearchSteps extends ScenarioSteps
 			actions.perform();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}	
+		
+		
+		// ############ labeling-askDoctorOrPharmacist #############
+		try {
+			btnMore = driver.findElement(By.id("btn-more-askDoctorOrPharmacist"));
+			actions.moveToElement(btnMore);
+			Thread.sleep(2000);
+			actions.click();
+			actions.perform();
+			// Serenity error on long string, so work around is use startsWith with less character compare
+			assertThat(drugPage.askDoctorOrPharmacist(),
+					startsWith("Ask a doctor or pharmacist before use if you are taking a prescription drug for: anticoagulation (thinning of the blood) gout diabetes arthritis"));
+
+			btnClose = driver.findElement(By.id("btn-close-askDoctorOrPharmacist"));
+			actions.click();
+			actions.perform();
+		} catch (Exception e) {
+					e.printStackTrace();
 		}
+		
+		// ############ labeling-genericName-label #############
+		try {
+			btnMore = driver.findElement(By.id("btn-more-genericName"));
+			actions.moveToElement(btnMore);
+			Thread.sleep(2000);
+			actions.click();
+			actions.perform();
+			assertThat(drugPage.getGenericName(), is("ASPIRIN"));
+
+			btnClose = driver.findElement(By.id("btn-close-genericName"));
+			actions.click();
+			actions.perform();
+		} catch (Exception e) {
+					e.printStackTrace();
+		}
+		
+		
+		
 
 	}
 
