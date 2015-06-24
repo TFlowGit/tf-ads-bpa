@@ -54,11 +54,12 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
   };
   
   function transformResponse(response){
+	    console.log(response);
 	  	var result = {};
 	  	var labelInfo = {};
 	  	var warnings = {};
 		for( key in response ) {
-			if($scope.headers[key] != null){
+			if($scope.headers[key]){
 				if(key == 'brandName') 
 					result['name'] = response[key];
 				else if(key == 'purpose') 
