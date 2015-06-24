@@ -24,6 +24,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/loaders.css" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -75,13 +76,20 @@
                 <h1 class="wow pulse">Drug &amp; Adverse Reaction Information</h1>
                 <hr class="header-hr">
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
-                <form class="form-inline">
+                <form class="form-inline" ng-show="searchBarVisibility">
                     <div class="form-group ">
                         <input id="input-drug" type="text" class="form-control" placeholder="List your prescriptions" ng-model="query" autofocus>
                     </div>
                     <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()' >Search</button>
                 </form>
                 <br>
+                <div class="loader-inner ball-pulse" ng-show="loading">
+                	<div></div>
+                	<div></div>
+                	<div></div>
+                	<div></div>
+                	<div></div>
+                </div>
    				<h3 class="warning">{{queryFailedMsg}}</h3>
             </div>
         </div>
