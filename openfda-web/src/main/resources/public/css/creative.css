@@ -474,6 +474,21 @@ fieldset[disabled] .btn-primary.active {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
+    border-radius: 0px;
+}
+
+@media (max-width: 485px) {
+    .btn {
+        float: right;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-group {
+        min-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .btn-black {
@@ -526,7 +541,10 @@ div.form-group{
 
 .form-inline .form-control {
     width: 100%;
+    border-radius: 0px !important;
 }
+
+
 
 /*LABELING SECTION*/
 
@@ -602,6 +620,9 @@ div.label-content {
     .form-group{
     	margin:auto;
     	margin-bottom:5px;
+        /*max-width: 50%;*/
+        /*min-width: 350px;*/
+        display: inline-block;
     } 
     h1.text-center.label-heading {
         font-size: 22px !important;
@@ -715,7 +736,7 @@ span#subheading {
 }
 
 .event-total {
-    padding-right: 5em;
+    /*padding-right: 5em;*/
 }
 
 
@@ -765,6 +786,9 @@ span#subheading {
     .huge {
         font-size: 2em;
     }
+    .event-row {
+        width: 100%;
+    }
 }
 
 .hr-num {
@@ -778,6 +802,8 @@ span#subheading {
 .panel {
     padding-left: 1em;
     padding-right: 1em;
+    border: none;
+    border-radius: 0px;
 }
 
 .panel-hospital {
@@ -785,7 +811,7 @@ span#subheading {
 }
 
 .panel-death {
-    background-color: black;
+    background-color: #000000;
 }
 
 .panel-congenital {
@@ -793,7 +819,7 @@ span#subheading {
 }
 
 .panel-life {
-    background-color: #BD362F;
+    background-color: #CC0000;
 }
 
 .panel-disabling {
@@ -817,7 +843,7 @@ span#subheading {
     /* background-color: #2e2e2e; */
     background-color: #2e2e2e;
     border-top: thick black;
-    marigin-bottom: 5px;
+    margin-bottom: 5px;
     text-align: center;
     bottom: auto;
 }
