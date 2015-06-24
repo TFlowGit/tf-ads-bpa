@@ -1,3 +1,11 @@
+# Turn off virtual packages unless overridden by Hiera:
+if versioncmp($::puppetversion,'3.6.1') >= 0 {
+  $allow_virtual_packages = hiera('allow_virtual_packages',false)
+
+  Package {
+    allow_virtual => $allow_virtual_packages,
+  }
+}
 
 node default {
   include epel
@@ -9,19 +17,19 @@ node bastion {
 
 node puppet {
   include epel
-  include packages::build
+  include base_config::build
   include firewall::build
   include jenkins_conf
 }
 
 node /^app\d+$/ {
   include epel
-  include packages::app
+  include base_config::app
   include firewall::app
 }
 
 node /^web\d+$/ {
   include epel
-  include packages::web
+  include base_config::web
   include firewall::web
 }

@@ -1,6 +1,7 @@
 #
 
 class proxy_config {
+  require base_config
 
   File {
     require => Package[ 'nginx' ],
@@ -24,14 +25,12 @@ class proxy_config {
     path        => [ '/sbin', '/bin', '/usr/bin' ],
     refreshonly => true,
   }
-  
-  class { selinux:
-    mode => 'enforcing'
-  }->
+
   selboolean { 'selinux allow proxying': 
     name => 'httpd_can_network_connect',
     value => on,
     persistent => true,
+    require => Class[selinux],
   }
 
 }

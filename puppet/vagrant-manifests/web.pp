@@ -9,5 +9,5 @@ if versioncmp($::puppetversion,'3.6.1') >= 0 {
 
 # Modules to use:
 include epel
-include packages::web
+include base_config::web
 include proxy_config
