@@ -1,8 +1,8 @@
-# Packages for the web machine
+# Packages and other base config for the build machine
 
-require epel
+require base_config
 
-class packages::build {
+class base_config::build {
   package { [
       'java-1.8.0-openjdk',
       'java-1.8.0-openjdk-devel',
