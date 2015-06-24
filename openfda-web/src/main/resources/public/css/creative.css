@@ -531,7 +531,17 @@ body {
 
 /*NAVBAR*/
 
+div.form-group.search-nav {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
+input.form-control.search-control {
+    height: 30px;
+}
 
 div.form-group{
     width: 50%;

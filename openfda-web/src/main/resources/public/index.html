@@ -56,21 +56,6 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul ng-show="infoVisibility"  class="nav navbar-nav navbar-right">
                     <li>
-<!-- <div class="input-group form-group">
-  <input type="text" class="form-control" placeholder="Search..." id="input-drug" ng-model="query">
-  <span class="input-group-addon" id="basic-addon1" ng-click="searchDrug()"><i class="fa fa-search"></i></span>
-</div> -->
-            <div class="input-group">
-                <!-- <form class="form-inline" ng-show="searchBarVisibility"> -->
-                    <!-- <div class="form-group "> -->
-                        <input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus>
-                        <span class="input-group-addon" id="basic-addon1" ng-click="searchDrug()"><i class="fa fa-search"></i></span>
-                    <!-- </div> -->
-                    <!-- <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()'>Search</button> -->
-                <!-- </form> -->
-            </div>
-                    </li>
-                    <li>
                         <a class="page-scroll" href="#labeling">Labeling Information</a>
                     </li>
                     <li>
@@ -78,6 +63,16 @@
                     </li>
                     <li>
                     	<a class="page-scroll" href="#disclaimer">Disclaimer</a>
+                    </li>
+                    <li>
+                        <form class="form-inline">
+                          <div class="form-group search-nav">
+                            <div class="input-group">
+                              <input id="input-drug" type="text" class="form-control search-control" placeholder="Enter a drug..." ng-model="query">
+                              <div class="input-group-addon" type="submit" ng-click="searchDrug()"><i class="fa fa-search" ></i></div>
+                            </div>
+                          </div>
+                        </form>
                     </li>
                 </ul>
             </div>
