@@ -51,9 +51,18 @@
                 <a class="navbar-brand page-scroll" href="#page-top">DARI</a>
             </div>
 
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul ng-show="infoVisibility"  class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline nav-form" ng-show="infoVisibility">
+                            <div class="form-group ">
+                                <input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus>
+                            </div>
+                            <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()'>Search</button>
+                        </form>
+                    </li>
                     <li>
                         <a class="page-scroll" href="#labeling">Labeling Information</a>
                     </li>
@@ -78,7 +87,7 @@
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline" ng-show="searchBarVisibility">
                     <div class="form-group ">
-                        <input id="input-drug" type="text" class="form-control" placeholder="List your prescriptions" ng-model="query" autofocus>
+                        <input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus>
                     </div>
                     <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()'>Search</button>
                 </form>
