@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import org.junit.Test;
+import org.junit.After;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import com.techflow.openfda.steps.SearchSteps;
@@ -25,7 +26,27 @@ public class WhenSearching
 	@Test
 	public void shouldCalculatePointsBasedOnDistance()
 	{
+
 		user.searchesFor("aspirin");
+
+		// Note: please save commented lines for later debug/devel use.
+		// driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		user.shouldSeeLabelFor("aspirin");
+		// driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+	}
+
+	/**
+	 * Pause before checking if driver completed.
+	 */
+	@After
+	public void Ending()
+	{
+		try {
+			Thread.sleep(1000);
+			driver.close();
+			Thread.sleep(3000);
+		} catch (Exception b) {
+			b.getMessage();
+		}
 	}
 }
