@@ -16,20 +16,17 @@ node bastion {
 }
 
 node puppet {
-  include epel
   include base_config::build
   include firewall::build
   include jenkins_conf
 }
 
 node /^app\d+$/ {
-  include epel
   include base_config::app
   include firewall::app
 }
 
 node /^web\d+$/ {
-  include epel
   include base_config::web
   include firewall::web
 }

@@ -11,3 +11,4 @@ if versioncmp($::puppetversion,'3.6.1') >= 0 {
 include epel
 include base_config::web
 include proxy_config
+include firewall::web

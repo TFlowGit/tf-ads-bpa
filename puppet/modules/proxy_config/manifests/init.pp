@@ -8,7 +8,7 @@ class proxy_config {
     owner => root,
     group => root,
     mode  => '640',
-    notify  => Exec['service nginx restart'],
+    notify  => Service['nginx'],
   }
 
   file { '/etc/nginx/nginx.conf': 
@@ -21,9 +21,9 @@ class proxy_config {
     content => template("proxy_config/default.conf.erb"),
   }
 
-  exec { 'service nginx restart':
-    path        => [ '/sbin', '/bin', '/usr/bin' ],
-    refreshonly => true,
+  service { 'nginx':
+    ensure => running,
+    enable => true,
   }
 
   selboolean { 'selinux allow proxying': 
