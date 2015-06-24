@@ -844,21 +844,16 @@ span#subheading {
     border-radius: 0px;
 }
 
-/*.panel:hover {
-    box-shadow: inset 0 0 0 5px #3071A9;
-    cursor: hand;
-}*/
-
 .panel-hospital {
-    background-color: #FD0006;
+    background-color: #00B25C;
 }
 
 .panel-death {
-    background-color: #000000;
+    background-color: #1C0118;
 }
 
 .panel-congenital {
-    background-color: #248F40;
+    background-color: #FF9B40;
 }
 
 .panel-life {
@@ -876,8 +871,9 @@ span#subheading {
 
 /*styling for plot*/
 
-.plot {
-    /*margin-left: 2em;*/
+div.plot {
+    width: 100%;
+    height: 100%;
 }
 
 /*FOOTER SECTION*/

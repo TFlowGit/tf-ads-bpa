@@ -142,7 +142,7 @@
     	     </div>
     	     
     	     <div class="col-sm-4 warning-col">
-                <h1 class="text-center label-heading wow fadeIn"><!-- <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> --> <span><i class="fa fa-warning fa-lg"></i></span>&nbsp; WARNINGS: </h1>
+                <h1 class="text-center label-heading wow fadeIn"><span><i class="fa fa-warning fa-lg"></i></span>&nbsp; WARNINGS: </h1>
                	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
 	                <div class="label-content wow fadeIn" id="warning-div">
                     	<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
@@ -176,8 +176,8 @@
     <section class="bg-primary" id="adverse" ng-show="infoVisibility">
         <h1 id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
             <div class="row plot-row">
-                <div class="plot col-lg-6 ">
-                    <img src="http://smashburger.securetree.com/Content/img/600x377_Placeholder.png" alt="placeholder">
+                <div class="col-lg-6 ">
+                    <div class="plot">{{plot}}</div>
                 </div>
                 <div class="event-total col-lg-6 text-center">
                     <h1 class="big-num wow fadeIn">450,790</h1>
@@ -186,16 +186,17 @@
                 </div>
             </div>    
             <div class="row event-row">
+
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-death">
+                    <div class="panel panel-hospital">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
-                                    <i class="fa fa-heartbeat fa-4x"></i>
+                                    <i class="fa fa-hospital-o fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div class="small">Deaths</div>
+                                    <div class="small">Hospitalizations</div>
                                 </div>
                             </div>
                         </div>
@@ -217,15 +218,15 @@
                     </div>
                 </div>
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-hospital">
+                    <div class="panel panel-disabling">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
-                                    <i class="fa fa-hospital-o fa-4x"></i>
+                                    <i class="fa fa-wheelchair fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div class="small">Hospitalizations</div>
+                                    <div class="small">Disabling</div>
                                 </div>
                             </div>
                         </div>
@@ -247,15 +248,15 @@
                     </div>
                 </div>
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-disabling">
+                    <div class="panel panel-death">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
-                                    <i class="fa fa-wheelchair fa-4x"></i>
+                                    <i class="fa fa-heartbeat fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div class="small">Disabling</div>
+                                    <div class="small">Deaths</div>
                                 </div>
                             </div>
                         </div>
