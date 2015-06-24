@@ -152,42 +152,18 @@
     <section class="bg-primary" id="adverse" ng-show="infoVisibility">
         <h1 id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
             <div class="row">
-                <div class="col-lg-6 col-sm-6">
+                <div class="plot col-lg-6 ">
                     <img src="http://smashburger.securetree.com/Content/img/600x377_Placeholder.png" alt="placeholder">
                 </div>
-                <div class="event-total col-lg-6 col-sm-6 pull-right ">
+                <div class="event-total col-lg-6 text-center">
                     <h1 class="big-num wow fadeIn">450,790</h1>
                     <hr class="hr-num">
                     <h2 class="small-num wow fadeIn">Total Adverse Events</h2>
                 </div>
             </div>    
             <div class="row event-row">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-ambulance fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">125,132</div>
-                                    <div>Hospitalizations</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View More</span>
-                                <span class="pull-right">
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="panel panel-warning">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-death">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -195,23 +171,29 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div>Deaths</div>
+                                    <div class="small">Deaths</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View More</span>
-                                <span class="pull-right">
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="panel panel-success">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-hospital">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-hospital-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">125,132</div>
+                                    <div class="small">Hospitalizations</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-congenital">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -219,23 +201,14 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div>Congenital Anomalies</div>
+                                    <div class="small">Congenital Anomalies</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View More</span>
-                                <span class="pull-right">
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="panel panel-danger">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-life">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -243,67 +216,40 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div>Life Threatening</div>
+                                    <div class="small">Life Threatening</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View More</span>
-                                <span class="pull-right">
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="panel panel-danger">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-disabling">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-stethoscope fa-5x"></i>
+                                    <i class="fa fa-wheelchair fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div>Life Threatening</div>
+                                    <div class="small">Disabling</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View More</span>
-                                <span class="pull-right">
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="panel panel-danger">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-other">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-stethoscope fa-5x"></i>
+                                    <i class="fa fa-user-md fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div>Life Threatening</div>
+                                    <div class="small">Other</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View More</span>
-                                <span class="pull-right">
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
                 </div>
             </div>
