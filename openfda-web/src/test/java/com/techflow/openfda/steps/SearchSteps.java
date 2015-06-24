@@ -179,7 +179,7 @@ public class SearchSteps extends ScenarioSteps
 			actions.perform();
 			// Serenity error on long string, so work around is use startsWith with less character compare
 			assertThat(drugPage.getWarnings(),
-					startsWith("Warnings Reye&apos;s syndrome: Children and teenagers who have or are recovering from chicken pox or flu-like symptoms should not use this product."));
+					startsWith("Warnings Reye’s syndrome: Children and teenagers who have or are recovering from chicken pox or flu-like symptoms should not use this product."));
 			btnClose = driver.findElement(By.id("btn-close-warnings"));
 			actions.click();
 			actions.perform();
@@ -200,8 +200,5 @@ public class SearchSteps extends ScenarioSteps
 		final Pages pages = getPages();
 		return pages.get(DrugPage.class);
 	}
-	
-	private void clickButton(String id,  WebDriver driver) {
-		
-	}
+
 }
