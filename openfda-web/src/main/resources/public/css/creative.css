@@ -481,6 +481,9 @@ fieldset[disabled] .btn-primary.active {
     .btn {
         float: right;
     }
+    .form-group {
+        min-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -584,7 +587,7 @@ div.label-content {
     div.label-content#warning-div {
         max-height:200px;
         content: "";
-        background: -webkit-linear-gradient(top,#f6f6f6 170px, #bf2726);
+        background: -webkit-linear-gradient(top,#fff 170px, #bf2726);
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
     }
@@ -609,8 +612,19 @@ div.label-content {
     p.text-fade.ng-binding {
         font-size: 13px !important;
     }
-    div.label-content.wow.fadeIn {
-        max-height: 180px;
+    div.label-content#warning-div {
+        max-height:180px;
+        content: "";
+        background: -webkit-linear-gradient(top,#fff 150px, #bf2726);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+    }
+    div.label-content {
+        max-height:180px;
+        content: "";
+        background: -webkit-linear-gradient(top,#2e2e2e 150px, #f6f6f6);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
     }
 }
 
@@ -633,10 +647,20 @@ div.label-content {
     p.text-fade.ng-binding {
         font-size: 12px !important;
     }
-    div.label-content.wow.fadeIn {
-        max-height: 150px;
+    div.label-content#warning-div {
+        max-height:150px;
+        content: "";
+        background: -webkit-linear-gradient(top,#fff 120px, #bf2726);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
     }
-    
+    div.label-content {
+        max-height:150px;
+        content: "";
+        background: -webkit-linear-gradient(top,#2e2e2e 120px, #f6f6f6);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+    }
 }
 
 .label-hr {
@@ -673,7 +697,7 @@ div.warning-col {
 
 .modal-btn {
     margin-top: 15px;
-    margin-right: 100px;
+    margin-right: 1.5em;
 }
 
 .modal-body {
@@ -687,7 +711,7 @@ div.warning-col {
 #warning-btn {
     background-color: #f6f6f6;
     color: #bf2726;
-    margin-right: 70px;
+    margin-right: 1.5em;
 }
 
 /*ADVERSE EVENT SECTION*/
@@ -701,7 +725,7 @@ div.warning-col {
 
 #adverse-heading {
     color: #f6f6f6;
-    font-size: 2em;
+    font-size: 3em;
     margin-left: 2em;
     margin-bottom: 2em;
 }
@@ -805,7 +829,7 @@ span#subheading {
 }
 
 .panel-hospital {
-    background-color: #330000;
+    background-color: #FD0006;
 }
 
 .panel-death {
@@ -813,15 +837,15 @@ span#subheading {
 }
 
 .panel-congenital {
-    background-color: #51A351;
+    background-color: #248F40;
 }
 
 .panel-life {
-    background-color: #CC0000;
+    background-color: #A40004;
 }
 
 .panel-disabling {
-    background-color: #0044CC;
+    background-color: #06799F;
 }
 
 .panel-other {
