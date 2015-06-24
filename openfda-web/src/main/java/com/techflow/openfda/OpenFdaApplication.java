@@ -42,6 +42,7 @@ public class OpenFdaApplication extends WebMvcAutoConfigurationAdapter
 	public void addViewControllers(ViewControllerRegistry registry)
 	{
 		// send users to index.html as a convenience
+		registry.addViewController("/").setViewName("forward:/index.html");
 		registry.addViewController("/swagger/").setViewName("redirect:/swagger/index.html");
 		registry.addViewController("/swagger").setViewName("redirect:/swagger/index.html");
 	}
