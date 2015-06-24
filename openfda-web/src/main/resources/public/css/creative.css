@@ -71,7 +71,6 @@ p {
     padding-top: 0px;
     padding-left: 2px;
     padding-right: 2px;
-
 }
 
 
@@ -548,16 +547,6 @@ div.label-content {
     padding-left: 20px;
     padding-right: 20px;
     overflow: hidden;
-    -moz-box-shadow: inset 0 -23px 23px -23px #acacac;
-    -webkit-box-shadow: inset 0 -23px 23px -23px #acacac;
-    box-shadow: inset 0 -23px 23px -23px #acacac;
-}
-
-p#labeling-dosage-label.text-fade.ng-binding {
-/*   -moz-box-shadow:    inset 0 0 5px 0 #bf2726;
-   -webkit-box-shadow: inset 0 0 5px 0 #bf2726;
-   box-shadow:         inset 0 0 5px 0 #bf2726;*/
-
 }
 
 
@@ -573,8 +562,19 @@ p#labeling-dosage-label.text-fade.ng-binding {
     p.text-fade.ng-binding {
         font-size: 14px !important;
     }
-    div.label-content.wow.fadeIn {
-        max-height: 210px;
+    div.label-content#warning-div {
+        max-height:200px;
+        content: "";
+        background: -webkit-linear-gradient(top,#f6f6f6 170px, #bf2726);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+    }
+    div.label-content {
+        max-height:200px;
+        content: "";
+        background: -webkit-linear-gradient(top,#2e2e2e 170px, #f6f6f6);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
     }
 }
 
@@ -671,18 +671,128 @@ div.warning-col {
 /*ADVERSE EVENT SECTION*/
 
 .bg-primary#adverse {
-    background-color: #f6f6f6;
+    background-color: #2e2e2e;
     opacity: .9;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-.tall-percent {
-    font-size: 3em;
+#adverse-heading {
+    color: #f6f6f6;
+    font-size: 2em;
+    margin-left: 2em;
+    margin-bottom: 2em;
 }
 
-.panel.panel-default {
-    background-color: #bf2726;
+span#subheading {
+    color: #bf2726 !important;
+    opacity: .9;
+    font-size: 1em;
 }
 
+.huge {
+    font-size: 4em;
+}
+
+.small {
+    font-size: 1em;
+}
+
+.event-row {
+    margin-top: 1em;
+    margin-bottom: 4em;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.event-total {
+    padding-right: 5em;
+}
+
+
+@media (min-width: 1200px) {
+    .big-num {
+        font-size: 13em !important;
+        color: #f6f6f6;
+        text-align: center;
+    }
+    .small-num {
+        font-size: 4em;
+        color: #bf2726;
+        text-align: center;
+    }
+}
+@media (min-width: 769px) and (max-width: 1199px) {
+    .big-num {
+        font-size: 9em !important;
+        color: #f6f6f6;
+        text-align: center;
+    }
+    .small-num {
+        font-size: 3em;
+        color: #bf2726;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .big-num {
+        font-size: 5em !important;
+        color: #f6f6f6;
+        text-align: center;
+    }
+    .small-num {
+        font-size: 2em;
+        color: #bf2726;
+        text-align: center;
+    }
+}
+
+.hr-num {
+    border-color:#bf2726;
+    border-width: 4px;
+    width: 350px;
+    /*margin-right: 0px;*/
+    text-align: center;
+}
+
+
+
+.panel {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.panel-hospital {
+    background-color: #330000;
+}
+
+.panel-death {
+    background-color: black;
+}
+
+.panel-congenital {
+    background-color: #51A351;
+}
+
+.panel-life {
+    background-color: #BD362F;
+}
+
+.panel-disabling {
+    background-color: #0044CC;
+}
+
+.panel-other {
+    background-color: #666666;
+}
+
+
+/*styling for plot*/
+
+.plot {
+    /*margin-left: 2em;*/
+}
 
 /*FOOTER SECTION*/
 .footer {
