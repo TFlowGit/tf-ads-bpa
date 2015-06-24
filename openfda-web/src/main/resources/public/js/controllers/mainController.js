@@ -15,7 +15,7 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  askDoctor: "Ask Doctor",
 	  doNotUse: "Do Not Use",
 	  dosage: "Dosage",
-	  inactive: "Inactive Ingrdients",
+	  inactive: "Inactive Ingredients",
 	  warnings: "Warnings",
 	  askDoctorOrPharmacist: "Ask Doctor or Pharmacist",
 	  stopUse: "Stop Use"
