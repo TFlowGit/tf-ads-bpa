@@ -1,7 +1,5 @@
 package com.techflow.openfda.drug.usecase;
 
-import java.util.Map;
-
 public interface FindDrugResponse
 {
 	void setBrandName(String brandName);
@@ -34,5 +32,5 @@ public interface FindDrugResponse
 
 	void setManufacturerName(String manufacturerName);
 
-	void setEvents(Map<String, Integer> drugEffects);
+	void setProductNdc(String productNdc);
 }

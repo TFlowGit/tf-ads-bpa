@@ -2,8 +2,6 @@ package com.techflow.openfda.drugs;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
-import java.util.HashMap;
-import java.util.Map;
 import org.junit.Test;
 import com.techflow.openfda.GatewayException;
 import com.techflow.openfda.drug.client.MockOpenFdaGateway;
@@ -26,7 +24,6 @@ public class FindDrugUseCaseImplTest
 
 		final FindDrugResponseImplementation response = new FindDrugResponseImplementation();
 		useCase.setResponse(response);
-
 		useCase.execute();
 
 		assertThat(response.indicationsAndUsage, equalTo("indications"));
@@ -44,17 +41,12 @@ public class FindDrugUseCaseImplTest
 		assertThat(response.adverseReactions, equalTo("adverse reactions"));
 		assertThat(response.manufacturerName, equalTo("manufacturer name"));
 		assertThat(response.notFound, equalTo(false));
-		assertThat(response.effects.get("seriousnesscongenitalanomali"), equalTo(5));
-		assertThat(response.effects.get("seriousnessdeath"), equalTo(10));
-		assertThat(response.effects.get("seriousnessdisabling"), equalTo(13));
-		assertThat(response.effects.get("seriousnesshospitalization"), equalTo(17));
-		assertThat(response.effects.get("seriousnesslifethreatening"), equalTo(25));
-		assertThat(response.effects.get("seriousnessother"), equalTo(30));
+		assertThat(response.productNdc, equalTo(MockOpenFdaGateway.ASPIRIN_NDC));
 	}
 
 	private final class FindDrugResponseImplementation implements FindDrugResponse
 	{
-		public Map<String, Integer> effects = new HashMap<String, Integer>();
+		public String productNdc;
 
 		public String manufacturerName;
 
@@ -177,9 +169,9 @@ public class FindDrugUseCaseImplTest
 		}
 
 		@Override
-		public void setEvents(Map<String, Integer> drugEffects)
+		public void setProductNdc(String productNdc)
 		{
-			this.effects = drugEffects;
+			this.productNdc = productNdc;
 		}
 	}
 }
