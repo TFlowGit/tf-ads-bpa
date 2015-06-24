@@ -110,6 +110,12 @@
 			<artifactId>core</artifactId>
 			<version>${serenity.version}</version>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>servlet-api-2.5</artifactId>
+					<groupId>org.mortbay.jetty</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
