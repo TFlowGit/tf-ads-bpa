@@ -37,13 +37,14 @@ including software products used for building our infrastructure.
 | Tools                   | Puppet java module      | [Apache 2.0](https://forge.puppetlabs.com/puppetlabs/java/license)                             | Configuration Management       |                                                              |
 | Tools                   | Puppet jenkins module   | [Apache 2.0](https://forge.puppetlabs.com/rtyler/jenkins/license)                              | Configuration Management       |                                                              |
 | Tools                   | Puppet nginx module     | [MIT](https://github.com/jfryman/puppet-nginx/blob/master/LICENSE.md)                          | Configuration Management       |                                                              |
+| Tools                   | Puppet selinux module   | [Apache 2.0](https://github.com/jfryman/puppet-selinux/blob/master/metadata.json)              | Configuration Management       |                                                              |
 | Tools                   | Puppet ssh module       | [Apache 2.0](https://forge.puppetlabs.com/saz/ssh/license)                                     | Configuration Management       |                                                              |
 | Tools                   | Puppet staging module   | [Apache 2.0](https://forge.puppetlabs.com/nanliu/staging/license)                              | Configuration Management       |                                                              |
 | Tools                   | Puppet stdlib module    | [Apache 2.0](https://forge.puppetlabs.com/puppetlabs/stdlib/license)                           | Configuration Management       |                                                              |
 | Tools                   | Puppet timezone module  | [Apache 2.0](https://forge.puppetlabs.com/saz/timezone/license)                                | Configuration Management       |                                                              |
 | Tools                   | Puppet zypprepo module  | [Apache 2.0](https://forge.puppetlabs.com/darin/zypprepo)                                      | Configuration Management       |                                                              |
-| Tools                   | Vagrant                 | [MIT](https://github.com/mitchellh/vagrant/blob/master/LICENSE)                                | Local development testing      |                                                              |
 | Tools                   | Swagger                 | [Apache 2.0](https://github.com/swagger-api/swagger-ui/blob/master/LICENSE)                                | REST API Documentation      |                                                              |
+| Tools                   | Vagrant                 | [MIT](https://github.com/mitchellh/vagrant/blob/master/LICENSE)                                | Local development testing      |                                                              |
 
 ## Media
 
