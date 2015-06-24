@@ -547,6 +547,10 @@ div.form-group{
     border-radius: 0px !important;
 }
 
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
 /*LABELING SECTION*/
 
 .warning{
@@ -695,6 +699,7 @@ div.warning-col {
     padding-top: 2em;
 }
 
+
 .modal-btn {
     margin-top: 15px;
     margin-right: 1.5em;
@@ -702,6 +707,8 @@ div.warning-col {
 
 .modal-body {
     color: #2e2e2e !important;
+    height: 85%;
+    overflow: auto;
 }
 
 .modal-header {
@@ -764,7 +771,7 @@ span#subheading {
 
 @media (min-width: 1200px) {
     .big-num {
-        font-size: 13em !important;
+        font-size: 12em !important;
         color: #f6f6f6;
         text-align: center;
     }
