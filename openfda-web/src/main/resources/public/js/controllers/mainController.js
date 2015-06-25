@@ -1,5 +1,5 @@
 
-drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', function ($scope, drugsService, smoothScroll) {
+drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll','$timeout', function ($scope, drugsService, smoothScroll, $timeout) {
 
   $scope.query ='';
   $scope.result = '';
@@ -43,8 +43,9 @@ $scope.labelHeight = {
 	  events: 0
 };
 
-  $scope.readMore = function () {
-  	  
+  $scope.readMore = function(elem) {
+  	$scope.labelHeight[elem]
+  	var height = $("#labeling-"+elem+"-label").height();
   };
 
   $scope.searchDrug = function() {
@@ -58,12 +59,6 @@ $scope.labelHeight = {
 	  			transformResponse(response);
 	  			$scope.loading = false;	
 	  			$scope.searchBarVisibility = true;
-
-	  			//console.log("***" + $scope.result[0][0]);	  			
-	  			plotAdverse('adversePlot',[['Deaths', 4],['Life Threatening', 6],['Hospitilization', 2],['Disabling', 5],['Congenital Anomalies', 6], ['Other', 20]]);
-
-	  			// plotAdverse('adversePlot',$scope.result['events']);
-	  			// console.log("***" + $scope.result['events'][0]);
 		  })
 		  .error(function(data, status, headers, config){
 				$scope.infoVisibility = false;
@@ -120,5 +115,13 @@ $scope.labelHeight = {
 	  }
 	  return array;
   }
+
+  $scope.$on('finishedRender',function(finishedRenderEvent){
+  	console.log('ello');
+  	plotAdverse('adversePlot',[['Deaths', 4],['Life Threatening', 6],['Hospitilization', 2],['Disabling', 5],['Congenital Anomalies', 6], ['Other', 20]]);
+	// plotAdverse('adversePlot',$scope.result['events']);
+
+  });
+
 }]);
 
