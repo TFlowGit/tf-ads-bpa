@@ -1,7 +1,7 @@
 function plotAdverse(chartId, data){
 	var maxYVal= getMaxDataPoint(data);
 	var adversePlot;
-	var colorsArray = ['#FD0006', '#FFFFFF', '#248F40', '#A40004', '#06799F' , '#666666'];
+	var colorsArray = ['#00B25C', '#1C0118', '#FF9B40', '#A40004', '#06799F' , '#666666'];
 	 console.log(data);
 		adversePlot=$.jqplot(chartId,[data], {
 	        // Provide a custom seriesColors array to override the default colors.
@@ -23,12 +23,7 @@ function plotAdverse(chartId, data){
 	            xaxis:{
 	                renderer: $.jqplot.CategoryAxisRenderer,
 	                drawMajorGridlines: false,
-	                tickRenderer: $.jqplot.CanvasAxisTickRenderer,
-	                tickOptions: {
-	                 angle: -50,
-	                 fontFamily: 'Courier New',
-	                 fontSize: '9pt'
-	                }
+	                showTicks:false
 	            },
 	            yaxis:{
 	                drawMajorGridlines: false,
@@ -46,7 +41,7 @@ function plotAdverse(chartId, data){
 	    $('#' + chartId).bind('jqplotDataHighlight', function(evt, seriesIndex, pointIndex, data){
             var selEvent = adversePlot.data[seriesIndex][pointIndex][0];
 	        $('.eventTypeDiv').each(function(index){
-	            if($(this).attr('eventType')!= selEvent){
+	            if($(this).attr('eventtype')!= selEvent){
 	                 $(this).switchClass("highlighted","unHighlighted");
 	            }else{
 	               if($(this).hasClass('unHighlighted')){
@@ -62,7 +57,7 @@ function plotAdverse(chartId, data){
 	    $('#' + chartId).bind('jqplotDataClick', function(evt, seriesIndex, pointIndex, data){
 var selEvent = adversePlot.data[seriesIndex][pointIndex][0];
 	        $('.eventTypeDiv').each(function(index){
-	            if($(this).attr('eventType')!= selEvent){
+	            if($(this).attr('eventtype')!= selEvent){
 	                 $(this).switchClass("highlighted","unHighlighted");
 	            }else{
 	               if($(this).hasClass('unHighlighted')){
