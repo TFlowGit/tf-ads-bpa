@@ -58,12 +58,8 @@ $scope.labelHeight = {
 	  			transformResponse(response);
 	  			$scope.loading = false;	
 	  			$scope.searchBarVisibility = true;
-
-	  			//console.log("***" + $scope.result[0][0]);	  			
-	  			plotAdverse('adversePlot',[['hospital', 4],['life', 6],['Hospitilization', 2],['Disabling', 5],['Congenital', 6], ['other', 20]]);
-
+	  			plotAdverse('adversePlot',[['hospital', 4],['congenital', 6],['disabling', 2],['life', 5],['death', 6], ['other', 20]]);
 	  			// plotAdverse('adversePlot',$scope.result['events']);
-	  			// console.log("***" + $scope.result['events'][0]);
 		  })
 		  .error(function(data, status, headers, config){
 				$scope.infoVisibility = false;
@@ -107,7 +103,6 @@ $scope.labelHeight = {
 		result['warnings'] = warnings;
 		$scope.result = result;
 		console.log(result);
-	//	$scope.results.events[0]
   }	
   
   function transformTo2DArray(obj){
