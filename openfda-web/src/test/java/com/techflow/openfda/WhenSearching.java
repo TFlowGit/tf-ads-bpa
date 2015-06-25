@@ -28,6 +28,8 @@ public class WhenSearching
 	{
 		user.searchesFor("aspirin");
 		user.shouldSeeLabelFor("aspirin", driver);
+		user.shouldSeeEventFor("aspirin", driver);
+		
 	}
 
 	/**
