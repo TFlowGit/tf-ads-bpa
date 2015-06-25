@@ -54,12 +54,13 @@ public class DrugEventControllerTest
 
 		final DrugEventResponse response = DrugControllerTest.mapResponse(mvcResult.getResponse(), DrugEventResponse.class);
 
-		assertThat(response.getCongenitalAnomali(), equalTo(5));
-		assertThat(response.getDeath(), equalTo(10));
-		assertThat(response.getDisabling(), equalTo(13));
-		assertThat(response.getHospitialization(), equalTo(17));
-		assertThat(response.getLifeThreatening(), equalTo(25));
-		assertThat(response.getOther(), equalTo(30));
+		assertThat(response.getCongenitalAnomali(), equalTo(1));
+		assertThat(response.getDeath(), equalTo(2));
+		assertThat(response.getDisabling(), equalTo(1));
+		assertThat(response.getHospitialization(), equalTo(1));
+		assertThat(response.getLifeThreatening(), equalTo(1));
+		assertThat(response.getOther(), equalTo(2));
+		assertThat(response.getTotal(), equalTo(0));
 	}
 
 	@Test

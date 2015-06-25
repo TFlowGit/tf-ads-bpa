@@ -10,7 +10,7 @@ import org.junit.Test;
 import com.google.api.client.util.Charsets;
 import com.google.common.io.Resources;
 import com.techflow.openfda.GatewayException;
-import com.techflow.openfda.drugs.DrugEvent;
+import com.techflow.openfda.drugs.DrugEventSummary;
 import com.techflow.openfda.drugs.DrugLabel;
 import com.techflow.openfda.drugs.Seriousness;
 
@@ -323,7 +323,7 @@ public class OpenFdaGatewayImplTest
 		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
 		g.transport = transport;
 
-		final DrugEvent effect = g.getEvents("50242-051", Seriousness.DEATH);
+		final DrugEventSummary effect = g.getEvents("50242-051", Seriousness.DEATH);
 
 		assertThat(transport.getMethod(), equalTo("GET"));
 		assertThat(transport.getUrl(), equalTo("https://api.fda.gov/drug/event.json?search=patient.drug.openfda.product_ndc:50242-051%20AND%20seriousnessdeath:1"));
@@ -339,7 +339,7 @@ public class OpenFdaGatewayImplTest
 		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
 		g.transport = transport;
 
-		final DrugEvent effect = g.getEvents("65862-659", Seriousness.CONGENITAL_ANOMALI);
+		final DrugEventSummary effect = g.getEvents("65862-659", Seriousness.CONGENITAL_ANOMALI);
 
 		assertThat(transport.getMethod(), equalTo("GET"));
 		assertThat(transport.getUrl(), equalTo("https://api.fda.gov/drug/event.json?search=patient.drug.openfda.product_ndc:65862-659%20AND%20seriousnesscongenitalanomali:1"));

@@ -24,8 +24,8 @@ public class ListDrugEventsUseCaseImpl extends BaseUseCase<ListDrugEventsRequest
 		for (final Seriousness seriousness : Seriousness.values()) {
 			final String productNdc = request.getProductNdc();
 			final String key = seriousness.key();
-			final DrugEvent events = openFdaGateway.getEvents(productNdc, seriousness);
-			final int count = events.getCount();
+			final DrugEventSummary event = openFdaGateway.getEvents(productNdc, seriousness);
+			final int count = event.getCount();
 
 			drugEffects.put(key, count);
 		}

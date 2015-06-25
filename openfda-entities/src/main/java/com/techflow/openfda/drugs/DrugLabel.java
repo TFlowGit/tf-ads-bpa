@@ -1,5 +1,8 @@
 package com.techflow.openfda.drugs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DrugLabel
 {
 	private String purpose;
@@ -31,6 +34,10 @@ public class DrugLabel
 	private String adverseReactions;
 
 	private String productNdc;
+
+	private final List<DrugEventSummary> events = new ArrayList<DrugEventSummary>();
+
+	private final List<DrugEvent> events2 = new ArrayList<DrugEvent>();
 
 	public String getPurpose()
 	{
@@ -180,5 +187,29 @@ public class DrugLabel
 	public void setProductNdc(String productNdc)
 	{
 		this.productNdc = productNdc;
+	}
+
+	// public void addEvent(Seriousness seriousness, int count)
+	// {
+	// final DrugEventSummary drugEvent = new DrugEventSummary(count, seriousness.key());
+	// events.add(drugEvent);
+	// }
+
+	public DrugEventSummary summarize(Seriousness key)
+	{
+		final DrugEventSummary summary = new DrugEventSummary();
+
+		for (final DrugEvent e : events2) {
+			if (e.has(key)) {
+				summary.increment(key);
+			}
+		}
+
+		return summary;
+	}
+
+	public void addEvent(Seriousness... seriousness)
+	{
+		events2.add(new DrugEvent(seriousness));
 	}
 }

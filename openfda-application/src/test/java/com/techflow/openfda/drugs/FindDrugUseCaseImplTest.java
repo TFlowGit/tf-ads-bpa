@@ -28,7 +28,7 @@ public class FindDrugUseCaseImplTest
 
 		assertThat(response.indicationsAndUsage, equalTo("indications"));
 		assertThat(response.brandName, equalTo("brand name"));
-		assertThat(response.genericName, equalTo("generic name"));
+		assertThat(response.genericName, equalTo("Aspirin"));
 		assertThat(response.purpose, equalTo("purpose"));
 		assertThat(response.active, equalTo("active"));
 		assertThat(response.inactive, equalTo("inactive"));

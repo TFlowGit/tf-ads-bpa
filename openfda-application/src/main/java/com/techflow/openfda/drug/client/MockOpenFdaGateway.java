@@ -1,9 +1,9 @@
 package com.techflow.openfda.drug.client;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import com.techflow.openfda.GatewayException;
-import com.techflow.openfda.drugs.DrugEvent;
+import com.techflow.openfda.drugs.DrugEventSummary;
 import com.techflow.openfda.drugs.DrugLabel;
 import com.techflow.openfda.drugs.Seriousness;
 
@@ -16,22 +16,30 @@ public class MockOpenFdaGateway implements OpenFdaGateway
 
 	public GatewayException exception;
 
-	private final Map<EventKey, DrugEvent> events = new HashMap<MockOpenFdaGateway.EventKey, DrugEvent>();
+	private final List<DrugLabel> drugs = new ArrayList<DrugLabel>();
 
 	public MockOpenFdaGateway()
 	{
-		addDrugEvent(ASPIRIN_NDC, Seriousness.CONGENITAL_ANOMALI, 5);
-		addDrugEvent(ASPIRIN_NDC, Seriousness.DEATH, 10);
-		addDrugEvent(ASPIRIN_NDC, Seriousness.DISABLING, 13);
-		addDrugEvent(ASPIRIN_NDC, Seriousness.HOSPITALIZATION, 17);
-		addDrugEvent(ASPIRIN_NDC, Seriousness.LIFE_THREATENING, 25);
-		addDrugEvent(ASPIRIN_NDC, Seriousness.OTHER, 30);
-	}
+		final DrugLabel drug = new DrugLabel();
+		drug.setProductNdc(ASPIRIN_NDC);
+		drug.setIndicationsAndUsage("indications");
+		drug.setBrandName("brand name");
+		drug.setGenericName("Aspirin");
+		drug.setPurpose("purpose");
+		drug.setActive("active");
+		drug.setInactive("inactive");
+		drug.setWarnings("warnings");
+		drug.setDoNotUse("do not use");
+		drug.setAskDoctor("ask doctor");
+		drug.setAskDoctorOrPharmacist("ask doctor or pharmacist");
+		drug.setDosage("dosage");
+		drug.setStopUse("stop use");
+		drug.setAdverseReactions("adverse reactions");
+		drug.setManufacturerName("manufacturer name");
+		drug.addEvent(Seriousness.CONGENITAL_ANOMALI, Seriousness.DEATH, Seriousness.DISABLING, Seriousness.HOSPITALIZATION, Seriousness.LIFE_THREATENING, Seriousness.OTHER);
+		drug.addEvent(Seriousness.DEATH, Seriousness.OTHER);
 
-	private void addDrugEvent(String productNdc, Seriousness seriousness, int count)
-	{
-		final String key = seriousness.key();
-		events.put(new EventKey(productNdc, key), new DrugEvent(count));
+		drugs.add(drug);
 	}
 
 	/**
@@ -45,99 +53,49 @@ public class MockOpenFdaGateway implements OpenFdaGateway
 		}
 
 		if (label == null) {
-			return null;
+			throw new GatewayException();
 		}
 
-		switch (label) {
-		case "aspirin":
-			final DrugLabel drug = new DrugLabel();
-			drug.setProductNdc(ASPIRIN_NDC);
-			drug.setIndicationsAndUsage("indications");
-			drug.setBrandName("brand name");
-			drug.setGenericName("generic name");
-			drug.setPurpose("purpose");
-			drug.setActive("active");
-			drug.setInactive("inactive");
-			drug.setWarnings("warnings");
-			drug.setDoNotUse("do not use");
-			drug.setAskDoctor("ask doctor");
-			drug.setAskDoctorOrPharmacist("ask doctor or pharmacist");
-			drug.setDosage("dosage");
-			drug.setStopUse("stop use");
-			drug.setAdverseReactions("adverse reactions");
-			drug.setManufacturerName("manufacturer name");
-
-			return drug;
-		}
-
-		return null;
+		return findByLabel(label);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public DrugEvent getEvents(String productNdc, Seriousness s) throws GatewayException
+	public DrugEventSummary getEvents(String productNdc, Seriousness s) throws GatewayException
 	{
 		if (exception != null) {
 			throw exception;
 		}
 
-		final EventKey eventKey = new EventKey(productNdc, s.key());
-		final DrugEvent drugEvent = events.get(eventKey);
+		final DrugLabel drug = findByProductNdc(productNdc);
+		final DrugEventSummary e = drug.summarize(s);
+		e.setSeriousness(s.key());
+		e.setCount(e.getCount(s));
 
-		return drugEvent;
+		return e;
 	}
 
-	static final class EventKey
+	private DrugLabel findByProductNdc(String productNdc)
 	{
-		private final String productNdc;
-
-		private final String seriousness;
-
-		public EventKey(String productNdc, String seriousness) {
-			this.productNdc = productNdc;
-			this.seriousness = seriousness;
+		for (final DrugLabel drug : drugs) {
+			if (drug.getProductNdc().equals(productNdc)) {
+				return drug;
+			}
 		}
 
-		@Override
-		public int hashCode()
-		{
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + ((productNdc == null) ? 0 : productNdc.hashCode());
-			result = prime * result + ((seriousness == null) ? 0 : seriousness.hashCode());
-			return result;
+		return null;
+	}
+
+	private DrugLabel findByLabel(String label)
+	{
+		for (final DrugLabel drug : drugs) {
+			if (drug.getGenericName().equalsIgnoreCase(label)) {
+				return drug;
+			}
 		}
 
-		@Override
-		public boolean equals(Object obj)
-		{
-			if (this == obj) {
-				return true;
-			}
-			if (obj == null) {
-				return false;
-			}
-			if (getClass() != obj.getClass()) {
-				return false;
-			}
-			final EventKey other = (EventKey)obj;
-			if (productNdc == null) {
-				if (other.productNdc != null) {
-					return false;
-				}
-			} else if (!productNdc.equals(other.productNdc)) {
-				return false;
-			}
-			if (seriousness == null) {
-				if (other.seriousness != null) {
-					return false;
-				}
-			} else if (!seriousness.equals(other.seriousness)) {
-				return false;
-			}
-			return true;
-		}
+		return null;
 	}
 }

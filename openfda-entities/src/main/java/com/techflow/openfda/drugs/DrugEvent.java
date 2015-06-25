@@ -1,35 +1,18 @@
 package com.techflow.openfda.drugs;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class DrugEvent
 {
-	private int count;
+	private final List<Seriousness> seriousnessList;
 
-	private String seriousness;
-
-	public DrugEvent() {
+	public DrugEvent(Seriousness[] seriousnessArray) {
+		this.seriousnessList = Arrays.asList(seriousnessArray);
 	}
 
-	public DrugEvent(int count) {
-		this.count = count;
-	}
-
-	public int getCount()
+	public boolean has(Seriousness seriousness)
 	{
-		return count;
-	}
-
-	public void setCount(int count)
-	{
-		this.count = count;
-	}
-
-	public String getSeriousness()
-	{
-		return seriousness;
-	}
-
-	public void setSeriousness(String seriousness)
-	{
-		this.seriousness = seriousness;
+		return seriousnessList.contains(seriousness);
 	}
 }
