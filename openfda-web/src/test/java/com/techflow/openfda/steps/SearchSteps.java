@@ -39,7 +39,7 @@ public class SearchSteps extends ScenarioSteps
 		Actions actions = new Actions(driver);
 		
 		
-		WebElement btnMore;
+		WebElement btnMore, elementFound;
 		WebElement btnClose;
 
 		// Insure all elememts are visible.
@@ -49,7 +49,10 @@ public class SearchSteps extends ScenarioSteps
 	    } catch(Exception e) {
 	    	e.printStackTrace();
 	    }
-	 
+
+		
+
+	    
 		// ############ ACTIVEINGREDIENT #############
 		try {
 			btnMore = driver.findElement(By.id("btn-more-active"));
@@ -57,7 +60,10 @@ public class SearchSteps extends ScenarioSteps
 			Thread.sleep(2000);
 			actions.click();
 			actions.perform();
-			assertThat(drugPage.getActiveIngredient(),
+			
+			String stringFound= drugPage.getActiveIngredient();
+			
+			assertThat(stringFound,
 					is("Active ingredient (in each tablet) Aspirin 81 mg (NSAID)* *nonsteroidal anti- inflammatory drug"));
 			btnClose = driver.findElement(By.id("btn-close-active"));
 			actions.click();
@@ -65,6 +71,7 @@ public class SearchSteps extends ScenarioSteps
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 
 		// ############ INACTIVEINGREDIENT #############
 		try {
@@ -222,10 +229,54 @@ public class SearchSteps extends ScenarioSteps
 					e.printStackTrace();
 		}
 		
+		//##########################################################
 		
 		
 
+		
+
 	}
+	
+	@Step("Then the label info is displayed for {0}")
+	public void shouldSeeEventFor(String drugName, WebDriver driver) {
+		DrugPage drugPage = onDrugPage();
+		Actions actions = new Actions(driver);
+
+		WebElement btnMore, elementFound;
+		WebElement btnClose;
+
+		// Insure all elememts are visible.
+		((JavascriptExecutor) driver)
+				.executeScript("window.resizeTo(1024, 4096);");
+		try {
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// ############ labeling-TotalCount #############
+		try {
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("javascript:window.scrollBy(0,450)");
+
+			elementFound = driver.findElement(By.id("labeling-TotalCount"));
+			
+			// actions.moveToElement(elementFound);
+			// Thread.sleep(2000);
+
+			String stringFound = drugPage.getTotalCount();
+
+			assertThat(stringFound, is("450,790"));
+			
+			System.out.println("Success TotalCount Test");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 
 	private SearchPage onSearchPage()
 	{
