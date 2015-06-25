@@ -3,6 +3,7 @@ package com.techflow.openfda.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.DefaultUrl;
+
 import org.openqa.selenium.WebElement;
 
 @DefaultUrl("http://localhost:8080/index.html")
@@ -53,6 +54,28 @@ public class DrugPage extends PageObject
 
 	@FindBy(id = "labeling-manfacturerName-modal")
 	WebElement manufacturerName;
+	
+	
+	
+
+	@FindBy(id = "labeling-TotalCount")
+	WebElement totalCount;
+	
+	
+	
+
+	public String getTotalCount() {
+		try {
+			return totalCount.getText();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public void setTotalCount(WebElement totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public String getIndicationsAndUsage()
 	{
