@@ -708,6 +708,11 @@ div.warning-col {
     padding-top: 2em;
 }
 
+.modal-dialog {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .modal-btn {
     margin-top: 15px;
@@ -833,7 +838,6 @@ span#subheading {
     border-color:#bf2726;
     border-width: 4px;
     width: 300px;
-    /*margin-right: 0px;*/
     text-align: center;
 }
 
@@ -842,6 +846,7 @@ span#subheading {
     padding-right: 1em;
     border: none;
     border-radius: 0px;
+
 }
 
 .panel-hospital {
