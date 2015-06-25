@@ -644,9 +644,7 @@ div.label-content {
 @media (max-width: 768px) {
     .form-group{
     	margin:auto;
-    	margin-bottom:5px;
-        /*max-width: 50%;*/
-        /*min-width: 350px;*/
+    	margin-bottom:5px;    
         display: inline-block;
     } 
     h1.text-center.label-heading {
@@ -879,7 +877,6 @@ div.plot {
 /*FOOTER SECTION*/
 .footer {
     width: 100%;
-    /* background-color: #2e2e2e; */
     background-color: #2e2e2e;
     border-top: thick black;
     margin-bottom: 5px;
