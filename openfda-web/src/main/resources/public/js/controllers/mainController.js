@@ -29,13 +29,11 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  $scope.queryFailedMsg = '';
 	  $scope.loading = true;
 	  $scope.searchBarVisibility = false;
+	  
 	  drugsService.getDrugInfo($scope.query)
 		  .success(function(response){
-			  	$scope.infoVisibility = true;
-	  			$scope.scroll = true;
+			    getAdverseEvents(response['productNdc']);
 	  			transformResponse(response);
-	  			$scope.loading = false;
-	  			$scope.searchBarVisibility = true;
 		  })
 		  .error(function(data, status, headers, config){
 				$scope.infoVisibility = false;
@@ -50,9 +48,34 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 						break;
 				}
 		  });
+		  
 	  $scope.scroll = false;
   };
   
+  function getAdverseEvents(productNdc){
+	  drugsService.getDrugAdverseEvents(productNdc)
+	  	.success(function(response){
+	  		$scope.events = transformTo2DArray(response);
+	  		$scope.infoVisibility = true;
+  			$scope.scroll = true;
+  			$scope.loading = false;
+  			$scope.searchBarVisibility = true;
+	  	})
+	  	.error(function(data, status, headers, config){
+			$scope.infoVisibility = false;
+			$scope.loading = false;
+  			$scope.searchBarVisibility = true;
+			switch(status){
+				case 404:
+					$scope.queryFailedMsg = "Drug not found";
+					break;
+				default:
+					$scope.queryFailedMsg = "There was an unknown error. Please try again later.";
+					break;
+			}
+	  });
+  }
+ 
   function transformResponse(response){
 	    console.log(response);
 	  	var result = {};
@@ -64,8 +87,6 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 					result['name'] = response[key];
 				else if(key == 'purpose') 
 					result['purpose'] = response[key];
-				else if(key == 'events')
-					result[key] = transformTo2DArray(response[key]);
 				else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist'){
 					if(response[key] != null){
 						warnings[key] = response[key];
@@ -78,7 +99,6 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 		result['labelInfo'] = labelInfo;
 		result['warnings'] = warnings;
 		$scope.result = result;
-		console.log(result);
   }	
   
   function transformTo2DArray(obj){
@@ -91,5 +111,7 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  }
 	  return array;
   }
+  
+
 }]);
 
