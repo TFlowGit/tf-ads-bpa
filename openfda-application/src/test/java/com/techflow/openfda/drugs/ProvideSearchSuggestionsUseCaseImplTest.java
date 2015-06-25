@@ -5,17 +5,17 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertThat;
 import java.util.List;
 import org.junit.Test;
-import com.techflow.openfda.drug.usecase.AutocompleteRequest;
-import com.techflow.openfda.drug.usecase.AutocompleteResponse;
+import com.techflow.openfda.drug.usecase.ProvideSearchSuggestionsRequest;
+import com.techflow.openfda.drug.usecase.ProvideSearchSuggestionsResponse;
 
-public class AutocompleteUseCaseImplTest
+public class ProvideSearchSuggestionsUseCaseImplTest
 {
 	@Test
 	public void shouldFindAspirin() throws Exception
 	{
-		final AutocompleteUseCaseImpl useCase = new AutocompleteUseCaseImpl(new MockDrugRepository());
+		final ProvideSearchSuggestionsUseCaseImpl useCase = new ProvideSearchSuggestionsUseCaseImpl(new MockDrugRepository());
 
-		useCase.setRequest(new AutocompleteRequest() {
+		useCase.setRequest(new ProvideSearchSuggestionsRequest() {
 
 			@Override
 			public String getDrug()
@@ -25,7 +25,7 @@ public class AutocompleteUseCaseImplTest
 
 		});
 		;
-		final AutocompleteResponseImplementation response = new AutocompleteResponseImplementation();
+		final SuggestionsResponseSpy response = new SuggestionsResponseSpy();
 		useCase.setResponse(response);
 		useCase.execute();
 
@@ -35,9 +35,9 @@ public class AutocompleteUseCaseImplTest
 	@Test
 	public void shouldFindTylenol() throws Exception
 	{
-		final AutocompleteUseCaseImpl useCase = new AutocompleteUseCaseImpl(new MockDrugRepository());
+		final ProvideSearchSuggestionsUseCaseImpl useCase = new ProvideSearchSuggestionsUseCaseImpl(new MockDrugRepository());
 
-		useCase.setRequest(new AutocompleteRequest() {
+		useCase.setRequest(new ProvideSearchSuggestionsRequest() {
 
 			@Override
 			public String getDrug()
@@ -47,19 +47,19 @@ public class AutocompleteUseCaseImplTest
 
 		});
 		;
-		final AutocompleteResponseImplementation response = new AutocompleteResponseImplementation();
+		final SuggestionsResponseSpy response = new SuggestionsResponseSpy();
 		useCase.setResponse(response);
 		useCase.execute();
 
 		assertThat(response.getResults(), containsInAnyOrder("tylenol", "tylenol pm"));
 	}
 
-	private final class AutocompleteResponseImplementation implements AutocompleteResponse
+	private final class SuggestionsResponseSpy implements ProvideSearchSuggestionsResponse
 	{
 		private List<String> results;
 
 		@Override
-		public void setResults(List<String> results)
+		public void setSuggestions(List<String> results)
 		{
 			this.results = results;
 		}

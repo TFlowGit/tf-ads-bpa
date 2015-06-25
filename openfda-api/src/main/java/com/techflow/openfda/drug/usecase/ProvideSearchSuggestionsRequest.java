@@ -1,6 +1,6 @@
 package com.techflow.openfda.drug.usecase;
 
-public interface AutocompleteRequest
+public interface ProvideSearchSuggestionsRequest
 {
 	String getDrug();
 }

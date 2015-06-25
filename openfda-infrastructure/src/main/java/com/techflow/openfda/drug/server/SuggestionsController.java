@@ -15,46 +15,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import springfox.documentation.annotations.ApiIgnore;
-import com.techflow.openfda.GatewayException;
-import com.techflow.openfda.drug.usecase.FindDrugUseCase;
+import com.techflow.openfda.drug.usecase.ProvideSearchSuggestionsRequest;
+import com.techflow.openfda.drug.usecase.ProvideSearchSuggestionsUseCase;
 import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
 
-@Api(value = "/api/drugs", protocols = "http")
+@Api(value = "/api/suggestions", protocols = "http")
 @Controller
-@RequestMapping("/api/drugs")
-public class DrugController
+@RequestMapping("/api/suggestions")
+public class SuggestionsController
 {
 	private final OpenFdaUseCaseFactory useCaseFactory;
 
 	@Autowired
-	public DrugController(OpenFdaUseCaseFactory useCaseFactory)
+	public SuggestionsController(OpenFdaUseCaseFactory useCaseFactory)
 	{
 		this.useCaseFactory = useCaseFactory;
 	}
 
-	@ApiOperation(value = "Describe a drug", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "Provides autocomplete suggestions", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiResponses({
-			@ApiResponse(message = "Success", code = 200, response = DescribeDrugResponse.class),
-			@ApiResponse(message = "Drug not found", code = 404),
+			@ApiResponse(message = "Success", code = 200, response = SuggestionsResponse.class),
 			@ApiResponse(message = "Internal error", code = 500, response = ErrorResponse.class)
 	})
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	@ApiImplicitParams({ @ApiImplicitParam(name = "name", value = "The name of a drug", paramType = "query", required = false, dataType = "string")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name = "name", value = "Partial name of a drug", paramType = "query", required = true, dataType = "string")
 	})
 	@ResponseBody
-	public ResponseEntity<DescribeDrugResponse> describeDrug(@ApiIgnore DescribeDrugRequest request) throws GatewayException
+	public ResponseEntity<SuggestionsResponse> autoComplete(@ApiIgnore DescribeDrugRequest request) throws Exception
 	{
-		final FindDrugUseCase useCase = useCaseFactory.newFindDrugUseCase();
-		final DescribeDrugResponse response = new DescribeDrugResponse();
-		useCase.setRequest(request);
+		final ProvideSearchSuggestionsUseCase useCase = useCaseFactory.newAutocompleteUseCase();
+		final SuggestionsResponse response = new SuggestionsResponse();
+		useCase.setRequest(new ProvideSearchSuggestionsRequest() {
+			@Override
+			public String getDrug()
+			{
+				return request.getName();
+			}
+		});
 		useCase.setResponse(response);
 		useCase.execute();
 
-		if (response.isNotFound()) {
-			return new ResponseEntity<DescribeDrugResponse>(HttpStatus.NOT_FOUND);
-		}
-
-		final ResponseEntity<DescribeDrugResponse> responseEntity = new ResponseEntity<DescribeDrugResponse>(response, HttpStatus.OK);
-		return responseEntity;
+		return new ResponseEntity<SuggestionsResponse>(response, HttpStatus.OK);
 	}
 }

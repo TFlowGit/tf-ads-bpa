@@ -2,7 +2,7 @@ package com.techflow.openfda.drugs;
 
 import com.techflow.openfda.drug.client.DrugRepository;
 import com.techflow.openfda.drug.client.OpenFdaGateway;
-import com.techflow.openfda.drug.usecase.AutocompleteUseCase;
+import com.techflow.openfda.drug.usecase.ProvideSearchSuggestionsUseCase;
 import com.techflow.openfda.drug.usecase.ListDrugEventsUseCase;
 import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
 
@@ -30,8 +30,8 @@ public class SimpleOpenFdaSpringUseCaseFactory implements OpenFdaUseCaseFactory
 	}
 
 	@Override
-	public AutocompleteUseCase newAutocompleteUseCase()
+	public ProvideSearchSuggestionsUseCase newAutocompleteUseCase()
 	{
-		return new AutocompleteUseCaseImpl(drugRepository);
+		return new ProvideSearchSuggestionsUseCaseImpl(drugRepository);
 	}
 }
