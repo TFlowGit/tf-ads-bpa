@@ -21,6 +21,7 @@
 
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery.jqplot.min.css" type="text/css"></link>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
@@ -51,17 +52,30 @@
                 <a class="navbar-brand page-scroll" href="#page-top">DARI</a>
             </div>
 
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul ng-show="infoVisibility"  class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#labeling">Labeling Information</a>
-                    </li>
-                    <li>
                         <a class="page-scroll" href="#adverse">Adverse Events</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#labeling">Labeling Information</a>
+                    </li>
+                    <li>
                     	<a class="page-scroll" href="#disclaimer">Disclaimer</a>
+                    </li>
+                    <li>
+                        <form class="form-inline">
+                          <div class="form-group search-nav">
+                            <div class="input-group">
+                              <span>
+                              	<input id="input-drug" type="text" class="form-control search-control" placeholder="Enter a drug..." ng-model="query">
+                              	<button class="input-group-addon fa fa-search" type="submit" ng-click="searchDrug()" ></button>
+                              </span>
+                            </div>
+                          </div>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -78,7 +92,7 @@
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline" ng-show="searchBarVisibility">
                     <div class="form-group ">
-                        <input id="input-drug" type="text" class="form-control" placeholder="List your prescriptions" ng-model="query" autofocus>
+                        <input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus>
                     </div>
                     <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()'>Search</button>
                 </form>
@@ -90,82 +104,18 @@
                 	<div></div>
                 	<div></div>
                 </div>
-   				<h3 class="warning">{{queryFailedMsg}}</h3>
+   				<h3 class="warning ng-cloak">{{queryFailedMsg}}</h3>
             </div>
         </div>
     </header>
-
-    <section class="bg-primary" id="labeling" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
-            <div class="col-sm-8 label-col">
-                <h1 class="text-center label-heading wow fadeIn" id="drug-name">{{result.name}}</h1>
-    	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo">
-                    <div class="label-content wow fadeIn">
-                   		<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
-                   		<hr class="label-hr" id="hr-grey">
-                   		<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
-               		</div>           
-
-                    <!-- Button trigger modal -->
-                    <button id="btn-more-{{key}}" type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}">
-                      Read More
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal-{{key}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="labeling-{{key}}">{{headers[key]}}</h4>
-                          </div>
-                          <div class="modal-body" id="labeling-{{key}}-modal">{{label}}</div>
-                          <div class="modal-footer">
-                            <button id="btn-close-{{key}}" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-    	         </div>
-                 <br><br>
-    	     </div>
-    	     
-    	     <div class="col-sm-4 warning-col">
-                <h1 class="text-center label-heading wow fadeIn"><!-- <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> --> <span><i class="fa fa-warning fa-lg"></i></span>&nbsp; WARNINGS: </h1>
-               	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
-	                <div class="label-content wow fadeIn" id="warning-div">
-                    	<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
-                    	<hr class="label-hr">
-                    	<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
-	                </div>
-                    <button id="btn-more-{{key}}" type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}" id="warning-btn">
-                      Read More
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal-{{key}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="labeling-{{key}}">{{headers[key]}}</h4>
-                          </div>
-                          <div class="modal-body" id="labeling-{{key}}-modal">{{label}}</div>
-                          <div class="modal-footer">
-                            <button id="btn-close-{{key}}" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                 <br><br>
-             </div>
-    </section>
-
-    <section class="bg-primary" id="adverse" ng-show="infoVisibility">
+    <section class="bg-primary" id="adverse" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
         <h1 id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
             <div class="row plot-row">
-                <div class="plot col-lg-6 ">
-                    <img src="http://smashburger.securetree.com/Content/img/600x377_Placeholder.png" alt="placeholder">
+
+                <div class="col-lg-6 " id="adversePlot">
+                	<div class="plot"></div>
                 </div>
+           
                 <div class="event-total col-lg-6 text-center">
                     <h1 class="big-num wow fadeIn">450,790</h1>
                     <hr class="hr-num">
@@ -173,16 +123,17 @@
                 </div>
             </div>    
             <div class="row event-row">
+
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-death">
+                    <div class="panel panel-hospital">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
-                                    <i class="fa fa-heartbeat fa-4x"></i>
+                                    <i class="fa fa-hospital-o fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div class="small">Deaths</div>
+                                    <div class="small">Hospitalizations</div>
                                 </div>
                             </div>
                         </div>
@@ -204,15 +155,15 @@
                     </div>
                 </div>
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-hospital">
+                    <div class="panel panel-disabling">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
-                                    <i class="fa fa-hospital-o fa-4x"></i>
+                                    <i class="fa fa-wheelchair fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div class="small">Hospitalizations</div>
+                                    <div class="small">Disabling</div>
                                 </div>
                             </div>
                         </div>
@@ -234,15 +185,15 @@
                     </div>
                 </div>
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-disabling">
+                    <div class="panel panel-death">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
-                                    <i class="fa fa-wheelchair fa-4x"></i>
+                                    <i class="fa fa-heartbeat fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">125,132</div>
-                                    <div class="small">Disabling</div>
+                                    <div class="small">Deaths</div>
                                 </div>
                             </div>
                         </div>
@@ -265,7 +216,73 @@
                 </div>
             </div>
     </section>
-	
+
+    <section class="bg-primary" id="labeling" ng-show="infoVisibility">
+            <div class="col-sm-8 label-col">
+                <h1 class="text-center label-heading wow fadeIn" id="drug-name">{{result.name}}</h1>
+    	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo">
+                    <div class="label-content wow fadeIn">
+                   		<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
+                   		<hr class="label-hr" id="hr-grey">
+                   		<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
+               		</div>           
+
+                    <!-- Button trigger modal -->
+                    <div class="read-more-section">
+                        <button id="btn-more-{{key}}" type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}">Read More</button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal-{{key}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="labeling-{{key}}">{{headers[key]}}</h4>
+                          </div>
+                          <div class="modal-body" id="labeling-{{key}}-modal">{{label}}</div>
+                          <div class="modal-footer">
+                            <button id="btn-close-{{key}}" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    	         </div>
+                 <br><br>
+    	     </div>
+    	     
+    	     <div class="col-sm-4 warning-col">
+                <h1 class="text-center label-heading wow fadeIn"><span><i class="fa fa-warning fa-lg"></i></span>&nbsp; WARNINGS: </h1>
+               	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
+	                <div class="label-content wow fadeIn warning-div">
+                    	<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
+                    	<hr class="label-hr">
+                    	<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
+	                </div>
+                    <div class="read-more-section">                    
+                        <button id="btn-more-{{key}}" type="button" class="btn btn-primary pull-right modal-btn warning-btn" data-toggle="modal" data-target="#myModal-{{key}}">Read More</button>
+                    </div>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal-{{key}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="labeling-{{key}}">{{headers[key]}}</h4>
+                          </div>
+                          <div class="modal-body" id="labeling-{{key}}-modal">{{label}}</div>
+                          <div class="modal-footer">
+                            <button id="btn-close-{{key}}" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                 <br><br>
+             </div>
+    </section>
+
     <footer class="footer" ng-show="infoVisibility">
     	<div class="container">
     		<div class="footer-menu text-primary">
@@ -288,6 +305,13 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/jquery.fittext.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/jquery.jqplot.min.js"></script>
+    <script src="js/jqplot.barRenderer.min.js"></script>
+    <script src="js/jqplot.categoryAxisRenderer.min.js"></script>
+    <script src="js/jqplot.pointLabels.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script type="js/jqplot.canvasTextRenderer.min.js"></script>
+    <script type="js/jqplot.canvasAxisTickRenderer.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
@@ -298,6 +322,10 @@
     <script src="js/angular-smooth-scroll.js"></script>
     <script src="js/controllers/mainController.js"></script>
     <script src="js/services/drugs.js"></script>
+    
+    <!--  Custom JS chart.js -->
+    <script src="js/utils/chart.js"></script>
+    
 </body>
 
 </html>
