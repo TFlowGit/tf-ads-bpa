@@ -21,6 +21,7 @@
 
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery.jqplot.min.css" type="text/css"></link>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
@@ -110,9 +111,11 @@
     <section class="bg-primary" id="adverse" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
         <h1 id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
             <div class="row plot-row">
-                <div class="col-lg-6 ">
-                    <div class="plot">{{plot}}</div>
+
+                <div class="col-lg-6 " id="adversePlot">
+                	<div class="plot"></div>
                 </div>
+           
                 <div class="event-total col-lg-6 text-center">
                     <h1 class="big-num wow fadeIn">450,790</h1>
                     <hr class="hr-num">
@@ -300,6 +303,11 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/jquery.fittext.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/jquery.jqplot.min.js"></script>
+    <script src="js/jqplot.barRenderer.min.js"></script>
+    <script src="js/jqplot.categoryAxisRenderer.min.js"></script>
+    <script src="js/jqplot.pointLabels.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
@@ -310,6 +318,10 @@
     <script src="js/angular-smooth-scroll.js"></script>
     <script src="js/controllers/mainController.js"></script>
     <script src="js/services/drugs.js"></script>
+    
+    <!--  Custom JS chart.js -->
+    <script src="js/utils/chart.js"></script>
+    
 </body>
 
 </html>
