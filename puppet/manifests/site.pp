@@ -24,6 +24,7 @@ node puppet {
 node /^app\d+$/ {
   include base_config::app
   include firewall::app
+  include app_conf
 }
 
 node /^web\d+$/ {

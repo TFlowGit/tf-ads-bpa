@@ -12,7 +12,7 @@ import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.techflow.openfda.GatewayException;
 import com.techflow.openfda.drug.client.OpenFdaDrugLabel.OpenFdaDrugLabelResult;
-import com.techflow.openfda.drugs.DrugEvent;
+import com.techflow.openfda.drugs.DrugEventSummary;
 import com.techflow.openfda.drugs.DrugLabel;
 import com.techflow.openfda.drugs.Seriousness;
 
@@ -75,7 +75,7 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 	 * {@inheritDoc}
 	 */
 	@Override
-	public DrugEvent getEvents(String productNdc, Seriousness s) throws GatewayException
+	public DrugEventSummary getEvents(String productNdc, Seriousness s) throws GatewayException
 	{
 		try {
 			final HttpRequestFactory requestFactory = createRequestFactory();
@@ -83,7 +83,7 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 			final HttpRequest request = requestFactory.buildGetRequest(url);
 			final OpenFdaDrugEvent jsonEvent = request.execute().parseAs(OpenFdaDrugEvent.class);
 
-			final DrugEvent adverseEvent = new DrugEvent();
+			final DrugEventSummary adverseEvent = new DrugEventSummary();
 			adverseEvent.setCount(jsonEvent.meta.results.total);
 			adverseEvent.setSeriousness(s.key());
 

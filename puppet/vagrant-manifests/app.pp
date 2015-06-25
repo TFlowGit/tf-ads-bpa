@@ -8,6 +8,6 @@ if versioncmp($::puppetversion,'3.6.1') >= 0 {
 }
 
 # Modules to use:
-include epel
 include base_config::app
 include firewall::app
+include app_conf

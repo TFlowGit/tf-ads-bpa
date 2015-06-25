@@ -1,6 +1,7 @@
 package com.techflow.openfda.drug.server;
 
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +26,7 @@ import com.techflow.openfda.drug.client.MockOpenFdaGateway;
 @ContextConfiguration(classes = TestApplication.class)
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @WebAppConfiguration
-public class DrugEventControllerTest
+public class SuggestionsControllerTest
 {
 	@Autowired
 	private MockOpenFdaGateway mockFdaGateway;
@@ -42,41 +43,38 @@ public class DrugEventControllerTest
 	}
 
 	@Test
-	public void shouldReturnEvents() throws Exception
-	{
-		final MvcResult mvcResult = mvc.perform(
-				MockMvcRequestBuilders.get("/api/events")
-						.contentType(MediaType.APPLICATION_JSON)
-						.accept(MediaType.APPLICATION_JSON)
-						.param("productNdc", MockOpenFdaGateway.ASPIRIN_NDC))
-				.andExpect(MockMvcResultMatchers.status().isOk())
-				.andReturn();
-
-		final DrugEventResponse response = SimpleObjectMapper.mapResponse(mvcResult.getResponse(), DrugEventResponse.class);
-
-		assertThat(response.getCongenitalAnomali(), equalTo(1));
-		assertThat(response.getDeath(), equalTo(2));
-		assertThat(response.getDisabling(), equalTo(1));
-		assertThat(response.getHospitialization(), equalTo(1));
-		assertThat(response.getLifeThreatening(), equalTo(1));
-		assertThat(response.getOther(), equalTo(2));
-		assertThat(response.getTotal(), equalTo(0));
-	}
-
-	@Test
-	public void shouldReturn500OnGatewayException() throws Exception
+	public void shouldReturnAutocomplete() throws Exception
 	{
 		mockFdaGateway.exception = new GatewayException();
 		final MvcResult mvcResult = mvc.perform(
-				MockMvcRequestBuilders.get("/api/events")
-						.contentType(MediaType.APPLICATION_JSON)
+				MockMvcRequestBuilders.get("/api/suggestions")
+						.contentType(MediaType.TEXT_PLAIN_VALUE)
 						.accept(MediaType.APPLICATION_JSON)
-						.param("productNdc", MockOpenFdaGateway.ASPIRIN_NDC))
-				.andExpect(MockMvcResultMatchers.status().isInternalServerError())
+						.param("name", "asp")
+						.param("view", "autocomplete"))
+				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andReturn();
 
-		final ErrorResponse response = SimpleObjectMapper.mapResponse(mvcResult.getResponse(), ErrorResponse.class);
+		final SuggestionsResponse response = SimpleObjectMapper.mapResponse(mvcResult.getResponse(), SuggestionsResponse.class);
 
-		assertThat(response.getMessage(), equalTo("Error communicating with OpenFDA API"));
+		assertThat(response.getSuggestions(), contains("aspirin"));
+	}
+
+	@Test
+	public void autoCompleteforTylenol() throws Exception
+	{
+		mockFdaGateway.exception = new GatewayException();
+		final MvcResult mvcResult = mvc.perform(
+				MockMvcRequestBuilders.get("/api/suggestions")
+						.contentType(MediaType.TEXT_PLAIN_VALUE)
+						.accept(MediaType.APPLICATION_JSON)
+						.param("name", "Ty")
+						.param("view", "autocomplete"))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andReturn();
+
+		final SuggestionsResponse response = SimpleObjectMapper.mapResponse(mvcResult.getResponse(), SuggestionsResponse.class);
+
+		assertThat(response.getSuggestions(), containsInAnyOrder("tylenol", "tylenol pm"));
 	}
 }
