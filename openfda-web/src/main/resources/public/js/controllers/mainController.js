@@ -25,6 +25,28 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  events: "Adverse Reaction"
   };
   
+$scope.labelHeight = {
+	  indicationsAndUsage : 0,
+	  brandName : 0,
+	  genericName : 0,
+	  purpose : 0,
+	  active : 0,
+	  adverseReactions: 0,
+	  askDoctor: 0,
+	  doNotUse: 0,
+	  dosage: 0,
+	  inactive: 0,
+	  warnings: 0,
+	  askDoctorOrPharmacist: 0,
+	  stopUse: 0,
+	  manufacturerName : 0,
+	  events: 0
+};
+
+  $scope.readMore = function () {
+  	  
+  };
+
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
 	  $scope.loading = true;
