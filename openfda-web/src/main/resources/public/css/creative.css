@@ -873,6 +873,13 @@ span#subheading {
     background-color: #666666;
 }
 
+.unHighlighted{
+    opacity: 0.5;
+}
+.highlighted{
+    opacity: 1.0;
+}
+
 
 /*styling for plot*/
 

@@ -60,7 +60,7 @@ $scope.labelHeight = {
 	  			$scope.searchBarVisibility = true;
 
 	  			//console.log("***" + $scope.result[0][0]);	  			
-	  			plotAdverse('adversePlot',[['hospital', 4],['Life Threatening', 6],['Hospitilization', 2],['Disabling', 5],['Congenital Anomalies', 6], ['Other', 20]]);
+	  			plotAdverse('adversePlot',[['hospital', 4],['life', 6],['Hospitilization', 2],['Disabling', 5],['Congenital', 6], ['other', 20]]);
 
 	  			// plotAdverse('adversePlot',$scope.result['events']);
 	  			// console.log("***" + $scope.result['events'][0]);
