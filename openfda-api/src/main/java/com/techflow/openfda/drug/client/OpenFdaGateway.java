@@ -7,7 +7,7 @@ import com.techflow.openfda.drugs.Seriousness;
 
 public interface OpenFdaGateway
 {
-	DrugLabel getLabel(String name) throws GatewayException;
+	DrugLabel getLabel(String drugName) throws GatewayException;
 
-	DrugEventSummary getEvents(String name, Seriousness s) throws GatewayException;
+	DrugEventSummary getEvents(String productNdc, Seriousness seriousness) throws GatewayException;
 }
