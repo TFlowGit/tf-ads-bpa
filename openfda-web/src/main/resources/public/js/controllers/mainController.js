@@ -34,10 +34,10 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 			  	$scope.infoVisibility = true;
 	  			$scope.scroll = true;
 	  			transformResponse(response);
-	  			$scope.loading = false;
+	  			$scope.loading = false;	
 	  			$scope.searchBarVisibility = true;
+	  			console.log("***" + $scope.result[0][0]);	  			
 	  			plotAdverse('adversePlot',$scope.result['events']);
-	  			console.log("***" + $scope.result['events'][0]);
 		  })
 		  .error(function(data, status, headers, config){
 				$scope.infoVisibility = false;
