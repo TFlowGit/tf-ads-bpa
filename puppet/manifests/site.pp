@@ -30,4 +30,5 @@ node /^app\d+$/ {
 node /^web\d+$/ {
   include base_config::web
   include firewall::web
+  include proxy_config
 }
