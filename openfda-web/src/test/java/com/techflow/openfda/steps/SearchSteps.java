@@ -32,12 +32,37 @@ public class SearchSteps extends ScenarioSteps
 		onSearchPage().searchFor(drug);
 	}
 
+	@Step("then the graph is displayed for {0}")
+	public void shouldSeeGraph(String drugName, WebDriver driver)
+	{
+		DrugPage drugPage = onDrugPage();
+		Actions actions = new Actions(driver);
+		
+		WebElement btnMore;
+		//WebElement btnClose;
+		
+		// Insure all elememts are visible.
+	    ((JavascriptExecutor)driver).executeScript("window.resizeTo(1024, 4096);");
+	    try {
+	    	Thread.sleep(1000);
+	    } catch(Exception e) {
+	    	e.printStackTrace();
+	    }
+	    
+	    // ############ ACTIVEINGREDIENT #############
+	    try {
+			btnMore = driver.findElement(By.id("adversePlot"));
+	    } catch (Exception e) {
+			e.printStackTrace();
+		}
+	    System.out.println("Done getGraph.");
+	}
+	
 	@Step("Then the label info is displayed for {0}")
 	public void shouldSeeLabelFor(String drugName, WebDriver driver)
 	{
 		DrugPage drugPage = onDrugPage();
 		Actions actions = new Actions(driver);
-		
 		
 		WebElement btnMore, elementFound;
 		WebElement btnClose;
@@ -49,9 +74,6 @@ public class SearchSteps extends ScenarioSteps
 	    } catch(Exception e) {
 	    	e.printStackTrace();
 	    }
-
-		
-
 	    
 		// ############ ACTIVEINGREDIENT #############
 		try {
@@ -60,9 +82,7 @@ public class SearchSteps extends ScenarioSteps
 			Thread.sleep(2000);
 			actions.click();
 			actions.perform();
-			
 			String stringFound= drugPage.getActiveIngredient();
-			
 			assertThat(stringFound,
 					is("Active ingredient (in each tablet) Aspirin 81 mg (NSAID)* *nonsteroidal anti- inflammatory drug"));
 			btnClose = driver.findElement(By.id("btn-close-active"));
@@ -71,7 +91,6 @@ public class SearchSteps extends ScenarioSteps
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 
 		// ############ INACTIVEINGREDIENT #############
 		try {
@@ -228,11 +247,7 @@ public class SearchSteps extends ScenarioSteps
 		} catch (Exception e) {
 					e.printStackTrace();
 		}
-		
-		//##########################################################
 
-	}
-	
 	@Step("Then the label info is displayed for {0}")
 	public void shouldSeeEventFor(String drugName, WebDriver driver) {
 		DrugPage drugPage = onDrugPage();
@@ -252,25 +267,20 @@ public class SearchSteps extends ScenarioSteps
 
 		// ############ labeling-TotalCount #############
 		try {
-
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("javascript:window.scrollBy(0,450)");
 
 			elementFound = driver.findElement(By.id("adverse-TotalCount"));
-
 			String stringFound = drugPage.getTotalCount();
-
 			assertThat(stringFound, is("450,790"));
-			
+		
 			System.out.println("Success TotalCount Test");
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 	
-
 	private SearchPage onSearchPage()
 	{
 		final Pages pages = getPages();
@@ -282,5 +292,4 @@ public class SearchSteps extends ScenarioSteps
 		final Pages pages = getPages();
 		return pages.get(DrugPage.class);
 	}
-
 }
