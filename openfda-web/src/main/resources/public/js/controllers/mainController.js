@@ -102,7 +102,6 @@ $scope.labelHeight = {
 		result['warnings'] = warnings;
 		$scope.result = result;
 		console.log(result);
-	//	$scope.results.events[0]
   }	
   
   function transformTo2DArray(obj){
