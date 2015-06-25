@@ -23,10 +23,13 @@ class jenkins_conf {
       'cobertura',
       'findbugs',
       'pmd',
-      'analysis-core', # Required for pmd and findbugs
-      'scm-api',       # Required for git
-      'git-client',    # Required for git
+      'analysis-core',        # Required for pmd and findbugs
+      'scm-api',              # Required for git
+      'git-client',           # Required for git
       'ssh-agent',
+      'sonar',
+      'configurationslicing', # Required for sonar
+      'maven-plugin',         # Required for sonar
     ]:
   }
 
