@@ -36,6 +36,8 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  			transformResponse(response);
 	  			$scope.loading = false;
 	  			$scope.searchBarVisibility = true;
+	  			plotAdverse('adversePlot',$scope.result['events']);
+	  			console.log("***" + $scope.result['events'][0]);
 		  })
 		  .error(function(data, status, headers, config){
 				$scope.infoVisibility = false;
@@ -78,7 +80,8 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 		result['labelInfo'] = labelInfo;
 		result['warnings'] = warnings;
 		$scope.result = result;
-		console.log(result);
+		
+	//	$scope.results.events[0]
   }	
   
   function transformTo2DArray(obj){

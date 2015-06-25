@@ -644,9 +644,7 @@ div.label-content {
 @media (max-width: 768px) {
     .form-group{
     	margin:auto;
-    	margin-bottom:5px;
-        /*max-width: 50%;*/
-        /*min-width: 350px;*/
+    	margin-bottom:5px;    
         display: inline-block;
     } 
     h1.text-center.label-heading {
@@ -844,21 +842,16 @@ span#subheading {
     border-radius: 0px;
 }
 
-/*.panel:hover {
-    box-shadow: inset 0 0 0 5px #3071A9;
-    cursor: hand;
-}*/
-
 .panel-hospital {
-    background-color: #FD0006;
+    background-color: #00B25C;
 }
 
 .panel-death {
-    background-color: #000000;
+    background-color: #1C0118;
 }
 
 .panel-congenital {
-    background-color: #248F40;
+    background-color: #FF9B40;
 }
 
 .panel-life {
@@ -876,14 +869,14 @@ span#subheading {
 
 /*styling for plot*/
 
-.plot {
-    /*margin-left: 2em;*/
+div.plot {
+    width: 100%;
+    height: 100%;
 }
 
 /*FOOTER SECTION*/
 .footer {
     width: 100%;
-    /* background-color: #2e2e2e; */
     background-color: #2e2e2e;
     border-top: thick black;
     margin-bottom: 5px;
