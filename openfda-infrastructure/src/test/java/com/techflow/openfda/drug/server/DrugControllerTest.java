@@ -62,7 +62,7 @@ public class DrugControllerTest
 
 		assertThat(response.getIndicationsAndUsage(), equalTo("indications"));
 		assertThat(response.getBrandName(), equalTo("brand name"));
-		assertThat(response.getGenericName(), equalTo("generic name"));
+		assertThat(response.getGenericName(), equalTo("Aspirin"));
 		assertThat(response.getPurpose(), equalTo("purpose"));
 		assertThat(response.getActive(), equalTo("active"));
 		assertThat(response.getInactive(), equalTo("inactive"));
@@ -92,7 +92,7 @@ public class DrugControllerTest
 
 		assertThat(response.getIndicationsAndUsage(), equalTo("indications"));
 		assertThat(response.getBrandName(), equalTo("brand name"));
-		assertThat(response.getGenericName(), equalTo("generic name"));
+		assertThat(response.getGenericName(), equalTo("Aspirin"));
 		assertThat(response.getPurpose(), equalTo("purpose"));
 		assertThat(response.getActive(), equalTo("active"));
 		assertThat(response.getInactive(), equalTo("inactive"));
