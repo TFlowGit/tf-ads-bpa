@@ -6,5 +6,14 @@ public class MockDrugRepository extends NaiveInMemoryDrugRepository
 		add("Aspirin");
 		add("Tylenol");
 		add("Tylenol PM");
+
+		add("Xalatan");
+		add("Xalkori");
+		add("Xanax");
+		add("Xanax XR");
+		add("Xarelto");
+		add("Xeljanz");
+		add("Xeloda");
+		add("Xenazine");
 	}
 }
