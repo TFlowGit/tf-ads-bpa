@@ -9,8 +9,6 @@ public class DrugEventSummary
 
 	private String seriousness;
 
-	private Seriousness[] seriousnessList;
-
 	private final Map<Seriousness, Integer> ser = new HashMap<Seriousness, Integer>();
 
 	public DrugEventSummary() {
@@ -19,10 +17,6 @@ public class DrugEventSummary
 	public DrugEventSummary(int count, String seriousness) {
 		this.count = count;
 		this.seriousness = seriousness;
-	}
-
-	public DrugEventSummary(Seriousness[] seriousnessList) {
-		this.seriousnessList = seriousnessList;
 	}
 
 	public int getCount()

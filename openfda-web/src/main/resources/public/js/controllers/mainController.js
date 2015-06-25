@@ -25,6 +25,28 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 	  events: "Adverse Reaction"
   };
   
+$scope.labelHeight = {
+	  indicationsAndUsage : 0,
+	  brandName : 0,
+	  genericName : 0,
+	  purpose : 0,
+	  active : 0,
+	  adverseReactions: 0,
+	  askDoctor: 0,
+	  doNotUse: 0,
+	  dosage: 0,
+	  inactive: 0,
+	  warnings: 0,
+	  askDoctorOrPharmacist: 0,
+	  stopUse: 0,
+	  manufacturerName : 0,
+	  events: 0
+};
+
+  $scope.readMore = function () {
+  	  
+  };
+
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
 	  $scope.loading = true;
@@ -34,8 +56,14 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 			  	$scope.infoVisibility = true;
 	  			$scope.scroll = true;
 	  			transformResponse(response);
-	  			$scope.loading = false;
+	  			$scope.loading = false;	
 	  			$scope.searchBarVisibility = true;
+
+	  			//console.log("***" + $scope.result[0][0]);	  			
+	  			plotAdverse('adversePlot',[['Deaths', 4],['Life Threatening', 6],['Hospitilization', 2],['Disabling', 5],['Congenital Anomalies', 6], ['Other', 20]]);
+
+	  			// plotAdverse('adversePlot',$scope.result['events']);
+	  			// console.log("***" + $scope.result['events'][0]);
 		  })
 		  .error(function(data, status, headers, config){
 				$scope.infoVisibility = false;
@@ -79,6 +107,7 @@ drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', fu
 		result['warnings'] = warnings;
 		$scope.result = result;
 		console.log(result);
+	//	$scope.results.events[0]
   }	
   
   function transformTo2DArray(obj){

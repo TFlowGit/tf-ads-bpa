@@ -35,8 +35,6 @@ public class DrugLabel
 
 	private String productNdc;
 
-	private final List<DrugEventSummary> events = new ArrayList<DrugEventSummary>();
-
 	private final List<DrugEvent> events2 = new ArrayList<DrugEvent>();
 
 	public String getPurpose()
