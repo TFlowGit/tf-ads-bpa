@@ -230,10 +230,6 @@ public class SearchSteps extends ScenarioSteps
 		}
 		
 		//##########################################################
-		
-		
-
-		
 
 	}
 	
@@ -260,10 +256,7 @@ public class SearchSteps extends ScenarioSteps
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("javascript:window.scrollBy(0,450)");
 
-			elementFound = driver.findElement(By.id("labeling-TotalCount"));
-			
-			// actions.moveToElement(elementFound);
-			// Thread.sleep(2000);
+			elementFound = driver.findElement(By.id("adverse-TotalCount"));
 
 			String stringFound = drugPage.getTotalCount();
 
