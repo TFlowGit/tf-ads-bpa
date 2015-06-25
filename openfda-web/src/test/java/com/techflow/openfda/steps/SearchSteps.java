@@ -32,6 +32,34 @@ public class SearchSteps extends ScenarioSteps
 		onSearchPage().searchFor(drug);
 	}
 
+	@Step("then the graph is displayed for {0}")
+	public void shouldSeeGraph(String drugName, WebDriver driver)
+	{
+		DrugPage drugPage = onDrugPage();
+		Actions actions = new Actions(driver);
+		
+		WebElement btnMore;
+		//WebElement btnClose;
+		
+		// Insure all elememts are visible.
+	    ((JavascriptExecutor)driver).executeScript("window.resizeTo(1024, 4096);");
+	    try {
+	    	Thread.sleep(1000);
+	    } catch(Exception e) {
+	    	e.printStackTrace();
+	    }
+	    
+	    // ############ ACTIVEINGREDIENT #############
+	    try {
+			btnMore = driver.findElement(By.id("adversePlot"));
+	    } catch (Exception e) {
+			e.printStackTrace();
+		}
+	    System.out.println("Done getGraph.");
+	    
+	    
+	}
+	
 	@Step("Then the label info is displayed for {0}")
 	public void shouldSeeLabelFor(String drugName, WebDriver driver)
 	{
@@ -221,10 +249,6 @@ public class SearchSteps extends ScenarioSteps
 		} catch (Exception e) {
 					e.printStackTrace();
 		}
-		
-		
-		
-
 	}
 
 	private SearchPage onSearchPage()
