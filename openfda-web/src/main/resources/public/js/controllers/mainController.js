@@ -117,7 +117,7 @@ $scope.labelHeight = {
 
   $scope.$on('finishedRender',function(finishedRenderEvent){
   	console.log('ello');
-  	plotAdverse('adversePlot',[['Deaths', 4],['Life Threatening', 6],['Hospitilization', 2],['Disabling', 5],['Congenital Anomalies', 6], ['Other', 20]]);
+  	plotAdverse('adversePlot',[['hospital', 4],['congenital', 6],['disabling', 2],['life', 5],['death', 6], ['other', 20]]);
 	// plotAdverse('adversePlot',$scope.result['events']);
 
   });
