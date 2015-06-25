@@ -11,6 +11,8 @@
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
 # Puppetmaster
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 8140 -j ACCEPT
+# SonarQube
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 9000 -j ACCEPT
 -A INPUT -j REJECT --reject-with icmp-host-prohibited
 -A FORWARD -j REJECT --reject-with icmp-host-prohibited
 COMMIT
