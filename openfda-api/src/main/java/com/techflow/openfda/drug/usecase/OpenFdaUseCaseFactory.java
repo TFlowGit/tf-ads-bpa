@@ -5,4 +5,6 @@ public interface OpenFdaUseCaseFactory
 	FindDrugUseCase newFindDrugUseCase();
 
 	ListDrugEventsUseCase newListDrugEventsUseCase();
+
+	AutocompleteUseCase newAutocompleteUseCase();
 }

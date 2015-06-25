@@ -1,6 +1,8 @@
 package com.techflow.openfda.drugs;
 
+import com.techflow.openfda.drug.client.DrugRepository;
 import com.techflow.openfda.drug.client.OpenFdaGateway;
+import com.techflow.openfda.drug.usecase.AutocompleteUseCase;
 import com.techflow.openfda.drug.usecase.ListDrugEventsUseCase;
 import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
 
@@ -8,8 +10,11 @@ public class SimpleOpenFdaSpringUseCaseFactory implements OpenFdaUseCaseFactory
 {
 	private final OpenFdaGateway openFdaGateway;
 
-	public SimpleOpenFdaSpringUseCaseFactory(OpenFdaGateway openFdaGateway) {
+	private final DrugRepository drugRepository;
+
+	public SimpleOpenFdaSpringUseCaseFactory(OpenFdaGateway openFdaGateway, DrugRepository drugRepository) {
 		this.openFdaGateway = openFdaGateway;
+		this.drugRepository = drugRepository;
 	}
 
 	@Override
@@ -22,5 +27,11 @@ public class SimpleOpenFdaSpringUseCaseFactory implements OpenFdaUseCaseFactory
 	public ListDrugEventsUseCase newListDrugEventsUseCase()
 	{
 		return new ListDrugEventsUseCaseImpl(openFdaGateway);
+	}
+
+	@Override
+	public AutocompleteUseCase newAutocompleteUseCase()
+	{
+		return new AutocompleteUseCaseImpl(drugRepository);
 	}
 }

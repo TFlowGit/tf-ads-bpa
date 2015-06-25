@@ -1,5 +1,7 @@
 package com.techflow.openfda.drug.server;
 
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import java.io.IOException;
@@ -135,6 +137,42 @@ public class DrugControllerTest
 		final ErrorResponse response = mapResponse(mvcResult.getResponse(), ErrorResponse.class);
 
 		assertThat(response.getMessage(), equalTo("Error communicating with OpenFDA API"));
+	}
+
+	@Test
+	public void shouldReturnAutocomplete() throws Exception
+	{
+		mockFdaGateway.exception = new GatewayException();
+		final MvcResult mvcResult = mvc.perform(
+				MockMvcRequestBuilders.get("/api/drugs")
+						.contentType(MediaType.TEXT_PLAIN_VALUE)
+						.accept(MediaType.APPLICATION_JSON)
+						.param("name", "asp")
+						.param("view", "autocomplete"))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andReturn();
+
+		final AutocompleteResponse2 response = mapResponse(mvcResult.getResponse(), AutocompleteResponse2.class);
+
+		assertThat(response.getSuggestions(), contains("aspirin"));
+	}
+
+	@Test
+	public void autoCompleteforTylenol() throws Exception
+	{
+		mockFdaGateway.exception = new GatewayException();
+		final MvcResult mvcResult = mvc.perform(
+				MockMvcRequestBuilders.get("/api/drugs")
+						.contentType(MediaType.TEXT_PLAIN_VALUE)
+						.accept(MediaType.APPLICATION_JSON)
+						.param("name", "Ty")
+						.param("view", "autocomplete"))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andReturn();
+
+		final AutocompleteResponse2 response = mapResponse(mvcResult.getResponse(), AutocompleteResponse2.class);
+
+		assertThat(response.getSuggestions(), containsInAnyOrder("tylenol", "tylenol pm"));
 	}
 
 	static <T> T mapResponse(final MockHttpServletResponse response, Class<T> clazz) throws UnsupportedEncodingException, IOException, JsonParseException, JsonMappingException

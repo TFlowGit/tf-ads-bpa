@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import springfox.documentation.annotations.ApiIgnore;
 import com.techflow.openfda.GatewayException;
+import com.techflow.openfda.drug.usecase.AutocompleteRequest;
+import com.techflow.openfda.drug.usecase.AutocompleteUseCase;
 import com.techflow.openfda.drug.usecase.FindDrugUseCase;
 import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
 
@@ -56,5 +58,32 @@ public class DrugController
 
 		final ResponseEntity<DescribeDrugResponse> responseEntity = new ResponseEntity<DescribeDrugResponse>(response, HttpStatus.OK);
 		return responseEntity;
+	}
+
+	@ApiOperation(value = "Describe a drug", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiResponses({
+			@ApiResponse(message = "Success", code = 200, response = DescribeDrugResponse.class),
+			@ApiResponse(message = "Drug not found", code = 404),
+			@ApiResponse(message = "Internal error", code = 500, response = ErrorResponse.class)
+	})
+	@RequestMapping(value = "", method = RequestMethod.GET, params = "view=autocomplete")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "name", value = "The name of a drug", paramType = "query", required = false, dataType = "string")
+	})
+	@ResponseBody
+	public ResponseEntity<AutocompleteResponse2> autoComplete(@ApiIgnore DescribeDrugRequest request) throws Exception
+	{
+		final AutocompleteUseCase useCase = useCaseFactory.newAutocompleteUseCase();
+		final AutocompleteResponse2 response = new AutocompleteResponse2();
+		useCase.setRequest(new AutocompleteRequest() {
+			@Override
+			public String getDrug()
+			{
+				return request.getName();
+			}
+		});
+		useCase.setResponse(response);
+		useCase.execute();
+
+		return new ResponseEntity<AutocompleteResponse2>(response, HttpStatus.OK);
 	}
 }
