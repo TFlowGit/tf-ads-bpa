@@ -7,6 +7,7 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
   $scope.loadingVisibility = false;
   $scope.searchBarVisibility = true;
   $scope.scroll = false;
+  $scope.didInitialLoad = false;
   $scope.headers = {
 	  indicationsAndUsage :"Indication and Usage",
 	  brandName : "Brand Name",
@@ -57,9 +58,13 @@ $scope.labelHeight = {
 
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
-	  $scope.loading = true;
 	  $scope.searchBarVisibility = false;
-	  
+	  if ($scope.didInitialLoad) {
+	  	$("#bs-example-navbar-collapse-1").collapse('hide');
+	  	$scope.loadOverlay = true;
+	  } else {
+	  	$scope.loading = true;
+	  }
 	  drugsService.getDrugInfo($scope.query)
 	    .then(
 	        function success1(response) {
@@ -72,18 +77,20 @@ $scope.labelHeight = {
 	    )
 	    .then(
 	        function success2(response) {
-	        	$scope.totalEvents = response.data.total
+	        	$scope.totalEvents = response.data.total;
 	        	$scope.events = transformTo2DArray(response.data);
 		  		$scope.infoVisibility = true;
 	  			$scope.scroll = true;
 	  			$scope.loading = false;
 	  			$scope.searchBarVisibility = true;
+	  			$scope.loadOverlay = false;
 	        },
 	        function error2(response) {
 	        	requestErrorHandler(response.status);
 	        }
 	    );
 	  $scope.scroll = false;
+	  $scope.didInitialLoad = true;
   };
   
 
