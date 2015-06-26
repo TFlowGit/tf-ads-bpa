@@ -1,3 +1,5 @@
+[![Build Status](http://18f-dari.techflow.com/jenkins/job/tf-ads-bpa-build/badge/icon)](http://18f-dari.techflow.com/jenkins/job/tf-ads-bpa-build/)
+
 # Prototype
 
 A publicly accessible prototype is hosted at
