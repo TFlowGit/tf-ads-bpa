@@ -36,7 +36,6 @@
 
 </head>
 
-
 <body id="page-top" ng-app="drugflowApp" ng-controller="mainCtrl">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -112,10 +111,10 @@
         <h1 id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
             <div class="row plot-row">
 
-                <div class="col-lg-6 " id="adversePlot">
-                	<div class="plot"></div>
+                <div class="col-lg-6 ">
+                    <div id="adversePlot"></div>
                 </div>
-           
+    
                 <div class="event-total col-lg-6 text-center">
                     <h1 id="adverse-TotalCount" class="big-num wow fadeIn">450,790</h1>
                     <hr class="hr-num">
@@ -125,14 +124,14 @@
             <div class="row event-row">
 
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-hospital">
+                    <div class="panel panel-hospital" eventtype="{{events[0][0]}}">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
                                     <i class="fa fa-hospital-o fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div id="adverse-HospitalizationsCount" class="huge">125,132</div>
+                                    <div id="adverse-events-{{events[0][0]}}" class="huge">{{events[0][1]}}</div>
                                     <div class="small">Hospitalizations</div>
                                 </div>
                             </div>
@@ -140,14 +139,14 @@
                     </div>
                 </div>
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-congenital">
+                    <div class="panel panel-congenital" eventType="{{events[1][0]}}">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
                                     <i class="fa fa-venus-mars fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div id="adverse-CongenitalCount" class="huge">125,132</div>
+                                    <div id="adverse-events-{{events[1][0]}}" class="huge">{{events[1][1]}}</div>
                                     <div class="small">Congenital Anomalies</div>
                                 </div>
                             </div>
@@ -155,14 +154,14 @@
                     </div>
                 </div>
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-disabling">
+                    <div class="panel panel-disabling" eventType="{{events[2][0]}}">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
                                     <i class="fa fa-wheelchair fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div id="adverse-DisablingCount" class="huge">125,132</div>
+                                    <div id="adverse-events-{{events[2][0]}}" class="huge">{{events[2][1]}}</div>
                                     <div class="small">Disabling</div>
                                 </div>
                             </div>
@@ -170,14 +169,14 @@
                     </div>
                 </div>
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-life">
+                    <div class="panel panel-life" eventType="{{events[3][0]}}">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
                                     <i class="fa fa-stethoscope fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div id="adverse-LifeThreatCount" class="huge">125,132</div>
+                                    <div id="adverse-events-{{events[3][0]}}" class="huge">{{events[3][1]}}</div>
                                     <div class="small">Life Threatening</div>
                                 </div>
                             </div>
@@ -185,14 +184,14 @@
                     </div>
                 </div>
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-death">
+                    <div class="panel panel-death" eventType="{{events[4][0]}}">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
                                     <i class="fa fa-heartbeat fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div id="adverse-DeathsCount" class="huge">125,132</div>
+                                    <div id="adverse-events-{{events[4][0]}}" class="huge">{{events[4][1]}}</div>
                                     <div class="small">Deaths</div>
                                 </div>
                             </div>
@@ -200,14 +199,14 @@
                     </div>
                 </div>
                 <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-other">
+                    <div class="panel panel-other" eventType="{{events[5][0]}}">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
                                     <i class="fa fa-user-md fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div id="adverse-OtherCount" class="huge">125,132</div>
+                                    <div id="adverse-events-{{events[5][0]}}" class="huge">{{events[5][1]}}</div>
                                     <div class="small">Other</div>
                                 </div>
                             </div>
@@ -216,10 +215,11 @@
                 </div>
             </div>
     </section>
+
     <section class="bg-primary" id="labeling" ng-show="infoVisibility">
             <div class="col-sm-8 label-col">
                 <h1 class="text-center label-heading wow fadeIn" id="drug-name">{{result.name}}</h1>
-    	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo">
+    	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo" on-finish-render="finishedRender">
                     <div class="label-content wow fadeIn">
                    		<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
                    		<hr class="label-hr" id="hr-grey">
@@ -227,8 +227,8 @@
                		</div>           
 
                     <!-- Button trigger modal -->
-                    <div class="read-more-section">
-                        <button id="btn-more-{{key}}" type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}">Read More</button>
+                    <div class="read-more-section" ng-show="readMore(key)">
+                        <button id="btn-more-{{key}}" type="button" class="btn btn-primary pull-right modal-btn" data-toggle="modal" data-target="#myModal-{{key}}" >Read More</button>
                     </div>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal-{{key}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -257,7 +257,7 @@
                     	<hr class="label-hr">
                     	<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
 	                </div>
-                    <div class="read-more-section">                    
+                    <div class="read-more-section" ng-show="readMore(key)">                    
                         <button id="btn-more-{{key}}" type="button" class="btn btn-primary pull-right modal-btn warning-btn" data-toggle="modal" data-target="#myModal-{{key}}">Read More</button>
                     </div>
 
@@ -281,6 +281,7 @@
                  <br><br>
              </div>
     </section>
+
     <footer class="footer" ng-show="infoVisibility">
     	<div class="container">
     		<div class="footer-menu text-primary">
@@ -320,6 +321,7 @@
     <script src="js/angular-smooth-scroll.js"></script>
     <script src="js/controllers/mainController.js"></script>
     <script src="js/services/drugs.js"></script>
+    <script src="js/directives/onFinishRender.js"></script>
     
     <!--  Custom JS chart.js -->
     <script src="js/utils/chart.js"></script>

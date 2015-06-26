@@ -32,12 +32,37 @@ public class SearchSteps extends ScenarioSteps
 		onSearchPage().searchFor(drug);
 	}
 
+	@Step("then the graph is displayed for {0}")
+	public void shouldSeeGraph(String drugName, WebDriver driver)
+	{
+		DrugPage drugPage = onDrugPage();
+		Actions actions = new Actions(driver);
+		
+		WebElement btnMore;
+		//WebElement btnClose;
+		
+		// Insure all elememts are visible.
+	    ((JavascriptExecutor)driver).executeScript("window.resizeTo(1024, 4096);");
+	    try {
+	    	Thread.sleep(1000);
+	    } catch(Exception e) {
+	    	e.printStackTrace();
+	    }
+	    
+	    // ############ ACTIVEINGREDIENT #############
+	    try {
+			btnMore = driver.findElement(By.id("adversePlot"));
+	    } catch (Exception e) {
+			e.printStackTrace();
+		}
+	    System.out.println("Done getGraph.");
+	}
+	
 	@Step("Then the label info is displayed for {0}")
 	public void shouldSeeLabelFor(String drugName, WebDriver driver)
 	{
 		DrugPage drugPage = onDrugPage();
 		Actions actions = new Actions(driver);
-		
 		
 		WebElement btnMore, elementFound;
 		WebElement btnClose;
@@ -49,9 +74,6 @@ public class SearchSteps extends ScenarioSteps
 	    } catch(Exception e) {
 	    	e.printStackTrace();
 	    }
-
-		
-
 	    
 		// ############ ACTIVEINGREDIENT #############
 		try {
@@ -60,9 +82,7 @@ public class SearchSteps extends ScenarioSteps
 			Thread.sleep(2000);
 			actions.click();
 			actions.perform();
-			
 			String stringFound= drugPage.getActiveIngredient();
-			
 			assertThat(stringFound,
 					is("Active ingredient (in each tablet) Aspirin 81 mg (NSAID)* *nonsteroidal anti- inflammatory drug"));
 			btnClose = driver.findElement(By.id("btn-close-active"));
@@ -71,7 +91,6 @@ public class SearchSteps extends ScenarioSteps
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 
 		// ############ INACTIVEINGREDIENT #############
 		try {
@@ -228,11 +247,8 @@ public class SearchSteps extends ScenarioSteps
 		} catch (Exception e) {
 					e.printStackTrace();
 		}
-		
-		//##########################################################
-
 	}
-	
+
 	@Step("Then the label info is displayed for {0}")
 	public void shouldSeeEventFor(String drugName, WebDriver driver) {
 		DrugPage drugPage = onDrugPage();
@@ -285,65 +301,6 @@ public class SearchSteps extends ScenarioSteps
 			e.printStackTrace();
 		}
 		
-		// ############ adverse-CongenitalCount #############
-		try {
-
-			elementFound = driver.findElement(By.id("adverse-CongenitalCount"));
-
-			String stringFound = drugPage.getCongenitalCount();
-
-			assertThat(stringFound, is("125,132"));
-			
-			System.out.println("Success adverse-CongenitalCount Test");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		// ############ adverse-DisablingCount #############
-		try {
-
-			elementFound = driver.findElement(By.id("adverse-DisablingCount"));
-
-			String stringFound = drugPage.getDisablingCount();
-
-			assertThat(stringFound, is("125,132"));
-			
-			System.out.println("Success adverse-DisablingCount Test");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// ############ adverse-LifeThreatCount #############
-		try {
-
-			elementFound = driver.findElement(By.id("adverse-LifeThreatCount"));
-
-			String stringFound = drugPage.getLifeThreatCount();
-
-			assertThat(stringFound, is("125,132"));
-			
-			System.out.println("Success adverse-LifeThreatCount Test");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// ############ adverse-DeathsCount #############
-		try {
-
-			elementFound = driver.findElement(By.id("adverse-DeathsCount"));
-
-			String stringFound = drugPage.getDeathsCount();
-
-			assertThat(stringFound, is("125,132"));
-			
-			System.out.println("Success adverse-DeathsCount Test");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		// ############ adverse-OtherCount #############
 		try {
@@ -359,9 +316,10 @@ public class SearchSteps extends ScenarioSteps
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+=======
+>>>>>>> c7811c5e46997f16a8206a15090a51d4b3fb0193
 	}
 	
-
 	private SearchPage onSearchPage()
 	{
 		final Pages pages = getPages();
@@ -373,5 +331,4 @@ public class SearchSteps extends ScenarioSteps
 		final Pages pages = getPages();
 		return pages.get(DrugPage.class);
 	}
-
 }

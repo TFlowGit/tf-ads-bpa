@@ -1,11 +1,14 @@
 package com.techflow.openfda.drug.client;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import org.apache.lucene.queryParser.ParseException;
 import org.junit.Test;
 import com.google.api.client.util.Charsets;
 import com.google.common.io.Resources;
@@ -13,6 +16,9 @@ import com.techflow.openfda.GatewayException;
 import com.techflow.openfda.drugs.DrugEventSummary;
 import com.techflow.openfda.drugs.DrugLabel;
 import com.techflow.openfda.drugs.Seriousness;
+import com.techflow.openfda.drug.client.DrugRepositoryImpl;
+
+
 
 public class OpenFdaGatewayImplTest
 {
@@ -345,6 +351,18 @@ public class OpenFdaGatewayImplTest
 		assertThat(transport.getUrl(), equalTo("https://api.fda.gov/drug/event.json?search=patient.drug.openfda.product_ndc:65862-659%20AND%20seriousnesscongenitalanomali:1"));
 		assertThat(effect.getCount(), equalTo(5675));
 		assertThat(effect.getSeriousness(), equalTo("seriousnesscongenitalanomali"));
+	}
+
+	@Test
+	public void findBrandNames() throws IOException
+	{
+
+		DrugRepository drugRepo = new DrugRepositoryImpl();		
+		ArrayList<String> drugNames = (ArrayList<String>)drugRepo.startsWith("multi*");
+
+		assertThat( drugNames.size(), lessThanOrEqualTo(5) );
+		assertThat(drugNames.get(0), equalTo("Multitrace-4"));
+
 	}
 
 	private String readResource(String resource) throws IOException
