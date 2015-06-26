@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import org.apache.lucene.queryParser.ParseException;
 import org.junit.Test;
 import com.google.api.client.util.Charsets;
 import com.google.common.io.Resources;
@@ -13,6 +15,25 @@ import com.techflow.openfda.GatewayException;
 import com.techflow.openfda.drugs.DrugEventSummary;
 import com.techflow.openfda.drugs.DrugLabel;
 import com.techflow.openfda.drugs.Seriousness;
+
+/*
+ * import org.apache.lucene.analysis.standard.StandardAnalyzer;
+ * import org.apache.lucene.document.Document;
+ * import org.apache.lucene.document.Field;
+ * import org.apache.lucene.index.CorruptIndexException;
+ * import org.apache.lucene.index.IndexWriter;
+ * //import org.apache.lucene.queryParser.MultiFieldQueryParser;
+ * import org.apache.lucene.queryParser.QueryParser;
+ * import org.apache.lucene.queryParser.ParseException;
+ * import org.apache.lucene.search.IndexSearcher;
+ * import org.apache.lucene.search.Query;
+ * import org.apache.lucene.search.ScoreDoc;
+ * import org.apache.lucene.search.TopDocCollector;
+ * import org.apache.lucene.store.Directory;
+ * import org.apache.lucene.store.FSDirectory;
+ * import org.apache.lucene.store.LockObtainFailedException;
+ * import org.apache.lucene.store.RAMDirectory;
+ */
 
 public class OpenFdaGatewayImplTest
 {
@@ -345,6 +366,25 @@ public class OpenFdaGatewayImplTest
 		assertThat(transport.getUrl(), equalTo("https://api.fda.gov/drug/event.json?search=patient.drug.openfda.product_ndc:65862-659%20AND%20seriousnesscongenitalanomali:1"));
 		assertThat(effect.getCount(), equalTo(5675));
 		assertThat(effect.getSeriousness(), equalTo("seriousnesscongenitalanomali"));
+	}
+
+	@Test
+	public void findBrandNames() throws IOException
+	{
+
+		final URL repoUrl = Resources.getResource("brand-names.txt");
+
+		DrugRepositoryImpl drugRepo = null;
+		drugRepo = new DrugRepositoryImpl(repoUrl.getFile());
+
+		ArrayList<String> drugNames = (ArrayList<String>)drugRepo.startsWith("multi*");
+
+		System.out.println("******** Name: " + drugNames.get(1));
+
+		// assertThat("true", equalTo("true"));
+
+		assertThat(drugNames.get(0), equalTo(drugNames.get(0)));
+
 	}
 
 	private String readResource(String resource) throws IOException
