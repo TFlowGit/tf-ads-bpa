@@ -1,7 +1,5 @@
 package com.techflow.openfda.drug.client;
 
-import java.io.File;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +15,6 @@ import org.apache.lucene.search.Hits;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.store.RAMDirectory;
-import com.google.common.io.Resources;
 
 public class DrugRepositoryImpl implements DrugRepository
 {
@@ -71,6 +68,10 @@ public class DrugRepositoryImpl implements DrugRepository
 	public List<String> startsWith(String drugName)
 	{
 		ArrayList<String> list = new ArrayList<String>();
+		
+		if (!drugName.endsWith("*")) {
+			drugName = drugName.concat("*");
+		}
 
 		IndexSearcher indexSearcher;
 		try {
@@ -82,6 +83,7 @@ public class DrugRepositoryImpl implements DrugRepository
 			Hits hits = indexSearcher.search(query);
 			//System.out.println("Number of hits: " + hits.length());
 
+			@SuppressWarnings("unchecked")
 			Iterator<Hit> it = hits.iterator();
 			int count = 1;
 			while (it.hasNext()) {
