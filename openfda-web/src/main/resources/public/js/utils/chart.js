@@ -1,4 +1,5 @@
 function plotAdverse(chartId, data){
+	if(data!=null){
 	var maxYVal= getMaxDataPoint(data);
 	var adversePlot;
 	var colorsArray = ['#00B25C', '#FF9B40', '#06799F', '#A40004', '#1C0118' , '#666666'];
@@ -71,6 +72,7 @@ var selEvent = adversePlot.data[seriesIndex][pointIndex][0];
 	        }
 	    });    
 	adversePlot.replot();
+	}
 }
 
 function getMaxDataPoint(data){
