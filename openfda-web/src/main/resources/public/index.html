@@ -84,6 +84,15 @@
     </nav>
 
     <header>
+        <div class="loading-overlay" ng-show="loadOverlay ">
+            <div class="loader-inner ball-pulse">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 class="wow pulse">Drug &amp; Adverse Reaction Information</h1>
@@ -116,7 +125,7 @@
                 </div>
     
                 <div class="event-total col-lg-6 text-center">
-                    <h1 id="adverse-TotalCount" class="big-num wow fadeIn">450,790</h1>
+                    <h1 id="adverse-TotalCount" class="big-num wow fadeIn">{{totalEvents}}</h1>
                     <hr class="hr-num">
                     <h2 class="small-num wow fadeIn">Total Adverse Events</h2>
                 </div>

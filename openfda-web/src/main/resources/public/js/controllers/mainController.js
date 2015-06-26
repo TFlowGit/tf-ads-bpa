@@ -1,11 +1,13 @@
 drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll','$timeout', function ($scope, $q, drugsService, smoothScroll, $timeout) {
-
+  $scope.events = [];
+  $scope.totalEvents;
   $scope.query ='';
   $scope.result = '';
   $scope.infoVisibility = false;
   $scope.loadingVisibility = false;
   $scope.searchBarVisibility = true;
   $scope.scroll = false;
+  $scope.didInitialLoad = false;
   $scope.headers = {
 	  indicationsAndUsage :"Indication and Usage",
 	  brandName : "Brand Name",
@@ -24,6 +26,13 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
 	  events: "Adverse Reaction"
   };
   
+  $scope.eventLabels = [{key: 'hospitialization', label:'Hospitalizations'}, 
+                        {key: 'congenitalAnomali', label:'Congenital Anomalies'},
+                        {key: 'disabling', label:'Disabling'}, 
+                        {key: 'lifeThreatening', label:'Life Threatening'}, 
+                        {key: 'death', label:'Deaths'}, 
+                        {key: 'other', label:'Other'}] 
+            
 $scope.labelHeight = {
 	  indicationsAndUsage : 0,
 	  brandName : 0,
@@ -49,9 +58,13 @@ $scope.labelHeight = {
 
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
-	  $scope.loading = true;
 	  $scope.searchBarVisibility = false;
-	  
+	  if ($scope.didInitialLoad) {
+	  	$("#bs-example-navbar-collapse-1").collapse('hide');
+	  	$scope.loadOverlay = true;
+	  } else {
+	  	$scope.loading = true;
+	  }
 	  drugsService.getDrugInfo($scope.query)
 	    .then(
 	        function success1(response) {
@@ -64,7 +77,7 @@ $scope.labelHeight = {
 	    )
 	    .then(
 	        function success2(response) {
-	        	console.log(response.data);
+	        	$scope.totalEvents = response.data.total;
 	        	$scope.events = transformTo2DArray(response.data);
 		  		$scope.infoVisibility = true;
 	  			$scope.scroll = true;
@@ -73,12 +86,14 @@ $scope.labelHeight = {
 	  			$timeout(function(){
 	  				plotAdverse('adversePlot',$scope.events);
 	  		  	});
+	  			$scope.loadOverlay = false;
 	        },
 	        function error2(response) {
 	        	requestErrorHandler(response.status);
 	        }
 	    );
 	  $scope.scroll = false;
+	  $scope.didInitialLoad = true;
   };
   
 
@@ -122,20 +137,13 @@ $scope.labelHeight = {
   
   function transformTo2DArray(obj){
 	  var array = [];
-	  for(key in obj){
+	  for(var i=0; i<$scope.eventLabels.length; i++){
 		  var data = [];
-		  data.push(key);
-		  data.push(obj[key]);
+		  data.push($scope.eventLabels[i].label);
+		  data.push(obj[$scope.eventLabels[i].key]);
 		  array.push(data);
 	  }
 	  return array;
   }
-/*
-  $scope.$on('finishedRender',function(finishedRenderEvent){
-  	console.log('ello');
-  	console.log($scope.events);
- 	plotAdverse('adversePlot',$scope.events);
-  });
-*/
 }]);
 
