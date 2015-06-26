@@ -36,6 +36,7 @@ public class MockOpenFdaGateway implements OpenFdaGateway
 		drug.setStopUse("stop use");
 		drug.setAdverseReactions("adverse reactions");
 		drug.setManufacturerName("manufacturer name");
+		drug.setWarningsAndCautions("warnings and cautions");
 		drug.addEvent(Seriousness.CONGENITAL_ANOMALI, Seriousness.DEATH, Seriousness.DISABLING, Seriousness.HOSPITALIZATION, Seriousness.LIFE_THREATENING, Seriousness.OTHER);
 		drug.addEvent(Seriousness.DEATH, Seriousness.OTHER);
 

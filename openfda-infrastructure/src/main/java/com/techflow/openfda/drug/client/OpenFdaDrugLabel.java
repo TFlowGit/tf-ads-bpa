@@ -45,6 +45,9 @@ public class OpenFdaDrugLabel
 		@Key
 		public String[] purpose;
 
+		@Key
+		public String[] warnings_and_cautions;
+
 		public static final class OpenFdaLabelOpenFda
 		{
 			@Key
