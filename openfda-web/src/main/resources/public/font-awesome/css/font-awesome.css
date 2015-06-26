@@ -835,10 +835,10 @@
 .fa-cloud-upload:before {
   content: "\f0ee";
 }
-.fa-user-md:before {
+.fa-user-md:before, .fa-other:before {
   content: "\f0f0";
 }
-.fa-stethoscope:before {
+.fa-stethoscope:before, .fa-lifeThreatening:before {
   content: "\f0f1";
 }
 .fa-suitcase:before {
@@ -859,7 +859,7 @@
 .fa-building-o:before {
   content: "\f0f7";
 }
-.fa-hospital-o:before {
+.fa-hospital-o:before, .fa-hospitialization:before {
   content: "\f0f8";
 }
 .fa-ambulance:before {
@@ -1309,7 +1309,7 @@
 .fa-dot-circle-o:before {
   content: "\f192";
 }
-.fa-wheelchair:before {
+.fa-wheelchair:before, .fa-disabling:before {
   content: "\f193";
 }
 .fa-vimeo-square:before {
@@ -1726,7 +1726,7 @@
 .fa-street-view:before {
   content: "\f21d";
 }
-.fa-heartbeat:before {
+.fa-heartbeat:before, .fa-death:before {
   content: "\f21e";
 }
 .fa-venus:before {
@@ -1750,7 +1750,7 @@
 .fa-mars-double:before {
   content: "\f227";
 }
-.fa-venus-mars:before {
+.fa-venus-mars:before, .fa-congenitalAnomali:before {
   content: "\f228";
 }
 .fa-mars-stroke:before {
