@@ -70,6 +70,9 @@ $scope.labelHeight = {
 	  			$scope.scroll = true;
 	  			$scope.loading = false;
 	  			$scope.searchBarVisibility = true;
+	  			$timeout(function(){
+	  				plotAdverse('adversePlot',$scope.events);
+	  		  	});
 	        },
 	        function error2(response) {
 	        	requestErrorHandler(response.status);
@@ -127,12 +130,12 @@ $scope.labelHeight = {
 	  }
 	  return array;
   }
-
+/*
   $scope.$on('finishedRender',function(finishedRenderEvent){
   	console.log('ello');
   	console.log($scope.events);
  	plotAdverse('adversePlot',$scope.events);
   });
-
+*/
 }]);
 
