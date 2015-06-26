@@ -55,14 +55,74 @@ public class DrugPage extends PageObject
 	@FindBy(id = "labeling-manfacturerName-modal")
 	WebElement manufacturerName;
 	
-	
-	
-
 	@FindBy(id = "adverse-TotalCount")
 	WebElement totalCount;
 	
+	@FindBy(id = "adverse-events-hospitalizations")
+	WebElement HospitalizationsCount;
+
+	@FindBy(id = "adverse-events-congenitalAnomali")
+	WebElement CongenitalCount;
+
+	@FindBy(id = "adverse-events-disabling")
+	WebElement DisablingCount;
+
+	@FindBy(id = "adverse-events-lifeThreatening")
+	WebElement LifeThreatCount;
+
+	@FindBy(id = "adverse-events-death")
+	WebElement DeathsCount;
+		
+	@FindBy(id = "adverse-events-other")
+	WebElement OtherCount;
 	
+	public String getCongenitalCount() {
+		return CongenitalCount.getText();
+	}
+
+	public void setCongenitalCount(WebElement congenitalCount) {
+		CongenitalCount = congenitalCount;
+	}
 	
+	public String getDisablingCount() {
+		return DisablingCount.getText();
+	}
+
+	public void setDisablingCount(WebElement disablingCount) {
+		DisablingCount = disablingCount;
+	}
+
+	public String getLifeThreatCount() {
+		return LifeThreatCount.getText();
+	}
+
+	public void setLifeThreatCount(WebElement lifeThreatCount) {
+		LifeThreatCount = lifeThreatCount;
+	}
+	
+	public String getDeathsCount() {
+		return DeathsCount.getText();
+	}
+
+	public void setDeathsCount(WebElement deathsCount) {
+		DeathsCount = deathsCount;
+	}
+
+	public String getOtherCount() {
+		return OtherCount.getText();
+	}
+
+	public void setOtherCount(WebElement otherCount) {
+		OtherCount = otherCount;
+	}
+
+	public String getHospitalizationsCount() {
+		return HospitalizationsCount.getText();
+	}
+
+	public void setHospitalizationsCount(WebElement hospitalizationsCount) {
+		HospitalizationsCount = hospitalizationsCount;
+	}
 
 	public String getTotalCount() {
 		try {
