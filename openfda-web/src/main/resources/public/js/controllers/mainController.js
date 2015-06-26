@@ -1,5 +1,4 @@
-
-drugflowApp.controller('mainCtrl', ['$scope', '$q', 'drugsService', 'smoothScroll', function ($scope, $q, drugsService, smoothScroll) {
+drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll','$timeout', function ($scope, $q, drugsService, smoothScroll, $timeout) {
 
   $scope.query ='';
   $scope.result = '';
@@ -43,8 +42,9 @@ $scope.labelHeight = {
 	  events: 0
 };
 
-  $scope.readMore = function () {
-  	  
+  $scope.readMore = function(elem) {
+  	$scope.labelHeight[elem]
+  	var height = $("#labeling-"+elem+"-label").height();
   };
 
   $scope.searchDrug = function() {
@@ -78,6 +78,7 @@ $scope.labelHeight = {
 	  $scope.scroll = false;
   };
   
+
   function requestErrorHandler(status){
 	    $scope.infoVisibility = false;
 		$scope.loading = false;
@@ -91,7 +92,7 @@ $scope.labelHeight = {
 				break;
 		}
   }
-  
+   
   function transformResponse(response){
 	  	var result = {};
 	  	var labelInfo = {};
@@ -126,6 +127,12 @@ $scope.labelHeight = {
 	  }
 	  return array;
   }
-  
+
+  $scope.$on('finishedRender',function(finishedRenderEvent){
+  	console.log('ello');
+  	console.log($scope.events);
+ 	plotAdverse('adversePlot',$scope.events);
+  });
+
 }]);
 
