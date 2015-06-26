@@ -479,7 +479,7 @@ fieldset[disabled] .btn-primary.active {
 
 @media (max-width: 485px) {
     .btn {
-        float: right;
+        float: center;
     }
     .form-group {
         min-width: 100%;
@@ -871,6 +871,14 @@ span#subheading {
 
 .panel-other {
     background-color: #666666;
+}
+
+/* Plot highlighting for chart */
+.unHighlighted{
+    opacity: 0.2;
+}
+.highlighted{
+    opacity: 1.0;
 }
 
 

@@ -1,5 +1,4 @@
-
-drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', function ($scope, drugsService, smoothScroll) {
+drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll','$timeout', function ($scope, $q, drugsService, smoothScroll, $timeout) {
 
   $scope.query ='';
   $scope.result = '';
@@ -43,46 +42,58 @@ $scope.labelHeight = {
 	  events: 0
 };
 
-  $scope.readMore = function () {
-  	  
+  $scope.readMore = function(elem) {
+  	$scope.labelHeight[elem]
+  	var height = $("#labeling-"+elem+"-label").height();
   };
 
   $scope.searchDrug = function() {
 	  $scope.queryFailedMsg = '';
 	  $scope.loading = true;
 	  $scope.searchBarVisibility = false;
+	  
 	  drugsService.getDrugInfo($scope.query)
-		  .success(function(response){
-			  	$scope.infoVisibility = true;
+	    .then(
+	        function success1(response) {
+	            transformResponse(response.data);
+	            return drugsService.getDrugAdverseEvents(response.data['productNdc']);
+	        },
+	        function error1(response) {
+	            return $q.reject(response);
+	        }
+	    )
+	    .then(
+	        function success2(response) {
+	        	console.log(response.data);
+	        	$scope.events = transformTo2DArray(response.data);
+		  		$scope.infoVisibility = true;
 	  			$scope.scroll = true;
-	  			transformResponse(response);
-	  			$scope.loading = false;	
+	  			$scope.loading = false;
 	  			$scope.searchBarVisibility = true;
-
-	  			//console.log("***" + $scope.result[0][0]);	  			
-	  			plotAdverse('adversePlot',[['Deaths', 4],['Life Threatening', 6],['Hospitilization', 2],['Disabling', 5],['Congenital Anomalies', 6], ['Other', 20]]);
-
-	  			// plotAdverse('adversePlot',$scope.result['events']);
-	  			// console.log("***" + $scope.result['events'][0]);
-		  })
-		  .error(function(data, status, headers, config){
-				$scope.infoVisibility = false;
-				$scope.loading = false;
-	  			$scope.searchBarVisibility = true;
-				switch(status){
-					case 404:
-						$scope.queryFailedMsg = "Drug not found";
-						break;
-					default:
-						$scope.queryFailedMsg = "There was an unknown error. Please try again later.";
-						break;
-				}
-		  });
+	        },
+	        function error2(response) {
+	        	requestErrorHandler(response.status);
+	        }
+	    );
 	  $scope.scroll = false;
   };
   
+
+  function requestErrorHandler(status){
+	    $scope.infoVisibility = false;
+		$scope.loading = false;
+		$scope.searchBarVisibility = true;
+		switch(status){
+			case 404:
+				$scope.queryFailedMsg = "Drug not found";
+				break;
+			default:
+				$scope.queryFailedMsg = "There was an unknown error. Please try again later.";
+				break;
+		}
+  }
+   
   function transformResponse(response){
-	    console.log(response);
 	  	var result = {};
 	  	var labelInfo = {};
 	  	var warnings = {};
@@ -92,8 +103,6 @@ $scope.labelHeight = {
 					result['name'] = response[key];
 				else if(key == 'purpose') 
 					result['purpose'] = response[key];
-				else if(key == 'events')
-					result[key] = transformTo2DArray(response[key]);
 				else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist'){
 					if(response[key] != null){
 						warnings[key] = response[key];
@@ -106,8 +115,6 @@ $scope.labelHeight = {
 		result['labelInfo'] = labelInfo;
 		result['warnings'] = warnings;
 		$scope.result = result;
-		console.log(result);
-	//	$scope.results.events[0]
   }	
   
   function transformTo2DArray(obj){
@@ -120,5 +127,12 @@ $scope.labelHeight = {
 	  }
 	  return array;
   }
+
+  $scope.$on('finishedRender',function(finishedRenderEvent){
+  	console.log('ello');
+  	console.log($scope.events);
+ 	plotAdverse('adversePlot',$scope.events);
+  });
+
 }]);
 

@@ -1,8 +1,8 @@
 function plotAdverse(chartId, data){
 	var maxYVal= getMaxDataPoint(data);
 	var adversePlot;
-	var colorsArray = ['#FD0006', '#FFFFFF', '#248F40', '#A40004', '#06799F' , '#666666'];
-	 console.log(data);
+	var colorsArray = ['#00B25C', '#FF9B40', '#06799F', '#A40004', '#1C0118' , '#666666'];
+	 console.log(data); // 1C0118 red A40004 06799F
 		adversePlot=$.jqplot(chartId,[data], {
 	        // Provide a custom seriesColors array to override the default colors.
 	        seriesColors:colorsArray,
@@ -13,7 +13,7 @@ function plotAdverse(chartId, data){
 	                // The default series colors are used.
 	                varyBarColor: true,
 	                barMargin:0,
-	                //barWidth:20
+	                
 	            }
 	        },
 	        title:{
@@ -23,19 +23,13 @@ function plotAdverse(chartId, data){
 	            xaxis:{
 	                renderer: $.jqplot.CategoryAxisRenderer,
 	                drawMajorGridlines: false,
-	                tickRenderer: $.jqplot.CanvasAxisTickRenderer,
-	                tickOptions: {
-	                 angle: -50,
-	                 fontFamily: 'Courier New',
-	                 fontSize: '9pt'
-	                }
+	                showTicks:false
 	            },
 	            yaxis:{
 	                drawMajorGridlines: false,
 	                numberTicks:1,
 	                tickInterval: maxYVal,
-	                min: 0,
-	               
+	                min: 0  
 	            }
 	        },
 	        grid: {
@@ -45,24 +39,26 @@ function plotAdverse(chartId, data){
 	    });
 	    $('#' + chartId).bind('jqplotDataHighlight', function(evt, seriesIndex, pointIndex, data){
             var selEvent = adversePlot.data[seriesIndex][pointIndex][0];
-	        $('.eventTypeDiv').each(function(index){
-	            if($(this).attr('eventType')!= selEvent){
-	                 $(this).switchClass("highlighted","unHighlighted");
+	        $('.panel').each(function(index){
+	            if($(this).attr('eventtype')!= selEvent){
+	            	$(this).addClass('unHighlighted').removeClass('highlighted');
 	            }else{
-	               if($(this).hasClass('unHighlighted')){
-	                    $(this).switchClass("unHighlighted", "highlighted");
-	                } 
+	            	$(this).addClass('highlighted').removeClass('unHighlighted');
 	            }
 	        });
 	    });
 	    $('#' + chartId).bind('jqplotDataUnhighlight', function(evt, seriesIndex, pointIndex, data){
-	        $('.highlighted').switchClass("highlighted","unHighlighted");        
+	    	$('.panel').removeClass('unHighlighted').addClass('highlighted');
+	    });
+	    
+	    $('#' + chartId).mouseleave(function(){
+	    	$('.panel').removeClass('unHighlighted').addClass('highlighted');
 	    });
 	    
 	    $('#' + chartId).bind('jqplotDataClick', function(evt, seriesIndex, pointIndex, data){
 var selEvent = adversePlot.data[seriesIndex][pointIndex][0];
-	        $('.eventTypeDiv').each(function(index){
-	            if($(this).attr('eventType')!= selEvent){
+	        $('.panel').each(function(index){
+	            if($(this).attr('eventtype')!= selEvent){
 	                 $(this).switchClass("highlighted","unHighlighted");
 	            }else{
 	               if($(this).hasClass('unHighlighted')){
@@ -74,12 +70,8 @@ var selEvent = adversePlot.data[seriesIndex][pointIndex][0];
 	            $('#'+data[pointIndex][0]+'Data').switchClass("unHighlighted", "highlighted");
 	        }
 	    });    
-
 	adversePlot.replot();
 }
-
-    
-
 
 function getMaxDataPoint(data){
     var maxValue=0;
