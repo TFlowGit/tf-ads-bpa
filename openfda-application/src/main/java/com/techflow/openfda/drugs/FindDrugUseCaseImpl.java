@@ -40,5 +40,6 @@ public class FindDrugUseCaseImpl extends BaseUseCase<FindDrugRequest, FindDrugRe
 		response.setAdverseReactions(drug.getAdverseReactions());
 		response.setManufacturerName(drug.getManufacturerName());
 		response.setProductNdc(drug.getProductNdc());
+		response.setWarningsAndCautions(drug.getWarningsAndCautions());
 	}
 }

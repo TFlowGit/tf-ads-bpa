@@ -51,6 +51,7 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 				drugLabel.setDosage(getZeroeth(results.dosage_and_administration));
 				drugLabel.setStopUse(getZeroeth(results.stop_use));
 				drugLabel.setAdverseReactions(getZeroeth(results.adverse_reactions));
+				drugLabel.setWarningsAndCautions(getZeroeth(results.warnings_and_cautions));
 
 				if (results.openfda != null) {
 					drugLabel.setBrandName(getZeroeth(results.openfda.brand_name));

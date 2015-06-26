@@ -37,6 +37,8 @@ public class DrugLabel
 
 	private final List<DrugEvent> events2 = new ArrayList<DrugEvent>();
 
+	private String warningsAndCautions;
+
 	public String getPurpose()
 	{
 		return purpose;
@@ -209,5 +211,15 @@ public class DrugLabel
 	public void addEvent(Seriousness... seriousness)
 	{
 		events2.add(new DrugEvent(seriousness));
+	}
+
+	public String getWarningsAndCautions()
+	{
+		return warningsAndCautions;
+	}
+
+	public void setWarningsAndCautions(String warningsAndCautions)
+	{
+		this.warningsAndCautions = warningsAndCautions;
 	}
 }
