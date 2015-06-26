@@ -55,17 +55,26 @@ public class DrugPage extends PageObject
 	@FindBy(id = "labeling-manfacturerName-modal")
 	WebElement manufacturerName;
 	
-	
-	
-
 	@FindBy(id = "adverse-TotalCount")
 	WebElement totalCount;
 	
-	@FindBy(id = "adverse-HospitalizationsCount")
+	@FindBy(id = "adverse-events-hospitalizations")
 	WebElement HospitalizationsCount;
 
-	@FindBy(id = "adverse-CongenitalCount")
+	@FindBy(id = "adverse-events-congenitalAnomali")
 	WebElement CongenitalCount;
+
+	@FindBy(id = "adverse-events-disabling")
+	WebElement DisablingCount;
+
+	@FindBy(id = "adverse-events-lifeThreatening")
+	WebElement LifeThreatCount;
+
+	@FindBy(id = "adverse-events-death")
+	WebElement DeathsCount;
+		
+	@FindBy(id = "adverse-events-other")
+	WebElement OtherCount;
 	
 	public String getCongenitalCount() {
 		return CongenitalCount.getText();
@@ -74,10 +83,6 @@ public class DrugPage extends PageObject
 	public void setCongenitalCount(WebElement congenitalCount) {
 		CongenitalCount = congenitalCount;
 	}
-
-	@FindBy(id = "adverse-DisablingCount")
-	WebElement DisablingCount;
-	
 	
 	public String getDisablingCount() {
 		return DisablingCount.getText();
@@ -87,10 +92,6 @@ public class DrugPage extends PageObject
 		DisablingCount = disablingCount;
 	}
 
-	@FindBy(id = "adverse-LifeThreatCount")
-	WebElement LifeThreatCount;
-	
-	
 	public String getLifeThreatCount() {
 		return LifeThreatCount.getText();
 	}
@@ -98,10 +99,6 @@ public class DrugPage extends PageObject
 	public void setLifeThreatCount(WebElement lifeThreatCount) {
 		LifeThreatCount = lifeThreatCount;
 	}
-
-	@FindBy(id = "adverse-DeathsCount")
-	WebElement DeathsCount;
-	
 	
 	public String getDeathsCount() {
 		return DeathsCount.getText();
@@ -111,9 +108,6 @@ public class DrugPage extends PageObject
 		DeathsCount = deathsCount;
 	}
 
-	@FindBy(id = "adverse-OtherCount")
-	WebElement OtherCount;
-	
 	public String getOtherCount() {
 		return OtherCount.getText();
 	}
