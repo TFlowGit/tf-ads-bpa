@@ -10,8 +10,4 @@ drugflowApp.service('drugsService', ['$http', function($http){
 		return $http.get(eventsBaseURL+productNdc);
 	}
 	
-	
-	
-	
-	
 }]);

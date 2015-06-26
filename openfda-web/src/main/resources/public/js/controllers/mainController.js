@@ -1,5 +1,5 @@
 
-drugflowApp.controller('mainCtrl', ['$scope', 'drugsService', 'smoothScroll', function ($scope, drugsService, smoothScroll) {
+drugflowApp.controller('mainCtrl', ['$scope', '$q', 'drugsService', 'smoothScroll', function ($scope, $q, drugsService, smoothScroll) {
 
   $scope.query ='';
   $scope.result = '';
@@ -53,58 +53,46 @@ $scope.labelHeight = {
 	  $scope.searchBarVisibility = false;
 	  
 	  drugsService.getDrugInfo($scope.query)
-		  .success(function(response){
-			    getAdverseEvents(response['productNdc']);
-	  			transformResponse(response);
-	  			//console.log("***" + $scope.result[0][0]);	  			
-	  			plotAdverse('adversePlot',[['Deaths', 4],['Life Threatening', 6],['Hospitilization', 2],['Disabling', 5],['Congenital Anomalies', 6], ['Other', 20]]);
-
-	  			// plotAdverse('adversePlot',$scope.result['events']);
-	  			// console.log("***" + $scope.result['events'][0]);
-		  })
-		  .error(function(data, status, headers, config){
-				$scope.infoVisibility = false;
-				$scope.loading = false;
+	    .then(
+	        function success1(response) {
+	            transformResponse(response.data);
+	            return drugsService.getDrugAdverseEvents(response.data['productNdc']);
+	        },
+	        function error1(response) {
+	            return $q.reject(response);
+	        }
+	    )
+	    .then(
+	        function success2(response) {
+	        	console.log(response.data);
+	        	$scope.events = transformTo2DArray(response.data);
+		  		$scope.infoVisibility = true;
+	  			$scope.scroll = true;
+	  			$scope.loading = false;
 	  			$scope.searchBarVisibility = true;
-				switch(status){
-					case 404:
-						$scope.queryFailedMsg = "Drug not found";
-						break;
-					default:
-						$scope.queryFailedMsg = "There was an unknown error. Please try again later.";
-						break;
-				}
-		  });
-		  
+	        },
+	        function error2(response) {
+	        	requestErrorHandler(response.status);
+	        }
+	    );
 	  $scope.scroll = false;
   };
   
-  function getAdverseEvents(productNdc){
-	  drugsService.getDrugAdverseEvents(productNdc)
-	  	.success(function(response){
-	  		$scope.events = transformTo2DArray(response);
-	  		$scope.infoVisibility = true;
-  			$scope.scroll = true;
-  			$scope.loading = false;
-  			$scope.searchBarVisibility = true;
-	  	})
-	  	.error(function(data, status, headers, config){
-			$scope.infoVisibility = false;
-			$scope.loading = false;
-  			$scope.searchBarVisibility = true;
-			switch(status){
-				case 404:
-					$scope.queryFailedMsg = "Drug not found";
-					break;
-				default:
-					$scope.queryFailedMsg = "There was an unknown error. Please try again later.";
-					break;
-			}
-	  });
+  function requestErrorHandler(status){
+	    $scope.infoVisibility = false;
+		$scope.loading = false;
+		$scope.searchBarVisibility = true;
+		switch(status){
+			case 404:
+				$scope.queryFailedMsg = "Drug not found";
+				break;
+			default:
+				$scope.queryFailedMsg = "There was an unknown error. Please try again later.";
+				break;
+		}
   }
- 
+  
   function transformResponse(response){
-	    console.log(response);
 	  	var result = {};
 	  	var labelInfo = {};
 	  	var warnings = {};
@@ -139,6 +127,5 @@ $scope.labelHeight = {
 	  return array;
   }
   
-
 }]);
 
