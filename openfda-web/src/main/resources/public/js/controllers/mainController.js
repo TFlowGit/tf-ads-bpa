@@ -35,14 +35,6 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
         'other' :'Other'
   };
 
-
-  // [{key: 'hospitialization', label:'Hospitalizations'}, 
-  //                       {key: 'congenitalAnomali', label:'Congenital Anomalies'},
-  //                       {key: 'disabling', label:'Disabling'}, 
-  //                       {key: 'lifeThreatening', label:'Life Threatening'}, 
-  //                       {key: 'death', label:'Deaths'}, 
-  //                       {key: 'other', label:'Other'}];
-
 $scope.labelHeight = {
 	  indicationsAndUsage : 0,
 	  brandName : 0,
@@ -156,5 +148,6 @@ $scope.labelHeight = {
 	  }
 	  return array;
   }
+
 }]);
 

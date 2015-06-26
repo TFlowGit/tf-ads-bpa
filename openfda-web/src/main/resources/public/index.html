@@ -125,7 +125,7 @@
                 </div>
     
                 <div class="event-total col-lg-6 text-center">
-                    <h1 id="adverse-TotalCount" class="big-num wow fadeIn">{{totalEvents}}</h1>
+                    <h1 id="adverse-TotalCount" class="big-num wow fadeIn">{{totalEvents | number }}</h1>
                     <hr class="hr-num">
                     <h2 class="small-num wow fadeIn">Total Adverse Events</h2>
                 </div>
@@ -140,8 +140,8 @@
                                     <i class="fa fa-{{event[0]}} fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div id="adverse-events-{{event[0]}}" class="huge">{{event[1]}}</div>
-                                    <div class="small">{{eventLabels[event[0]]}}</div>
+                                    <div id="adverse-events-{{event[0]}}" class="huge">{{event[1] | number }}</div>
+                                    <div class="small">{{ eventLabels[event[0]] }}</div>
                                 </div>
                             </div>
                         </div>
