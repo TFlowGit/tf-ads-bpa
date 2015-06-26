@@ -1,11 +1,13 @@
 <!---
 Guidelines for adding to the licenses file:
+
 * Only use code under a license that complies with the open source definition: http://opensource.org/osd
 * If attribution is required for any items (for example a CC-BY-SA licensed image), make sure that is added.
 * The link for the license should go to a project page clearly stating the how the software is licensed.
 * If adding a new license, please make sure it is shown in the second table and make certain that the OSI and FSF info is correct.
 * Please sort the list after adding to it.
 * Please use spaces and not tabs; please maintain the proper whitespaces to make tables readable.
+
 If you have any doubts about anything please ask Danny McAllaster for assistance.
 -->
 
