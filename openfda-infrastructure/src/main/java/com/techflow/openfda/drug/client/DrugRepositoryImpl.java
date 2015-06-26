@@ -22,7 +22,6 @@ import com.google.common.io.Resources;
 public class DrugRepositoryImpl implements DrugRepository
 {
 	private static int MAX_HITS = 5;
-	private	final URL repoUrl = Resources.getResource("brand-names.txt");
 	private RAMDirectory ramDir;
 
 	public DrugRepositoryImpl()
@@ -39,7 +38,7 @@ public class DrugRepositoryImpl implements DrugRepository
 
 		Scanner s = null;
 		try {
-			s = new Scanner(new File(repoUrl.getFile()));
+			s = new Scanner( this.getClass().getResourceAsStream("/brand-names.txt"));
 			while (s.hasNextLine()) {
 				Document document = new Document();
 				String drugName = s.nextLine();
