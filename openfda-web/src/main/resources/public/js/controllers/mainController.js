@@ -5,6 +5,7 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
   $scope.result = '';
   $scope.infoVisibility = false;
   $scope.loadingVisibility = false;
+  $scope.readMore = false;
   $scope.searchBarVisibility = true;
   $scope.scroll = false;
   $scope.didInitialLoad = false;
@@ -35,27 +36,31 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
         'other' :'Other'
   };
 
-$scope.labelHeight = {
-	  indicationsAndUsage : 0,
-	  brandName : 0,
-	  genericName : 0,
-	  purpose : 0,
-	  active : 0,
-	  adverseReactions: 0,
-	  askDoctor: 0,
-	  doNotUse: 0,
-	  dosage: 0,
-	  inactive: 0,
-	  warnings: 0,
-	  askDoctorOrPharmacist: 0,
-	  stopUse: 0,
-	  manufacturerName : 0,
-	  events: 0
+$scope.labelReadMore = {
+	  indicationsAndUsage : false,
+	  brandName : false,
+	  genericName : false,
+	  purpose : false,
+	  active : false,
+	  adverseReactions: false,
+	  askDoctor: false,
+	  doNotUse: false,
+	  dosage: false,
+	  inactive: false,
+	  warnings: false,
+	  askDoctorOrPharmacist: false,
+	  stopUse: false,
+	  manufacturerName : false,
+	  events: false
 };
 
-  $scope.readMore = function(elem) {
-  	$scope.labelHeight[elem]
-  	var height = $("#labeling-"+elem+"-label").height();
+function enableReadMore() {
+  	for(elem in $scope.labelReadMore){
+  		var height = $("#labeling-"+elem+"-label").height();
+  		$scope.labelReadMore[elem] = height > 150 ? true : false;	
+  	}
+  	console.log($scope.labelReadMore);
+  	
   };
 
   $scope.searchDrug = function() {
@@ -87,6 +92,7 @@ $scope.labelHeight = {
 	  			$scope.searchBarVisibility = true;
 	  			$timeout(function(){
 	  				plotAdverse('adversePlot',$scope.events);
+	  				enableReadMore();
 	  		  	});
 	  			$scope.loadOverlay = false;
 	        },
@@ -148,6 +154,5 @@ $scope.labelHeight = {
 	  }
 	  return array;
   }
-
 }]);
 
