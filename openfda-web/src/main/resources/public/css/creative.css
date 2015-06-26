@@ -849,7 +849,7 @@ span#subheading {
 
 }
 
-.panel-hospital {
+.panel-hospitialization {
     background-color: #00B25C;
 }
 
@@ -857,11 +857,11 @@ span#subheading {
     background-color: #1C0118;
 }
 
-.panel-congenital {
+.panel-congenitalAnomali {
     background-color: #FF9B40;
 }
 
-.panel-life {
+.panel-lifeThreatening {
     background-color: #A40004;
 }
 

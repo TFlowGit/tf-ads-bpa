@@ -26,13 +26,23 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
 	  events: "Adverse Reaction"
   };
   
-  $scope.eventLabels = [{key: 'hospitialization', label:'Hospitalizations'}, 
-                        {key: 'congenitalAnomali', label:'Congenital Anomalies'},
-                        {key: 'disabling', label:'Disabling'}, 
-                        {key: 'lifeThreatening', label:'Life Threatening'}, 
-                        {key: 'death', label:'Deaths'}, 
-                        {key: 'other', label:'Other'}] 
-            
+  $scope.eventLabels = {
+  		'hospitialization' :'Hospitalizations', 
+        'congenitalAnomali' :'Congenital Anomalies',
+        'disabling' :'Disabling',
+        'lifeThreatening' :'Life Threatening', 
+        'death' :'Deaths', 
+        'other' :'Other'
+  };
+
+
+  // [{key: 'hospitialization', label:'Hospitalizations'}, 
+  //                       {key: 'congenitalAnomali', label:'Congenital Anomalies'},
+  //                       {key: 'disabling', label:'Disabling'}, 
+  //                       {key: 'lifeThreatening', label:'Life Threatening'}, 
+  //                       {key: 'death', label:'Deaths'}, 
+  //                       {key: 'other', label:'Other'}];
+
 $scope.labelHeight = {
 	  indicationsAndUsage : 0,
 	  brandName : 0,
@@ -134,10 +144,10 @@ $scope.labelHeight = {
   
   function transformTo2DArray(obj){
 	  var array = [];
-	  for(var i=0; i<$scope.eventLabels.length; i++){
+	  for(key in $scope.eventLabels){
 		  var data = [];
-		  data.push($scope.eventLabels[i].label);
-		  data.push(obj[$scope.eventLabels[i].key]);
+		  data.push(key);
+		  data.push(obj[key]);
 		  array.push(data);
 	  }
 	  return array;

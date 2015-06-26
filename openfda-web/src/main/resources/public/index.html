@@ -17,7 +17,7 @@
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css" type="text/css">
 
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
@@ -132,96 +132,22 @@
             </div>    
             <div class="row event-row">
 
-                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-hospital" eventtype="{{events[0][0]}}">
+                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="event in events">
+                    <div class="panel panel-{{event[0]}}" eventtype="{{event[0]}}">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3"><br>
-                                    <i class="fa fa-hospital-o fa-4x"></i>
+                                    <i class="fa fa-{{event[0]}} fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div id="adverse-events-{{events[0][0]}}" class="huge">{{events[0][1]}}</div>
-                                    <div class="small">Hospitalizations</div>
+                                    <div id="adverse-events-{{event[0]}}" class="huge">{{event[1]}}</div>
+                                    <div class="small">{{eventLabels[event[0]]}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-congenital" eventType="{{events[1][0]}}">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3"><br>
-                                    <i class="fa fa-venus-mars fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="adverse-events-{{events[1][0]}}" class="huge">{{events[1][1]}}</div>
-                                    <div class="small">Congenital Anomalies</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-disabling" eventType="{{events[2][0]}}">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3"><br>
-                                    <i class="fa fa-wheelchair fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="adverse-events-{{events[2][0]}}" class="huge">{{events[2][1]}}</div>
-                                    <div class="small">Disabling</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-life" eventType="{{events[3][0]}}">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3"><br>
-                                    <i class="fa fa-stethoscope fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="adverse-events-{{events[3][0]}}" class="huge">{{events[3][1]}}</div>
-                                    <div class="small">Life Threatening</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-death" eventType="{{events[4][0]}}">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3"><br>
-                                    <i class="fa fa-heartbeat fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="adverse-events-{{events[4][0]}}" class="huge">{{events[4][1]}}</div>
-                                    <div class="small">Deaths</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-col col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-other" eventType="{{events[5][0]}}">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3"><br>
-                                    <i class="fa fa-user-md fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="adverse-events-{{events[5][0]}}" class="huge">{{events[5][1]}}</div>
-                                    <div class="small">Other</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
     </section>
 
