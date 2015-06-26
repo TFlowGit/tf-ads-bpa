@@ -100,6 +100,7 @@ $scope.labelHeight = {
   function requestErrorHandler(status){
 	    $scope.infoVisibility = false;
 		$scope.loading = false;
+		$scope.loadOverlay = false;
 		$scope.searchBarVisibility = true;
 		switch(status){
 			case 404:
