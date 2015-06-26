@@ -52,13 +52,14 @@ $scope.labelHeight = {
 	  $scope.queryFailedMsg = '';
 	  $scope.loading = true;
 	  $scope.searchBarVisibility = false;
+	  
 	  drugsService.getDrugInfo($scope.query)
 		  .success(function(response){
-			  	$scope.infoVisibility = true;
-	  			$scope.scroll = true;
+			    getAdverseEvents(response['productNdc']);
 	  			transformResponse(response);
 	  			$scope.loading = false;	
 	  			$scope.searchBarVisibility = true;
+
 		  })
 		  .error(function(data, status, headers, config){
 				$scope.infoVisibility = false;
@@ -73,9 +74,35 @@ $scope.labelHeight = {
 						break;
 				}
 		  });
+		  
 	  $scope.scroll = false;
   };
   
+  function getAdverseEvents(productNdc){
+	  drugsService.getDrugAdverseEvents(productNdc)
+	  	.success(function(response){
+	  		$scope.events = transformTo2DArray(response);
+	  		$scope.infoVisibility = true;
+  			$scope.scroll = true;
+  			$scope.loading = false;
+  			$scope.searchBarVisibility = true;
+
+	  	})
+	  	.error(function(data, status, headers, config){
+			$scope.infoVisibility = false;
+			$scope.loading = false;
+  			$scope.searchBarVisibility = true;
+			switch(status){
+				case 404:
+					$scope.queryFailedMsg = "Drug not found";
+					break;
+				default:
+					$scope.queryFailedMsg = "There was an unknown error. Please try again later.";
+					break;
+			}
+	  });
+  }
+ 
   function transformResponse(response){
 	    console.log(response);
 	  	var result = {};
@@ -87,8 +114,6 @@ $scope.labelHeight = {
 					result['name'] = response[key];
 				else if(key == 'purpose') 
 					result['purpose'] = response[key];
-				else if(key == 'events')
-					result[key] = transformTo2DArray(response[key]);
 				else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist'){
 					if(response[key] != null){
 						warnings[key] = response[key];
@@ -101,7 +126,6 @@ $scope.labelHeight = {
 		result['labelInfo'] = labelInfo;
 		result['warnings'] = warnings;
 		$scope.result = result;
-		console.log(result);
   }	
   
   function transformTo2DArray(obj){
@@ -117,8 +141,9 @@ $scope.labelHeight = {
 
   $scope.$on('finishedRender',function(finishedRenderEvent){
   	console.log('ello');
-  	plotAdverse('adversePlot',[['hospital', 4],['congenital', 6],['disabling', 2],['life', 5],['death', 6], ['other', 20]]);
-	// plotAdverse('adversePlot',$scope.result['events']);
+  	console.log($scope.events);
+  	
+ 	plotAdverse('adversePlot',$scope.events);
 
   });
 
