@@ -247,6 +247,7 @@ public class SearchSteps extends ScenarioSteps
 		} catch (Exception e) {
 					e.printStackTrace();
 		}
+	}
 
 	@Step("Then the label info is displayed for {0}")
 	public void shouldSeeEventFor(String drugName, WebDriver driver) {
