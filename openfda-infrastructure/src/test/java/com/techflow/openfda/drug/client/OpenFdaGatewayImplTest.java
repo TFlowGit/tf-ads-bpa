@@ -357,17 +357,11 @@ public class OpenFdaGatewayImplTest
 	public void findBrandNames() throws IOException
 	{
 
-		DrugRepository drugRepo = new DrugRepositoryImpl();
-		
+		DrugRepository drugRepo = new DrugRepositoryImpl();		
 		ArrayList<String> drugNames = (ArrayList<String>)drugRepo.startsWith("multi*");
 
-		System.out.println("******** Name: " + drugNames.get(0));
-
-		// assertThat("true", equalTo("true"));
-		
 		assertThat( drugNames.size(), lessThanOrEqualTo(5) );
-
-		assertThat(drugNames.get(0), equalTo(drugNames.get(0)));
+		assertThat(drugNames.get(0), equalTo("Multitrace-4"));
 
 	}
 

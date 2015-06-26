@@ -1,7 +1,6 @@
 package com.techflow.openfda.drug.client;
 
 import java.io.File;
-//import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,17 +10,12 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-//import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
-//import org.apache.lucene.index.memory.MemoryIndex;
-//import org.apache.lucene.index.memory.PatternAnalyzer;
-//import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.Hit;
 import org.apache.lucene.search.Hits;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
-//import org.apache.lucene.store.LockObtainFailedException;
 import org.apache.lucene.store.RAMDirectory;
 import com.google.common.io.Resources;
 
@@ -65,8 +59,8 @@ public class DrugRepositoryImpl implements DrugRepository
 		
 		try {
 			indexWriter.optimize();
-			System.out.println("Buffered Docs: " + indexWriter.getMaxBufferedDocs() );
-			System.out.println("Index Buffer Size MB: " + indexWriter.getRAMBufferSizeMB() );
+			//System.out.println("Buffered Docs: " + indexWriter.getMaxBufferedDocs() );
+			//System.out.println("Index Buffer Size MB: " + indexWriter.getRAMBufferSizeMB() );
 			indexWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
