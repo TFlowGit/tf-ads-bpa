@@ -24,4 +24,15 @@ public enum Seriousness
 	{
 		return key;
 	}
+
+	public static Seriousness valueFromKey(String key)
+	{
+		for (final Seriousness s : values()) {
+			if (s.key.equals(key)) {
+				return s;
+			}
+		}
+
+		return null;
+	}
 }

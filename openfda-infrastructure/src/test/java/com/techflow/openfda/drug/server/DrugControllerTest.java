@@ -2,14 +2,11 @@ package com.techflow.openfda.drug.server;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,9 +18,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techflow.openfda.GatewayException;
 import com.techflow.openfda.drug.client.MockOpenFdaGateway;
 
@@ -58,11 +52,11 @@ public class DrugControllerTest
 				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andReturn();
 
-		final DescribeDrugResponse response = mapResponse(mvcResult.getResponse(), DescribeDrugResponse.class);
+		final DescribeDrugResponse response = SimpleObjectMapper.mapResponse(mvcResult.getResponse(), DescribeDrugResponse.class);
 
 		assertThat(response.getIndicationsAndUsage(), equalTo("indications"));
 		assertThat(response.getBrandName(), equalTo("brand name"));
-		assertThat(response.getGenericName(), equalTo("generic name"));
+		assertThat(response.getGenericName(), equalTo("Aspirin"));
 		assertThat(response.getPurpose(), equalTo("purpose"));
 		assertThat(response.getActive(), equalTo("active"));
 		assertThat(response.getInactive(), equalTo("inactive"));
@@ -88,11 +82,11 @@ public class DrugControllerTest
 				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andReturn();
 
-		final DescribeDrugResponse response = mapResponse(mvcResult.getResponse(), DescribeDrugResponse.class);
+		final DescribeDrugResponse response = SimpleObjectMapper.mapResponse(mvcResult.getResponse(), DescribeDrugResponse.class);
 
 		assertThat(response.getIndicationsAndUsage(), equalTo("indications"));
 		assertThat(response.getBrandName(), equalTo("brand name"));
-		assertThat(response.getGenericName(), equalTo("generic name"));
+		assertThat(response.getGenericName(), equalTo("Aspirin"));
 		assertThat(response.getPurpose(), equalTo("purpose"));
 		assertThat(response.getActive(), equalTo("active"));
 		assertThat(response.getInactive(), equalTo("inactive"));
@@ -132,22 +126,8 @@ public class DrugControllerTest
 				.andExpect(MockMvcResultMatchers.status().isInternalServerError())
 				.andReturn();
 
-		final ErrorResponse response = mapResponse(mvcResult.getResponse(), ErrorResponse.class);
+		final ErrorResponse response = SimpleObjectMapper.mapResponse(mvcResult.getResponse(), ErrorResponse.class);
 
 		assertThat(response.getMessage(), equalTo("Error communicating with OpenFDA API"));
-	}
-
-	static <T> T mapResponse(final MockHttpServletResponse response, Class<T> clazz) throws UnsupportedEncodingException, IOException, JsonParseException, JsonMappingException
-	{
-		final String json = response.getContentAsString();
-		final T object = map(json, clazz);
-		return object;
-	}
-
-	private static <T> T map(final String json, Class<T> clazz) throws IOException, JsonParseException, JsonMappingException
-	{
-		final ObjectMapper mapper = new ObjectMapper();
-		final T object = mapper.readValue(json, clazz);
-		return object;
 	}
 }

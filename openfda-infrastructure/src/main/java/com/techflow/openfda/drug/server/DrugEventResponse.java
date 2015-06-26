@@ -19,6 +19,8 @@ public class DrugEventResponse implements ListDrugEventsResponse
 
 	private int other;
 
+	private int total;
+
 	@ApiModelProperty(value = "Count of congenital anomalis")
 	public int getCongenitalAnomali()
 	{
@@ -83,6 +85,11 @@ public class DrugEventResponse implements ListDrugEventsResponse
 	public void setOther(int other)
 	{
 		this.other = other;
+	}
+
+	public int getTotal()
+	{
+		return total;
 	}
 
 	public DrugEventResponse() {
