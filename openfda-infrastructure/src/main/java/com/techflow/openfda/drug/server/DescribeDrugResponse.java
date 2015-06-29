@@ -236,6 +236,7 @@ public class DescribeDrugResponse implements FindDrugResponse
 		return warningsAndCautions;
 	}
 
+	@Override
 	public void setWarningsAndCautions(String warningsAndCautions)
 	{
 		this.warningsAndCautions = warningsAndCautions;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import org.apache.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -18,10 +19,12 @@ import org.apache.lucene.store.RAMDirectory;
 
 public class DrugRepositoryImpl implements DrugRepository
 {
+
+	private static final Logger logger = Logger.getLogger(DrugRepositoryImpl.class.getName());
 	private static int MAX_HITS = 5;
 	private RAMDirectory ramDir;
 
-	public DrugRepositoryImpl()
+	 public DrugRepositoryImpl()
 	{
 		IndexWriter indexWriter = null;
 		Analyzer analyzer = new StandardAnalyzer();
@@ -30,7 +33,7 @@ public class DrugRepositoryImpl implements DrugRepository
 		try {
 			indexWriter = new IndexWriter(ramDir, analyzer, true);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info("FATAL: Could not create indexWriter.",e);
 		}
 
 		Scanner s = null;
@@ -39,14 +42,12 @@ public class DrugRepositoryImpl implements DrugRepository
 			while (s.hasNextLine()) {
 				Document document = new Document();
 				String drugName = s.nextLine();
-				//System.out.println(drugName);
 				document.add(new Field("name", drugName, Field.Store.YES, Field.Index.UN_TOKENIZED));
 				document.add(new Field("UCNAME", drugName.toUpperCase(), Field.Store.NO, Field.Index.TOKENIZED));
 				indexWriter.addDocument(document);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-
+			logger.info("ERROR: Exception scanning brand-names.txt",e);
 		} finally {
 			if (s != null) {
 				s.close();
@@ -55,11 +56,10 @@ public class DrugRepositoryImpl implements DrugRepository
 		
 		try {
 			indexWriter.optimize();
-			//System.out.println("Buffered Docs: " + indexWriter.getMaxBufferedDocs() );
-			//System.out.println("Index Buffer Size MB: " + indexWriter.getRAMBufferSizeMB() );
+			logger.info("Index Buffer Size MB: " + indexWriter.getRAMBufferSizeMB() );
 			indexWriter.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info("ERROR: Exception optimizing brand-names index.",e);
 		}
 
 	}
@@ -67,10 +67,13 @@ public class DrugRepositoryImpl implements DrugRepository
 	@Override
 	public List<String> startsWith(String drugName)
 	{
-		ArrayList<String> list = new ArrayList<String>();
-		
+		String searchName;
+		List<String> list = new ArrayList<String>();
+
 		if (!drugName.endsWith("*")) {
-			drugName = drugName.concat("*");
+			searchName = drugName.concat("*");
+		} else {
+			searchName = drugName;
 		}
 
 		IndexSearcher indexSearcher;
@@ -79,9 +82,8 @@ public class DrugRepositoryImpl implements DrugRepository
 			indexSearcher = new IndexSearcher(ramDir);
 			Analyzer analyzer = new StandardAnalyzer();
 			QueryParser queryParser = new QueryParser("UCNAME", analyzer);
-			Query query = queryParser.parse(drugName);
+			Query query = queryParser.parse(searchName);
 			Hits hits = indexSearcher.search(query);
-			//System.out.println("Number of hits: " + hits.length());
 
 			@SuppressWarnings("unchecked")
 			Iterator<Hit> it = hits.iterator();
@@ -90,7 +92,6 @@ public class DrugRepositoryImpl implements DrugRepository
 				Hit hit = it.next();
 				Document document = hit.getDocument();
 				String name = document.get("name");
-				//System.out.println("Hit: " + name);
 				list.add(name);
 				if (++count > MAX_HITS) {
 					break;
@@ -98,7 +99,7 @@ public class DrugRepositoryImpl implements DrugRepository
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info("ERROR: Exception searching brand-names.", e);
 		}
 
 		return list;
