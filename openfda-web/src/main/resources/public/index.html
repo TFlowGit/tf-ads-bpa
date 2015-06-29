@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Prescribed Risks</title>
+    <title>DARI</title>
     
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -122,10 +122,9 @@
             <div class="header-content-inner">
                 <h1 class="wow pulse">Drug &amp; Adverse Reaction Information</h1>
                 <hr class="header-hr">
-                <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
+                <p>Is your drug putting you at risk? <br>Find out if your drug has caused adverse events.</p>
                 <form class="form-inline" ng-show="searchBarVisibility">
                     <div class="form-group ">
-                        <!-- input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus -->
                     <angucomplete-alt id="input-drug"
               placeholder="Enter a drug..."
               pause="400"
@@ -153,7 +152,7 @@
         </div>
     </header>
     <section class="bg-primary" id="adverse" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
-        <h1 id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
+        <h1 class-"text-center" id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
             <div class="row plot-row">
 
                 <div class="col-lg-6 ">

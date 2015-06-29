@@ -75,7 +75,6 @@ p {
 }
 
 section {
-    /*padding: 100px 0;*/
     min-height: 100%;
     padding-left: 1em;
     padding-right: 1em;
@@ -496,7 +495,6 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-black {
     background-color:#bf2726;
-    /*color: #bf2726;*/
 }
 
 .btn-xl {
@@ -541,6 +539,15 @@ div.form-group.search-nav {
 
 input.form-control.search-control {
     height: 30px;
+}
+
+@media (max-width: 767px) {
+    .search-nav input.form-control.search-control {
+        width: 200px;
+    }
+    .search-nav button.input-group-addon {
+        padding-right: 25px;
+    }
 }
 
 div.form-group{
@@ -712,8 +719,8 @@ div.warning-col {
 #adverse-heading {
     color: #f6f6f6;
     font-size: 3em;
-    margin-left: 2em;
     margin-bottom: 2em;
+    text-align: center;
 }
 
 span#subheading {
@@ -743,8 +750,9 @@ span#subheading {
     margin-left: auto;
 }
 
-.event-total {
-    /*padding-right: 5em;*/
+#adversePlot {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -796,6 +804,9 @@ span#subheading {
     }
     .event-row {
         width: 100%;
+    }
+    #adversePlot {
+        display: none;
     }
 }
 
@@ -875,4 +886,19 @@ div.plot {
 	font-size: 12px;
 	font-style: italic;
 	padding-top: 10px;
+}
+
+.label-col .read-more-section { 
+    background: linear-gradient(rgba(246, 246, 246, 0), rgb(246, 246, 246)) repeat scroll 0% 0% transparent;
+}
+.warning-col .read-more-section {
+    background: linear-gradient(rgba(191, 39, 38, 0), rgb(191, 39, 38)) repeat scroll 0% 0% transparent;
+
+}
+.read-more-section {
+    margin-top: -30px;
+    position: relative;
+    display: block;
+    height: 50px;
+    padding-top: 20px;
 }
