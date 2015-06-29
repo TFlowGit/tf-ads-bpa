@@ -7,14 +7,12 @@
     border-width: 1px;
     border-style: solid;
     border-radius: 2px;
-    width: 250px;
     padding: 6px;
     cursor: pointer;
     z-index: 9999;
     position: absolute;
-    /*top: 32px;
-    left: 0px;
-    */
+    width: 100%;
+    text-align: left;
     margin-top: -6px;
     background-color: #ffffff;
 }
@@ -36,7 +34,7 @@
 }
 
 .angucomplete-selected-row {
-    background-color: lightblue;
+    background-color: #bf2726;
     color: #ffffff;
 }
 
@@ -65,3 +63,10 @@
     height: 34px;
     width: 34px;
 }
+
+@media (max-width: 767px) {
+    #input-drug-nav_dropdown {
+        display: none;
+    }
+}
+

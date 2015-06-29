@@ -1,7 +1,8 @@
-drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll','$timeout', function ($scope, $q, drugsService, smoothScroll, $timeout) {
+dariApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll','$timeout', function ($scope, $q, drugsService, smoothScroll, $timeout) {
   $scope.events = [];
   $scope.totalEvents;
   $scope.query ='';
+  $scope.searchStr = '';
   $scope.result = '';
   $scope.infoVisibility = false;
   $scope.loadingVisibility = false;
@@ -159,13 +160,12 @@ function enableReadMore() {
 	  return array;
   }
   
-  $scope.setQuery= function(strInput){
-	  if(typeof(strInput)==="object"){
-		  $scope.query=strInput.title;
-	  }else{
-		  $scope.query=strInput;
-	  }
-	  
+  $scope.formatSuggestionResponse=function(responseData){
+	  var formattedData= {suggestions: []};
+  	  for(var i=0; i<responseData.suggestions.length; i++){
+  		formattedData.suggestions.push({"name":responseData.suggestions[i]});
+  	  }
+	  return formattedData;
   }
 }]);
 

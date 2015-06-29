@@ -548,6 +548,9 @@ input.form-control.search-control {
     .search-nav button.input-group-addon {
         padding-right: 25px;
     }
+    h1#adverse-heading {
+        margin-bottom: .5em;
+    }
 }
 
 div.form-group{
@@ -563,9 +566,22 @@ button.input-group-addon{
 	padding-bottom:8px;
 }
 
+.search-nav .input-group {
+    float: left;
+}
+
+.search-nav button {
+    border: 1px solid #ccc !important;
+}
+
+.search-nav div.angucomplete-dropdown {
+    top: 38px !important;
+}
+
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
+
 
 /*LABELING SECTION*/
 
@@ -895,6 +911,7 @@ div.plot {
     background: linear-gradient(rgba(191, 39, 38, 0), rgb(191, 39, 38)) repeat scroll 0% 0% transparent;
 
 }
+
 .read-more-section {
     margin-top: -30px;
     position: relative;

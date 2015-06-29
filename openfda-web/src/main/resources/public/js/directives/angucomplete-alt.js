@@ -43,13 +43,13 @@
     // string constants
     var REQUIRED_CLASS = 'autocomplete-required';
     var TEXT_SEARCHING = 'Searching...';
-    var TEXT_NORESULTS = 'No Suggestions Found, Click Search';
+    var TEXT_NORESULTS = 'No suggestions. Please click "Search".';
     var TEMPLATE_URL = '/angucomplete-alt/index.html';
 
     // Set the default template for this directive
     $templateCache.put(TEMPLATE_URL,
         '<div class="angucomplete-holder" ng-class="{\'angucomplete-dropdown-visible\': showDropdown}">' +
-        '  <input id="{{id}}_value" name={{inputName}} ng-class="{\'angucomplete-input-not-empty\': notEmpty}" ng-model="searchStr" ng-disabled="disableInput" type="{{inputType}}" placeholder="{{placeholder}}" maxlength="{{maxlength}}" ng-focus="onFocusHandler()" class="{{inputClass}}" ng-focus="resetHideResults()" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)"/>' +
+        '  <input autofocus id="{{id}}_value" name={{inputName}} ng-class="{\'angucomplete-input-not-empty\': notEmpty}" ng-model="searchStr" ng-disabled="disableInput" type="{{inputType}}" placeholder="{{placeholder}}" maxlength="{{maxlength}}" ng-focus="onFocusHandler()" class="{{inputClass}}" ng-focus="resetHideResults()" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)"/>' +
         '  <div id="{{id}}_dropdown" class="angucomplete-dropdown" ng-show="showDropdown">' +
         '    <div class="angucomplete-searching" ng-show="searching" ng-bind="textSearching"></div>' +
         '    <div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0)" ng-bind="textNoResults"></div>' +
@@ -71,7 +71,8 @@
       restrict: 'EA',
       require: '^?form',
       scope: {
-        selectedObject: '=',
+        searchStr: '=?query',
+        selectedObject: '=?',
         disableInput: '=',
         initialValue: '=',
         localData: '=',
@@ -417,10 +418,6 @@
 
         function httpSuccessCallbackGen(str) {
           return function(responseData, status, headers, config) {
-        	responseData.data=[];
-        	for(var i=0; i<responseData.suggestions.length; i++){
-        		responseData.data.push({"name":responseData.suggestions[i], "code":responseData.suggestions[i]});
-        	}
             // normalize return obejct from promise
             if (!status && !headers && !config) {
               responseData = responseData.data;
