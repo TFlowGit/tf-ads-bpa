@@ -15,7 +15,7 @@ node bastion {
   include epel
 }
 
-node puppet {
+node puppetmaster {
   include base_config::build
   include firewall::build
   include jenkins_conf
