@@ -66,7 +66,7 @@
 				<version>2.7</version>
 				<configuration>
 					<formats>
-			    			<format>xml</format>
+						<format>xml</format>
 					</formats>
 				</configuration>
 				<executions>
@@ -139,12 +139,24 @@
 		<url>https://github.com/TFlowGit/tf-ads-bpa</url>
 	</scm>
 	<url>https://TFlowGit.github.io/tf-ads-bpa/</url>
-	<name>TechFlow ADS RFQ Prototype</name>
+	<name>TechFlow ADS RFP Prototype</name>
 	<distributionManagement>
 		<site>
 			<id>github-pages-site</id>
 			<name>Deployment through GitHub's site deployment plugin</name>
-			<url>${project.version}</url>
+			<url>https://TFlowGit.github.io/tf-ads-bpa/${project.version}/</url>
 		</site>
 	</distributionManagement>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>
