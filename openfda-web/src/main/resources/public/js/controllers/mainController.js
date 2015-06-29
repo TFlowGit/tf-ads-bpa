@@ -165,5 +165,13 @@ function enableReadMore() {
 	  }
 	  
   }
+  
+  $scope.formatSuggestionResponse=function(responseData){
+	  var formattedData= {data: []};
+  	  for(var i=0; i<responseData.suggestions.length; i++){
+  		formattedData.data.push({"name":responseData.suggestions[i]});
+  	  }
+	  return formattedData;
+  }
 }]);
 

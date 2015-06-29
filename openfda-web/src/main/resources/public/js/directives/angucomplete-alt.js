@@ -417,10 +417,6 @@
 
         function httpSuccessCallbackGen(str) {
           return function(responseData, status, headers, config) {
-        	responseData.data=[];
-        	for(var i=0; i<responseData.suggestions.length; i++){
-        		responseData.data.push({"name":responseData.suggestions[i], "code":responseData.suggestions[i]});
-        	}
             // normalize return obejct from promise
             if (!status && !headers && !config) {
               responseData = responseData.data;
