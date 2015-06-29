@@ -65,9 +65,8 @@
 }
 
 @media (max-width: 767px) {
-    .angucomplete-dropdown {
+    #input-drug-nav_dropdown {
         display: none;
-        visibility: hidden;
     }
 }
 
