@@ -1,0 +1,1130 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.9157088122605364" branch-rate="0.8181818181818182" lines-covered="239" lines-valid="261" branches-covered="18" branches-valid="22" complexity="1.355263157894737" version="2.1.1" timestamp="1435601567321">
+	<sources>
+		<source>/var/lib/jenkins/jobs/Deply Maven Site/workspace/openfda-infrastructure/target/generated-sources/annotations</source>
+		<source>--source</source>
+		<source>/var/lib/jenkins/jobs/Deply Maven Site/workspace/openfda-infrastructure/src/main/java</source>
+	</sources>
+	<packages>
+		<package name="com.techflow.openfda.drug.client" line-rate="0.8907563025210085" branch-rate="0.8333333333333334" complexity="3.5555555555555554">
+			<classes>
+				<class name="com.techflow.openfda.drug.client.DrugRepositoryImpl" filename="com/techflow/openfda/drug/client/DrugRepositoryImpl.java" line-rate="0.82" branch-rate="0.7" complexity="5.5">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="21" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.7777777777777778" branch-rate="0.75" complexity="0">
+							<lines>
+								<line number="25" hits="1" branch="false"/>
+								<line number="26" hits="1" branch="false"/>
+								<line number="27" hits="1" branch="false"/>
+								<line number="28" hits="1" branch="false"/>
+								<line number="31" hits="1" branch="false"/>
+								<line number="32" hits="0" branch="false"/>
+								<line number="33" hits="0" branch="false"/>
+								<line number="34" hits="1" branch="false"/>
+								<line number="36" hits="1" branch="false"/>
+								<line number="38" hits="1" branch="false"/>
+								<line number="39" hits="23479" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="40" hits="23478" branch="false"/>
+								<line number="41" hits="23478" branch="false"/>
+								<line number="43" hits="23478" branch="false"/>
+								<line number="44" hits="23478" branch="false"/>
+								<line number="45" hits="23478" branch="false"/>
+								<line number="46" hits="23478" branch="false"/>
+								<line number="47" hits="0" branch="false"/>
+								<line number="48" hits="0" branch="false"/>
+								<line number="51" hits="1" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="52" hits="1" branch="false"/>
+								<line number="57" hits="1" branch="false"/>
+								<line number="60" hits="1" branch="false"/>
+								<line number="61" hits="0" branch="false"/>
+								<line number="62" hits="0" branch="false"/>
+								<line number="63" hits="1" branch="false"/>
+								<line number="65" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="startsWith" signature="(Ljava/lang/String;)Ljava/util/List;" line-rate="0.8636363636363636" branch-rate="0.6666666666666666" complexity="0">
+							<lines>
+								<line number="70" hits="1" branch="false"/>
+								<line number="72" hits="1" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="73" hits="0" branch="false"/>
+								<line number="79" hits="1" branch="false"/>
+								<line number="80" hits="1" branch="false"/>
+								<line number="81" hits="1" branch="false"/>
+								<line number="82" hits="1" branch="false"/>
+								<line number="83" hits="1" branch="false"/>
+								<line number="87" hits="1" branch="false"/>
+								<line number="88" hits="1" branch="false"/>
+								<line number="89" hits="5" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="90" hits="5" branch="false"/>
+								<line number="91" hits="5" branch="false"/>
+								<line number="92" hits="5" branch="false"/>
+								<line number="94" hits="5" branch="false"/>
+								<line number="95" hits="5" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="96" hits="1" branch="false"/>
+								<line number="98" hits="4" branch="false"/>
+								<line number="100" hits="0" branch="false"/>
+								<line number="101" hits="0" branch="false"/>
+								<line number="102" hits="1" branch="false"/>
+								<line number="104" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="21" hits="1" branch="false"/>
+						<line number="25" hits="1" branch="false"/>
+						<line number="26" hits="1" branch="false"/>
+						<line number="27" hits="1" branch="false"/>
+						<line number="28" hits="1" branch="false"/>
+						<line number="31" hits="1" branch="false"/>
+						<line number="32" hits="0" branch="false"/>
+						<line number="33" hits="0" branch="false"/>
+						<line number="34" hits="1" branch="false"/>
+						<line number="36" hits="1" branch="false"/>
+						<line number="38" hits="1" branch="false"/>
+						<line number="39" hits="23479" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="40" hits="23478" branch="false"/>
+						<line number="41" hits="23478" branch="false"/>
+						<line number="43" hits="23478" branch="false"/>
+						<line number="44" hits="23478" branch="false"/>
+						<line number="45" hits="23478" branch="false"/>
+						<line number="46" hits="23478" branch="false"/>
+						<line number="47" hits="0" branch="false"/>
+						<line number="48" hits="0" branch="false"/>
+						<line number="51" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="52" hits="1" branch="false"/>
+						<line number="57" hits="1" branch="false"/>
+						<line number="60" hits="1" branch="false"/>
+						<line number="61" hits="0" branch="false"/>
+						<line number="62" hits="0" branch="false"/>
+						<line number="63" hits="1" branch="false"/>
+						<line number="65" hits="1" branch="false"/>
+						<line number="70" hits="1" branch="false"/>
+						<line number="72" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="73" hits="0" branch="false"/>
+						<line number="79" hits="1" branch="false"/>
+						<line number="80" hits="1" branch="false"/>
+						<line number="81" hits="1" branch="false"/>
+						<line number="82" hits="1" branch="false"/>
+						<line number="83" hits="1" branch="false"/>
+						<line number="87" hits="1" branch="false"/>
+						<line number="88" hits="1" branch="false"/>
+						<line number="89" hits="5" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="90" hits="5" branch="false"/>
+						<line number="91" hits="5" branch="false"/>
+						<line number="92" hits="5" branch="false"/>
+						<line number="94" hits="5" branch="false"/>
+						<line number="95" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="96" hits="1" branch="false"/>
+						<line number="98" hits="4" branch="false"/>
+						<line number="100" hits="0" branch="false"/>
+						<line number="101" hits="0" branch="false"/>
+						<line number="102" hits="1" branch="false"/>
+						<line number="104" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaDrugEvent" filename="com/techflow/openfda/drug/client/OpenFdaDrugEvent.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="5" hits="2" branch="false"/>
+								<line number="10" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="5" hits="2" branch="false"/>
+						<line number="10" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaDrugEvent$OpenFdaDrugEventMeta" filename="com/techflow/openfda/drug/client/OpenFdaDrugEvent.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="10" hits="2" branch="false"/>
+								<line number="15" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="2" branch="false"/>
+						<line number="15" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaDrugEvent$OpenFdaDrugEventMeta$OpenFdaDrugEventMetaResults" filename="com/techflow/openfda/drug/client/OpenFdaDrugEvent.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="15" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="15" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaDrugLabel" filename="com/techflow/openfda/drug/client/OpenFdaDrugLabel.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="5" hits="7" branch="false"/>
+								<line number="10" hits="7" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="5" hits="7" branch="false"/>
+						<line number="10" hits="7" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaDrugLabel$OpenFdaDrugLabelResult" filename="com/techflow/openfda/drug/client/OpenFdaDrugLabel.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="10" hits="6" branch="false"/>
+								<line number="51" hits="6" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="6" branch="false"/>
+						<line number="51" hits="6" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaDrugLabel$OpenFdaDrugLabelResult$OpenFdaLabelOpenFda" filename="com/techflow/openfda/drug/client/OpenFdaDrugLabel.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="51" hits="5" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="51" hits="5" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaGatewayImpl" filename="com/techflow/openfda/drug/client/OpenFdaGatewayImpl.java" line-rate="0.92" branch-rate="1.0" complexity="3.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="26" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="22" hits="11" branch="false"/>
+								<line number="24" hits="11" branch="false"/>
+								<line number="145" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="createRequestFactory" signature="()Lcom/google/api/client/http/HttpRequestFactory;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="114" hits="11" branch="false"/>
+								<line number="115" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="getEvents" signature="(Ljava/lang/String;Lcom/techflow/openfda/drugs/Seriousness;)Lcom/techflow/openfda/drugs/DrugEventSummary;" line-rate="0.8" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="82" hits="2" branch="false"/>
+								<line number="83" hits="2" branch="false"/>
+								<line number="84" hits="2" branch="false"/>
+								<line number="85" hits="2" branch="false"/>
+								<line number="87" hits="2" branch="false"/>
+								<line number="88" hits="2" branch="false"/>
+								<line number="89" hits="2" branch="false"/>
+								<line number="91" hits="2" branch="false"/>
+								<line number="92" hits="0" branch="false"/>
+								<line number="93" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLabel" signature="(Ljava/lang/String;)Lcom/techflow/openfda/drugs/DrugLabel;" line-rate="0.9354838709677419" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="35" hits="9" branch="false"/>
+								<line number="36" hits="9" branch="false"/>
+								<line number="37" hits="9" branch="false"/>
+								<line number="38" hits="9" branch="false"/>
+								<line number="39" hits="7" branch="false"/>
+								<line number="40" hits="7" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="41" hits="6" branch="false"/>
+								<line number="43" hits="6" branch="false"/>
+								<line number="44" hits="6" branch="false"/>
+								<line number="45" hits="6" branch="false"/>
+								<line number="46" hits="6" branch="false"/>
+								<line number="47" hits="6" branch="false"/>
+								<line number="48" hits="6" branch="false"/>
+								<line number="49" hits="6" branch="false"/>
+								<line number="50" hits="6" branch="false"/>
+								<line number="51" hits="6" branch="false"/>
+								<line number="52" hits="6" branch="false"/>
+								<line number="53" hits="6" branch="false"/>
+								<line number="54" hits="6" branch="false"/>
+								<line number="56" hits="6" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="57" hits="5" branch="false"/>
+								<line number="58" hits="5" branch="false"/>
+								<line number="59" hits="5" branch="false"/>
+								<line number="60" hits="5" branch="false"/>
+								<line number="64" hits="7" branch="false"/>
+								<line number="65" hits="2" branch="false"/>
+								<line number="66" hits="2" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="67" hits="1" branch="false"/>
+								<line number="69" hits="1" branch="false"/>
+								<line number="70" hits="0" branch="false"/>
+								<line number="71" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getZeroeth" signature="([Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="102" hits="92" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="103" hits="49" branch="false"/>
+								<line number="106" hits="43" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="22" hits="11" branch="false"/>
+						<line number="24" hits="11" branch="false"/>
+						<line number="26" hits="1" branch="false"/>
+						<line number="35" hits="9" branch="false"/>
+						<line number="36" hits="9" branch="false"/>
+						<line number="37" hits="9" branch="false"/>
+						<line number="38" hits="9" branch="false"/>
+						<line number="39" hits="7" branch="false"/>
+						<line number="40" hits="7" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="41" hits="6" branch="false"/>
+						<line number="43" hits="6" branch="false"/>
+						<line number="44" hits="6" branch="false"/>
+						<line number="45" hits="6" branch="false"/>
+						<line number="46" hits="6" branch="false"/>
+						<line number="47" hits="6" branch="false"/>
+						<line number="48" hits="6" branch="false"/>
+						<line number="49" hits="6" branch="false"/>
+						<line number="50" hits="6" branch="false"/>
+						<line number="51" hits="6" branch="false"/>
+						<line number="52" hits="6" branch="false"/>
+						<line number="53" hits="6" branch="false"/>
+						<line number="54" hits="6" branch="false"/>
+						<line number="56" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="57" hits="5" branch="false"/>
+						<line number="58" hits="5" branch="false"/>
+						<line number="59" hits="5" branch="false"/>
+						<line number="60" hits="5" branch="false"/>
+						<line number="64" hits="7" branch="false"/>
+						<line number="65" hits="2" branch="false"/>
+						<line number="66" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="67" hits="1" branch="false"/>
+						<line number="69" hits="1" branch="false"/>
+						<line number="70" hits="0" branch="false"/>
+						<line number="71" hits="0" branch="false"/>
+						<line number="82" hits="2" branch="false"/>
+						<line number="83" hits="2" branch="false"/>
+						<line number="84" hits="2" branch="false"/>
+						<line number="85" hits="2" branch="false"/>
+						<line number="87" hits="2" branch="false"/>
+						<line number="88" hits="2" branch="false"/>
+						<line number="89" hits="2" branch="false"/>
+						<line number="91" hits="2" branch="false"/>
+						<line number="92" hits="0" branch="false"/>
+						<line number="93" hits="0" branch="false"/>
+						<line number="102" hits="92" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="103" hits="49" branch="false"/>
+						<line number="106" hits="43" branch="false"/>
+						<line number="114" hits="11" branch="false"/>
+						<line number="115" hits="11" branch="false"/>
+						<line number="145" hits="11" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaGatewayImpl$1" filename="com/techflow/openfda/drug/client/OpenFdaGatewayImpl.java" line-rate="1.0" branch-rate="1.0" complexity="3.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaGatewayImpl$DrugEventUrl" filename="com/techflow/openfda/drug/client/OpenFdaGatewayImpl.java" line-rate="1.0" branch-rate="1.0" complexity="3.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/techflow/openfda/drug/client/OpenFdaGatewayImpl;Ljava/lang/String;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="148" hits="2" branch="false"/>
+								<line number="149" hits="2" branch="false"/>
+								<line number="152" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="148" hits="2" branch="false"/>
+						<line number="149" hits="2" branch="false"/>
+						<line number="152" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaGatewayImpl$DrugLabelUrl" filename="com/techflow/openfda/drug/client/OpenFdaGatewayImpl.java" line-rate="1.0" branch-rate="1.0" complexity="3.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/techflow/openfda/drug/client/OpenFdaGatewayImpl;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="137" hits="9" branch="false"/>
+								<line number="138" hits="9" branch="false"/>
+								<line number="139" hits="9" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="137" hits="9" branch="false"/>
+						<line number="138" hits="9" branch="false"/>
+						<line number="139" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaGatewayImpl$JsonHttpRequestInitializer" filename="com/techflow/openfda/drug/client/OpenFdaGatewayImpl.java" line-rate="1.0" branch-rate="1.0" complexity="3.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/techflow/openfda/drug/client/OpenFdaGatewayImpl;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Lcom/techflow/openfda/drug/client/OpenFdaGatewayImpl;Lcom/techflow/openfda/drug/client/OpenFdaGatewayImpl$1;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="121" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="initialize" signature="(Lcom/google/api/client/http/HttpRequest;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="126" hits="11" branch="false"/>
+								<line number="127" hits="11" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="121" hits="22" branch="false"/>
+						<line number="126" hits="11" branch="false"/>
+						<line number="127" hits="11" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="com.techflow.openfda.drug.server" line-rate="0.9366197183098591" branch-rate="0.75" complexity="1.0597014925373134">
+			<classes>
+				<class name="com.techflow.openfda.drug.server.DescribeDrugRequest" filename="com/techflow/openfda/drug/server/DescribeDrugRequest.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="6" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="getName" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="14" hits="12" branch="false"/>
+							</lines>
+						</method>
+						<method name="setName" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="19" hits="6" branch="false"/>
+								<line number="20" hits="6" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="6" hits="6" branch="false"/>
+						<line number="14" hits="12" branch="false"/>
+						<line number="19" hits="6" branch="false"/>
+						<line number="20" hits="6" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.server.DescribeDrugResponse" filename="com/techflow/openfda/drug/server/DescribeDrugResponse.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="7" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="getActive" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="70" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAdverseReactions" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="202" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAskDoctor" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="130" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAskDoctorOrPharmacist" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="190" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getBrandName" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="166" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDoNotUse" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="106" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDosage" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="58" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGenericName" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="178" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getInactive" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="82" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getIndicationsAndUsage" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="142" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getManufacturerName" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="214" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getProductNdc" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="231" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPurpose" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="46" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getStopUse" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="118" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getWarnings" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="94" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getWarningsAndCautions" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="236" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="isNotFound" signature="()Z" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="154" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="setActive" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="76" hits="4" branch="false"/>
+								<line number="77" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setAdverseReactions" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="208" hits="4" branch="false"/>
+								<line number="209" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setAskDoctor" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="136" hits="4" branch="false"/>
+								<line number="137" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setAskDoctorOrPharmacist" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="196" hits="4" branch="false"/>
+								<line number="197" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setBrandName" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="172" hits="4" branch="false"/>
+								<line number="173" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setDoNotUse" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="112" hits="4" branch="false"/>
+								<line number="113" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setDosage" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="64" hits="4" branch="false"/>
+								<line number="65" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setGenericName" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="184" hits="4" branch="false"/>
+								<line number="185" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setInactive" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="88" hits="4" branch="false"/>
+								<line number="89" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setIndicationsAndUsage" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="148" hits="4" branch="false"/>
+								<line number="149" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setManufacturerName" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="220" hits="4" branch="false"/>
+								<line number="221" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setNotFound" signature="(Z)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="160" hits="1" branch="false"/>
+								<line number="161" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="setProductNdc" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="226" hits="4" branch="false"/>
+								<line number="227" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPurpose" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="52" hits="4" branch="false"/>
+								<line number="53" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setStopUse" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="124" hits="4" branch="false"/>
+								<line number="125" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setWarnings" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="100" hits="4" branch="false"/>
+								<line number="101" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setWarningsAndCautions" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="241" hits="4" branch="false"/>
+								<line number="242" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="7" hits="6" branch="false"/>
+						<line number="46" hits="4" branch="false"/>
+						<line number="52" hits="4" branch="false"/>
+						<line number="53" hits="4" branch="false"/>
+						<line number="58" hits="4" branch="false"/>
+						<line number="64" hits="4" branch="false"/>
+						<line number="65" hits="4" branch="false"/>
+						<line number="70" hits="4" branch="false"/>
+						<line number="76" hits="4" branch="false"/>
+						<line number="77" hits="4" branch="false"/>
+						<line number="82" hits="4" branch="false"/>
+						<line number="88" hits="4" branch="false"/>
+						<line number="89" hits="4" branch="false"/>
+						<line number="94" hits="4" branch="false"/>
+						<line number="100" hits="4" branch="false"/>
+						<line number="101" hits="4" branch="false"/>
+						<line number="106" hits="4" branch="false"/>
+						<line number="112" hits="4" branch="false"/>
+						<line number="113" hits="4" branch="false"/>
+						<line number="118" hits="4" branch="false"/>
+						<line number="124" hits="4" branch="false"/>
+						<line number="125" hits="4" branch="false"/>
+						<line number="130" hits="4" branch="false"/>
+						<line number="136" hits="4" branch="false"/>
+						<line number="137" hits="4" branch="false"/>
+						<line number="142" hits="4" branch="false"/>
+						<line number="148" hits="4" branch="false"/>
+						<line number="149" hits="4" branch="false"/>
+						<line number="154" hits="3" branch="false"/>
+						<line number="160" hits="1" branch="false"/>
+						<line number="161" hits="1" branch="false"/>
+						<line number="166" hits="4" branch="false"/>
+						<line number="172" hits="4" branch="false"/>
+						<line number="173" hits="4" branch="false"/>
+						<line number="178" hits="4" branch="false"/>
+						<line number="184" hits="4" branch="false"/>
+						<line number="185" hits="4" branch="false"/>
+						<line number="190" hits="4" branch="false"/>
+						<line number="196" hits="4" branch="false"/>
+						<line number="197" hits="4" branch="false"/>
+						<line number="202" hits="4" branch="false"/>
+						<line number="208" hits="4" branch="false"/>
+						<line number="209" hits="4" branch="false"/>
+						<line number="214" hits="4" branch="false"/>
+						<line number="220" hits="4" branch="false"/>
+						<line number="221" hits="4" branch="false"/>
+						<line number="226" hits="4" branch="false"/>
+						<line number="227" hits="4" branch="false"/>
+						<line number="231" hits="3" branch="false"/>
+						<line number="236" hits="3" branch="false"/>
+						<line number="241" hits="4" branch="false"/>
+						<line number="242" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.server.DrugController" filename="com/techflow/openfda/drug/server/DrugController.java" line-rate="1.0" branch-rate="1.0" complexity="2.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/techflow/openfda/drug/usecase/OpenFdaUseCaseFactory;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="31" hits="8" branch="false"/>
+								<line number="32" hits="8" branch="false"/>
+								<line number="33" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="describeDrug" signature="(Lcom/techflow/openfda/drug/server/DescribeDrugRequest;)Lorg/springframework/http/ResponseEntity;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="47" hits="4" branch="false"/>
+								<line number="48" hits="4" branch="false"/>
+								<line number="49" hits="4" branch="false"/>
+								<line number="50" hits="4" branch="false"/>
+								<line number="51" hits="4" branch="false"/>
+								<line number="53" hits="3" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="54" hits="1" branch="false"/>
+								<line number="57" hits="2" branch="false"/>
+								<line number="58" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="31" hits="8" branch="false"/>
+						<line number="32" hits="8" branch="false"/>
+						<line number="33" hits="8" branch="false"/>
+						<line number="47" hits="4" branch="false"/>
+						<line number="48" hits="4" branch="false"/>
+						<line number="49" hits="4" branch="false"/>
+						<line number="50" hits="4" branch="false"/>
+						<line number="51" hits="4" branch="false"/>
+						<line number="53" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="54" hits="1" branch="false"/>
+						<line number="57" hits="2" branch="false"/>
+						<line number="58" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.server.DrugEventController" filename="com/techflow/openfda/drug/server/DrugEventController.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/techflow/openfda/drug/usecase/OpenFdaUseCaseFactory;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="30" hits="8" branch="false"/>
+								<line number="31" hits="8" branch="false"/>
+								<line number="32" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDrugEvents" signature="(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="39" hits="2" branch="false"/>
+								<line number="40" hits="2" branch="false"/>
+								<line number="47" hits="2" branch="false"/>
+								<line number="48" hits="2" branch="false"/>
+								<line number="49" hits="2" branch="false"/>
+								<line number="51" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="30" hits="8" branch="false"/>
+						<line number="31" hits="8" branch="false"/>
+						<line number="32" hits="8" branch="false"/>
+						<line number="39" hits="2" branch="false"/>
+						<line number="40" hits="2" branch="false"/>
+						<line number="47" hits="2" branch="false"/>
+						<line number="48" hits="2" branch="false"/>
+						<line number="49" hits="2" branch="false"/>
+						<line number="51" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.server.DrugEventController$1" filename="com/techflow/openfda/drug/server/DrugEventController.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/techflow/openfda/drug/server/DrugEventController;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="40" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getProductNdc" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="44" hits="7" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="40" hits="2" branch="false"/>
+						<line number="44" hits="7" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.server.DrugEventResponse" filename="com/techflow/openfda/drug/server/DrugEventResponse.java" line-rate="0.775" branch-rate="0.5" complexity="1.1176470588235294">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="95" hits="3" branch="false"/>
+								<line number="96" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/util/Map;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="98" hits="0" branch="false"/>
+								<line number="99" hits="0" branch="false"/>
+								<line number="100" hits="0" branch="false"/>
+								<line number="101" hits="0" branch="false"/>
+								<line number="102" hits="0" branch="false"/>
+								<line number="103" hits="0" branch="false"/>
+								<line number="104" hits="0" branch="false"/>
+								<line number="105" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="get" signature="(Ljava/util/Map;Lcom/techflow/openfda/drugs/Seriousness;)I" line-rate="0.75" branch-rate="0.5" complexity="0">
+							<lines>
+								<line number="120" hits="6" branch="false"/>
+								<line number="121" hits="6" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="122" hits="0" branch="false"/>
+								<line number="125" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCongenitalAnomali" signature="()I" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="27" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDeath" signature="()I" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="38" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisabling" signature="()I" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="49" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getHospitialization" signature="()I" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="60" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLifeThreatening" signature="()I" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="71" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOther" signature="()I" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="82" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTotal" signature="()I" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="92" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setCongenitalAnomali" signature="(I)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="32" hits="1" branch="false"/>
+								<line number="33" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="setDeath" signature="(I)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="43" hits="1" branch="false"/>
+								<line number="44" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="setDisabling" signature="(I)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="54" hits="1" branch="false"/>
+								<line number="55" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="setEvents" signature="(Ljava/util/Map;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="110" hits="1" branch="false"/>
+								<line number="111" hits="1" branch="false"/>
+								<line number="112" hits="1" branch="false"/>
+								<line number="113" hits="1" branch="false"/>
+								<line number="114" hits="1" branch="false"/>
+								<line number="115" hits="1" branch="false"/>
+								<line number="116" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="setHospitialization" signature="(I)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="65" hits="1" branch="false"/>
+								<line number="66" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLifeThreatening" signature="(I)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="76" hits="1" branch="false"/>
+								<line number="77" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="setOther" signature="(I)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="87" hits="1" branch="false"/>
+								<line number="88" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="27" hits="2" branch="false"/>
+						<line number="32" hits="1" branch="false"/>
+						<line number="33" hits="1" branch="false"/>
+						<line number="38" hits="2" branch="false"/>
+						<line number="43" hits="1" branch="false"/>
+						<line number="44" hits="1" branch="false"/>
+						<line number="49" hits="2" branch="false"/>
+						<line number="54" hits="1" branch="false"/>
+						<line number="55" hits="1" branch="false"/>
+						<line number="60" hits="2" branch="false"/>
+						<line number="65" hits="1" branch="false"/>
+						<line number="66" hits="1" branch="false"/>
+						<line number="71" hits="2" branch="false"/>
+						<line number="76" hits="1" branch="false"/>
+						<line number="77" hits="1" branch="false"/>
+						<line number="82" hits="2" branch="false"/>
+						<line number="87" hits="1" branch="false"/>
+						<line number="88" hits="1" branch="false"/>
+						<line number="92" hits="2" branch="false"/>
+						<line number="95" hits="3" branch="false"/>
+						<line number="96" hits="3" branch="false"/>
+						<line number="98" hits="0" branch="false"/>
+						<line number="99" hits="0" branch="false"/>
+						<line number="100" hits="0" branch="false"/>
+						<line number="101" hits="0" branch="false"/>
+						<line number="102" hits="0" branch="false"/>
+						<line number="103" hits="0" branch="false"/>
+						<line number="104" hits="0" branch="false"/>
+						<line number="105" hits="0" branch="false"/>
+						<line number="110" hits="1" branch="false"/>
+						<line number="111" hits="1" branch="false"/>
+						<line number="112" hits="1" branch="false"/>
+						<line number="113" hits="1" branch="false"/>
+						<line number="114" hits="1" branch="false"/>
+						<line number="115" hits="1" branch="false"/>
+						<line number="116" hits="1" branch="false"/>
+						<line number="120" hits="6" branch="false"/>
+						<line number="121" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="122" hits="0" branch="false"/>
+						<line number="125" hits="6" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.server.ErrorResponse" filename="com/techflow/openfda/drug/server/ErrorResponse.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="7" hits="2" branch="false"/>
+								<line number="8" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="10" hits="2" branch="false"/>
+								<line number="11" hits="2" branch="false"/>
+								<line number="12" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMessage" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="16" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setMessage" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="21" hits="2" branch="false"/>
+								<line number="22" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="7" hits="2" branch="false"/>
+						<line number="8" hits="2" branch="false"/>
+						<line number="10" hits="2" branch="false"/>
+						<line number="11" hits="2" branch="false"/>
+						<line number="12" hits="2" branch="false"/>
+						<line number="16" hits="4" branch="false"/>
+						<line number="21" hits="2" branch="false"/>
+						<line number="22" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.server.SuggestionsController" filename="com/techflow/openfda/drug/server/SuggestionsController.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/techflow/openfda/drug/usecase/OpenFdaUseCaseFactory;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="31" hits="8" branch="false"/>
+								<line number="32" hits="8" branch="false"/>
+								<line number="33" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="autoComplete" signature="(Lcom/techflow/openfda/drug/server/DescribeDrugRequest;)Lorg/springframework/http/ResponseEntity;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="47" hits="2" branch="false"/>
+								<line number="48" hits="2" branch="false"/>
+								<line number="49" hits="2" branch="false"/>
+								<line number="56" hits="2" branch="false"/>
+								<line number="57" hits="2" branch="false"/>
+								<line number="59" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="31" hits="8" branch="false"/>
+						<line number="32" hits="8" branch="false"/>
+						<line number="33" hits="8" branch="false"/>
+						<line number="47" hits="2" branch="false"/>
+						<line number="48" hits="2" branch="false"/>
+						<line number="49" hits="2" branch="false"/>
+						<line number="56" hits="2" branch="false"/>
+						<line number="57" hits="2" branch="false"/>
+						<line number="59" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.server.SuggestionsController$1" filename="com/techflow/openfda/drug/server/SuggestionsController.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/techflow/openfda/drug/server/SuggestionsController;Lcom/techflow/openfda/drug/server/DescribeDrugRequest;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="49" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDrug" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="53" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="49" hits="2" branch="false"/>
+						<line number="53" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.server.SuggestionsResponse" filename="com/techflow/openfda/drug/server/SuggestionsResponse.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="6" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getSuggestions" signature="()Ljava/util/List;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="12" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="setSuggestions" signature="(Ljava/util/List;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="18" hits="4" branch="false"/>
+								<line number="19" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="6" hits="4" branch="false"/>
+						<line number="12" hits="4" branch="false"/>
+						<line number="18" hits="4" branch="false"/>
+						<line number="19" hits="4" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
