@@ -11,3 +11,4 @@ if versioncmp($::puppetversion,'3.6.1') >= 0 {
 include base_config::build
 include jenkins_conf
 include firewall::build
+include puppet_git
