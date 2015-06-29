@@ -6,12 +6,12 @@ import com.techflow.openfda.drug.client.DrugRepository;
 
 public class NaiveInMemoryDrugRepository implements DrugRepository
 {
-	protected ArrayList<String> drugs = new ArrayList<String>();
+	protected List<String> drugs = new ArrayList<String>();
 
 	@Override
 	public List<String> startsWith(String drugName)
 	{
-		final ArrayList<String> results = new ArrayList<String>();
+		final List<String> results = new ArrayList<String>();
 
 		final String lowerCaseDrugName = drugName.toLowerCase();
 		for (final String drug : drugs) {
