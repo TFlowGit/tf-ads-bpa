@@ -93,10 +93,20 @@
                         <form class="form-inline">
                           <div class="form-group search-nav">
                             <div class="input-group">
-                              <span>
-                              	<input id="input-drug-navbar" type="text" class="form-control search-control" placeholder="Enter a drug..." ng-model="query">
-                              	<button class="input-group-addon fa fa-search" type="submit" ng-click="searchDrug()" ></button>
-                              </span>
+                              <angucomplete-alt id="input-drug-nav"
+                                  placeholder="Enter a drug..."
+                                  pause="400"
+                                  remote-url="/api/suggestions?name="
+                                  remote-url-data-field="data"
+                                  title-field="name"
+                                    input-class="form-control search-control mobile-search-control"
+                                  selected-object="setQuery"
+                                  input-changed="setQuery"
+                                  remote-url-response-formatter="formatSuggestionResponse"
+                                  />
+                            </div>
+                            <div class="input-group">
+                                <button class="input-group-addon fa fa-search" type="submit" ng-click="searchDrug()" ></button> 
                             </div>
                           </div>
                         </form>
@@ -124,14 +134,14 @@
                 <hr class="header-hr">
                 <p>Is your drug putting you at risk? <br>Find out if your drug has caused adverse events.</p>
                 <form class="form-inline" ng-show="searchBarVisibility">
-                    <div class="form-group ">
+                    <div class="form-group" >
                     <angucomplete-alt id="input-drug"
               placeholder="Enter a drug..."
               pause="400"
               remote-url="/api/suggestions?name="
               remote-url-data-field="suggestions"
               title-field="name"
-              input-class="form-control"
+              input-class="form-control "
               selected-object="setQuery"
               input-changed="setQuery"
               remote-url-response-formatter="formatSuggestionResponse"
@@ -191,7 +201,7 @@
             <div class="col-sm-8 label-col">
                 <h1 class="text-center label-heading wow fadeIn" id="drug-name">{{result.name}}</h1>
     	        <div class="row label-row" ng-repeat="(key,label) in result.labelInfo" on-finish-render="finishedRender">
-                    <div class="label-content wow fadeIn">
+                    <div class="label-content">
                    		<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
                    		<hr class="label-hr" id="hr-grey">
                    		<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>
@@ -223,7 +233,7 @@
     	     <div class="col-sm-4 warning-col">
                 <h1 class="text-center label-heading wow fadeIn"><span><i class="fa fa-warning fa-lg"></i></span>&nbsp; WARNINGS: </h1>
                	<div class="row label-row" ng-repeat="(key,label) in result.warnings | filter: label == '!!'">
-	                <div class="label-content wow fadeIn warning-div">
+	                <div class="label-content warning-div">
                     	<h2 id="labeling-{{key}}" class="label-name">{{headers[key]}}</h2>
                     	<hr class="label-hr">
                     	<p id="labeling-{{key}}-label" class="text-fade">{{label}}</p>

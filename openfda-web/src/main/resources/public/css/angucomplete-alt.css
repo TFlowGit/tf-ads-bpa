@@ -64,4 +64,9 @@
     width: 34px;
 }
 
+@media (max-width: 767px) {
+    #input-drug-nav_dropdown {
+        display: none;
+    }
+}
 
