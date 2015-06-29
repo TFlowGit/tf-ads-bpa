@@ -1,4 +1,4 @@
-drugflowApp.directive("onFinishRender", function($timeout){
+dariApp.directive("onFinishRender", function($timeout){
 	return {
 		restrict: 'A',
 		link: function(scope, element, attr){

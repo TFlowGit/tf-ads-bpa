@@ -1,4 +1,4 @@
-drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll','$timeout', function ($scope, $q, drugsService, smoothScroll, $timeout) {
+dariApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll','$timeout', function ($scope, $q, drugsService, smoothScroll, $timeout) {
   $scope.events = [];
   $scope.totalEvents;
   $scope.query ='';
@@ -160,18 +160,23 @@ function enableReadMore() {
   }
   
   $scope.setQuery= function(strInput){
-	  if(typeof(strInput)==="object"){
+	  if(typeof(strInput)==="object" && strInput != null){
+		  console.log('strInput as obj');
+		  console.log(strInput);
 		  $scope.query=strInput.title;
-	  }else{
+		  
+	  }else if(typeof(strInput)==="string" && strInput != null){
+		  console.log("strInput as string");
+		  console.log(strInput);
 		  $scope.query=strInput;
 	  }
 	  
   }
   
   $scope.formatSuggestionResponse=function(responseData){
-	  var formattedData= {data: []};
+	  var formattedData= {suggestions: []};
   	  for(var i=0; i<responseData.suggestions.length; i++){
-  		formattedData.data.push({"name":responseData.suggestions[i]});
+  		formattedData.suggestions.push({"name":responseData.suggestions[i]});
   	  }
 	  return formattedData;
   }
