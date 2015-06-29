@@ -263,35 +263,35 @@ public class SearchSteps extends ScenarioSteps
 		DrugPage drugPage = onDrugPage();
 		WebElement elementFound=null;
 
-		// ############ adverse-TotalCount #############
-
-			//elementFound = driver.findElement(By.id("adverse-TotalCount"));
-
-			stringFound = drugPage.getTotalCount();
-
-			assertThat(stringFound, is("450,790"));
-			
-			System.out.println("Success TotalCount Test");
 
 		
 		// ############ adverse-events-congenitalAnomali (coded,)#############
 
-			//elementFound = driver.findElement(By.id("adverse-events-congenitalAnomali"));
+			elementFound = driver.findElement(By.id("adverse-events-congenitalAnomali"));
 
 			stringFound = drugPage.getCongenitalCount();
 
-			assertThat(stringFound, is("1319"));
+			assertThat(stringFound, is("1,319"));
 			
 			System.out.println("Success adverse-events-congenitalAnomali Test");
 
+		// ############ adverse-TotalCount #############
+
+			elementFound = driver.findElement(By.id("adverse-TotalCount"));
+
+			stringFound = drugPage.getTotalCount();
+
+			assertThat(stringFound, is("394,693"));
+			
+			System.out.println("Success TotalCount Test");
 		
 		// ############ adverse-events-hospitalizations (missing)#############
 
-			//elementFound = driver.findElement(By.id("adverse-events-hospitalizations"));
+			elementFound = driver.findElement(By.id("adverse-events-hospitalizations"));
 
 			stringFound = drugPage.getHospitalizationsCount();
 
-			assertThat(stringFound, is("1"));
+			assertThat(stringFound, is("157,686"));
 			
 			System.out.println("Success adverse-events-hospitalizations Test");
 
@@ -299,44 +299,44 @@ public class SearchSteps extends ScenarioSteps
 		
 		// ############ adverse-events-disabling (coded) #############
 
-			//elementFound = driver.findElement(By.id("adverse-events-disabling"));
+			elementFound = driver.findElement(By.id("adverse-events-disabling"));
 
 			stringFound = drugPage.getDisablingCount();
 
-			assertThat(stringFound, is("15416"));
+			assertThat(stringFound, is("15,416"));
 			
 			System.out.println("Success adverse-events-disabling Test");
 
 
 		// ############ adverse-events-lifeThreatening #############
 
-			//elementFound = driver.findElement(By.id("adverse-events-lifeThreatening"));
+			elementFound = driver.findElement(By.id("adverse-events-lifeThreatening"));
 
 			stringFound = drugPage.getLifeThreatCount();
 
-			assertThat(stringFound, is("24824"));
+			assertThat(stringFound, is("24,824"));
 			
 			System.out.println("Success adverse-events-lifeThreatening Test");
 
 
 		// ############ adverse-events-death #############
 
-			//elementFound = driver.findElement(By.id("adverse-events-death"));
+			elementFound = driver.findElement(By.id("adverse-events-death"));
 
 			stringFound = drugPage.getDeathsCount();
 
-			assertThat(stringFound, is("50210"));
+			assertThat(stringFound, is("50,210"));
 			
 			System.out.println("Success adverse-events-death Test");
 
 
 		// ############ adverse-events-other #############
 
-			//elementFound = driver.findElement(By.id("adverse-events-other"));
+			elementFound = driver.findElement(By.id("adverse-events-other"));
 
 			stringFound = drugPage.getOtherCount();
 
-			assertThat(stringFound, is("145238"));
+			assertThat(stringFound, is("145,238"));
 			
 			System.out.println("Success adverse-events-other Test");
 
