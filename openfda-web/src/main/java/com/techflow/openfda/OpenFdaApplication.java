@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import com.techflow.openfda.drug.client.DrugRepository;
+import com.techflow.openfda.drug.client.DrugRepositoryImpl;
 import com.techflow.openfda.drug.client.OpenFdaGateway;
 import com.techflow.openfda.drug.client.OpenFdaGatewayImpl;
 import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
@@ -46,7 +47,7 @@ public class OpenFdaApplication extends WebMvcAutoConfigurationAdapter
 	@Bean
 	public DrugRepository drugRepository()
 	{
-		return new MockDrugRepository();
+		return new DrugRepositoryImpl();
 	}
 
 	@Override

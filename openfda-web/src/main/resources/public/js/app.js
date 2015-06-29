@@ -1,1 +1,1 @@
-var drugflowApp = angular.module('drugflowApp', ['smoothScroll']);
+var drugflowApp = angular.module('drugflowApp', ['smoothScroll', 'angucomplete-alt']);

@@ -1,47 +1,41 @@
 package com.techflow.openfda.drug.client;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Map;
-import java.util.TreeMap;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.memory.MemoryIndex;
-import org.apache.lucene.index.memory.PatternAnalyzer;
-import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.Hit;
 import org.apache.lucene.search.Hits;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.store.RAMDirectory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.FileSystemResource;
 
 public class DrugRepositoryImpl implements DrugRepository
 {
+	private static int MAX_HITS = 5;
 	private RAMDirectory ramDir;
 
-	public DrugRepositoryImpl(String fileName)
-			throws IOException
+	public DrugRepositoryImpl()
 	{
-		//analyzer = PatternAnalyzer.DEFAULT_ANALYZER;
+		IndexWriter indexWriter = null;
 		Analyzer analyzer = new StandardAnalyzer();
 		ramDir = new RAMDirectory();
-		IndexWriter indexWriter = new IndexWriter(ramDir, analyzer, true);
+
+		try {
+			indexWriter = new IndexWriter(ramDir, analyzer, true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		Scanner s = null;
 		try {
-			s = new Scanner(new File(fileName));
+			s = new Scanner( this.getClass().getResourceAsStream("/brand-names.txt"));
 			while (s.hasNextLine()) {
 				Document document = new Document();
 				String drugName = s.nextLine();
@@ -58,16 +52,26 @@ public class DrugRepositoryImpl implements DrugRepository
 				s.close();
 			}
 		}
-		indexWriter.optimize();
-		System.out.println("Buffered Docs: " + indexWriter.getMaxBufferedDocs() );
-		System.out.println("Index Buffer Size MB: " + indexWriter.getRAMBufferSizeMB() );
-		indexWriter.close();
+		
+		try {
+			indexWriter.optimize();
+			//System.out.println("Buffered Docs: " + indexWriter.getMaxBufferedDocs() );
+			//System.out.println("Index Buffer Size MB: " + indexWriter.getRAMBufferSizeMB() );
+			indexWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
 	public List<String> startsWith(String drugName)
 	{
 		ArrayList<String> list = new ArrayList<String>();
+		
+		if (!drugName.endsWith("*")) {
+			drugName = drugName.concat("*");
+		}
 
 		IndexSearcher indexSearcher;
 		try {
@@ -79,13 +83,18 @@ public class DrugRepositoryImpl implements DrugRepository
 			Hits hits = indexSearcher.search(query);
 			//System.out.println("Number of hits: " + hits.length());
 
+			@SuppressWarnings("unchecked")
 			Iterator<Hit> it = hits.iterator();
+			int count = 1;
 			while (it.hasNext()) {
 				Hit hit = it.next();
 				Document document = hit.getDocument();
 				String name = document.get("name");
-				System.out.println("Hit: " + name);
+				//System.out.println("Hit: " + name);
 				list.add(name);
+				if (++count > MAX_HITS) {
+					break;
+				}
 			}
 
 		} catch (Exception e) {

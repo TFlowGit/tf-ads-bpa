@@ -69,6 +69,7 @@ public class DrugControllerTest
 		assertThat(response.getAdverseReactions(), equalTo("adverse reactions"));
 		assertThat(response.getManufacturerName(), equalTo("manufacturer name"));
 		assertThat(response.getProductNdc(), equalTo(MockOpenFdaGateway.ASPIRIN_NDC));
+		assertThat(response.getWarningsAndCautions(), equalTo("warnings and cautions"));
 	}
 
 	@Test

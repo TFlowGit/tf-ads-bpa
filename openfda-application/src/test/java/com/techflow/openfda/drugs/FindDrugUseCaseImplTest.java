@@ -42,10 +42,13 @@ public class FindDrugUseCaseImplTest
 		assertThat(response.manufacturerName, equalTo("manufacturer name"));
 		assertThat(response.notFound, equalTo(false));
 		assertThat(response.productNdc, equalTo(MockOpenFdaGateway.ASPIRIN_NDC));
+		assertThat(response.warningsAndCautions, equalTo("warnings and cautions"));
 	}
 
 	private final class FindDrugResponseImplementation implements FindDrugResponse
 	{
+		public String warningsAndCautions;
+
 		public String productNdc;
 
 		public String manufacturerName;
@@ -172,6 +175,12 @@ public class FindDrugUseCaseImplTest
 		public void setProductNdc(String productNdc)
 		{
 			this.productNdc = productNdc;
+		}
+
+		@Override
+		public void setWarningsAndCautions(String warningsAndCautions)
+		{
+			this.warningsAndCautions = warningsAndCautions;
 		}
 	}
 }

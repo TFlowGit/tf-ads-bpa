@@ -38,6 +38,8 @@ public class DescribeDrugResponse implements FindDrugResponse
 
 	private String productNdc;
 
+	private String warningsAndCautions;
+
 	@ApiModelProperty(value = "The purpose of the drug")
 	public String getPurpose()
 	{
@@ -227,5 +229,15 @@ public class DescribeDrugResponse implements FindDrugResponse
 	public String getProductNdc()
 	{
 		return productNdc;
+	}
+
+	public String getWarningsAndCautions()
+	{
+		return warningsAndCautions;
+	}
+
+	public void setWarningsAndCautions(String warningsAndCautions)
+	{
+		this.warningsAndCautions = warningsAndCautions;
 	}
 }

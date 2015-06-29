@@ -60,7 +60,7 @@ public class DrugEventControllerTest
 		assertThat(response.getHospitialization(), equalTo(1));
 		assertThat(response.getLifeThreatening(), equalTo(1));
 		assertThat(response.getOther(), equalTo(2));
-		assertThat(response.getTotal(), equalTo(0));
+		assertThat(response.getTotal(), equalTo(8));
 	}
 
 	@Test
