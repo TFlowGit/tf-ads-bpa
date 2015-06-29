@@ -22,6 +22,7 @@
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
     <link rel="stylesheet" href="css/jquery.jqplot.min.css" type="text/css"></link>
+    <link rel="stylesheet" href="css/angucomplete-alt.css" type="text/css"></link>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
@@ -100,7 +101,17 @@
                 <p>Are your prescription drugs putting you at risk? <br>Find out more if your drugs have caused adverse events.</p>
                 <form class="form-inline" ng-show="searchBarVisibility">
                     <div class="form-group ">
-                        <input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus>
+                        <!-- input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus -->
+                    <angucomplete-alt id="input-drug"
+              placeholder="Enter a drug..."
+              pause="400"
+              remote-url="/api/suggestions?name="
+              remote-url-data-field="data"
+              title-field="name"
+              input-class="form-control"
+              selected-object="setQuery"
+              input-changed="setQuery"
+              />
                     </div>
                     <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()'>Search</button>
                 </form>
@@ -331,6 +342,9 @@
     <script src="js/controllers/mainController.js"></script>
     <script src="js/services/drugs.js"></script>
     <script src="js/directives/onFinishRender.js"></script>
+    
+    <!-- Angular autocomplete -->
+    <script src="js/directives/angucomplete-alt.js"></script>
     
     <!--  Custom JS chart.js -->
     <script src="js/utils/chart.js"></script>

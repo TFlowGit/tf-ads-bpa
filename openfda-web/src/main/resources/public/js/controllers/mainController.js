@@ -146,5 +146,14 @@ $scope.labelHeight = {
 	  }
 	  return array;
   }
+  
+  $scope.setQuery= function(strInput){
+	  if(typeof(strInput)==="object"){
+		  $scope.query=strInput.title;
+	  }else{
+		  $scope.query=strInput;
+	  }
+	  
+  }
 }]);
 
