@@ -18,7 +18,7 @@ public class DrugEventResponse implements ListDrugEventsResponse
 	private int lifeThreatening;
 
 	private int other;
-	
+
 	public DrugEventResponse() {
 	}
 
@@ -100,6 +100,10 @@ public class DrugEventResponse implements ListDrugEventsResponse
 	public int getTotal()
 	{
 		return congenitalAnomali + death + disabling + hospitalization + lifeThreatening + other;
+	}
+
+	public void setTotal(int total)
+	{
 	}
 
 	@Override
