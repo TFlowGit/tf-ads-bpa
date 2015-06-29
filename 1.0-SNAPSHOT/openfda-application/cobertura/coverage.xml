@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.864" branch-rate="0.7142857142857143" lines-covered="108" lines-valid="125" branches-covered="20" branches-valid="28" complexity="2.1666666666666665" version="2.1.1" timestamp="1435617376295">
+<coverage line-rate="0.864" branch-rate="0.7142857142857143" lines-covered="108" lines-valid="125" branches-covered="20" branches-valid="28" complexity="2.1666666666666665" version="2.1.1" timestamp="1435619123197">
 	<sources>
-		<source>C:/Users/dandersen/workspace/hackathon/openfda-parent/openfda-application/target/generated-sources/annotations</source>
+		<source>/var/lib/jenkins/jobs/Deply Maven Site/workspace/openfda-application/target/generated-sources/annotations</source>
 		<source>--source</source>
-		<source>C:/Users/dandersen/workspace/hackathon/openfda-parent/openfda-application/src/main/java</source>
+		<source>/var/lib/jenkins/jobs/Deply Maven Site/workspace/openfda-application/src/main/java</source>
 	</sources>
 	<packages>
 		<package name="com.techflow.openfda.drug.client" line-rate="0.8444444444444444" branch-rate="0.5" complexity="3.4">
