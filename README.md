@@ -9,7 +9,7 @@ A publicly accessible prototype is hosted at
 
 * [Maven Site](http://tflowgit.github.io/tf-ads-bpa/1.0-SNAPSHOT/)
 * [Swagger](http://18f-dari.techflow.com/swagger/)
-* [SonarQube Reports](http://18f-dari.techflow.com/sonarqube/)
+* [SonarQube Reports](http://18f-dari.techflow.com/sonarqube/dashboard/index/1)
 * [Javadoc](http://tflowgit.github.io/tf-ads-bpa/1.0-SNAPSHOT/apidocs/index.html)
 
 # Source Code
@@ -41,6 +41,8 @@ Import the project into Eclipse (File -> Import -> Existing Maven Projects)
 
 Run the class `com.techflow.openfda.OpenFdaApplication` as Java in the
 `openfda-web` project.
+
+Browse to [http://localhost:8080](http://localhost:8080).
 
 # License
 
