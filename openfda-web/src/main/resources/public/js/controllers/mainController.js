@@ -2,6 +2,7 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
   $scope.events = [];
   $scope.totalEvents;
   $scope.query ='';
+  $scope.searchStr = '';
   $scope.result = '';
   $scope.infoVisibility = false;
   $scope.loadingVisibility = false;
