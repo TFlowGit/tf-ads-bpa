@@ -71,7 +71,7 @@
       restrict: 'EA',
       require: '^?form',
       scope: {
-        //searchStr: '=?query',
+        searchStr: '=?query',
         selectedObject: '=',
         disableInput: '=',
         initialValue: '=',
