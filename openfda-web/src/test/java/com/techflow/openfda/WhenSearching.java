@@ -27,8 +27,8 @@ public class WhenSearching
 	public void shouldCalculatePointsBasedOnDistance()
 	{
 		user.searchesFor("aspirin");
-		user.shouldSeeGraph("aspirin", driver);
-		user.shouldSeeLabelFor("aspirin", driver);
+//		user.shouldSeeGraph("aspirin", driver);
+//		user.shouldSeeLabelFor("aspirin", driver);
 		user.shouldSeeEventFor("aspirin", driver);
 
 		
