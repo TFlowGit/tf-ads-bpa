@@ -876,3 +876,18 @@ div.plot {
 	font-style: italic;
 	padding-top: 10px;
 }
+
+.label-col .read-more-section { 
+    background: linear-gradient(rgba(246, 246, 246, 0), rgb(246, 246, 246)) repeat scroll 0% 0% transparent;
+}
+.warning-col .read-more-section {
+    background: linear-gradient(rgba(191, 39, 38, 0), rgb(191, 39, 38)) repeat scroll 0% 0% transparent;
+
+}
+.read-more-section {
+    margin-top: -30px;
+    position: relative;
+    display: block;
+    height: 50px;
+    padding-top: 20px;
+}

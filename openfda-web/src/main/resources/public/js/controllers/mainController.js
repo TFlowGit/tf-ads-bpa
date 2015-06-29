@@ -57,7 +57,9 @@ $scope.labelReadMore = {
 function enableReadMore() {
   	for(elem in $scope.labelReadMore){
   		var height = $("#labeling-"+elem+"-label").height();
-  		$scope.labelReadMore[elem] = height > 150 ? true : false;	
+  		//height within the div elements
+  		var availableHeight = 90;
+  		$scope.labelReadMore[elem] = height > availableHeight;	
   	}
   	console.log($scope.labelReadMore);
   	
