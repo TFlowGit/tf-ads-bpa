@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Prescribed Risks</title>
+    <title>DARI</title>
     
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -37,6 +37,7 @@
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
     <link rel="stylesheet" href="css/jquery.jqplot.min.css" type="text/css"></link>
+    <link rel="stylesheet" href="css/angucomplete-alt.css" type="text/css"></link>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
@@ -124,7 +125,17 @@
                 <p>Is your drug putting you at risk? <br>Find out more if your drug has caused adverse events.</p>
                 <form class="form-inline" ng-show="searchBarVisibility">
                     <div class="form-group ">
-                        <input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus>
+                        <!-- input id="input-drug" type="text" class="form-control" placeholder="Enter a drug..." ng-model="query" autofocus -->
+                    <angucomplete-alt id="input-drug"
+              placeholder="Enter a drug..."
+              pause="400"
+              remote-url="/api/suggestions?name="
+              remote-url-data-field="data"
+              title-field="name"
+              input-class="form-control"
+              selected-object="setQuery"
+              input-changed="setQuery"
+              />
                     </div>
                     <button type="submit" id="button-search" class="btn btn-lg page-scroll btn-black" href="#labeling" ng-click='searchDrug()'>Search</button>
                 </form>
@@ -141,7 +152,7 @@
         </div>
     </header>
     <section class="bg-primary" id="adverse" ng-show="infoVisibility" smooth-scroll scroll-if="{{scroll}}" offset="50">
-        <h1 id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
+        <h1 class-"text-center" id="adverse-heading">Adverse Events for <span id="subheading"> {{result.name}}</span></h1>
             <div class="row plot-row">
 
                 <div class="col-lg-6 ">
@@ -281,6 +292,9 @@
     <script src="js/controllers/mainController.js"></script>
     <script src="js/services/drugs.js"></script>
     <script src="js/directives/onFinishRender.js"></script>
+    
+    <!-- Angular autocomplete -->
+    <script src="js/directives/angucomplete-alt.js"></script>
     
     <!--  Custom JS chart.js -->
     <script src="js/utils/chart.js"></script>
