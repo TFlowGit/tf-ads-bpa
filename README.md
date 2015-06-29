@@ -13,7 +13,7 @@ Swagger API documentation is hosted at
 * [Maven Site](http://tflowgit.github.io/tf-ads-bpa/1.0-SNAPSHOT/)
 * [Swagger](http://18f-dari.techflow.com/swagger/)
 * [SonarQube Reports](http://18f-dari.techflow.com/sonarqube/)
-* [Javadoc](http://18f-dari.techflow.com/tf-ads-bpa/1.0-SNAPSHOT/apidocs/index.html)
+* [Javadoc](http://tflowgit.github.io/tf-ads-bpa/1.0-SNAPSHOT/apidocs/index.html)
 
 # Source Code
 
