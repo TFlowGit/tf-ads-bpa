@@ -93,16 +93,17 @@
                         <form class="form-inline">
                           <div class="form-group search-nav">
                             <div class="input-group">
-                                <angucomplete-alt id="input-drug-navbar"
-                          placeholder="Enter a drug..."
-                          pause="400"
-                          remote-url="/api/suggestions?name="
-                          remote-url-data-field="data"
-                          title-field="name"
-                          input-class="form-control search-control mobile-search-control"
-                          selected-object="setQuery"
-                          input-changed="setQuery"
-                          />   
+                              <angucomplete-alt id="input-drug"
+                                  placeholder="Enter a drug..."
+                                  pause="400"
+                                  remote-url="/api/suggestions?name="
+                                  remote-url-data-field="data"
+                                  title-field="name"
+                                    input-class="form-control search-control mobile-search-control"
+                                  selected-object="setQuery"
+                                  input-changed="setQuery"
+                                  remote-url-response-formatter="formatSuggestionResponse"
+                                  />
                             </div>
                             <div class="input-group">
                                 <button class="input-group-addon fa fa-search" type="submit" ng-click="searchDrug()" ></button> 
