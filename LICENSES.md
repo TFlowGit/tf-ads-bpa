@@ -11,7 +11,14 @@ Guidelines for adding to the licenses file:
 If you have any doubts about anything please ask Danny McAllaster for assistance.
 -->
 
-# Software and Media Licenses
+# This project
+
+This file lists all software used or included within this project and
+*not* written by Techflow, Inc. The [LICENSE.md](LICENSE.md) file
+contains the license for all code written for this project by
+Techflow, Inc.
+
+# Software and Media Licenses used within this project
 
 This contains a list of all software used by this project,
 including software products used for building our infrastructure.
