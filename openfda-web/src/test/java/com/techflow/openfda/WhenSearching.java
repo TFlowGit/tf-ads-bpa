@@ -29,7 +29,11 @@ public class WhenSearching
 		user.searchesFor("aspirin");
 		user.shouldSeeGraph("aspirin", driver);
 		user.shouldSeeLabelFor("aspirin", driver);
-		//user.shouldSeeEventFor("aspirin", driver);
+		user.shouldSeeEventFor("aspirin", driver);
+
+		
+		user.typeIn("aspirin");
+		user.shouldSeeDropdownFor("aspirin", driver);
 		
 	}
 
