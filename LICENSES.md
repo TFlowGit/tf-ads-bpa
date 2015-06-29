@@ -22,6 +22,7 @@ including software products used for building our infrastructure.
 |-------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------|
 | Application (Front-end) | Angular                 | [MIT](https://github.com/angular/angular.js/blob/master/LICENSE)                                              | Front-end MVC framework        |
 | Application (Front-end) | Bootstrap               | [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)                                                  | CSS theming framework          |
+| Application (Front-end) | angucomplete-alt        | [MIT](https://github.com/ghiden/angucomplete-alt/blob/master/LICENSE)                                         | AngularJS Autocomplete library |
 | Application (Front-end) | jQuery                  | [MIT](https://jquery.org/license/)                                                                            | Front-end JavaScript framework |
 | Application (Front-end) | jqPlot                  | [MIT/GPLv2 dual license](http://www.jqplot.com/info.php)                                                      | JavaScript graphing framework  |
 | Application (Front-end) | startbootstrap-creative | [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-creative/blob/gh-pages/LICENSE)                | Boostrap CSS starter theme     |

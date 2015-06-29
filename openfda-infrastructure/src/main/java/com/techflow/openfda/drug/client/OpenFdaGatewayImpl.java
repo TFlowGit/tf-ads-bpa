@@ -21,6 +21,8 @@ import com.techflow.openfda.drugs.Seriousness;
  */
 public class OpenFdaGatewayImpl implements OpenFdaGateway
 {
+	static final String OPENFDA_ENDPOINT = "https://api.fda.gov";
+
 	public HttpTransport transport = new NetHttpTransport();
 
 	static final JsonFactory JSON_FACTORY = new JacksonFactory();
@@ -33,7 +35,8 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 	{
 		try {
 			final HttpRequestFactory requestFactory = createRequestFactory();
-			final GenericUrl url = new DrugLabelUrl(drugName);
+			final String sanitizedDrugName = drugName.replaceAll(",", " ").trim();
+			final GenericUrl url = new DrugLabelUrl(sanitizedDrugName);
 			final HttpRequest request = requestFactory.buildGetRequest(url);
 			final OpenFdaDrugLabel jsonLabel = request.execute().parseAs(OpenFdaDrugLabel.class);
 			final DrugLabel drugLabel = new DrugLabel();
@@ -111,8 +114,7 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 	 */
 	private HttpRequestFactory createRequestFactory()
 	{
-		final HttpRequestFactory requestFactory = transport.createRequestFactory(new JsonHttpRequestInitializer());
-		return requestFactory;
+		return transport.createRequestFactory(new JsonHttpRequestInitializer());
 	}
 
 	/**
@@ -126,8 +128,6 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 			request.setParser(new JsonObjectParser(JSON_FACTORY));
 		}
 	}
-
-	static final String OPENFDA_ENDPOINT = "https://api.fda.gov";
 
 	/**
 	 * A HttpRequestInitializer for Json requests.

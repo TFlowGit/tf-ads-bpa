@@ -19,7 +19,17 @@ public class DrugEventResponse implements ListDrugEventsResponse
 
 	private int other;
 
-	private int total;
+	public DrugEventResponse() {
+	}
+
+	public DrugEventResponse(Map<String, Integer> drugEvents) {
+		congenitalAnomali = get(drugEvents, Seriousness.CONGENITAL_ANOMALI);
+		death = get(drugEvents, Seriousness.DEATH);
+		disabling = get(drugEvents, Seriousness.DISABLING);
+		hospitalization = get(drugEvents, Seriousness.HOSPITALIZATION);
+		lifeThreatening = get(drugEvents, Seriousness.LIFE_THREATENING);
+		other = get(drugEvents, Seriousness.OTHER);
+	}
 
 	@ApiModelProperty(value = "Count of congenital anomalis")
 	public int getCongenitalAnomali()
@@ -92,16 +102,8 @@ public class DrugEventResponse implements ListDrugEventsResponse
 		return congenitalAnomali + death + disabling + hospitalization + lifeThreatening + other;
 	}
 
-	public DrugEventResponse() {
-	}
-
-	public DrugEventResponse(Map<String, Integer> drugEvents) {
-		congenitalAnomali = get(drugEvents, Seriousness.CONGENITAL_ANOMALI);
-		death = get(drugEvents, Seriousness.DEATH);
-		disabling = get(drugEvents, Seriousness.DISABLING);
-		hospitalization = get(drugEvents, Seriousness.HOSPITALIZATION);
-		lifeThreatening = get(drugEvents, Seriousness.LIFE_THREATENING);
-		other = get(drugEvents, Seriousness.OTHER);
+	public void setTotal(int total)
+	{
 	}
 
 	@Override
