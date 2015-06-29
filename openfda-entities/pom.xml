@@ -7,4 +7,6 @@
     <relativePath>..</relativePath>
   </parent>
   <artifactId>openfda-entities</artifactId>
+  <name>TechFlow ADS RFP Prototype - Entities</name>
+  <description>Domain model.</description>
 </project>

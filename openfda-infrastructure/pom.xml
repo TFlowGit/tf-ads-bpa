@@ -81,4 +81,6 @@
 			<version>2.3.0</version>
 		</dependency>
 	</dependencies>
+	<name>TechFlow ADS RFP Prototype - Infrastructure</name>
+	<description>Web transport layer.</description>
 </project>

@@ -162,4 +162,5 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	<description>TechFlow's prototype for the ADS RFP.</description>
 </project>

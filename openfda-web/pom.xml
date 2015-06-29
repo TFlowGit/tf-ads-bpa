@@ -135,4 +135,6 @@
 			<version>2.0.2</version>
 		</dependency>
 	</dependencies>
+	<name>TechFlow ADS RFP Prototype - Spring Boot</name>
+	<description>Spring boot container.</description>
 </project> 
