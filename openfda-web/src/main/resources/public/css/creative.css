@@ -548,6 +548,9 @@ input.form-control.search-control {
     .search-nav button.input-group-addon {
         padding-right: 25px;
     }
+    h1#adverse-heading {
+        margin-bottom: .5em;
+    }
 }
 
 div.form-group{
