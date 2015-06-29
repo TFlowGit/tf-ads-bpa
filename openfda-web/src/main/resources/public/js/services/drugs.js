@@ -1,4 +1,4 @@
-drugflowApp.service('drugsService', ['$http', function($http){
+dariApp.service('drugsService', ['$http', function($http){
 	var drugsBaseURL = '/api/drugs?name=';
 	var eventsBaseURL = '/api/events?productNdc=';
 	
