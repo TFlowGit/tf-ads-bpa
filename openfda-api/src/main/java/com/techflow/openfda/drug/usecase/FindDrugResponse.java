@@ -33,4 +33,6 @@ public interface FindDrugResponse
 	void setManufacturerName(String manufacturerName);
 
 	void setProductNdc(String productNdc);
+
+	void setWarningsAndCautions(String warningsAndCautions);
 }

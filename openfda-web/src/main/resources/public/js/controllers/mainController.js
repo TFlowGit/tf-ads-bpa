@@ -5,6 +5,7 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
   $scope.result = '';
   $scope.infoVisibility = false;
   $scope.loadingVisibility = false;
+  $scope.readMore = false;
   $scope.searchBarVisibility = true;
   $scope.scroll = false;
   $scope.didInitialLoad = false;
@@ -23,37 +24,45 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
 	  askDoctorOrPharmacist: "Ask Doctor or Pharmacist",
 	  stopUse: "Stop Use",
 	  manufacturerName : "Manufacturer",
-	  events: "Adverse Reaction"
+	  events: "Adverse Reaction",
+	  warningsAndCautions : "Warnings and Cautions"
   };
   
-  $scope.eventLabels = [{key: 'hospitialization', label:'Hospitalizations'}, 
-                        {key: 'congenitalAnomali', label:'Congenital Anomalies'},
-                        {key: 'disabling', label:'Disabling'}, 
-                        {key: 'lifeThreatening', label:'Life Threatening'}, 
-                        {key: 'death', label:'Deaths'}, 
-                        {key: 'other', label:'Other'}] 
-            
-$scope.labelHeight = {
-	  indicationsAndUsage : 0,
-	  brandName : 0,
-	  genericName : 0,
-	  purpose : 0,
-	  active : 0,
-	  adverseReactions: 0,
-	  askDoctor: 0,
-	  doNotUse: 0,
-	  dosage: 0,
-	  inactive: 0,
-	  warnings: 0,
-	  askDoctorOrPharmacist: 0,
-	  stopUse: 0,
-	  manufacturerName : 0,
-	  events: 0
+  $scope.eventLabels = {
+  		'hospitialization' :'Hospitalizations', 
+        'congenitalAnomali' :'Congenital Anomalies',
+        'disabling' :'Disabling',
+        'lifeThreatening' :'Life Threatening', 
+        'death' :'Deaths', 
+        'other' :'Other'
+  };
+
+$scope.labelReadMore = {
+	  indicationsAndUsage : false,
+	  brandName : false,
+	  genericName : false,
+	  purpose : false,
+	  active : false,
+	  adverseReactions: false,
+	  askDoctor: false,
+	  doNotUse: false,
+	  dosage: false,
+	  inactive: false,
+	  warnings: false,
+	  askDoctorOrPharmacist: false,
+	  stopUse: false,
+	  manufacturerName : false,
+	  events: false,
+	  warningsAndCautions : false
 };
 
-  $scope.readMore = function(elem) {
-  	$scope.labelHeight[elem]
-  	var height = $("#labeling-"+elem+"-label").height();
+function enableReadMore() {
+  	for(elem in $scope.labelReadMore){
+  		var height = $("#labeling-"+elem+"-label").height();
+  		$scope.labelReadMore[elem] = height > 150 ? true : false;	
+  	}
+  	console.log($scope.labelReadMore);
+  	
   };
 
   $scope.searchDrug = function() {
@@ -85,6 +94,7 @@ $scope.labelHeight = {
 	  			$scope.searchBarVisibility = true;
 	  			$timeout(function(){
 	  				plotAdverse('adversePlot',$scope.events);
+	  				enableReadMore();
 	  		  	});
 	  			$scope.loadOverlay = false;
 	        },
@@ -122,7 +132,7 @@ $scope.labelHeight = {
 					result['name'] = response[key];
 				else if(key == 'purpose') 
 					result['purpose'] = response[key];
-				else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist'){
+				else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist' || key == 'warningsAndCautions'){
 					if(response[key] != null){
 						warnings[key] = response[key];
 					}
@@ -138,10 +148,10 @@ $scope.labelHeight = {
   
   function transformTo2DArray(obj){
 	  var array = [];
-	  for(var i=0; i<$scope.eventLabels.length; i++){
+	  for(key in $scope.eventLabels){
 		  var data = [];
-		  data.push($scope.eventLabels[i].label);
-		  data.push(obj[$scope.eventLabels[i].key]);
+		  data.push(key);
+		  data.push(obj[key]);
 		  array.push(data);
 	  }
 	  return array;

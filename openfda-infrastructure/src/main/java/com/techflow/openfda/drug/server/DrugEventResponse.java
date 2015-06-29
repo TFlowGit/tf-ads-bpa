@@ -89,7 +89,7 @@ public class DrugEventResponse implements ListDrugEventsResponse
 
 	public int getTotal()
 	{
-		return total;
+		return congenitalAnomali + death + disabling + hospitalization + lifeThreatening + other;
 	}
 
 	public DrugEventResponse() {

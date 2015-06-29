@@ -584,6 +584,15 @@ div.label-content {
     overflow: hidden;
 }
 
+div.label-content.warning-div {
+    max-height:150px;
+    content: "";
+}
+div.label-content {
+    max-height:150px;
+    content: "";
+}
+
 
 @media (min-width: 1200px) {
     h1.text-center.label-heading {
@@ -597,22 +606,6 @@ div.label-content {
     p.text-fade.ng-binding {
         font-size: 14px !important;
     }
-    div.label-content.warning-div {
-        max-height:200px;
-        content: "";
-/*        background: -webkit-linear-gradient(top,#fff 170px, #bf2726);
-       -webkit-background-clip: text;
-       -webkit-text-fill-color: transparent;*/
-    }
-    div.label-content {
-        max-height:200px;
-        content: "";
-/*        background: -webkit-linear-gradient(top,#2e2e2e 170px, #f6f6f6);
-       -webkit-background-clip: text;
-       -webkit-text-fill-color: transparent;*/
-    }
-
-    
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
@@ -626,20 +619,6 @@ div.label-content {
 
     p.text-fade.ng-binding {
         font-size: 13px !important;
-    }
-    div.label-content.warning-div {
-        max-height:180px;
-        content: "";
-        background: -webkit-linear-gradient(top,#fff 150px, #bf2726);
-       -webkit-background-clip: text;
-       -webkit-text-fill-color: transparent;
-    }
-    div.label-content {
-        max-height:180px;
-        content: "";
-        background: -webkit-linear-gradient(top,#2e2e2e 150px, #f6f6f6);
-       -webkit-background-clip: text;
-       -webkit-text-fill-color: transparent;
     }
 }
 
@@ -659,20 +638,6 @@ div.label-content {
 
     p.text-fade.ng-binding {
         font-size: 12px !important;
-    }
-    div.label-content.warning-div {
-        max-height:150px;
-        content: "";
-        background: -webkit-linear-gradient(top,#fff 120px, #bf2726);
-       -webkit-background-clip: text;
-       -webkit-text-fill-color: transparent;
-    }
-    div.label-content {
-        max-height:150px;
-        content: "";
-        background: -webkit-linear-gradient(top,#2e2e2e 120px, #f6f6f6);
-       -webkit-background-clip: text;
-       -webkit-text-fill-color: transparent;
     }
 }
 
@@ -849,7 +814,7 @@ span#subheading {
 
 }
 
-.panel-hospital {
+.panel-hospitialization {
     background-color: #00B25C;
 }
 
@@ -857,11 +822,11 @@ span#subheading {
     background-color: #1C0118;
 }
 
-.panel-congenital {
+.panel-congenitalAnomali {
     background-color: #FF9B40;
 }
 
-.panel-life {
+.panel-lifeThreatening {
     background-color: #A40004;
 }
 

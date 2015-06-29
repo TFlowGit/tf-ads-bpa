@@ -252,30 +252,110 @@ public class SearchSteps extends ScenarioSteps
 	@Step("Then the label info is displayed for {0}")
 	public void shouldSeeEventFor(String drugName, WebDriver driver) {
 		DrugPage drugPage = onDrugPage();
-		Actions actions = new Actions(driver);
+		WebElement elementFound=null;
 
-		WebElement btnMore, elementFound;
-		WebElement btnClose;
-
-		// Insure all elememts are visible.
-		((JavascriptExecutor) driver)
-				.executeScript("window.resizeTo(1024, 4096);");
+		// ############ adverse-TotalCount #############
 		try {
-			Thread.sleep(1000);
+
+			elementFound = driver.findElement(By.id("adverse-TotalCount"));
+
+			String stringFound = drugPage.getTotalCount();
+
+			assertThat(stringFound, is("450,790"));
+			
+			System.out.println("Success TotalCount Test");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		// ############ adverse-events-congenitalAnomali (coded,)#############
+		try {
+
+			elementFound = driver.findElement(By.id("adverse-events-congenitalAnomali"));
+
+			String stringFound = drugPage.getCongenitalCount();
+
+			assertThat(stringFound, is("1319"));
+			
+			System.out.println("Success adverse-events-congenitalAnomali Test");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		// ############ adverse-events-hospitalizations (missing)#############
+		try {
+
+			elementFound = driver.findElement(By.id("adverse-events-hospitalizations"));
+
+			String stringFound = drugPage.getHospitalizationsCount();
+
+			assertThat(stringFound, is("1"));
+			
+			System.out.println("Success adverse-events-hospitalizations Test");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+
+		
+		// ############ adverse-events-disabling (coded) #############
+		try {
+
+			elementFound = driver.findElement(By.id("adverse-events-disabling"));
+
+			String stringFound = drugPage.getDisablingCount();
+
+			assertThat(stringFound, is("15416"));
+			
+			System.out.println("Success adverse-events-disabling Test");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		// ############ labeling-TotalCount #############
+		// ############ adverse-events-lifeThreatening #############
 		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("javascript:window.scrollBy(0,450)");
 
-			elementFound = driver.findElement(By.id("adverse-TotalCount"));
-			String stringFound = drugPage.getTotalCount();
-			assertThat(stringFound, is("450,790"));
-		
-			System.out.println("Success TotalCount Test");
+			elementFound = driver.findElement(By.id("adverse-events-lifeThreatening"));
+
+			String stringFound = drugPage.getLifeThreatCount();
+
+			assertThat(stringFound, is("24824"));
+			
+			System.out.println("Success adverse-events-lifeThreatening Test");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// ############ adverse-events-death #############
+		try {
+
+			elementFound = driver.findElement(By.id("adverse-events-death"));
+
+			String stringFound = drugPage.getDeathsCount();
+
+			assertThat(stringFound, is("50210"));
+			
+			System.out.println("Success adverse-events-death Test");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// ############ adverse-events-other #############
+		try {
+
+			elementFound = driver.findElement(By.id("adverse-events-other"));
+
+			String stringFound = drugPage.getOtherCount();
+
+			assertThat(stringFound, is("145238"));
+			
+			System.out.println("Success adverse-events-other Test");
 
 		} catch (Exception e) {
 			e.printStackTrace();

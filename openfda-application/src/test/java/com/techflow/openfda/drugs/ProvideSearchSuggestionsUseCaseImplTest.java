@@ -26,7 +26,6 @@ public class ProvideSearchSuggestionsUseCaseImplTest
 			}
 
 		});
-		;
 		final SuggestionsResponseSpy response = new SuggestionsResponseSpy();
 		useCase.setResponse(response);
 		useCase.execute();
@@ -48,7 +47,6 @@ public class ProvideSearchSuggestionsUseCaseImplTest
 			}
 
 		});
-		;
 		final SuggestionsResponseSpy response = new SuggestionsResponseSpy();
 		useCase.setResponse(response);
 		useCase.execute();
