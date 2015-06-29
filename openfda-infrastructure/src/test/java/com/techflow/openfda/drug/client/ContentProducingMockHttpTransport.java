@@ -39,16 +39,28 @@ class ContentProducingMockHttpTransport extends MockHttpTransport
 		this.method = method;
 		this.url = url;
 
-		return new MockLowLevelHttpRequest() {
+		final MockLowLevelHttpRequest request = new MockLowLevelHttpRequest() {
 			@Override
 			public LowLevelHttpResponse execute() throws IOException
 			{
 				final MockLowLevelHttpResponse response = new MockLowLevelHttpResponse();
-				response.setStatusCode(statusCode);
-				response.setContent(responseContent);
+				if (url.contains(",")) {
+					response.setStatusCode(400);
+					response.setContent("{" +
+							"\"error\": {" +
+							"  \"code\": \"BAD_REQUEST\"," +
+							"  \"message\": " +
+							"}" +
+							"}");
+				} else {
+					response.setStatusCode(statusCode);
+					response.setContent(responseContent);
+				}
 				return response;
 			}
 		};
+		// request.
+		return request;
 	}
 
 	/**

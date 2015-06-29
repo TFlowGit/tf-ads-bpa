@@ -33,7 +33,8 @@ public class OpenFdaGatewayImpl implements OpenFdaGateway
 	{
 		try {
 			final HttpRequestFactory requestFactory = createRequestFactory();
-			final GenericUrl url = new DrugLabelUrl(drugName);
+			final String sanitizedDrugName = drugName.replaceAll(",", " ").trim();
+			final GenericUrl url = new DrugLabelUrl(sanitizedDrugName);
 			final HttpRequest request = requestFactory.buildGetRequest(url);
 			final OpenFdaDrugLabel jsonLabel = request.execute().parseAs(OpenFdaDrugLabel.class);
 			final DrugLabel drugLabel = new DrugLabel();

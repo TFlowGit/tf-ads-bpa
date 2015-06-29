@@ -152,6 +152,38 @@ public class OpenFdaGatewayImplTest
 	}
 
 	@Test
+	public void shouldStripOutTrailingCommas() throws GatewayException, IOException
+	{
+		final URL url = Resources.getResource("vyvanse.json");
+		final String text = Resources.toString(url, Charsets.UTF_8);
+		final ContentProducingMockHttpTransport transport = new ContentProducingMockHttpTransport(text);
+		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
+		g.transport = transport;
+
+		g.getLabel("vyvanse,");
+
+		assertThat(
+				transport.getUrl(),
+				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:%22vyvanse%22%20generic_name:%22vyvanse%22"));
+	}
+
+	@Test
+	public void shouldReplaceCommaWithSpace() throws GatewayException, IOException
+	{
+		final URL url = Resources.getResource("vyvanse.json");
+		final String text = Resources.toString(url, Charsets.UTF_8);
+		final ContentProducingMockHttpTransport transport = new ContentProducingMockHttpTransport(text);
+		final OpenFdaGatewayImpl g = new OpenFdaGatewayImpl();
+		g.transport = transport;
+
+		g.getLabel("vyvanse,aspirin");
+
+		assertThat(
+				transport.getUrl(),
+				equalTo("https://api.fda.gov/drug/label.json?search=brand_name:%22vyvanse%20aspirin%22%20generic_name:%22vyvanse%20aspirin%22"));
+	}
+
+	@Test
 	public void shouldhandleEmptyResponse() throws GatewayException, IOException
 	{
 		final URL url = Resources.getResource("empty.json");
