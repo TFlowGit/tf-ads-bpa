@@ -587,16 +587,10 @@ div.label-content {
 div.label-content.warning-div {
     max-height:150px;
     content: "";
-/*    background: -webkit-linear-gradient(top,#fff 120px, #bf2726);
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;*/
 }
 div.label-content {
     max-height:150px;
     content: "";
-/*    background: -webkit-linear-gradient(top,#2e2e2e 120px, #f6f6f6);
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;*/
 }
 
 
