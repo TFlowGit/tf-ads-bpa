@@ -12,7 +12,6 @@ import com.techflow.openfda.drug.client.DrugRepositoryImpl;
 import com.techflow.openfda.drug.client.OpenFdaGateway;
 import com.techflow.openfda.drug.client.OpenFdaGatewayImpl;
 import com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory;
-import com.techflow.openfda.drugs.MockDrugRepository;
 import com.techflow.openfda.drugs.SimpleOpenFdaSpringUseCaseFactory;
 
 /**
