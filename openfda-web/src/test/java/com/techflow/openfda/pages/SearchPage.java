@@ -8,7 +8,8 @@ import org.openqa.selenium.WebElement;
 @DefaultUrl("http://localhost:8080/index.html")
 public class SearchPage extends PageObject
 {
-	@FindBy(id = "input-drug")
+	//@FindBy(id = "input-drug")
+	@FindBy(id = "input-drug_value")
 	WebElement termInput;
 
 	@FindBy(id = "button-search")
@@ -19,5 +20,12 @@ public class SearchPage extends PageObject
 		openAt("http://localhost:8080/index.html");
 		termInput.sendKeys(term);
 		searchButton.click();
+		//System.out.println("key typed in");
+	}
+	public void typeIn(String term)
+	{
+		openAt("http://localhost:8080/index.html");
+		termInput.sendKeys(term);
+		//System.out.println("key typed in");
 	}
 }
