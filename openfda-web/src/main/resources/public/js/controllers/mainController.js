@@ -24,7 +24,8 @@ drugflowApp.controller('mainCtrl', ['$scope', '$q','drugsService', 'smoothScroll
 	  askDoctorOrPharmacist: "Ask Doctor or Pharmacist",
 	  stopUse: "Stop Use",
 	  manufacturerName : "Manufacturer",
-	  events: "Adverse Reaction"
+	  events: "Adverse Reaction",
+	  warningsAndCautions : "Warnings and Cautions"
   };
   
   $scope.eventLabels = {
@@ -51,13 +52,16 @@ $scope.labelReadMore = {
 	  askDoctorOrPharmacist: false,
 	  stopUse: false,
 	  manufacturerName : false,
-	  events: false
+	  events: false,
+	  warningsAndCautions : false
 };
 
 function enableReadMore() {
   	for(elem in $scope.labelReadMore){
   		var height = $("#labeling-"+elem+"-label").height();
-  		$scope.labelReadMore[elem] = height > 150 ? true : false;	
+  		//height within the div elements
+  		var availableHeight = 90;
+  		$scope.labelReadMore[elem] = height > availableHeight;	
   	}
   	console.log($scope.labelReadMore);
   	
@@ -130,7 +134,7 @@ function enableReadMore() {
 					result['name'] = response[key];
 				else if(key == 'purpose') 
 					result['purpose'] = response[key];
-				else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist'){
+				else if(key == 'warnings' || key == 'doNotUse' || key == 'askDoctor' || key == 'askDoctorOrPharmacist' || key == 'warningsAndCautions'){
 					if(response[key] != null){
 						warnings[key] = response[key];
 					}
@@ -153,6 +157,15 @@ function enableReadMore() {
 		  array.push(data);
 	  }
 	  return array;
+  }
+  
+  $scope.setQuery= function(strInput){
+	  if(typeof(strInput)==="object"){
+		  $scope.query=strInput.title;
+	  }else{
+		  $scope.query=strInput;
+	  }
+	  
   }
 }]);
 
