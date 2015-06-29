@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-import org.apache.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -16,50 +15,53 @@ import org.apache.lucene.search.Hits;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.store.RAMDirectory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DrugRepositoryImpl implements DrugRepository
 {
+	private static final Logger logger = LoggerFactory.getLogger(DrugRepositoryImpl.class.getName());
 
-	private static final Logger logger = Logger.getLogger(DrugRepositoryImpl.class.getName());
 	private static int MAX_HITS = 5;
-	private RAMDirectory ramDir;
 
-	 public DrugRepositoryImpl()
+	private final RAMDirectory ramDir;
+
+	public DrugRepositoryImpl()
 	{
 		IndexWriter indexWriter = null;
-		Analyzer analyzer = new StandardAnalyzer();
+		final Analyzer analyzer = new StandardAnalyzer();
 		ramDir = new RAMDirectory();
 
 		try {
 			indexWriter = new IndexWriter(ramDir, analyzer, true);
-		} catch (Exception e) {
-			logger.info("FATAL: Could not create indexWriter.",e);
+		} catch (final Exception e) {
+			logger.info("FATAL: Could not create indexWriter.", e);
 		}
 
 		Scanner s = null;
 		try {
-			s = new Scanner( this.getClass().getResourceAsStream("/brand-names.txt"));
+			s = new Scanner(this.getClass().getResourceAsStream("/brand-names.txt"));
 			while (s.hasNextLine()) {
-				Document document = new Document();
-				String drugName = s.nextLine();
+				final Document document = new Document();
+				final String drugName = s.nextLine();
 				document.add(new Field("name", drugName, Field.Store.YES, Field.Index.UN_TOKENIZED));
 				document.add(new Field("UCNAME", drugName.toUpperCase(), Field.Store.NO, Field.Index.TOKENIZED));
 				indexWriter.addDocument(document);
 			}
-		} catch (Exception e) {
-			logger.info("ERROR: Exception scanning brand-names.txt",e);
+		} catch (final Exception e) {
+			logger.info("ERROR: Exception scanning brand-names.txt", e);
 		} finally {
 			if (s != null) {
 				s.close();
 			}
 		}
-		
+
 		try {
 			indexWriter.optimize();
-			logger.info("Index Buffer Size MB: " + indexWriter.getRAMBufferSizeMB() );
+			logger.info("Index Buffer Size MB: " + indexWriter.getRAMBufferSizeMB());
 			indexWriter.close();
-		} catch (Exception e) {
-			logger.info("ERROR: Exception optimizing brand-names index.",e);
+		} catch (final Exception e) {
+			logger.info("ERROR: Exception optimizing brand-names index.", e);
 		}
 
 	}
@@ -68,7 +70,7 @@ public class DrugRepositoryImpl implements DrugRepository
 	public List<String> startsWith(String drugName)
 	{
 		String searchName;
-		List<String> list = new ArrayList<String>();
+		final List<String> list = new ArrayList<String>();
 
 		if (!drugName.endsWith("*")) {
 			searchName = drugName.concat("*");
@@ -80,25 +82,25 @@ public class DrugRepositoryImpl implements DrugRepository
 		try {
 
 			indexSearcher = new IndexSearcher(ramDir);
-			Analyzer analyzer = new StandardAnalyzer();
-			QueryParser queryParser = new QueryParser("UCNAME", analyzer);
-			Query query = queryParser.parse(searchName);
-			Hits hits = indexSearcher.search(query);
+			final Analyzer analyzer = new StandardAnalyzer();
+			final QueryParser queryParser = new QueryParser("UCNAME", analyzer);
+			final Query query = queryParser.parse(searchName);
+			final Hits hits = indexSearcher.search(query);
 
 			@SuppressWarnings("unchecked")
-			Iterator<Hit> it = hits.iterator();
+			final Iterator<Hit> it = hits.iterator();
 			int count = 1;
 			while (it.hasNext()) {
-				Hit hit = it.next();
-				Document document = hit.getDocument();
-				String name = document.get("name");
+				final Hit hit = it.next();
+				final Document document = hit.getDocument();
+				final String name = document.get("name");
 				list.add(name);
 				if (++count > MAX_HITS) {
 					break;
 				}
 			}
 
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			logger.info("ERROR: Exception searching brand-names.", e);
 		}
 
