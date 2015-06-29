@@ -12,10 +12,11 @@ class jenkins_conf {
   #  security_model => 'full_control', 
   #}
 
-  jenkins::job { 'OpenFDA-app-build':
-    config  => template("jenkins_conf/openfda-build-job.xml.erb"),
-    require => File['/usr/lib/jenkins/puppet_helper.groovy'],
-  }
+  # Initial run only; causes problems after that:
+  #jenkins::job { 'OpenFDA-app-build':
+  #  config  => template("jenkins_conf/openfda-build-job.xml.erb"),
+  #  require => File['/usr/lib/jenkins/puppet_helper.groovy'],
+  #}
 
   jenkins::plugin {
     [
@@ -47,7 +48,6 @@ class jenkins_conf {
   #  description         => 'tf-ads-bpa repository deploy key',
   #  require             => Class['jenkins'],
   #}
-
 }
 
 

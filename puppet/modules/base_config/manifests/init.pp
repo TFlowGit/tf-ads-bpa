@@ -1,8 +1,7 @@
 # Packages and other base config for the app machine
 
-require epel
-
 class base_config {
+  require epel
 
   class { selinux:
     mode => 'enforcing'
