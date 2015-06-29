@@ -19,6 +19,7 @@ node puppet {
   include base_config::build
   include firewall::build
   include jenkins_conf
+  include puppet_git
 }
 
 node /^app\d+$/ {
