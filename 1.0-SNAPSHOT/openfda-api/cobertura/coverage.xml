@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.0" branch-rate="1.0" lines-covered="0" lines-valid="11" branches-covered="0" branches-valid="0" complexity="1.0" version="2.1.1" timestamp="1435601360906">
+	<sources>
+		<source>/var/lib/jenkins/jobs/Deply Maven Site/workspace/openfda-api/target/generated-sources/annotations</source>
+		<source>--source</source>
+		<source>/var/lib/jenkins/jobs/Deply Maven Site/workspace/openfda-api/src/main/java</source>
+	</sources>
+	<packages>
+		<package name="com.techflow.openfda" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="com.techflow.openfda.GatewayException" filename="com/techflow/openfda/GatewayException.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="11" hits="0" branch="false"/>
+								<line number="12" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/Exception;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="7" hits="0" branch="false"/>
+								<line number="8" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="7" hits="0" branch="false"/>
+						<line number="8" hits="0" branch="false"/>
+						<line number="11" hits="0" branch="false"/>
+						<line number="12" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="com.techflow.openfda.drug.client" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="com.techflow.openfda.drug.client.DrugRepository" filename="com/techflow/openfda/drug/client/DrugRepository.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.client.OpenFdaGateway" filename="com/techflow/openfda/drug/client/OpenFdaGateway.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="com.techflow.openfda.drug.usecase" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="com.techflow.openfda.drug.usecase.BaseUseCase" filename="com/techflow/openfda/drug/usecase/BaseUseCase.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="6" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRequest" signature="()Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="15" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getResponse" signature="()Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="27" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setRequest" signature="(Ljava/lang/Object;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="21" hits="0" branch="false"/>
+								<line number="22" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setResponse" signature="(Ljava/lang/Object;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="33" hits="0" branch="false"/>
+								<line number="34" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="6" hits="0" branch="false"/>
+						<line number="15" hits="0" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="22" hits="0" branch="false"/>
+						<line number="27" hits="0" branch="false"/>
+						<line number="33" hits="0" branch="false"/>
+						<line number="34" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.FindDrugRequest" filename="com/techflow/openfda/drug/usecase/FindDrugRequest.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.FindDrugResponse" filename="com/techflow/openfda/drug/usecase/FindDrugResponse.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.FindDrugUseCase" filename="com/techflow/openfda/drug/usecase/FindDrugUseCase.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.ListDrugEventsRequest" filename="com/techflow/openfda/drug/usecase/ListDrugEventsRequest.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.ListDrugEventsResponse" filename="com/techflow/openfda/drug/usecase/ListDrugEventsResponse.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.ListDrugEventsUseCase" filename="com/techflow/openfda/drug/usecase/ListDrugEventsUseCase.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.OpenFdaUseCaseFactory" filename="com/techflow/openfda/drug/usecase/OpenFdaUseCaseFactory.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.ProvideSearchSuggestionsRequest" filename="com/techflow/openfda/drug/usecase/ProvideSearchSuggestionsRequest.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.ProvideSearchSuggestionsResponse" filename="com/techflow/openfda/drug/usecase/ProvideSearchSuggestionsResponse.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.ProvideSearchSuggestionsUseCase" filename="com/techflow/openfda/drug/usecase/ProvideSearchSuggestionsUseCase.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="com.techflow.openfda.drug.usecase.UseCase" filename="com/techflow/openfda/drug/usecase/UseCase.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
