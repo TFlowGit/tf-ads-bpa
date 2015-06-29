@@ -3,14 +3,17 @@ package com.techflow.openfda.steps;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
+
 import com.techflow.openfda.pages.DrugPage;
 import com.techflow.openfda.pages.SearchPage;
 
@@ -31,6 +34,11 @@ public class SearchSteps extends ScenarioSteps
 	{
 		onSearchPage().searchFor(drug);
 	}
+	@Step("When the user searches for {0}")
+	public void typeIn(String drug)
+	{
+		onSearchPage().typeIn(drug);
+	}
 
 	@Step("then the graph is displayed for {0}")
 	public void shouldSeeGraph(String drugName, WebDriver driver)
@@ -39,7 +47,6 @@ public class SearchSteps extends ScenarioSteps
 		Actions actions = new Actions(driver);
 		
 		WebElement btnMore;
-		//WebElement btnClose;
 		
 		// Insure all elememts are visible.
 	    ((JavascriptExecutor)driver).executeScript("window.resizeTo(1024, 4096);");
@@ -50,12 +57,7 @@ public class SearchSteps extends ScenarioSteps
 	    }
 	    
 	    // ############ ACTIVEINGREDIENT #############
-	    try {
-			btnMore = driver.findElement(By.id("adversePlot"));
-	    } catch (Exception e) {
-			e.printStackTrace();
-		}
-	    System.out.println("Done getGraph.");
+		btnMore = driver.findElement(By.id("adversePlot"));
 	}
 	
 	@Step("Then the label info is displayed for {0}")
@@ -76,10 +78,14 @@ public class SearchSteps extends ScenarioSteps
 	    }
 	    
 		// ############ ACTIVEINGREDIENT #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-active"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			String stringFound= drugPage.getActiveIngredient();
@@ -88,15 +94,16 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-active"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		// ############ INACTIVEINGREDIENT #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-inactive"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			assertThat(drugPage.getInactiveIngredient(),
@@ -105,16 +112,16 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-inactive"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("Done getInactiveIngredient");
 
 		// ############ getDosage #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-dosage"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			assertThat(
@@ -123,16 +130,16 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-dosage"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("Done getDosage");
 
 		// ############ askDoctor #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-askDoctor"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			assertThat(
@@ -141,16 +148,16 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-askDoctor"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("Done getAskDoctor");
 
 		// ############ doNotUse #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-doNotUse"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			assertThat(drugPage.getDoNotUse(),
@@ -158,15 +165,16 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-doNotUse"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		// ############ getIndicationsAndUsage #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-indicationsAndUsage"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			assertThat(
@@ -175,15 +183,16 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-indicationsAndUsage"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		// ############ StopUse #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-stopUse"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			assertThat(
@@ -192,15 +201,16 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-stopUse"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		// ############ Warnings #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-warnings"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			// Serenity error on long string, so work around is use startsWith with less character compare
@@ -209,16 +219,17 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-warnings"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}	
 		
 		
 		// ############ labeling-askDoctorOrPharmacist #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-askDoctorOrPharmacist"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			// Serenity error on long string, so work around is use startsWith with less character compare
@@ -228,15 +239,15 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-askDoctorOrPharmacist"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-					e.printStackTrace();
-		}
 		
 		// ############ labeling-genericName-label #############
-		try {
 			btnMore = driver.findElement(By.id("btn-more-genericName"));
 			actions.moveToElement(btnMore);
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			actions.click();
 			actions.perform();
 			assertThat(drugPage.getGenericName(), is("ASPIRIN"));
@@ -244,124 +255,99 @@ public class SearchSteps extends ScenarioSteps
 			btnClose = driver.findElement(By.id("btn-close-genericName"));
 			actions.click();
 			actions.perform();
-		} catch (Exception e) {
-					e.printStackTrace();
-		}
 	}
 
 	@Step("Then the label info is displayed for {0}")
 	public void shouldSeeEventFor(String drugName, WebDriver driver) {
+		String stringFound;
 		DrugPage drugPage = onDrugPage();
 		WebElement elementFound=null;
 
 		// ############ adverse-TotalCount #############
-		try {
 
-			elementFound = driver.findElement(By.id("adverse-TotalCount"));
+			//elementFound = driver.findElement(By.id("adverse-TotalCount"));
 
-			String stringFound = drugPage.getTotalCount();
+			stringFound = drugPage.getTotalCount();
 
 			assertThat(stringFound, is("450,790"));
 			
 			System.out.println("Success TotalCount Test");
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 		// ############ adverse-events-congenitalAnomali (coded,)#############
-		try {
 
-			elementFound = driver.findElement(By.id("adverse-events-congenitalAnomali"));
+			//elementFound = driver.findElement(By.id("adverse-events-congenitalAnomali"));
 
-			String stringFound = drugPage.getCongenitalCount();
+			stringFound = drugPage.getCongenitalCount();
 
 			assertThat(stringFound, is("1319"));
 			
 			System.out.println("Success adverse-events-congenitalAnomali Test");
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 		// ############ adverse-events-hospitalizations (missing)#############
-		try {
 
-			elementFound = driver.findElement(By.id("adverse-events-hospitalizations"));
+			//elementFound = driver.findElement(By.id("adverse-events-hospitalizations"));
 
-			String stringFound = drugPage.getHospitalizationsCount();
+			stringFound = drugPage.getHospitalizationsCount();
 
 			assertThat(stringFound, is("1"));
 			
 			System.out.println("Success adverse-events-hospitalizations Test");
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 
 		
 		// ############ adverse-events-disabling (coded) #############
-		try {
 
-			elementFound = driver.findElement(By.id("adverse-events-disabling"));
+			//elementFound = driver.findElement(By.id("adverse-events-disabling"));
 
-			String stringFound = drugPage.getDisablingCount();
+			stringFound = drugPage.getDisablingCount();
 
 			assertThat(stringFound, is("15416"));
 			
 			System.out.println("Success adverse-events-disabling Test");
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		// ############ adverse-events-lifeThreatening #############
-		try {
 
-			elementFound = driver.findElement(By.id("adverse-events-lifeThreatening"));
+			//elementFound = driver.findElement(By.id("adverse-events-lifeThreatening"));
 
-			String stringFound = drugPage.getLifeThreatCount();
+			stringFound = drugPage.getLifeThreatCount();
 
 			assertThat(stringFound, is("24824"));
 			
 			System.out.println("Success adverse-events-lifeThreatening Test");
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		// ############ adverse-events-death #############
-		try {
 
-			elementFound = driver.findElement(By.id("adverse-events-death"));
+			//elementFound = driver.findElement(By.id("adverse-events-death"));
 
-			String stringFound = drugPage.getDeathsCount();
+			stringFound = drugPage.getDeathsCount();
 
 			assertThat(stringFound, is("50210"));
 			
 			System.out.println("Success adverse-events-death Test");
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		// ############ adverse-events-other #############
-		try {
 
-			elementFound = driver.findElement(By.id("adverse-events-other"));
+			//elementFound = driver.findElement(By.id("adverse-events-other"));
 
-			String stringFound = drugPage.getOtherCount();
+			stringFound = drugPage.getOtherCount();
 
 			assertThat(stringFound, is("145238"));
 			
 			System.out.println("Success adverse-events-other Test");
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
+	@Step("Then the label info is displayed for {0}")
+	public void shouldSeeDropdownFor(String drugName, WebDriver driver) {
+		DrugPage drugPage = onDrugPage();
+		WebElement webElementFound=null;
+		webElementFound = driver.findElement(By.id("input-drug_dropdownXXXXXXXX"));
+	}
 	private SearchPage onSearchPage()
 	{
 		final Pages pages = getPages();
