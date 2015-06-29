@@ -136,7 +136,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/TFlowGit/tf-ads-bpa.git</connection>
 		<developerConnection>scm:git:git@github.com:TFlowGit/tf-ads-bpa.git</developerConnection>
-		<url>https://github.com/TFlowGit/tf-ads-bpa</url>
+		<url>https://github.com/TFlowGit/tf-ads-bpa/</url>
 	</scm>
 	<url>https://TFlowGit.github.io/tf-ads-bpa/</url>
 	<name>TechFlow ADS RFP Prototype</name>
@@ -144,7 +144,10 @@
 		<site>
 			<id>github-pages-site</id>
 			<name>Deployment through GitHub's site deployment plugin</name>
+			<url>${project.version}/</url>
+			<!-- 
 			<url>https://TFlowGit.github.io/tf-ads-bpa/${project.version}/</url>
+			 -->
 		</site>
 	</distributionManagement>
 	<reporting>
@@ -159,4 +162,5 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	<description>TechFlow's prototype for the ADS RFP.</description>
 </project>
