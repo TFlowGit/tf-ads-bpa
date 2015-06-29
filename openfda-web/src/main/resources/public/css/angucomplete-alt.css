@@ -64,4 +64,10 @@
     width: 34px;
 }
 
+@media (max-width: 767px) {
+    .angucomplete-dropdown {
+        display: none;
+        visibility: hidden;
+    }
+}
 
