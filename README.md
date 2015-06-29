@@ -42,6 +42,8 @@ Import the project into Eclipse (File -> Import -> Existing Maven Projects)
 Run the class `com.techflow.openfda.OpenFdaApplication` as Java in the
 `openfda-web` project.
 
+Browse to [http://localhost:8080](http://localhost:8080).
+
 # License
 
 Please see [LICENSES.md](LICENSES.md) for a list of all software used
