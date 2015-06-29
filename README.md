@@ -5,9 +5,6 @@
 A publicly accessible prototype is hosted at
 [http://18f-dari.techflow.com](http://18f-dari.techflow.com/).
 
-Swagger API documentation is hosted at
-[http://18f-dari.techflow.com/swagger/index.html](http://18f-dari.techflow.com/swagger/index.html)
-
 # Documentation
 
 * [Maven Site](http://tflowgit.github.io/tf-ads-bpa/1.0-SNAPSHOT/)
