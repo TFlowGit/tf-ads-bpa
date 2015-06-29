@@ -139,7 +139,7 @@
 		<url>https://github.com/TFlowGit/tf-ads-bpa</url>
 	</scm>
 	<url>https://TFlowGit.github.io/tf-ads-bpa/</url>
-	<name>TechFlow ADS RFQ Prototype</name>
+	<name>TechFlow ADS RFP Prototype</name>
 	<distributionManagement>
 		<site>
 			<id>github-pages-site</id>
