@@ -72,7 +72,7 @@
       require: '^?form',
       scope: {
         searchStr: '=?query',
-        selectedObject: '=',
+        selectedObject: '=?',
         disableInput: '=',
         initialValue: '=',
         localData: '=',
