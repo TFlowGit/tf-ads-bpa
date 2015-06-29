@@ -34,7 +34,7 @@ public class SearchSteps extends ScenarioSteps
 	{
 		onSearchPage().searchFor(drug);
 	}
-	@Step("When the user searches for {0}")
+	@Step("When the user automcomplete for {0}")
 	public void typeIn(String drug)
 	{
 		onSearchPage().typeIn(drug);
@@ -257,13 +257,21 @@ public class SearchSteps extends ScenarioSteps
 			actions.perform();
 	}
 
-	@Step("Then the label info is displayed for {0}")
+	@Step("Then the Even statistic is displayed for {0}")
 	public void shouldSeeEventFor(String drugName, WebDriver driver) {
 		String stringFound;
 		DrugPage drugPage = onDrugPage();
 		WebElement elementFound=null;
 
+		// ############ adverse-TotalCount #############
 
+			elementFound = driver.findElement(By.id("adverse-TotalCount"));
+
+			stringFound = drugPage.getTotalCount();
+
+			assertThat(stringFound, is("394,693"));
+		
+			System.out.println("Success TotalCount Test");
 		
 		// ############ adverse-events-congenitalAnomali (coded,)#############
 
@@ -274,20 +282,10 @@ public class SearchSteps extends ScenarioSteps
 			assertThat(stringFound, is("1,319"));
 			
 			System.out.println("Success adverse-events-congenitalAnomali Test");
-
-		// ############ adverse-TotalCount #############
-
-			elementFound = driver.findElement(By.id("adverse-TotalCount"));
-
-			stringFound = drugPage.getTotalCount();
-
-			assertThat(stringFound, is("394,693"));
-			
-			System.out.println("Success TotalCount Test");
 		
 		// ############ adverse-events-hospitalizations (missing)#############
 
-			elementFound = driver.findElement(By.id("adverse-events-hospitalizations"));
+			elementFound = driver.findElement(By.id("adverse-events-hospitialization"));
 
 			stringFound = drugPage.getHospitalizationsCount();
 
@@ -342,11 +340,11 @@ public class SearchSteps extends ScenarioSteps
 
 	}
 	
-	@Step("Then the label info is displayed for {0}")
+	@Step("Then the Autocompletion list is displayed for {0}")
 	public void shouldSeeDropdownFor(String drugName, WebDriver driver) {
 		DrugPage drugPage = onDrugPage();
 		WebElement webElementFound=null;
-		webElementFound = driver.findElement(By.id("input-drug_dropdownXXXXXXXX"));
+		webElementFound = driver.findElement(By.id("input-drug_dropdown"));
 	}
 	private SearchPage onSearchPage()
 	{
