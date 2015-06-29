@@ -40,6 +40,14 @@ class jenkins_conf {
     require   => Class['jenkins'],
   }
 
+  # github settings
+  file { '/var/lib/jenkins/.m2/settings.xml':
+    ensure => file,
+    owner => jenkins,
+    group => jenkins,
+    mode => '0755',
+    template => content('jenkins_conf/settings.xml.erb'),
+  }
 
   #jenkins::credentials { 'openfda-deploy-key':
   #  password            => '',

@@ -134,11 +134,11 @@
 		</dependency>
 	</dependencies>
 	<scm>
-		<connection>scm:git:https://github.com/dtandersen/tf-ads-bpa.git</connection>
-		<developerConnection>scm:git:git@github.com:dtandersen/tf-ads-bpa.git</developerConnection>
-		<url>https://github.com/dtandersen/tf-ads-bpa</url>
+		<connection>scm:git:https://github.com/TFlowGit/tf-ads-bpa.git</connection>
+		<developerConnection>scm:git:git@github.com:TFlowGit/tf-ads-bpa.git</developerConnection>
+		<url>https://github.com/TFlowGit/tf-ads-bpa</url>
 	</scm>
-	<url>https://dtandersen.github.io/tf-ads-bpa/</url>
+	<url>https://TFlowGit.github.io/tf-ads-bpa/</url>
 	<name>TechFlow ADS RFQ Prototype</name>
 	<distributionManagement>
 		<site>
