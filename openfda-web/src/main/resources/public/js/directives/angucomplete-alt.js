@@ -43,7 +43,7 @@
     // string constants
     var REQUIRED_CLASS = 'autocomplete-required';
     var TEXT_SEARCHING = 'Searching...';
-    var TEXT_NORESULTS = 'No Suggestions, Please Click Search';
+    var TEXT_NORESULTS = 'No suggestions. Please click "Search".';
     var TEMPLATE_URL = '/angucomplete-alt/index.html';
 
     // Set the default template for this directive
