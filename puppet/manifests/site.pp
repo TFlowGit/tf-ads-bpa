@@ -18,7 +18,8 @@ node bastion {
 node puppetmaster {
   include base_config::build
   include firewall::build
-  include jenkins_conf
+  # Commenting out Jenkins to prevent spurious restarts.
+  # include jenkins_conf
   include puppet_git
 }
 
