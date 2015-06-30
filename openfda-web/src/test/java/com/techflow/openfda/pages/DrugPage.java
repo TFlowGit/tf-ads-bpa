@@ -10,49 +10,49 @@ import org.openqa.selenium.WebElement;
 public class DrugPage extends PageObject
 {
 
-	@FindBy(id = "labeling-indicationsAndUsage-modal")
+	@FindBy(id = "labeling-indicationsAndUsage-label")
 	WebElement indicationsAndUsage;
 
-	@FindBy(id = "labeling-brandName-modal")
+	@FindBy(id = "labeling-brandName-label")
 	WebElement brandName;
 
-	@FindBy(id = "labeling-genericName-modal")
+	@FindBy(id = "labeling-genericName-label")
 	WebElement genericName;
 
-	@FindBy(id = "labeling-purpose-modal")
+	@FindBy(id = "labeling-purpose-label")
 	WebElement purpose;
 
-	@FindBy(id = "labeling-active-modal")
+	@FindBy(id = "labeling-active-label")
 	WebElement activeIngredient;
 
-	@FindBy(id = "labeling-inactive-modal")
+	@FindBy(id = "labeling-inactive-label")
 	WebElement inactiveIngredient;
 
-	@FindBy(id = "labeling-warnings-modal")
+	@FindBy(id = "labeling-warnings-label")
 	WebElement warnings;
 
-	@FindBy(id = "labeling-doNotUse-modal")
+	@FindBy(id = "labeling-doNotUse-label")
 	WebElement doNotUse;
 
-	@FindBy(id = "labeling-askDoctor-modal")
+	@FindBy(id = "labeling-askDoctor-label")
 	WebElement askDoctor;
 
-	@FindBy(id = "labeling-askDoctorOrPharmacist-modal")
+	@FindBy(id = "labeling-askDoctorOrPharmacist-label")
 	WebElement askDoctorOrPharmacist;
 
-	@FindBy(id = "labeling-dosage-modal")
+	@FindBy(id = "labeling-dosage-label")
 	WebElement dosage;
 
-	@FindBy(id = "labeling-stopUse-modal")
+	@FindBy(id = "labeling-stopUse-label")
 	WebElement stopUse;
 
-	@FindBy(id = "labeling-found-modal")
+	@FindBy(id = "labeling-found-label")
 	WebElement found;
 
-	@FindBy(id = "labeling-adverseReactions-modal")
+	@FindBy(id = "labeling-adverseReactions-label")
 	WebElement adverseReactions;
 
-	@FindBy(id = "labeling-manfacturerName-modal")
+	@FindBy(id = "labeling-manfacturerName-label")
 	WebElement manufacturerName;
 	
 	@FindBy(id = "adverse-TotalCount")
