@@ -65,12 +65,12 @@ public class DrugEventResponse implements ListDrugEventsResponse
 	}
 
 	@ApiModelProperty(value = "Count of hospitalizations")
-	public int getHospitialization()
+	public int getHospitalization()
 	{
 		return hospitalization;
 	}
 
-	public void setHospitialization(int hospitalization)
+	public void setHospitalization(int hospitalization)
 	{
 		this.hospitalization = hospitalization;
 	}

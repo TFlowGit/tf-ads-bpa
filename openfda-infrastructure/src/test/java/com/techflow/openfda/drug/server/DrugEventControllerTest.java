@@ -57,7 +57,7 @@ public class DrugEventControllerTest
 		assertThat(response.getCongenitalAnomali(), equalTo(1));
 		assertThat(response.getDeath(), equalTo(2));
 		assertThat(response.getDisabling(), equalTo(1));
-		assertThat(response.getHospitialization(), equalTo(1));
+		assertThat(response.getHospitalization(), equalTo(1));
 		assertThat(response.getLifeThreatening(), equalTo(1));
 		assertThat(response.getOther(), equalTo(2));
 		assertThat(response.getTotal(), equalTo(8));

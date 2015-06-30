@@ -160,9 +160,7 @@ public class SearchSteps extends ScenarioSteps
 		System.out.println("Success adverse-events-congenitalAnomali Test");
 
 		// ############ adverse-events-hospitalizations (missing)#############
-
-		elementFound = driver.findElement(By.id("adverse-events-hospitialization"));
-
+		elementFound = driver.findElement(By.id("adverse-events-hospitalization"));
 		stringFound = drugPage.getHospitalizationsCount();
 
 		assertThat(stringFound, is("157,686"));
