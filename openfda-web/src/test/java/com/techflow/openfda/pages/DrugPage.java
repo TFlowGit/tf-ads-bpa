@@ -58,7 +58,7 @@ public class DrugPage extends PageObject
 	@FindBy(id = "adverse-TotalCount")
 	WebElement totalCount;
 	
-	@FindBy(id = "adverse-events-hospitalizations")
+	@FindBy(id = "adverse-events-hospitialization")
 	WebElement HospitalizationsCount;
 
 	@FindBy(id = "adverse-events-congenitalAnomali")

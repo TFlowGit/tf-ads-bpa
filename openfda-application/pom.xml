@@ -13,4 +13,6 @@
   		<artifactId>openfda-api</artifactId>
   	</dependency>
   </dependencies>
+  <name>TechFlow ADS RFP Prototype - Application</name>
+  <description>Business logic.</description>
 </project>
