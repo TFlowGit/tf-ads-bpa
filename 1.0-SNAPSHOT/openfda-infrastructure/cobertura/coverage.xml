@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.9169811320754717" branch-rate="0.8181818181818182" lines-covered="243" lines-valid="265" branches-covered="18" branches-valid="22" complexity="1.3506493506493507" version="2.1.1" timestamp="1435621075176">
+<coverage line-rate="0.9169811320754717" branch-rate="0.8181818181818182" lines-covered="243" lines-valid="265" branches-covered="18" branches-valid="22" complexity="1.3506493506493507" version="2.1.1" timestamp="1435622871263">
 	<sources>
 		<source>/var/lib/jenkins/jobs/Deply Maven Site/workspace/openfda-infrastructure/target/generated-sources/annotations</source>
 		<source>--source</source>
