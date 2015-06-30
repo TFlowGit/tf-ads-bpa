@@ -24,14 +24,12 @@ public class WhenSearching
 	public SearchSteps user;
 
 	@Test
-	public void shouldCalculatePointsBasedOnDistance()
+	public void shouldCalculatePointsBasedOnDistance() throws Exception
 	{
 		user.searchesFor("aspirin");
-//		user.shouldSeeGraph("aspirin", driver);
-//		user.shouldSeeLabelFor("aspirin", driver);
-		user.shouldSeeEventFor("aspirin", driver);
-
-		
+		user.shouldSeeGraph("aspirin", driver);
+		user.shouldSeeLabelFor("aspirin", driver);
+		user.shouldSeeEventFor("aspirin", driver);		
 		user.typeIn("aspirin");
 		user.shouldSeeDropdownFor("aspirin", driver);
 		
