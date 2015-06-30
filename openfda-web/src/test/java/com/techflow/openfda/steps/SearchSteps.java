@@ -285,7 +285,7 @@ public class SearchSteps extends ScenarioSteps
 		
 		// ############ adverse-events-hospitalizations (missing)#############
 
-			elementFound = driver.findElement(By.id("adverse-events-hospitialization"));
+			elementFound = driver.findElement(By.id("adverse-events-hospitalization"));
 
 			stringFound = drugPage.getHospitalizationsCount();
 

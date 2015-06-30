@@ -30,7 +30,7 @@ dariApp.controller('mainCtrl', ['$scope', '$q', 'drugsService', 'smoothScroll', 
     };
 
     $scope.eventLabels = {
-        'hospitialization': 'Hospitalizations',
+        'hospitalization': 'Hospitalizations',
         'congenitalAnomali': 'Congenital Anomalies',
         'disabling': 'Disabling',
         'lifeThreatening': 'Life Threatening',
