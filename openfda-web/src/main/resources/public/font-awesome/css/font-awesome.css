@@ -859,7 +859,7 @@
 .fa-building-o:before {
   content: "\f0f7";
 }
-.fa-hospital-o:before, .fa-hospitialization:before {
+.fa-hospital-o:before, .fa-hospitalization:before {
   content: "\f0f8";
 }
 .fa-ambulance:before {
