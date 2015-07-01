@@ -73,10 +73,10 @@
 				</executions>
 			</plugin>
 			<plugin>
-				  <groupId>com.spotify</groupId>
-				  <artifactId>docker-maven-plugin</artifactId>
-				  <version>0.2.3</version>
-				  <configuration>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<skip>false</skip>
 				  	<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 				  	<dockerDirectory>openfda-web/src/main/docker</dockerDirectory>
 				  	<resources>
@@ -86,13 +86,13 @@
 				  			<include>${project.build.finalName}.jar</include>
 				  		</resource>
 				  	</resources>
-				  </configuration>
-				  <executions>
+				</configuration>
+				<executions>
 					<execution>
-						<id>docker-build</id>
+                                        	<id>docker-build</id>
 						<phase>package</phase>
 						<goals>
-							<goal>build</goal>
+                                                	<goal>build</goal>
 						</goals>
 					</execution>
 				</executions>
