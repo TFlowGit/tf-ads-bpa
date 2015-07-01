@@ -23,6 +23,8 @@ Pre-requisites:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [OpenJDK](http://openjdk.java.net/install/)
 
+## Java build
+
 To build the project from source, check out the code from GitHub and
 build it with Maven. This creates a JAR file that can be run.
 
@@ -31,7 +33,27 @@ build it with Maven. This creates a JAR file that can be run.
     mvn package
     java -jar openfda-web/target/openfda-web-1.0-SNAPSHOT.jar
 
-Browse to [http://localhost:8080](http://localhost:8080).
+After the app has finished starting up, browse to
+[http://localhost:8080](http://localhost:8080).
+
+## Docker build
+
+Additional prerequisite: [Docker](https://www.docker.com/) must be installed and must work without using `sudo`. On most distributions this means that your user account must be a member of the `docker` group.
+
+Check out the code from GitHub and build it with Maven using the
+'docker' profile. This creates a Docker image that can be run.
+
+    git clone https://github.com/TFlowGit/tf-ads-bpa.git
+    cd tf-ads-bpa
+    mvn -P docker package
+    docker run -p 8080:8080 -d techflow/openfda-web
+
+After giving a moment to start up, browse to
+[http://localhost:8080](http://localhost:8080).
+
+To stop the container, run `docker stop [container_id]` where
+`[container_id]` is the container id printed by the `docker run`
+command above.
 
 # Run from Eclipse
 
