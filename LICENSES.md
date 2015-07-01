@@ -34,6 +34,7 @@ including software products used for building our infrastructure.
 | Application (Front-end) | jqPlot                   | 1.0.8r1250  | [MIT/GPLv2 dual license](http://www.jqplot.com/info.php)                                                      | JavaScript graphing framework  |
 | Application (Front-end) | startbootstrap-creative  | N/A         | [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-creative/blob/gh-pages/LICENSE)                | Boostrap CSS starter theme     |
 | Application (Server)    | Apache Tomcat (Embedded) | 8.0.23      | [Apache 2.0](http://tomcat.apache.org/legal.html)                                                             | Application server             |
+| Application (Server)    | Docker                   | 1.5.0       | [Apache 2.0](https://github.com/docker/docker/blob/master/LICENSE)                                            | Container platform             |
 | Application (Server)    | OpenJDK                  | 1.8.0.45    | [GPLv2 w/ Classpath](http://openjdk.java.net/legal/gplv2+ce.html)                                             | Development language           |
 | Application (Server)    | Spring Boot              | 1.2.4       | [Apache 2.0](http://www.springframework.net/license.html)                                                     | Base application framework     |
 | Infrastructure          | CentOS                   | 6.6         | N/A (Huge compilation of software each with its own free license.)                                            | Server Operating System        |
@@ -69,6 +70,7 @@ including software products used for building our infrastructure.
 | Tools                   | Puppet zypprepo module   | 1.0.2       | [Apache 2.0](https://forge.puppetlabs.com/darin/zypprepo)                                                     | Puppet module                  |
 | Tools                   | SonarQube                | 5.1.1       | [LGPLv3](http://www.sonarqube.org/downloads/license/)                                                         | Code quality analysis          |
 | Tools                   | Vagrant                  | 1.7.2       | [MIT](https://github.com/mitchellh/vagrant/blob/master/LICENSE)                                               | Local development testing      |
+| Tools                   | VirtualBox               | 4.3.28      | [GPLv2](https://www.virtualbox.org/wiki/Licensing_FAQ)                                                        | Local development testing      |
 
 ## Media
 
