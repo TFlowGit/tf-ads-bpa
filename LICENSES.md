@@ -54,6 +54,7 @@ including software products used for building our infrastructure.
 | Library                 | Spring                  | [Apache 2.0](http://spring.io/)                                                                               | Java Programming               |
 | Library                 | Swagger                 | [Apache 2.0](https://github.com/swagger-api/swagger-ui/blob/master/LICENSE)                                   | REST API Documentation         |
 | Tools                   | Jenkins                 | [MIT](https://jenkins-ci.org/mit-license)                                                                     | Build server                   |
+| Tools                   | PostgreSQL              | [PostgreSQL License](http://www.postgresql.org/about/licence/)                                                | Database for Sonar             |
 | Tools                   | Puppet                  | [Apache 2.0](https://puppetlabs.com/apache)                                                                   | Configuration Management       |
 | Tools                   | Puppet apt module       | [Apache 2.0](https://forge.puppetlabs.com/puppetlabs/apt/license)                                             | Puppet module                  |
 | Tools                   | Puppet concat module    | [Apache 2.0](https://forge.puppetlabs.com/puppetlabs/concat/license)                                          | Puppet module                  |
@@ -89,6 +90,7 @@ including software products used for building our infrastructure.
 | LGPL 2.1           | Yes                                     | GPL-Compatible Free Software Licenses   |                                                                                                                         |
 | LGPL 3             | Yes                                     | GPL-Compatible Free Software Licenses   |                                                                                                                         |
 | MIT                | Yes                                     | GPL-Compatible Free Software Licenses   |                                                                                                                         |
+| PostgreSQL License | Yes                                     | Not listed                              |                                                                                                                         |
 
 Notes:
 * OSI approved license here indicates a license listed on http://opensource.org/licenses/alphabetical.
