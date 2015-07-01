@@ -55,6 +55,27 @@ To stop the container, run `docker stop [container_id]` where
 `[container_id]` is the container id printed by the `docker run`
 command above.
 
+## Vagrant build
+
+If you choose to build with Vagrant you do not need Java or Maven
+installed. The Vagrant file will start up a Fedora 22 VM, install
+everything you need, build the application, create a Docker container,
+and start it up.
+
+Prerequisites: [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/)
+
+Check out the code from GitHub and run `vagrant up` from the main directory as follows:
+
+    git clone https://github.com/TFlowGit/tf-ads-bpa.git
+    cd tf-ads-bpa
+    vagrant up
+
+After it is done starting up, give it a moment to finish booting the
+Tomcat server inside of Docker and browse to
+[http://localhost:8080](http://localhost:8080).
+
+Use `vagrant halt` to stop the VM or `vagrant destroy` to delete it.
+
 # Run from Eclipse
 
     git clone https://github.com/TFlowGit/tf-ads-bpa.git
