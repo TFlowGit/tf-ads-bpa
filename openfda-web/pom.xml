@@ -15,6 +15,40 @@
 		<webdriver.driver>firefox</webdriver.driver>
 		<docker.image.prefix>techflow</docker.image.prefix>
 	</properties>
+	<profiles>
+		<profile>
+			<id>docker</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<configuration>
+							<skip>false</skip>
+							<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+							<dockerDirectory>openfda-web/src/main/docker</dockerDirectory>
+							<resources>
+								<resource>
+									<targetPath>/</targetPath>
+									<directory>${project.build.directory}</directory>
+									<include>${project.build.finalName}.jar</include>
+								</resource>
+							</resources>
+						</configuration>
+						<executions>
+							<execution>
+								<id>docker-build</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
 			<plugin>
@@ -68,31 +102,6 @@
 						<phase>post-integration-test</phase>
 						<goals>
 							<goal>aggregate</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<configuration>
-					<skip>false</skip>
-				  	<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-				  	<dockerDirectory>openfda-web/src/main/docker</dockerDirectory>
-				  	<resources>
-				  		<resource>
-				  			<targetPath>/</targetPath>
-				  			<directory>${project.build.directory}</directory>
-				  			<include>${project.build.finalName}.jar</include>
-				  		</resource>
-				  	</resources>
-				</configuration>
-				<executions>
-					<execution>
-                                        	<id>docker-build</id>
-						<phase>package</phase>
-						<goals>
-                                                	<goal>build</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -163,4 +172,4 @@
 	</dependencies>
 	<name>TechFlow ADS RFP Prototype - Spring Boot</name>
 	<description>Spring boot container.</description>
-</project> 
+</project>
