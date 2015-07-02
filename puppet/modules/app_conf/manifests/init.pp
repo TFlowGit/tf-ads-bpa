@@ -8,8 +8,9 @@ class app_conf {
   }->
   user{ 'tf-ads-bpa':
     ensure     => present,
-    groups     => 'tf-ads-bpa',
+    groups     => [ 'tf-ads-bpa', 'docker' ],
     managehome => true,
+    require    => Group['docker'],
   }->
   file { [ '/home/tf-ads-bpa/app', '/home/tf-ads-bpa/logs' ]:
     ensure => directory,

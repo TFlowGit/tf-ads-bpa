@@ -41,6 +41,11 @@ class jenkins_conf {
     require   => Class['jenkins'],
   }
 
+  user { 'jenkins':
+    groups  => [ 'jenkins', 'docker' ],
+    require => [Group['jenkins'], Group['docker']],
+    notify  => Service['jenkins'],
+  }
 
   #jenkins::credentials { 'openfda-deploy-key':
   #  password            => '',
