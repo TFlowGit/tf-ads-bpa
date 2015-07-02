@@ -2,7 +2,10 @@
 #  https://github.com/spring-guides/gs-spring-boot-docker/blob/master/complete/src/main/docker/Dockerfile
 # (Original is under Apache 2.0 license)
 
-FROM java:8
+FROM docker.io/centos
+
+# Update packages and install JDK 8
+RUN yum -y update && yum -y install java-1.8.0-openjdk-devel && yum clean all
 
 # Spring boot uses /tmp
 VOLUME /tmp
