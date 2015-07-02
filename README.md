@@ -7,6 +7,7 @@ A publicly accessible prototype is hosted at
 
 # Documentation
 
+* [Build/Install Instructions](installation.md)
 * [Maven Site](http://tflowgit.github.io/tf-ads-bpa/1.0-SNAPSHOT/)
 * [Swagger API Documents](http://18f-dari.techflow.com/swagger/)
 * [SonarQube Reports](http://18f-dari.techflow.com/sonarqube/dashboard/index/1)
