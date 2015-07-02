@@ -31,12 +31,9 @@ SCRIPT
 
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "fedora-22"
-  
-  config.vm.box_url = "https://download.fedoraproject.org/pub/fedora/linux/releases/22/Cloud/x86_64/Images/Fedora-Cloud-Base-Vagrant-22-20150521.x86_64.vagrant-virtualbox.box"
-  config.vm.box_download_checksum = "2513342f70c00310e161a110e34973a133691fedd866859e65904fa056ae7a0c"
-  config.vm.box_download_checksum_type = "sha256"
-  
+  config.vm.box = "box-cutter/fedora22"
+  config.vm.box_check_update = true
+
   config.vm.define "app" do |app|
     app.vm.network "forwarded_port", guest: 8080, host: 8080
     
