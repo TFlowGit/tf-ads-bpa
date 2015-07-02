@@ -43,7 +43,7 @@
     <groupId>com.techflow.openfda</groupId>
     <artifactId>openfda-parent</artifactId>
   </rootModule>
-  <goals>clean package</goals>
+  <goals>-P docker clean package</goals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>false</ignoreUpstremChanges>
@@ -130,9 +130,11 @@
     <hudson.tasks.Shell>
       <command>JAR_FILE=openfda-web-1.0-SNAPSHOT.jar
 SSH_KEY=/var/lib/jenkins/tf-ads-bpa.key
-DEPLOY_DIR=/home/tf-ads-bpa/app/
 APP_HOST=172.31.58.65
-scp -i ${SSH_KEY} ${WORKSPACE}/openfda-web/target/${JAR_FILE} tf-ads-bpa@${APP_HOST}:${DEPLOY_DIR}
+docker save techflow/openfda-web &gt; openfda-web-docker.tar
+scp -i ${SSH_KEY} ${WORKSPACE}/openfda-web/target/${JAR_FILE} tf-ads-bpa@${APP_HOST}:/home/tf-ads-bpa/app/
+scp -i ${SSH_KEY} openfda-web-docker.tar tf-ads-bpa@${APP_HOST}:/home/tf-ads-bpa/app/
+ssh -i ${SSH_KEY} tf-ads-bpa@${APP_HOST} -t -t &apos;/usr/bin/docker load &lt; /home/tf-ads-bpa/app/openfda-web-docker.tar&apos;
 ssh -i ${SSH_KEY} tf-ads-bpa@${APP_HOST} -t -t &apos;sudo /sbin/restart tf-ads-bpa&apos;</command>
     </hudson.tasks.Shell>
   </postbuilders>
