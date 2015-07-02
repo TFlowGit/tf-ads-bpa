@@ -3,9 +3,13 @@ description "Start Techflow ADS BPA Application"
 start on runlevel [345]
 stop on runlevel [0126]
 
-env HTTP_PROXY=http://172.31.22.173:3128
+env PROXY_HOST=172.31.22.173
+export PROXY_HOST
+env PROXY_PORT=3128
+export PROXY_PORT
+env HTTP_PROXY=http://${PROXY_HOST}:${PROXY_PORT}
 export HTTP_PROXY
-env HTTPS_PROXY=http://172.31.22.173:3128
+env HTTPS_PROXY=${HTTP_PROXY}
 export HTTP_PROXY
 env NO_PROXY=localhost,127.0.0.1,/var/run/docker.sock
 export NO_PROXY

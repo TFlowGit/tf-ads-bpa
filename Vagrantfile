@@ -12,7 +12,7 @@ dnf -y install maven java-1.8.0-openjdk-devel docker
 # Ensure Docker is running
 systemctl start docker.service
 
-# Enable the 'vagrant' user to access Vagratn without sudo:
+# Enable the 'vagrant' user to access Vagrant without sudo:
 groupadd docker
 usermod -aG docker vagrant
 chown root:docker /var/run/docker.sock

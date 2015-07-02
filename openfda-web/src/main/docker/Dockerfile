@@ -17,4 +17,4 @@ ADD openfda-web-1.0-SNAPSHOT.jar openfda-web.jar
 RUN bash -c 'touch /openfda-web.jar'
 
 # Run with /dev/urandom to reduce startup time.
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/openfda-web.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dhttps.proxyHost=$PROXY_HOST","-Dhttps.proxyPort=$PROXY_PORT","-jar","/openfda-web.jar"]
