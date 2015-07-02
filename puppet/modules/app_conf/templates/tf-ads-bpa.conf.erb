@@ -3,4 +3,11 @@ description "Start Techflow ADS BPA Application"
 start on runlevel [345]
 stop on runlevel [0126]
 
-exec su -s /bin/sh -c 'exec "$0" "$@"' tf-ads-bpa -- /usr/bin/java -Dhttp.proxyHost=172.31.22.173 -Dhttp.proxyPort=3128 -Dhttps.proxyHost=172.31.22.173 -Dhttps.proxyPort=3128 -jar /home/tf-ads-bpa/app/openfda-web-1.0-SNAPSHOT.jar > /home/tf-ads-bpa/logs/app.log 2>&1
+env HTTP_PROXY=http://172.31.22.173:3128
+export HTTP_PROXY
+env HTTPS_PROXY=http://172.31.22.173:3128
+export HTTP_PROXY
+env NO_PROXY=localhost,127.0.0.1,/var/run/docker.sock
+export NO_PROXY
+
+exec /usr/bin/docker run -p 8080:8080 -i techflow/openfda-web > /home/tf-ads-bpa/logs/app.log 2>&1
