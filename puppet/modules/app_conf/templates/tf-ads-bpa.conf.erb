@@ -14,5 +14,10 @@ export HTTP_PROXY
 env NO_PROXY=localhost,127.0.0.1,/var/run/docker.sock
 export NO_PROXY
 
-exec /usr/bin/docker run -p 8080:8080 -e "PROXY_HOST=$PROXY_HOST" -e "PROXY_PORT=$PROXY_PORT" -i techflow/openfda-web > /home/tf-ads-bpa/logs/app.log 2>&1
+# Respawn the process if it dies:
+respawn
 
+# If it fails five times in a one-minute interval, stop trying:
+respawn limit 5 60
+
+exec /usr/bin/docker run -p 8080:8080 -e "PROXY_HOST=$PROXY_HOST" -e "PROXY_PORT=$PROXY_PORT" -i techflow/openfda-web > /home/tf-ads-bpa/logs/app_$(/bin/date +%F_%H%M%S).log 2>&1
