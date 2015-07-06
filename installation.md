@@ -24,7 +24,7 @@
 - The application runs on port 8080. All methods below preserve this.
 - The Vagrant method is intended for development only. If you intend
   to deploy the VM it creates to a production environment be sure to
-  un-comment the `dnf update` command any apply any relevant hardening
+  un-comment the `dnf update` command and apply any relevant hardening
   to the image.
 - You will want to set up a reverse proxy server to provide the
   application on a standard HTTP and/or HTTPS port(s).
