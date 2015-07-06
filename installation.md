@@ -19,7 +19,15 @@
 - **If you wish to create a Docker image** (possibly for deployment to a
   production environment) follow the Docker build instructions.
 
-## Notes for production deployment
+#### Warnings about Java:
+
+- If you are *not* using Linux, use Oracle JDK rather than OpenJDK.
+- You **must** use Java 8 or higher. The build will fail with lower
+  versions of Java.
+- If you have multiple versions of Java installed, make sure your path
+  points at JDK 8.
+
+## Notes for production deployment:
 
 - The application runs on port 8080. All methods below preserve this.
 - The Vagrant method is intended for development only. If you intend
@@ -35,9 +43,11 @@
 
 ### Pre-requisites:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- Oracle Java 8 (JDK, not JRE) or [OpenJDK
-  8](http://openjdk.java.net/install/) (If you have other versions
-  installed, make sure that JDK 8 is on the PATH)
+- [Oracle Java
+  8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+  (JDK, not JRE) or [OpenJDK 8](http://openjdk.java.net/install/) (If
+  you have other versions installed, make sure that JDK 8 is on the
+  PATH)
 - [Maven](https://maven.apache.org/download.cgi#Installation)
 
 ### Build instructions
@@ -72,9 +82,11 @@ the Vagrant build instructions provided elsewhere in this file.
 
 ### Pre-requisites:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- Oracle Java 8 (JDK, not JRE) or [OpenJDK
-  8](http://openjdk.java.net/install/) (If you have other versions
-  installed, make sure that JDK 8 is on the PATH)
+- [Oracle Java
+  8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+  (JDK, not JRE) or [OpenJDK 8](http://openjdk.java.net/install/) (If
+  you have other versions installed, make sure that JDK 8 is on the
+  PATH)
 - [Maven](https://maven.apache.org/download.cgi#Installation)
 - [Docker](https://www.docker.com/) must be installed and must work
   without using `sudo`. On most distributions this means that your
