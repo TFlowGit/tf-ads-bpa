@@ -2,16 +2,24 @@
 
 ## Which method to use
 
-- If you do not have experience building Java applications or do not
-  wish to install the necessary build chain, use the Vagrant method.
-- If you have Java and Maven installed (or know how to do so), use the
-  Java or Docker build instructions.
-- If you wish to create a Docker image (possibly for deployment to a
-  production environment) follow the Docker build instructions.
-- If you wish to develop the application within Eclipse, use the
-  Eclipse instructions.
+#### Requirements:
 
-## Notes for prodction deployment
+| Method                             | Operating System | Java/Maven | Vagrant/VirtualBox |
+|------------------------------------|------------------|------------|--------------------|
+| [Java](installation.md#Java)       | Any              | Yes        | No                 |
+| [Docker](installation.md#Docker)   | Linux            | Yes        | No                 |
+| [Vagrant](installation.md#Vagrant) | Any              | No         | Yes                |
+
+#### Takeaways:
+
+- **If you don't want to set up Java and Maven**, use the Vagrant
+   method.
+- **If you have Java and Maven installed** (or know how to do so), use
+  the Java (on any operating system) or Docker (on Linux) build instructions.
+- **If you wish to create a Docker image** (possibly for deployment to a
+  production environment) follow the Docker build instructions.
+
+## Notes for production deployment
 
 - The application runs on port 8080. All methods below preserve this.
 - The Vagrant method is intended for development only. If you intend
@@ -21,11 +29,15 @@
 - You will want to set up a reverse proxy server to provide the
   application on a standard HTTP and/or HTTPS port(s).
 
-## Java build
+<br/><br/>
+
+## [Java build](#Java)
 
 ### Pre-requisites:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [OpenJDK](http://openjdk.java.net/install/)
+- Oracle Java 8 (JDK, not JRE) or [OpenJDK
+  8](http://openjdk.java.net/install/) (If you have other versions
+  installed, make sure that JDK 8 is on the PATH)
 - [Maven](https://maven.apache.org/download.cgi#Installation)
 
 ### Build instructions
@@ -47,11 +59,12 @@ it.
 
 For production use you will want to copy the
 `openfda-web-1.0-SNAPSHOT.jar` file to your server and run the
-`java -jar openfda-web-1.0-SNAPSHOT.jar` command from an unpriviledged
+`java -jar openfda-web-1.0-SNAPSHOT.jar` command from an unprivileged
 account.
 
+<br/><br/>
 
-## Docker build
+## [Docker build](#Docker)
 
 Note that Docker requires you to be running on a Linux system or to
 use [boot2docker](http://boot2docker.io/). Alternatively you may use
@@ -59,7 +72,9 @@ the Vagrant build instructions provided elsewhere in this file.
 
 ### Pre-requisites:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [OpenJDK](http://openjdk.java.net/install/)
+- Oracle Java 8 (JDK, not JRE) or [OpenJDK
+  8](http://openjdk.java.net/install/) (If you have other versions
+  installed, make sure that JDK 8 is on the PATH)
 - [Maven](https://maven.apache.org/download.cgi#Installation)
 - [Docker](https://www.docker.com/) must be installed and must work
   without using `sudo`. On most distributions this means that your
@@ -89,7 +104,9 @@ For production use you may either export the application to Docker Hub
 and import to your server from there or you can export the image to a
 file and import to your server.
 
-## Vagrant build
+<br/><br/>
+
+## [Vagrant build](#Vagrant)
 
 ### Prerequisites:
 - [Vagrant](https://www.vagrantup.com/)
@@ -107,14 +124,3 @@ the Tomcat server inside of Docker and browse to
 
 Use `vagrant halt` to stop the VM or `vagrant destroy -f` to delete it.
 
-## Run from Eclipse
-
-1. Check out the code: `git clone
-   https://github.com/TFlowGit/tf-ads-bpa.git`
-2. Import the project into Eclipse (File -> Import -> Existing Maven
-   Projects)
-3. Run the class `com.techflow.openfda.OpenFdaApplication` as Java in
-   the `openfda-web` project.
-
-Browse to [http://localhost:8080](http://localhost:8080) after the
-server has started up.
