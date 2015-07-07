@@ -18,7 +18,7 @@ A publicly accessible prototype is hosted at
 
 https://github.com/TFlowGit/tf-ads-bpa.git (branch=master)
 
-# Techflow's Agile Approach
+# TechFlow's Agile Approach
 
 TechFlow has been providing Agile delivery services to the Federal
 Government for more than 3 years. In our Assisted Acquisition Services,
@@ -53,7 +53,7 @@ entire development team. The team employed in this effort is composed of
 professionals who have been delivering products through an agile process
 for the past three years.
 
-Our work on this effort began with the assignment by TechFlow’s Division
+Our work on this effort began with the assignment by TechFlow's Division
 Manager of the product owner. For this Agile Delivery Services BPA
 response, our product owner, Aristo Mitchell was given full
 responsibility. (**point a** in the evaluation criteria list)
@@ -64,7 +64,7 @@ In addition the Product owner, our team included (**point b**):
 -   Technical architect
 -   Usability tester
 -   Visual designer
--   Content designer,
+-   Content designer
 -   Front end web developer
 -   Back end web developer
 -   DevOps engineer
@@ -82,7 +82,7 @@ described below. It utilized continuous integration and delivery
 throughout the development period, as the government can evaluate
 through Jenkins.
 
-In developing our application, this team followed TechFlow’s Agile
+In developing our application, this team followed TechFlow's Agile
 methodology, as illustrated in Figure 1. This methodology defines the
 approach we used to deliver a working design and development prototype
 using datasets from <https://open.fda.gov>. Specifically, we developed a
@@ -140,14 +140,14 @@ team:
 **Stage 3: Release Planning.** On Thursday morning, the entire team
 conducted a release planning meeting where we agreed on:
 
--   Features that could be accomplished based on team’s capacity.
+-   Features that could be accomplished based on team's capacity.
 -   A test driven development approach where the team first creates unit
     tests to validate the user stories and then develops application
     code (**point k**).
 -   Delivering multiple releases to testing per day to test and validate
     feature development based on acceptance criteria.
 -   The roadmap including two releases into production.
--   The “definition of done” that would be applied to each user story
+-   The "definition of done" that would be applied to each user story
     and to each sprint as a whole.
 
 **Stage 4: Sprint Planning.** On the first Thursday and the following
@@ -158,7 +158,7 @@ iterative process. During the sprint planning meeting the team:
 -   Established the goals for each sprint
 -   Updated the sprint backlog
 -   Agreed on the Definition of Done
--   Selected 4 users’ stories for the MVP with an additional 5 user
+-   Selected 4 user stories for the MVP with an additional 5 user
     stories to be addressed with the next product increment. In addition
     there are still 8 user stories in the product backlog.
 -   Created sprint backlog tasks.
@@ -173,13 +173,13 @@ for the sprint planning meeting), the scrum master conducted and chaired
 daily scrums. This meeting was the primary communication mechanism for
 the product development team to plan their day, assess sprint progress,
 identify completed items, and discuss blockers. The scrum is where, as
-illustrated in Figure 2, we plan each day’s activities to design,
+illustrated in Figure 2, we plan each day's activities to design,
 develop and integrate the product, while testing our work at each step
 in the process. To ensure that our staff is working issues, not just
 discussing them, we limit the daily scrum meeting to 15 minutes. The
 scrum master is tasked with ensuring that the meetings are focused on
 immediate priorities, impediments, and project coordination. Issues
-beyond this limited scope are placed in the “Parking lot”. These items
+beyond this limited scope are placed in the "Parking lot". These items
 are handled in other project meetings, where attendance is limited to
 only those individuals required to resolve the issue.
 
