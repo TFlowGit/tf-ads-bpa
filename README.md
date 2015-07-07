@@ -183,7 +183,7 @@ beyond this limited scope are placed in the “Parking lot”. These items
 are handled in other project meetings, where attendance is limited to
 only those individuals required to resolve the issue.
 
-![](docs/media/image2.emf)
+![](docs/media/image2.png)
 
 Figure 2: Iterative Approach
 
