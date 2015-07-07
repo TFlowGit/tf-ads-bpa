@@ -26,6 +26,8 @@
   versions of Java.
 - If you have multiple versions of Java installed, make sure your path
   points at JDK 8.
+- If you have trouble getting Java to run properly please review the
+  [installation instructions](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#A1096936).
 
 ## Notes for production deployment:
 
