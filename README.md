@@ -41,7 +41,7 @@ application performance monitoring to further facilitate our success.
 
 Use of appropriate technology is an enabler for successful projects. We
 have a history of searching for the best technologies to facilitate our
-mission. This includes being the first company to use3 ServiceNow and
+mission. This includes being the first company to use ServiceNow and
 Puppet for GSA and is reflected in our choice of technology stack
 including nginx, Docker and Spring Boot.
 
@@ -52,7 +52,7 @@ development team. The team employed in this effort is composed of
 professionals who have been delivering products through an agile process
 for the past three years.
 
-Our work on this effort began with the assignment by TechFlow’s Division
+Our work on this effort began with the assignment by TechFlow's Division
 Manager of the product owner. For this Agile Delivery Services BPA
 response, our product owner, Aristo Mitchell was given full
 responsibility. (**point a**)
@@ -63,7 +63,7 @@ In addition the Product owner, our team included (**point b**):
 -   Technical architect
 -   Usability tester
 -   Visual designer
--   Content designer,
+-   Content designer
 -   Front end web developer
 -   Back end web developer
 -   DevOps engineer
@@ -72,7 +72,7 @@ In addition the Product owner, our team included (**point b**):
 -   Business analyst
 -   Digital performance analyst
 
-In developing our application, this team followed TechFlow’s Agile
+In developing our application, this team followed TechFlow's Agile
 methodology, as illustrated in Figure 1. This methodology defines the
 execution approach we used to deliver a working design and development
 prototype using datasets from <https://open.fda.gov>. Our approach
@@ -99,7 +99,7 @@ focus on:
 -   Identifying an overall website style and assigned an individual to
     tailor existing style guide templates (**point e**)
 -   Defined the base technical architecture. The initial architectural
-    vision was defined during the vision meeting. , The architecture was
+    vision was defined during the vision meeting. The architecture was
     modified as iterations were completed (**point g**). The vision for
     the product included:
     -   The platforms to be supported how to achieving multiplatform
@@ -133,7 +133,7 @@ team:
 **Stage 3: Release Planning.** On Thursday morning, the entire team
 conducted a release planning meeting where we agreed on:
 
--   Features that could be accomplished based on team’s capacity.
+-   Features that could be accomplished based on team's capacity.
 -   A test driven development approach where the team first creates unit
     tests to validate the user stories and then develops application
     code (**point k**).
@@ -151,11 +151,11 @@ sprint planning meeting the team:
 -   Established the goals for each sprint
 -   Updated the sprint backlog
 -   Agreed on the Definition of Done
--   Selected 4 users’ stories for the MVP with an additional 5 user
+-   Selected 4 user stories for the MVP with an additional 5 user
     stories to be addressed with the first product increment. In
     addition there are still 6 user stories in the product backlog.
 -   Created sprint backlog tasks. For each user story it encompassed the
-    “definition of done” (e.g., designed, developed, integrated, tested,
+    "definition of done" (e.g., designed, developed, integrated, tested,
     and documentation)
 -   Identified and resolved any issues with the development environment
     and its setup.
@@ -168,13 +168,13 @@ for the sprint planning meeting), the scrum master conducted and chaired
 daily scrums. This meeting was the primary communication mechanism for
 the product development team to plan their day, assess sprint progress,
 identify completed items, and discuss blockers. The scrum is where, as
-illustrated in Figure 2, we plan each day’s activities to design,
+illustrated in Figure 2, we plan each day's activities to design,
 develop and integrate the product, while testing our work at each step
 in the process. To ensure that our staff is working issues, not just
 discussing them, we limit the daily scrum meeting to 15 minutes. The
 scrum master is tasked with ensuring that the meetings are focused on
 immediate priorities, impediments, and project coordination. Issues
-beyond this limited scope are placed in the “Parking lot”. These items
+beyond this limited scope are placed in the "Parking lot". These items
 are handled in other project meetings, where attendance is limited to
 only those individuals required to resolve the issue.
 
@@ -195,7 +195,7 @@ demonstrated and accepted by the product owner we concluded the review
 and immediately went into the sprint retrospective with the product
 development team.
 
-**Stage 7: Sprint Retrospective.** We conducted two sprint retrospective
+**Stage 7: Sprint Retrospective.** We conducted two sprint retrospectives;
 one on Wednesday 6/24/15 and the second on 6/29/2015. Again, both of
 these meetings were facilitated by the product owner. The goal for
 conducting the sprint retrospective is to continually improve scrum team
