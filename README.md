@@ -73,11 +73,12 @@ In addition the Product owner, our team included (**point b**):
 -   Business analyst
 -   Digital performance analyst
 
-As the government evaluates the project artifacts contained in the Git
-Hub site, the sprint matrix file provides a cross reference showing
-which labor category was responsible for the creation of each artifact.
+As the government evaluates the project artifacts contained in the
+GitHub site, the sprint matrix file provides a cross reference showing
+which labor category was responsible for the creation of each
+artifact.
 
-The TechFlow team shipped one MVP and one product increments as
+The TechFlow team shipped one MVP and one product increment as
 described below. It utilized continuous integration and delivery
 throughout the development period, as the government can evaluate
 through Jenkins.
@@ -196,7 +197,7 @@ accomplished and the acceptance criteria was met for each user story.
 When each user story was demonstrated and accepted by the product owner,
 the meeting concluded.
 
-**Stage 7: Sprint Retrospective.** We conducted two sprint retrospective
+**Stage 7: Sprint Retrospective.** We conducted two sprint retrospectives
 (also 6/24 and 6/29). Again, both of these meetings were facilitated by
 the product owner. The goal for conducting the sprint retrospective is
 to continually improve scrum team processes and performance (**point
